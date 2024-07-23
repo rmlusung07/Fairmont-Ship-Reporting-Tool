@@ -1,0 +1,419 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 50px;
+}
+
+.logo-text {
+    margin-left: 10px;
+    font-size: 18px; 
+    font-weight: bold;
+    position: relative;
+    bottom: 20px;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+}
+
+.toggle-label {
+    margin-right: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+nav {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+nav button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+nav button:hover,
+nav button.active {
+    background-color: #0056b3;
+}
+
+.report-section,
+.rob-table .tab-content {
+    display: none;
+}
+
+#NoonReport {
+    display: block;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+legend {
+    padding: 0 10px;
+    font-weight: bold;
+    font-size: 16px; 
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    font-size: 14px; 
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="datetime-local"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    font-size: 12px; 
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+select,
+input[type="datetime-local"] {
+    border: 1px solid #ccc; 
+    background-color: #f4f4f4; 
+    font-family: Arial, sans-serif;
+}
+
+.four-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.four-columns .form-group {
+    flex: 1 1 22%;
+    margin-right: 10px;
+}
+
+.four-columns .form-group:last-child {
+    margin-right: 0;
+}
+
+textarea {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80px;
+    resize: vertical;
+    border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.rob-nav button {
+    margin-right: 10px;
+}
+
+.rob-section {
+    display: none;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+body.dark-mode form {
+    background-color: #444;
+    color: #f4f4f4;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="datetime-local"],
+body.dark-mode input[type="date"],
+body.dark-mode select,
+body.dark-mode textarea {
+    background-color: #555;
+    color: #f4f4f4;
+    border: 1px solid #666;
+}
+
+body.dark-mode fieldset {
+    border: 1px solid #666;
+}
+
+.additional-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.rob-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.rob-table th,
+td {
+    padding: 8px;
+    text-align: center;
+    font-size: 14px
+}
+
+.rob-table th {
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #ddd;
+}
+
+.rob-table td {
+    border-bottom: 1px solid #ddd;
+}
+
+.rob-table select,
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.w3-bar .w3-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 0 20px 20px;
+}
+
+.w3-bar .w3-button:hover {
+    background-color: #0056b3;
+}
+
+.checkbox-container {
+    display: flex;
+}
+
+.checkbox-container .vlsfo-label {
+    display: flex;
+    flex-direction: column;
+    flex: unset !important;
+}
+
+#AllFast button[type="button"] {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#AllFast button[type="button"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#AllFast button[type="button"]:active {
+    background-color: #004494;
+    transform: scale(1);
+}
+
+/* Table Screen View */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    nav button {
+        padding: 8px 15px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-container {
+        margin-bottom: 10px;
+    }
+
+    .toggle-container {
+        margin-top: 10px;
+    }
+}
+
+
+/* Mobile Screen View */
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 16px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav button {
+        margin-bottom: 10px;
+    }
+
+    label {
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="datetime-local"],
+    input[type="date"],
+    select,
+    textarea {
+        width: 100%;
+    }
+
+}
+
+/* Add border-right color red to all elements with required attribute */
+
+form .form-group input[required],
+form .form-group select[required],
+form .form-group textarea[required] {
+    border-right: 2px solid red;
+}
+
+/* Add border-right color red to all elements with required attribute in dark mode */
+
+body.dark-mode form .form-group input[required],
+body.dark-mode form .form-group select[required],
+body.dark-mode form .form-group textarea[required] {
+    border-right: 2px solid red;
+}
