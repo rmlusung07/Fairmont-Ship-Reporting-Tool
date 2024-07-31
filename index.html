@@ -39,6 +39,9 @@
             <!-- Noon Report Section -->
             <section id="NoonReport" class="report-section">
                 <h1>Noon Report</h1>
+                <div class="save-draft-container">
+                    <button type="button" class="save-draft" onclick="saveDraft('NoonReport')">Save Draft</button>
+                </div>
                 <form>
 
                     <!-- Voyage Details -->
@@ -1328,6 +1331,9 @@
             <!-- Departure Report Section -->
             <section id="DepartureReport" class="report-section">
                 <h1>Departure Report</h1>
+                <div class="save-draft-container">
+                    <button type="button" class="save-draft" onclick="saveDraft('DepartureReport')">Save Draft</button>
+                </div>
                 <form>
 
                     <!-- Voyage Details -->
@@ -2592,6 +2598,9 @@
             <!-- Arrival Report Section -->
             <section id="ArrivalReport" class="report-section">
                 <h1>Arrival Report</h1>
+                <div class="save-draft-container">
+                    <button type="button" class="save-draft" onclick="saveDraft('ArrivalReport')">Save Draft</button>
+                </div>
                 <form>
 
                     <!-- Voyage Details -->
@@ -3734,6 +3743,9 @@
             <!-- Bunkering Section -->
             <section id="Bunkering" class="report-section">
                 <h1>Bunkering</h1>
+                <div class="save-draft-container">
+                    <button type="button" class="save-draft" onclick="saveDraft('Bunkering')">Save Draft</button>
+                </div>
                 <form>
 
                     <!-- Bunkering Details -->
@@ -4303,6 +4315,9 @@
             <!-- All Fast Section -->
             <section id="AllFast" class="report-section">
                 <h1>All Fast</h1>
+                <div class="save-draft-container">
+                    <button type="button" class="save-draft" onclick="saveDraft('AllFast')">Save Draft</button>
+                </div>
                 <form>
 
                     <!-- Voyage Details -->
@@ -4412,7 +4427,7 @@
                                     <th>LSFO (MT)</th>
                                     <th>VLSFO (MT)</th>
                                     <th>LSMGO (MT)</th>
-                                    <th></th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody id="allFastRobTableBody">
@@ -4421,7 +4436,7 @@
                                     <td><input class="validate" type="text" name="all-fast-rob-lsfo" required></td>
                                     <td><input class="validate" type="text" name="all-fast-rob-vlsfo" required></td>
                                     <td><input class="validate" type="text" name="all-fast-rob-lsmgo" required></td>
-                                    <td><button type="button" onclick="addRow()">Add row</button></td>
+                                    <td><button type="button" class="addRowBtn" onclick="addRow()">Add row</button></td>
                                 </tr>
                             </tbody>
                         </table>
