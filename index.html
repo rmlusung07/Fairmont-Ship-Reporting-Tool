@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fairmont Ship Reporting</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+
 </head>
 <body>
 
@@ -39,8 +42,11 @@
             <!-- Noon Report Section -->
             <section id="NoonReport" class="report-section">
                 <h1>Noon Report</h1>
-                <div class="save-draft-container">
+                <div class="sub-container">
                     <button type="button" class="save-draft" onclick="saveDraft('NoonReport')">Save Draft</button>
+                    <button type="button" class="save-draft" onclick="clearFields('NoonReport')">Clear Fields</button>
+                    <!--<button type="button" class="export-data" onclick="">Fetch Saved Data</button>
+                    <button type="button" class="export-data" onclick="exportToExcel('NoonReport')">Export Data</button>-->
                 </div>
                 <form>
 
@@ -148,12 +154,11 @@
                                 <label for="noon-voyage-details-longitude">Longitude:</label>
                                 <input type="text" id="noon-voyage-details-longitude" name="noon-voyage-details-longitude" placeholder="DD MM' SS&quot; N/S" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group in-port-section">
                                 <label for="noon-voyage-details-port">Port:</label>
                                 <input type="text" id="noon-voyage-details-port" name="noon-voyage-details-port">
                             </div>
                         </div>
-                    </fieldset>
                     
                     <!-- Details Since Last Report -->
                     <fieldset>
@@ -165,9 +170,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="noon-details-since-last-report-allowed-me-cons-at-cp-speed">Allowed M/E Cons. at C/P Speed:</label>
-                                <input class="validate" type="text" id="noon-details-since-last-report-allowed-me-cons-at-cp-speed" name="noon-details-since-last-report-allowed-me-cons-at-cp-speed" disabled>
+                                <input class="validate" type="text" id="noon-details-since-last-report-allowed-me-cons-at-cp-speed" name="noon-details-since-last-report-allowed-me-cons-at-cp-speed" >
                             </div>
-                            <div class="form-group">
+                            <div class="form-group at-sea-section">
                                 <label for="noon-details-since-last-report-obs-distance">Obs. Distance (NM):</label>
                                 <input class="validate" type="text" id="noon-details-since-last-report-obs-distance" name="noon-details-since-last-report-obs-distance" required>
                             </div>
@@ -177,9 +182,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="noon-details-since-last-report-avg-speed">Avg Speed (Kts):</label>
-                                <input class="validate" type="text" id="noon-details-since-last-report-avg-speed" name="noon-details-since-last-report-avg-speed" required disabled>
+                                <input class="validate" type="text" id="noon-details-since-last-report-avg-speed" name="noon-details-since-last-report-avg-speed" required >
                             </div>
-                            <div class="form-group">
+                            <div class="form-group at-sea-section">
                                 <label for="noon-details-since-last-report-distance-to-go">Distance to go (NM):</label>
                                 <input class="validate" type="text" id="noon-details-since-last-report-distance-to-go" name="noon-details-since-last-report-distance-to-go" required>
                             </div>
@@ -197,41 +202,41 @@
                             </div>
                             <div class="form-group">
                                 <label for="noon-details-since-last-report-avg-rpm">Avg RPM:</label>
-                                <input class="validate" type="text" id="noon-details-since-last-report-avg-rpm" name="noon-details-since-last-report-avg-rpm" required disabled>
+                                <input class="validate" type="text" id="noon-details-since-last-report-avg-rpm" name="noon-details-since-last-report-avg-rpm" required >
                             </div>
                             <div class="form-group">
                                 <label for="noon-details-since-last-report-engine-distance">Engine Distance (NM):</label>
-                                <input class="validate" type="text" id="noon-details-since-last-report-engine-distance" name="noon-details-since-last-report-engine-distance" disabled>
+                                <input class="validate" type="text" id="noon-details-since-last-report-engine-distance" name="noon-details-since-last-report-engine-distance" >
                             </div>
                             <div class="form-group">
                                 <label for="noon-details-since-last-report-slip">Slip (%):</label>
-                                <input class="validate" type="text" id="noon-details-since-last-report-slip" name="noon-details-since-last-report-slip" required disabled>
+                                <input class="validate" type="text" id="noon-details-since-last-report-slip" name="noon-details-since-last-report-slip" required >
                             </div>
                             <div class="form-group">
                                 <label for="noon-details-since-last-report-me-output">M/E Output (% MCR):</label>
                                 <input class="validate" type="text" id="noon-details-since-last-report-me-output" name="noon-details-since-last-report-me-output" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group at-sea-section">
                                 <label for="noon-details-since-last-report-avg-power">Avg Power (KW):</label>
                                 <input class="validate" type="text" id="noon-details-since-last-report-avg-power" name="noon-details-since-last-report-avg-power" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group at-sea-section">
                                 <label for="noon-details-since-last-report-logged-distance">Logged Distance (NM):</label>
                                 <input class="validate" type="text" id="noon-details-since-last-report-logged-distance" name="noon-details-since-last-report-logged-distance" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group at-sea-section">
                                 <label for="noon-details-since-last-report-speed-through-water">Speed Through Water (Kts):</label>
-                                <input class="validate" type="text" id="noon-details-since-last-report-speed-through-water" name="noon-details-since-last-report-speed-through-water" required disabled>
+                                <input class="validate" type="text" id="noon-details-since-last-report-speed-through-water" name="noon-details-since-last-report-speed-through-water" required >
                             </div>
-                            <div class="form-group">
+                            <div class="form-group at-sea-section">
                                 <label for="noon-details-since-last-report-next-port">Next Port:</label>
                                 <input class="validate" type="text" id="noon-details-since-last-report-next-port" name="noon-details-since-last-report-next-port" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group at-sea-section">
                                 <label for="noon-details-since-last-report-eta-next-port">ETA Next Port (LT):</label>
                                 <input type="datetime-local" id="noon-details-since-last-report-eta-next-port" name="noon-details-since-last-report-eta-next-port" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group at-sea-section">
                                 <label for="noon-details-since-last-report-eta-gmt-offset">ETA GMT Offset:</label>
                                     <select id="noon-details-since-last-report-eta-gmt-offset" name="noon-details-since-last-report-eta-gmt-offset" required>
                                         <option value="-1">Select</option>
@@ -286,7 +291,7 @@
                                 <label for="noon-details-since-last-report-drifting-hours">Drifting Hours:</label>
                                 <input class="validate" type="text" id="noon-details-since-last-report-drifting-hours" name="noon-details-since-last-report-drifting-hours">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group in-port-section">
                                 <label for="noon-details-since-last-report-maneuvering-hours">Maneuvering Hours:</label>
                                 <input class="validate" type="text" id="noon-details-since-last-report-maneuvering-hours" name="noon-details-since-last-report-maneuvering-hours">
                             </div>
@@ -341,7 +346,7 @@
                     </fieldset>
                     
                     <!-- Voyage Itinerary -->
-                    <fieldset>
+                    <fieldset class="at-sea-section-fieldset">
                         <legend>Voyage Itinerary</legend>
                         <div class="four-columns">
                             <div class="form-group">
@@ -418,7 +423,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="noon-voyage-itinerary-projected-speed">Projected Speed (kts)</label>
-                                <input class="validate" type="text" id="noon-voyage-itinerary-projected-speed" name="noon-voyage-itinerary-projected-speed" required disabled>
+                                <input class="validate" type="text" id="noon-voyage-itinerary-projected-speed" name="noon-voyage-itinerary-projected-speed" required >
                             </div>
                         </div>
                     </fieldset>
@@ -429,7 +434,7 @@
                             <div class="four-columns">
                             <div class="form-group">
                                 <label for="noon-average-weather-wind-force">Wind Force (Bft.) (T):</label>
-                                <input class="validate" type="text" id="noon-average-weather-wind-force" name="noon-average-weather-wind-force" required disabled>
+                                <input class="validate" type="text" id="noon-average-weather-wind-force" name="noon-average-weather-wind-force" required >
                             </div>
                             <div class="form-group">
                                 <label for="noon-average-weather-swell">Swell:</label>
@@ -480,7 +485,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="noon-average-weather-wind-sea-height">Wind Sea Height (m):</label>
-                                <input class="validate" type="text" id="noon-average-weather-wind-sea-height" name="noon-average-weather-wind-sea-height" required disabled>
+                                <input class="validate" type="text" id="noon-average-weather-wind-sea-height" name="noon-average-weather-wind-sea-height" required >
                             </div>
                             <div class="form-group">
                                 <label for="sea-current-dir">Sea Current Direction (Rel.):</label>
@@ -492,7 +497,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="swell-height">Swell Height (m):</label>
-                                <input class="validate" type="text" id="swell-height" name="swell-height" required disabled>
+                                <input class="validate" type="text" id="swell-height" name="swell-height" required >
                             </div>
                             <div class="form-group">
                                 <label for="observed-sea-dir">Observed Sea Dir. (T):</label>
@@ -544,7 +549,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="noon-average-weather-sea-ds">Sea DS:</label>
-                                <input class="validate" type="text" id="noon-average-weather-sea-ds" name="noon-average-weather-sea-ds" required disabled>
+                                <input class="validate" type="text" id="noon-average-weather-sea-ds" name="noon-average-weather-sea-ds" required >
                             </div>
                             
                             <div class="form-group">
@@ -1178,14 +1183,14 @@
                                     <tr>
                                         <td>HSFO (MT)</td>
                                         <td><input class="validate" type="text" id="noon-hsfo-previous" name="noon-hsfo-previous"></td>
-                                        <td><input class="validate" type="text" id="noon-hsfo-current" name="noon-hsfo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="noon-hsfo-current" name="noon-hsfo-current" ></td>
                                         <td><input class="validate" type="text" id="noon-hsfo-me-propulsion" name="noon-hsfo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="noon-hsfo-standard-ae-cons" name="noon-hsfo-standard-ae-cons"></td>
                                         <td><input class="validate" type="text" id="noon-hsfo-standard-boiler-cons" name="noon-hsfo-standard-boiler-cons"></td>
                                         <td><input class="validate" type="text" id="noon-hsfo-incinerators" name="noon-hsfo-incinerators"></td>
-                                        <td><input class="validate" type="text" id="noon-hsfo-me-24" name="noon-hsfo-me-24" disabled></td>
-                                        <td><input class="validate" type="text" id="noon-hsfo-ae-24" name="noon-hsfo-ae-24" disabled></td>
-                                        <td><input class="validate" type="text" id="noon-hsfo-total-cons" name="noon-hsfo-total-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="noon-hsfo-me-24" name="noon-hsfo-me-24" ></td>
+                                        <td><input class="validate" type="text" id="noon-hsfo-ae-24" name="noon-hsfo-ae-24" ></td>
+                                        <td><input class="validate" type="text" id="noon-hsfo-total-cons" name="noon-hsfo-total-cons" ></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1217,14 +1222,14 @@
                                     <tr>
                                         <td>LSFO (MT)</td>
                                         <td><input class="validate" type="text" id="noon-lsfo-noon-lsfo-previous" name="noon-lsfo-previous"></td>
-                                        <td><input class="validate" type="text" id="noon-lsfo-current" name="noon-lsfo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="noon-lsfo-current" name="noon-lsfo-current" ></td>
                                         <td><input class="validate" type="text" id="noon-lsfo-me-propulsion" name="noon-lsfo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="noon-lsfo-standard-ae-cons" name="noon-lsfo-standard-ae-cons"></td>
                                         <td><input class="validate" type="text" id="noon-lsfo-standard-boiler-cons" name="noon-lsfo-standard-boiler-cons"></td>
                                         <td><input class="validate" type="text" id="noon-lsfo-incinerators" name="noon-lsfo-incinerators"></td>
-                                        <td><input class="validate" type="text" id="noon-lsfo-me-24" name="noon-lsfo-me-24" disabled></td>
-                                        <td><input class="validate" type="text" id="noon-lsfo-ae-24" name="noon-lsfo-ae-24" disabled></td>
-                                        <td><input class="validate" type="text" id="noon-lsfo-total-cons" name="noon-lsfo-total-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="noon-lsfo-me-24" name="noon-lsfo-me-24" ></td>
+                                        <td><input class="validate" type="text" id="noon-lsfo-ae-24" name="noon-lsfo-ae-24" ></td>
+                                        <td><input class="validate" type="text" id="noon-lsfo-total-cons" name="noon-lsfo-total-cons" ></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1260,14 +1265,14 @@
                                     <tr>
                                         <td>VLSFO (MT)</td>
                                         <td><input class="validate" type="text" id="noon-vlsfo-noon-vlsfo-previous" name="noon-vlsfo-previous"></td>
-                                        <td><input class="validate" type="text" id="noon-vlsfo-current" name="noon-vlsfo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="noon-vlsfo-current" name="noon-vlsfo-current" ></td>
                                         <td><input class="validate" type="text" id="noon-vlsfo-me-propulsion" name="noon-vlsfo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="noon-vlsfo-standard-ae-cons" name="noon-vlsfo-standard-ae-cons"></td>
                                         <td><input class="validate" type="text" id="noon-vlsfo-standard-boiler-cons" name="noon-vlsfo-standard-boiler-cons"></td>
                                         <td><input class="validate" type="text" id="noon-vlsfo-incinerators" name="noon-vlsfo-incinerators"></td>
-                                        <td><input class="validate" type="text" id="noon-vlsfo-me-24" name="noon-vlsfo-me-24" disabled></td>
-                                        <td><input class="validate" type="text" id="noon-vlsfo-ae-24" name="noon-vlsfo-ae-24" disabled></td>
-                                        <td><input class="validate" type="text" id="noon-vlsfo-total-cons" name="noon-vlsfo-total-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="noon-vlsfo-me-24" name="noon-vlsfo-me-24" ></td>
+                                        <td><input class="validate" type="text" id="noon-vlsfo-ae-24" name="noon-vlsfo-ae-24" ></td>
+                                        <td><input class="validate" type="text" id="noon-vlsfo-total-cons" name="noon-vlsfo-total-cons" ></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1299,14 +1304,14 @@
                                     <tr>
                                         <td>LSMGO (MT)</td>
                                         <td><input class="validate" type="text" id="noon-lsmgo-noon-lsmgo-previous" name="noon-lsmgo-previous"></td>
-                                        <td><input class="validate" type="text" id="noon-lsmgo-current" name="noon-lsmgo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="noon-lsmgo-current" name="noon-lsmgo-current" ></td>
                                         <td><input class="validate" type="text" id="noon-lsmgo-me-propulsion" name="noon-lsmgo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="noon-lsmgo-standard-ae-cons" name="noon-lsmgo-standard-ae-cons"></td>
                                         <td><input class="validate" type="text" id="noon-lsmgo-standard-boiler-cons" name="noon-lsmgo-standard-boiler-cons"></td>
                                         <td><input class="validate" type="text" id="noon-lsmgo-incinerators" name="noon-lsmgo-incinerators"></td>
-                                        <td><input class="validate" type="text" id="noon-lsmgo-me-24" name="noon-lsmgo-me-24" disabled></td>
-                                        <td><input class="validate" type="text" id="noon-lsmgo-ae-24" name="noon-lsmgo-ae-24" disabled></td>
-                                        <td><input class="validate" type="text" id="noon-lsmgo-total-cons" name="noon-lsmgo-total-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="noon-lsmgo-me-24" name="noon-lsmgo-me-24" ></td>
+                                        <td><input class="validate" type="text" id="noon-lsmgo-ae-24" name="noon-lsmgo-ae-24" ></td>
+                                        <td><input class="validate" type="text" id="noon-lsmgo-total-cons" name="noon-lsmgo-total-cons" ></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1331,8 +1336,11 @@
             <!-- Departure Report Section -->
             <section id="DepartureReport" class="report-section">
                 <h1>Departure Report</h1>
-                <div class="save-draft-container">
+                <div class="sub-container">
                     <button type="button" class="save-draft" onclick="saveDraft('DepartureReport')">Save Draft</button>
+                    <button type="button" class="save-draft" onclick="clearFields('DepartureReport')">Clear Fields</button>
+                    <!--<button type="button" class="export-data" onclick="">Fetch Saved Data</button>
+                    <button type="button" class="export-data" onclick="exportToExcel('DepartureReport')">Export Data</button>-->
                 </div>
                 <form>
 
@@ -1378,7 +1386,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="departure-voyage-details-gmt-offset">GMT Offset:</label>
-                                    <select required>
+                                    <select id="departure-voyage-details-gmt-offset" name="departure-voyage-details-gmt-offset" required>
                                         <option value="-1">Select</option>
                                         <option value="-720">GMT-12:00</option>
                                         <option value="-660">GMT-11:00</option>
@@ -1434,10 +1442,10 @@
 
                             <div class="form-group">
                                 <label for="departure-voyage-details-departure-type">Departure Type:</label>
-                                <select required>
-                                    <option>Select</option>
-                                    <option>Pilot Station</option>
-                                    <option>Berth</option>
+                                <select id="departure-voyage-details-departure-type" name="departure-voyage-details-departure-type" required>
+                                    <option value="-1">Select</option>
+                                    <option value="pilot-station">Pilot Station</option>
+                                    <option value="berth">Berth</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -1465,7 +1473,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="departure-details-since-last-report-avg-speed">Avg Speed (Kts):</label>
-                                <input class="validate" type="text" id="departure-details-since-last-report-avg-speed" name="departure-details-since-last-report-avg-speed" required disabled>
+                                <input class="validate" type="text" id="departure-details-since-last-report-avg-speed" name="departure-details-since-last-report-avg-speed" required >
                             </div>
                             <div class="form-group">
                                 <label for="departure-details-since-last-report-distance-to-go">Distance to go (NM):</label>
@@ -1477,15 +1485,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="departure-details-since-last-report-avg-rpm">Avg RPM:</label>
-                                <input class="validate" type="text" id="departure-details-since-last-report-avg-rpm" name="departure-details-since-last-report-avg-rpm" required disabled>
+                                <input class="validate" type="text" id="departure-details-since-last-report-avg-rpm" name="departure-details-since-last-report-avg-rpm" required >
                             </div>
                             <div class="form-group">
                                 <label for="departure-details-since-last-report-engine-distance">Engine Distance (NM):</label>
-                                <input class="validate" type="text" id="departure-details-since-last-report-engine-distance" name="departure-details-since-last-report-engine-distance" disabled>
+                                <input class="validate" type="text" id="departure-details-since-last-report-engine-distance" name="departure-details-since-last-report-engine-distance" >
                             </div>
                             <div class="form-group">
                                 <label for="departure-details-since-last-report-slip">Slip (%):</label>
-                                <input class="validate" type="text" id="departure-details-since-last-report-slip" name="departure-details-since-last-report-slip" required disabled>
+                                <input class="validate" type="text" id="departure-details-since-last-report-slip" name="departure-details-since-last-report-slip" required >
                             </div>
                             <div class="form-group">
                                 <label for="departure-details-since-last-report-avg-power">Avg Power (KW):</label>
@@ -1501,9 +1509,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="departure-details-since-last-report-speed-through-water">Speed Through Water (Kts):</label>
-                                <input class="validate" type="text" id="departure-details-since-last-report-speed-through-water" name="departure-details-since-last-report-speed-through-water" required disabled>
+                                <input class="validate" type="text" id="departure-details-since-last-report-speed-through-water" name="departure-details-since-last-report-speed-through-water" required >
                             </div>
-                            <div class="form-group">
+                            <div class="form-group at-sea-section">
                                 <label for="departure-details-since-last-report-next-port">Next Port:</label>
                                 <input type="text" id="departure-details-since-last-report-next-port" name="departure-details-since-last-report-next-port" required>
                             </div>
@@ -1686,7 +1694,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="departure-voyage-itinerary-projected-speed">Projected Speed (kts)</label>
-                                <input class="validate" type="text" id="departure-voyage-itinerary-projected-speed" name="departure-voyage-itinerary-projected-speed" required disabled>
+                                <input class="validate" type="text" id="departure-voyage-itinerary-projected-speed" name="departure-voyage-itinerary-projected-speed" required >
                             </div>
                         </div>
                     </fieldset>
@@ -1697,7 +1705,7 @@
                         <div class="four-columns">
                             <div class="form-group">
                                 <label for="departure-average-weather-wind-force">Wind Force (Bft.) (T):</label>
-                                <input class="validate" type="text" id="departure-average-weather-wind-force" name="departure-average-weather-wind-force" required disabled>
+                                <input class="validate" type="text" id="departure-average-weather-wind-force" name="departure-average-weather-wind-force" required >
                             </div>
                             <div class="form-group">
                                 <label for="departure-average-weather-swell">Swell:</label>
@@ -1748,7 +1756,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="departure-average-weather-wind-sea-height">Wind Sea Height (m):</label>
-                                <input class="validate" type="text" id="departure-average-weather-wind-sea-height" name="departure-average-weather-wind-sea-height" required disabled>
+                                <input class="validate" type="text" id="departure-average-weather-wind-sea-height" name="departure-average-weather-wind-sea-height" required >
                             </div>
                             <div class="form-group">
                                 <label for="sea-current-dir">Sea Current Direction (Rel.):</label>
@@ -1760,7 +1768,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="swell-height">Swell Height (m):</label>
-                                <input class="validate" type="text" id="swell-height" name="swell-height" required disabled>
+                                <input class="validate" type="text" id="swell-height" name="swell-height" required >
                             </div>
                             <div class="form-group">
                                 <label for="observed-sea-dir">Observed Sea Dir. (T):</label>
@@ -1812,7 +1820,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="departure-average-weather-sea-ds">Sea DS:</label>
-                                <input class="validate" type="text" id="departure-average-weather-sea-ds" name="departure-average-weather-sea-ds" required disabled>
+                                <input class="validate" type="text" id="departure-average-weather-sea-ds" name="departure-average-weather-sea-ds" required >
                             </div>
                             <div class="form-group">
                                 <label for="departure-average-weather-atm-pressure">Atm. Pressure (millibar):</label>
@@ -2445,14 +2453,14 @@
                                     <tr>
                                         <td>HSFO (MT)</td>
                                         <td><input class="validate" type="text" id="departure-hsfo-previous" name="departure-hsfo-previous"></td>
-                                        <td><input class="validate" type="text" id="departure-hsfo-current" name="departure-hsfo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-hsfo-current" name="departure-hsfo-current" ></td>
                                         <td><input class="validate" type="text" id="departure-hsfo-me-propulsion" name="departure-hsfo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="departure-hsfo-standard-ae-cons" name="departure-hsfo-standard-ae-cons"></td>
                                         <td><input class="validate" type="text" id="departure-hsfo-standard-boiler-cons" name="departure-hsfo-standard-boiler-cons"></td>
                                         <td><input class="validate" type="text" id="departure-hsfo-incinerators" name="departure-hsfo-incinerators"></td>
-                                        <td><input class="validate" type="text" id="departure-hsfo-me-24" name="departure-hsfo-me-24" disabled></td>
-                                        <td><input class="validate" type="text" id="departure-hsfo-ae-24" name="departure-hsfo-ae-24" disabled></td>
-                                        <td><input class="validate" type="text" id="departure-hsfo-total-cons" name="departure-hsfo-total-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-hsfo-me-24" name="departure-hsfo-me-24" ></td>
+                                        <td><input class="validate" type="text" id="departure-hsfo-ae-24" name="departure-hsfo-ae-24" ></td>
+                                        <td><input class="validate" type="text" id="departure-hsfo-total-cons" name="departure-hsfo-total-cons" ></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -2484,14 +2492,14 @@
                                     <tr>
                                         <td>LSFO (MT)</td>
                                         <td><input class="validate" type="text" id="departure-lsfo-departure-lsfo-previous" name="departure-lsfo-previous"></td>
-                                        <td><input class="validate" type="text" id="departure-lsfo-current" name="departure-lsfo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-lsfo-current" name="departure-lsfo-current" ></td>
                                         <td><input class="validate" type="text" id="departure-lsfo-me-propulsion" name="departure-lsfo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="departure-lsfo-standard-ae-cons" name="departure-lsfo-standard-ae-cons"></td>
                                         <td><input class="validate" type="text" id="departure-lsfo-standard-boiler-cons" name="departure-lsfo-standard-boiler-cons"></td>
                                         <td><input class="validate" type="text" id="departure-lsfo-incinerators" name="departure-lsfo-incinerators"></td>
-                                        <td><input class="validate" type="text" id="departure-lsfo-me-24" name="departure-lsfo-me-24" disabled></td>
-                                        <td><input class="validate" type="text" id="departure-lsfo-ae-24" name="departure-lsfo-ae-24" disabled></td>
-                                        <td><input class="validate" type="text" id="departure-lsfo-total-cons" name="departure-lsfo-total-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-lsfo-me-24" name="departure-lsfo-me-24" ></td>
+                                        <td><input class="validate" type="text" id="departure-lsfo-ae-24" name="departure-lsfo-ae-24" ></td>
+                                        <td><input class="validate" type="text" id="departure-lsfo-total-cons" name="departure-lsfo-total-cons" ></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -2527,14 +2535,14 @@
                                     <tr>
                                         <td>VLSFO (MT)</td>
                                         <td><input class="validate" type="text" id="departure-vlsfo-departure-vlsfo-previous" name="departure-vlsfo-previous"></td>
-                                        <td><input class="validate" type="text" id="departure-vlsfo-current" name="departure-vlsfo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-vlsfo-current" name="departure-vlsfo-current" ></td>
                                         <td><input class="validate" type="text" id="departure-vlsfo-me-propulsion" name="departure-vlsfo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="departure-vlsfo-standard-ae-cons" name="departure-vlsfo-standard-ae-cons"></td>
                                         <td><input class="validate" type="text" id="departure-vlsfo-standard-boiler-cons" name="departure-vlsfo-standard-boiler-cons"></td>
                                         <td><input class="validate" type="text" id="departure-vlsfo-incinerators" name="departure-vlsfo-incinerators"></td>
-                                        <td><input class="validate" type="text" id="departure-vlsfo-me-24" name="departure-vlsfo-me-24" disabled></td>
-                                        <td><input class="validate" type="text" id="departure-vlsfo-ae-24" name="departure-vlsfo-ae-24" disabled></td>
-                                        <td><input class="validate" type="text" id="departure-vlsfo-total-cons" name="departure-vlsfo-total-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-vlsfo-me-24" name="departure-vlsfo-me-24" ></td>
+                                        <td><input class="validate" type="text" id="departure-vlsfo-ae-24" name="departure-vlsfo-ae-24" ></td>
+                                        <td><input class="validate" type="text" id="departure-vlsfo-total-cons" name="departure-vlsfo-total-cons" ></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -2566,14 +2574,14 @@
                                     <tr>
                                         <td>LSMGO (MT)</td>
                                         <td><input class="validate" type="text" id="departure-lsmgo-departure-lsmgo-previous" name="departure-lsmgo-previous"></td>
-                                        <td><input class="validate" type="text" id="departure-lsmgo-current" name="departure-lsmgo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-lsmgo-current" name="departure-lsmgo-current" ></td>
                                         <td><input class="validate" type="text" id="departure-lsmgo-me-propulsion" name="departure-lsmgo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="departure-lsmgo-standard-ae-cons" name="departure-lsmgo-standard-ae-cons"></td>
                                         <td><input class="validate" type="text" id="departure-lsmgo-standard-boiler-cons" name="departure-lsmgo-standard-boiler-cons"></td>
                                         <td><input class="validate" type="text" id="departure-lsmgo-incinerators" name="departure-lsmgo-incinerators"></td>
-                                        <td><input class="validate" type="text" id="departure-lsmgo-me-24" name="departure-lsmgo-me-24" disabled></td>
-                                        <td><input class="validate" type="text" id="departure-lsmgo-ae-24" name="departure-lsmgo-ae-24" disabled></td>
-                                        <td><input class="validate" type="text" id="departure-lsmgo-total-cons" name="departure-lsmgo-total-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-lsmgo-me-24" name="departure-lsmgo-me-24" ></td>
+                                        <td><input class="validate" type="text" id="departure-lsmgo-ae-24" name="departure-lsmgo-ae-24" ></td>
+                                        <td><input class="validate" type="text" id="departure-lsmgo-total-cons" name="departure-lsmgo-total-cons" ></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -2598,8 +2606,11 @@
             <!-- Arrival Report Section -->
             <section id="ArrivalReport" class="report-section">
                 <h1>Arrival Report</h1>
-                <div class="save-draft-container">
+                <div class="sub-container">
                     <button type="button" class="save-draft" onclick="saveDraft('ArrivalReport')">Save Draft</button>
+                    <button type="button" class="save-draft" onclick="clearFields('ArrivalReport')">Clear Fields</button>
+                    <!--<button type="button" class="export-data" onclick="">Fetch Saved Data</button>
+                    <button type="button" class="export-data" onclick="exportToExcel('ArrivalReport')">Export Data</button>-->
                 </div>
                 <form>
 
@@ -2699,8 +2710,8 @@
                                 <input type="text" id="arrival-voyage-details-longitude" name="arrival-voyage-details-longitude" placeholder="DD MM' SS&quot; N/S" required>
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-departure-type">Departure Type:</label>
-                                <select id="arrival-voyage-details-departure-type" name="arrival-voyage-details-departure-type" required>
+                                <label for="arrival-voyage-details-arrival-type">Arrival Type:</label>
+                                <select id="arrival-voyage-details-arrival-type" name="arrival-voyage-details-arrival-type" required>
                                     <option>Select</option>
                                     <option>Pilot Station</option>
                                     <option>Berth</option>
@@ -2726,64 +2737,64 @@
                         <legend>Details Since Last Report</legend>
                         <div class="four-columns">
                             <div class="form-group">
-                                <label for="arrival-voyage-details-cp-ordered-speed">CP/Ordered Speed (Kts)</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-cp-ordered-speed" name="arrival-voyage-details-cp-ordered-speed">
+                                <label for="arrival-details-since-last-report-cp-ordered-speed">CP/Ordered Speed (Kts)</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-cp-ordered-speed" name="arrival-details-since-last-report-cp-ordered-speed">
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-allowed-me-cons-at-cp-speed">Allowed M/E Cons. at C/P Speed</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-allowed-me-cons-at-cp-speed" name="arrival-voyage-details-allowed-me-cons-at-cp-speed" disabled>
+                                <label for="arrival-details-since-last-report-allowed-me-cons-at-cp-speed">Allowed M/E Cons. at C/P Speed</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-allowed-me-cons-at-cp-speed" name="arrival-details-since-last-report-allowed-me-cons-at-cp-speed" >
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-obs-distance">Obs. Distance (NM):</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-obs-distance" name="arrival-voyage-details-obs-distance" required>
+                                <label for="arrival-details-since-last-report-obs-distance">Obs. Distance (NM):</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-obs-distance" name="arrival-details-since-last-report-obs-distance" required>
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-steaming-time">Steaming Time (Hrs):</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-steaming-time" name="arrival-voyage-details-steaming-time" required>
+                                <label for="arrival-details-since-last-report-steaming-time">Steaming Time (Hrs):</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-steaming-time" name="arrival-details-since-last-report-steaming-time" required>
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-avg-speed">Avg Speed (Kts):</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-avg-speed" name="arrival-voyage-details-avg-speed" required disabled>
+                                <label for="arrival-details-since-last-report-avg-speed">Avg Speed (Kts):</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-avg-speed" name="arrival-details-since-last-report-avg-speed" required >
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-distance-sailed-from-last-port">Distance sailed from last port (NM):</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-distance-sailed-from-last-port" name="arrival-voyage-details-distance-sailed-from-last-port" required>
+                                <label for="arrival-details-since-last-report-distance-sailed-from-last-port">Distance sailed from last port (NM):</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-distance-sailed-from-last-port" name="arrival-details-since-last-report-distance-sailed-from-last-port" required>
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-breakdown">Breakdown (Hrs):</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-breakdown" name="arrival-voyage-details-breakdown" required>
+                                <label for="arrival-details-since-last-report-breakdown">Breakdown (Hrs):</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-breakdown" name="arrival-details-since-last-report-breakdown" required>
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-me-revs-counter">M/E Revs Counter (Noon to Noon):</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-me-revs-counter" name="arrival-voyage-details-me-revs-counter" required>
+                                <label for="arrival-details-since-last-report-me-revs-counter">M/E Revs Counter (Noon to Noon):</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-me-revs-counter" name="arrival-details-since-last-report-me-revs-counter" required>
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-avg-rpm">Avg RPM:</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-avg-rpm" name="arrival-voyage-details-avg-rpm" required disabled>
+                                <label for="arrival-details-since-last-report-avg-rpm">Avg RPM:</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-avg-rpm" name="arrival-details-since-last-report-avg-rpm" required >
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-engine-distance">Engine Distance (NM):</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-engine-distance" name="arrival-voyage-details-engine-distance" disabled>
+                                <label for="arrival-details-since-last-report-engine-distance">Engine Distance (NM):</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-engine-distance" name="arrival-details-since-last-report-engine-distance" >
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-slip">Slip (%):</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-slip" name="arrival-voyage-details-slip" required disabled>
+                                <label for="arrival-details-since-last-report-slip">Slip (%):</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-slip" name="arrival-details-since-last-report-slip" required >
                             </div>  
                             <div class="form-group">
-                                <label for="arrival-voyage-details-avg-power">Avg Power (KW):</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-avg-power" name="arrival-voyage-details-avg-power" required>
+                                <label for="arrival-details-since-last-report-avg-power">Avg Power (KW):</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-avg-power" name="arrival-details-since-last-report-avg-power" required>
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-logged-distance">Logged Distance (NM):</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-logged-distance" name="arrival-voyage-details-logged-distance" required>
+                                <label for="arrival-details-since-last-report-logged-distance">Logged Distance (NM):</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-logged-distance" name="arrival-details-since-last-report-logged-distance" required>
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-speed-through-water">Speed Through Water (Kts):</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-speed-through-water" name="arrival-voyage-details-speed-through-water" required disabled>
+                                <label for="arrival-details-since-last-report-speed-through-water">Speed Through Water (Kts):</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-speed-through-water" name="arrival-details-since-last-report-speed-through-water" required >
                             </div>
                             <div class="form-group">
-                                <label for="arrival-voyage-details-course">Course (Deg):</label>
-                                <input class="validate" type="text" id="arrival-voyage-details-course" name="arrival-voyage-details-course" required>
+                                <label for="arrival-details-since-last-report-course">Course (Deg):</label>
+                                <input class="validate" type="text" id="arrival-details-since-last-report-course" name="arrival-details-since-last-report-course" required>
                             </div>  
                         </div>
                     </fieldset>
@@ -2841,7 +2852,7 @@
                         <div class="four-columns">
                             <div class="form-group">
                                 <label for="arrival-average-weather-wind-force">Wind Force (Bft.) (T):</label>
-                                <input class="validate" type="text" id="arrival-average-weather-wind-force" name="arrival-average-weather-wind-force" required disabled>
+                                <input class="validate" type="text" id="arrival-average-weather-wind-force" name="arrival-average-weather-wind-force" required >
                             </div>
                             <div class="form-group">
                                 <label for="arrival-average-weather-swell">Swell:</label>
@@ -2892,7 +2903,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="arrival-average-weather-wind-sea-height">Wind Sea Height (m):</label>
-                                <input class="validate" type="text" id="arrival-average-weather-wind-sea-height" name="arrival-average-weather-wind-sea-height" required disabled>
+                                <input class="validate" type="text" id="arrival-average-weather-wind-sea-height" name="arrival-average-weather-wind-sea-height" required >
                             </div>
                             <div class="form-group">
                                 <label for="sea-current-dir">Sea Current Direction (Rel.):</label>
@@ -2904,7 +2915,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="swell-height">Swell Height (m):</label>
-                                <input class="validate" type="text" id="swell-height" name="swell-height" required disabled>
+                                <input class="validate" type="text" id="swell-height" name="swell-height" required >
                             </div>
                             <div class="form-group">
                                 <label for="observed-sea-dir">Observed Sea Dir. (T):</label>
@@ -2956,7 +2967,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="arrival-average-weather-sea-ds">Sea DS:</label>
-                                <input class="validate" type="text" id="arrival-average-weather-sea-ds" name="arrival-average-weather-sea-ds" required disabled>
+                                <input class="validate" type="text" id="arrival-average-weather-sea-ds" name="arrival-average-weather-sea-ds" required >
                             </div>
                             
                             <div class="form-group">
@@ -3360,7 +3371,7 @@
                                     </td>
                                     <td>379.68</td>
                                     <td>MT</td>
-                                    <td><input class="validate" type="text" id="arrival-rob-details-tank-2-port" name="arrival-rob-details-tank-2-port"></td>
+                                    <td><input class="validate" type="text" id="arrival-rob-details-tank-2-rob" name="arrival-rob-details-tank-2-rob"></td>
                                     <td><input type="datetime-local" id="arrival-rob-details-tank-2-date-time" name="arrival-rob-details-tank-2-date-time"></td>
                                 </tr>
                                 <tr>
@@ -3377,7 +3388,7 @@
                                     </td>
                                     <td>379.68</td>
                                     <td>MT</td>
-                                    <td><input class="validate" type="text" id="arrival-rob-details-tank-3-rob" name="arrival-rob-details-tank-3-stbd-rob"></td>
+                                    <td><input class="validate" type="text" id="arrival-rob-details-tank-3-rob" name="arrival-rob-details-tank-3-rob"></td>
                                     <td><input type="datetime-local" id="arrival-rob-details-tank-3-date-time" name="arrival-rob-details-tank-3-date-time"></td>
                                 </tr>
                                 <tr>
@@ -3394,7 +3405,7 @@
                                     </td>
                                     <td>418.08</td>
                                     <td>MT</td>
-                                    <td><input class="validate" type="text" id="arrival-rob-details-tank-4-port-rob" name="arrival-rob-details-tank-4-port-rob"></td>
+                                    <td><input class="validate" type="text" id="arrival-rob-details-tank-4-rob" name="arrival-rob-details-tank-4-rob"></td>
                                     <td><input type="datetime-local" id="arrival-rob-details-tank-4-date-time" name="arrival-rob-details-tank-4-date-time"></td>
                                 </tr>
                                 <tr>
@@ -3590,14 +3601,14 @@
                                     <tr>
                                         <td>HSFO (MT)</td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-previous" name="arrival-hsfo-previous"></td>
-                                        <td><input class="validate" type="text" id="arrival-hsfo-current" name="arrival-hsfo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-hsfo-current" name="arrival-hsfo-current" ></td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-me-propulsion" name="arrival-hsfo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-standard-ae-cons" name="arrival-hsfo-standard-ae-cons"></td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-standard-boiler-cons" name="arrival-hsfo-standard-boiler-cons"></td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-incinerators" name="arrival-hsfo-incinerators"></td>
-                                        <td><input class="validate" type="text" id="arrival-hsfo-me-24" name="arrival-hsfo-me-24" disabled></td>
-                                        <td><input class="validate" type="text" id="arrival-hsfo-ae-24" name="arrival-hsfo-ae-24" disabled></td>
-                                        <td><input class="validate" type="text" id="arrival-hsfo-total-cons" name="arrival-hsfo-total-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-hsfo-me-24" name="arrival-hsfo-me-24" ></td>
+                                        <td><input class="validate" type="text" id="arrival-hsfo-ae-24" name="arrival-hsfo-ae-24" ></td>
+                                        <td><input class="validate" type="text" id="arrival-hsfo-total-cons" name="arrival-hsfo-total-cons" ></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -3629,14 +3640,14 @@
                                     <tr>
                                         <td>LSFO (MT)</td>
                                         <td><input class="validate" type="text" id="arrival-lsfo-arrival-lsfo-previous" name="arrival-lsfo-previous"></td>
-                                        <td><input class="validate" type="text" id="arrival-lsfo-current" name="arrival-lsfo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-lsfo-current" name="arrival-lsfo-current" ></td>
                                         <td><input class="validate" type="text" id="arrival-lsfo-me-propulsion" name="arrival-lsfo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="arrival-lsfo-standard-ae-cons" name="arrival-lsfo-standard-ae-cons"></td>
                                         <td><input class="validate" type="text" id="arrival-lsfo-standard-boiler-cons" name="arrival-lsfo-standard-boiler-cons"></td>
                                         <td><input class="validate" type="text" id="arrival-lsfo-incinerators" name="arrival-lsfo-incinerators"></td>
-                                        <td><input class="validate" type="text" id="arrival-lsfo-me-24" name="arrival-lsfo-me-24" disabled></td>
-                                        <td><input class="validate" type="text" id="arrival-lsfo-ae-24" name="arrival-lsfo-ae-24" disabled></td>
-                                        <td><input class="validate" type="text" id="arrival-lsfo-total-cons" name="arrival-lsfo-total-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-lsfo-me-24" name="arrival-lsfo-me-24" ></td>
+                                        <td><input class="validate" type="text" id="arrival-lsfo-ae-24" name="arrival-lsfo-ae-24" ></td>
+                                        <td><input class="validate" type="text" id="arrival-lsfo-total-cons" name="arrival-lsfo-total-cons" ></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -3672,14 +3683,14 @@
                                     <tr>
                                         <td>VLSFO (MT)</td>
                                         <td><input class="validate" type="text" id="arrival-vlsfo-arrival-vlsfo-previous" name="arrival-vlsfo-previous"></td>
-                                        <td><input class="validate" type="text" id="arrival-vlsfo-current" name="arrival-vlsfo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-vlsfo-current" name="arrival-vlsfo-current" ></td>
                                         <td><input class="validate" type="text" id="arrival-vlsfo-me-propulsion" name="arrival-vlsfo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="arrival-vlsfo-standard-ae-cons" name="arrival-vlsfo-standard-ae-cons"></td>
                                         <td><input class="validate" type="text" id="arrival-vlsfo-standard-boiler-cons" name="arrival-vlsfo-standard-boiler-cons"></td>
                                         <td><input class="validate" type="text" id="arrival-vlsfo-incinerators" name="arrival-vlsfo-incinerators"></td>
-                                        <td><input class="validate" type="text" id="arrival-vlsfo-me-24" name="arrival-vlsfo-me-24" disabled></td>
-                                        <td><input class="validate" type="text" id="arrival-vlsfo-ae-24" name="arrival-vlsfo-ae-24" disabled></td>
-                                        <td><input class="validate" type="text" id="arrival-vlsfo-total-cons" name="arrival-vlsfo-total-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-vlsfo-me-24" name="arrival-vlsfo-me-24" ></td>
+                                        <td><input class="validate" type="text" id="arrival-vlsfo-ae-24" name="arrival-vlsfo-ae-24" ></td>
+                                        <td><input class="validate" type="text" id="arrival-vlsfo-total-cons" name="arrival-vlsfo-total-cons" ></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -3711,14 +3722,14 @@
                                     <tr>
                                         <td>LSMGO (MT)</td>
                                         <td><input class="validate" type="text" id="arrival-lsmgo-arrival-lsmgo-previous" name="arrival-lsmgo-previous"></td>
-                                        <td><input class="validate" type="text" id="arrival-lsmgo-current" name="arrival-lsmgo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-lsmgo-current" name="arrival-lsmgo-current" ></td>
                                         <td><input class="validate" type="text" id="arrival-lsmgo-me-propulsion" name="arrival-lsmgo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="arrival-lsmgo-standard-ae-cons" name="arrival-lsmgo-standard-ae-cons"></td>
                                         <td><input class="validate" type="text" id="arrival-lsmgo-standard-boiler-cons" name="arrival-lsmgo-standard-boiler-cons"></td>
                                         <td><input class="validate" type="text" id="arrival-lsmgo-incinerators" name="arrival-lsmgo-incinerators"></td>
-                                        <td><input class="validate" type="text" id="arrival-lsmgo-me-24" name="arrival-lsmgo-me-24" disabled></td>
-                                        <td><input class="validate" type="text" id="arrival-lsmgo-ae-24" name="arrival-lsmgo-ae-24" disabled></td>
-                                        <td><input class="validate" type="text" id="arrival-lsmgo-total-cons" name="arrival-lsmgo-total-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-lsmgo-me-24" name="arrival-lsmgo-me-24" ></td>
+                                        <td><input class="validate" type="text" id="arrival-lsmgo-ae-24" name="arrival-lsmgo-ae-24" ></td>
+                                        <td><input class="validate" type="text" id="arrival-lsmgo-total-cons" name="arrival-lsmgo-total-cons" ></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -3743,8 +3754,11 @@
             <!-- Bunkering Section -->
             <section id="Bunkering" class="report-section">
                 <h1>Bunkering</h1>
-                <div class="save-draft-container">
+                <div class="sub-container">
                     <button type="button" class="save-draft" onclick="saveDraft('Bunkering')">Save Draft</button>
+                    <button type="button" class="save-draft" onclick="clearFields('Bunkering')">Clear Fields</button>
+                    <!--<button type="button" class="export-data" onclick="">Fetch Saved Data</button>
+                    <button type="button" class="export-data" onclick="exportToExcel('Bunkering')">Export Data</button>-->
                 </div>
                 <form>
 
@@ -4315,8 +4329,11 @@
             <!-- All Fast Section -->
             <section id="AllFast" class="report-section">
                 <h1>All Fast</h1>
-                <div class="save-draft-container">
+                <div class="sub-container">
                     <button type="button" class="save-draft" onclick="saveDraft('AllFast')">Save Draft</button>
+                    <button type="button" class="save-draft" onclick="clearFields('AllFast')">Clear Fields</button>
+                    <!--<button type="button" class="export-data" onclick="">Fetch Saved Data</button>
+                    <button type="button" class="export-data" onclick="exportToExcel('AllFast')">Export Data</button>-->
                 </div>
                 <form>
 

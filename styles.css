@@ -107,8 +107,22 @@ nav button.active {
     background-color: #0056b3;
 }
 
+.remove-button {
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.remove-button:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+}
+
 /* Container to hold the Save Draft button on the right side */
-.save-draft-container {
+.sub-container {
     display: flex;
     justify-content: flex-end;
     margin: 0 10px 10px 0;
@@ -124,11 +138,30 @@ nav button.active {
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-family: Arial, sans-serif;
+    margin-left: 20px;
 }
 
 .save-draft:hover {
     background-color: #0056b3;
 }
+
+/* Export Data button styling */
+.export-data {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: Arial, sans-serif;
+    margin-left: 20px;
+}
+
+.export-data:hover {
+    background-color: #218838;
+}
+
 
 .report-section,
 .rob-table .tab-content {
@@ -441,3 +474,6 @@ body.dark-mode form .form-group textarea[required] {
     border-right: 2px solid red;
 }
 
+.dynamic-section {
+    display: none;
+}
