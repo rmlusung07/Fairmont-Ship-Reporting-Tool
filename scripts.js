@@ -29,6 +29,20 @@ document.addEventListener('DOMContentLoaded', function() {
     reportTypeSelect.addEventListener('change', function() {
         handleReportTypeChange(this.value);
     });
+
+    // Add the port search functionality for Noon Report fields
+    setupPortSearch('noon-voyage-details-port', 'noon-voyage-details-port-results');
+    setupPortSearch('noon-voyage-itinerary-port', 'noon-voyage-itinerary-port-results');
+    setupPortSearch('noon-details-since-last-report-next-port', 'noon-details-since-last-report-next-port-results');
+
+    // Add the port search functionality for Departure Report fields
+    setupPortSearch('departure-voyage-details-departure-port', 'departure-voyage-details-departure-port-results');
+    setupPortSearch('departure-details-since-last-report-next-port', 'departure-details-since-last-report-next-port-results');
+    setupPortSearch('departure-voyage-itinerary-port', 'departure-voyage-itinerary-port-results');
+
+    // Add the port search functionality for Arrival and Bunkering Report fields
+    setupPortSearch('arrival-voyage-details-port', 'arrival-voyage-details-port-results');
+    setupPortSearch('bunkering-details-bunkering-port', 'bunkering-details-bunkering-port-results');
 });
 
 // Function to add custom validation for select elements
@@ -823,7 +837,6 @@ function exportToExcel(reportId) {
         'allfast': {
             // Voyage Details
             'all-fast-voyage-details-vessel-name': 'Vessel Name:',
-            'all-fast-voyage-details-port': 'Port:',
             'all-fast-voyage-details-voyage-no': 'Voyage No:',
             'all-fast-voyage-details-datetime': 'All Fast Date/Time (LT):',
             'all-fast-voyage-details-gmt-offset': 'GMT Offset:',
@@ -1382,4 +1395,63 @@ function handleReportTypeChange(reportSection) {
             element.style.display = 'none';
          });
     }
+}
+
+// Function to set up port search functionality
+function setupPortSearch(inputId, resultsId) {
+    let portList = [];
+
+    // Fetch the port names from the text file
+    fetch('portName.txt')
+        .then(response => response.text())
+        .then(data => {
+            portList = JSON.parse(data); // Parse the JSON data from the file
+        })
+        .catch(error => console.error('Error loading port names:', error));
+
+    // Search function for ports
+    function searchPorts(query) {
+        return portList.filter(port => port.toLowerCase().includes(query.toLowerCase()));
+    }
+
+    // Event listener for the port search box
+    document.getElementById(inputId).addEventListener('input', function() {
+        const query = this.value;
+        const results = searchPorts(query);
+
+        // Display results
+        const resultsContainer = document.getElementById(resultsId);
+        resultsContainer.innerHTML = '';
+
+        results.forEach(port => {
+            const div = document.createElement('div');
+            div.className = 'result-item';
+            div.textContent = port;
+            div.addEventListener('click', function() {
+                // Set the search box value to the selected item
+                document.getElementById(inputId).value = port;
+                // Hide the dropdown list
+                resultsContainer.style.display = 'none';
+            });
+            resultsContainer.appendChild(div);
+        });
+
+        // Apply the limit and make it scrollable if needed
+        if (results.length > 0) {
+            resultsContainer.style.display = 'block';
+            resultsContainer.style.maxHeight = '150px';  // Limit to about 5 items
+            resultsContainer.style.overflowY = 'auto';   // Enable scrolling
+        } else {
+            resultsContainer.style.display = 'none';
+        }
+    });
+
+    // Hide the results when clicking outside the search box and dropdown
+    document.addEventListener('click', function(event) {
+        const searchBox = document.getElementById(inputId);
+        const resultsContainer = document.getElementById(resultsId);
+        if (!searchBox.contains(event.target) && !resultsContainer.contains(event.target)) {
+            resultsContainer.style.display = 'none';
+        }
+    });
 }

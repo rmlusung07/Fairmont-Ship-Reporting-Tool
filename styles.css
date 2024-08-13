@@ -484,3 +484,128 @@ body.dark-mode form .form-group textarea[required] {
 .dynamic-section {
     display: none;
 }
+
+/* Styling for the search results container */
+#noon-voyage-details-port-results,
+#noon-voyage-itinerary-port-results,
+#noon-details-since-last-report-next-port-results,
+#departure-voyage-details-departure-port-results,
+#departure-details-since-last-report-next-port-results,
+#departure-voyage-itinerary-port-results,
+#arrival-voyage-details-port-results,
+#bunkering-details-bunkering-port-results {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific styles for all report results */
+#noon-voyage-details-port-results {
+    width: 21.3%;
+    top: 422px; 
+}
+
+#noon-details-since-last-report-next-port-results {
+    width: 20.6%; 
+    top: 681px; 
+}
+
+#noon-voyage-itinerary-port-results {
+    width: 20.6%; 
+    top: 1145px; 
+}
+
+#departure-voyage-details-departure-port-results {
+    width: 21%; 
+    top: 423px; 
+}
+
+#departure-details-since-last-report-next-port-results {
+    width: 21%; 
+    top: 712px; 
+}
+
+#departure-voyage-itinerary-port-results {
+    width: 21%; 
+    top: 1062px; 
+}
+
+#arrival-voyage-details-port-results {
+    width: 21%; 
+    top: 423px; 
+}
+
+#bunkering-details-bunkering-port-results {
+    width: 20.8%; 
+    top: 363px; 
+}
+
+/* Styling for each result item */
+#noon-voyage-details-port-results .result-item,
+#noon-voyage-itinerary-port-results .result-item,
+#noon-details-since-last-report-next-port-results .result-item,
+#departure-voyage-details-departure-port-results .result-item,
+#departure-details-since-last-report-next-port-results .result-item,
+#departure-voyage-itinerary-port-results .result-item,
+#arrival-voyage-details-port-results .result-item,
+#bunkering-details-bunkering-port-results .result-item {
+    padding: 8px 12px; /* Slightly smaller padding */
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px; /* Adjust font size to be slightly smaller */
+}
+
+/* Highlight result item on hover */
+#noon-voyage-details-port-results .result-item:hover,
+#noon-voyage-itinerary-port-results .result-item:hover,
+#noon-details-since-last-report-next-port-results .result-item:hover,
+#departure-voyage-details-departure-port-results .result-item:hover,
+#departure-details-since-last-report-next-port-results .result-item:hover,
+#departure-voyage-itinerary-port-results .result-item:hover,
+#arrival-voyage-details-port-results .result-item:hover,
+#bunkering-details-bunkering-port-results .result-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Adjusting for dark mode */
+body.dark-mode #noon-voyage-details-port-results,
+body.dark-mode #noon-voyage-itinerary-port-results,
+body.dark-mode #noon-details-since-last-report-next-port-results,
+body.dark-mode #departure-voyage-details-departure-port-results,
+body.dark-mode #departure-details-since-last-report-next-port-results,
+body.dark-mode #departure-voyage-itinerary-port-results,
+body.dark-mode #arrival-voyage-details-port-results,
+body.dark-mode #bunkering-details-bunkering-port-results {
+    background-color: #444;
+    color: #f4f4f4;
+    border: 1px solid #666;
+}
+
+body.dark-mode #noon-voyage-details-port-results .result-item:hover,
+body.dark-mode #noon-voyage-itinerary-port-results .result-item:hover,
+body.dark-mode #noon-details-since-last-report-next-port-results .result-item:hover,
+body.dark-mode #departure-voyage-details-departure-port-results .result-item:hover,
+body.dark-mode #departure-details-since-last-report-next-port-results .result-item:hover,
+body.dark-mode #departure-voyage-itinerary-port-results .result-item:hover,
+body.dark-mode #arrival-voyage-details-port-results .result-item:hover,
+body.dark-mode #bunkering-details-bunkering-port-results .result-item:hover {
+    background-color: #555;
+}
+
+/* Make sure the input field is in focus with border change */
+#noon-voyage-details-port:focus,
+#noon-voyage-itinerary-port:focus,
+#noon-details-since-last-report-next-port:focus,
+#departure-voyage-details-departure-port:focus,
+#departure-details-since-last-report-next-port:focus,
+#departure-voyage-itinerary-port:focus,
+#arrival-voyage-details-port:focus,
+#bunkering-details-bunkering-port:focus {
+    border-color: #007BFF;
+    outline: none;
+}

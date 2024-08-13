@@ -44,8 +44,8 @@
                 <div class="sub-container">
                     <button type="button" class="save-draft" onclick="saveDraft('NoonReport')">Save Draft</button>
                     <button type="button" class="save-draft" onclick="clearFields('NoonReport')">Clear Fields</button>
-                    <button type="button" class="export-data" onclick="">Fetch Saved Data</button>
-                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('NoonReport')">Export Data</button>
+                    <!--<button type="button" class="export-data" onclick="">Fetch Saved Data</button>
+                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('NoonReport')">Export Data</button>-->
                 </div>
                 <form>
 
@@ -155,7 +155,8 @@
                             </div>
                             <div class="form-group in-port-section">
                                 <label for="noon-voyage-details-port">Port:</label>
-                                <input type="text" id="noon-voyage-details-port" name="noon-voyage-details-port">
+                                <input type="text" id="noon-voyage-details-port" name="noon-voyage-details-port" required>
+                                <div id="noon-voyage-details-port-results"></div>
                             </div>
                         </div>
                     
@@ -225,7 +226,8 @@
                             </div>
                             <div class="form-group at-sea-section">
                                 <label for="noon-details-since-last-report-next-port">Next Port:</label>
-                                <input class="validate" type="text" id="noon-details-since-last-report-next-port" name="noon-details-since-last-report-next-port" required>
+                                <input type="text" id="noon-details-since-last-report-next-port" name="noon-details-since-last-report-next-port" required>
+                                <div id="noon-details-since-last-report-next-port-results"></div>
                             </div>
                             <div class="form-group at-sea-section">
                                 <label for="noon-details-since-last-report-eta-next-port">ETA Next Port (LT):</label>
@@ -347,6 +349,7 @@
                             <div class="form-group">
                                 <label for="noon-voyage-itinerary-port">Port</label>
                                 <input type="text" id="noon-voyage-itinerary-port" name="noon-voyage-itinerary-port" required> 
+                                <div id="noon-voyage-itinerary-port-results"></div>
                             </div>
                             <div class="form-group">
                                 <label for="noon-voyage-itinerary-via">Via</label>
@@ -1309,8 +1312,8 @@
                 <div class="sub-container">
                     <button type="button" class="save-draft" onclick="saveDraft('DepartureReport')">Save Draft</button>
                     <button type="button" class="save-draft" onclick="clearFields('DepartureReport')">Clear Fields</button>
-                    <button type="button" class="export-data" onclick="">Fetch Saved Data</button>
-                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('DepartureReport')">Export Data</button>
+                    <!--<button type="button" class="export-data" onclick="">Fetch Saved Data</button>
+                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('DepartureReport')">Export Data</button>-->
                 </div>
                 <form>
 
@@ -1421,6 +1424,7 @@
                             <div class="form-group">
                                 <label for="departure-voyage-details-departure-port">Departure Port:</label>
                                 <input type="text" id="departure-voyage-details-departure-port" name="departure-voyage-details-departure-port" required>
+                                <div id="departure-voyage-details-departure-port-results"></div>
                             </div>
                         <div>
                     </fieldset>
@@ -1484,6 +1488,7 @@
                             <div class="form-group at-sea-section">
                                 <label for="departure-details-since-last-report-next-port">Next Port:</label>
                                 <input type="text" id="departure-details-since-last-report-next-port" name="departure-details-since-last-report-next-port" required>
+                                <div id="departure-details-since-last-report-next-port-results"></div>
                             </div>
                             <div class="form-group">
                                 <label for="departure-details-since-last-report-eta-next-port">ETA Next Port (LT):</label>
@@ -1593,6 +1598,7 @@
                             <div class="form-group">
                                 <label for="departure-voyage-itinerary-port">Port</label>
                                 <input type="text" id="departure-voyage-itinerary-port" name="departure-voyage-itinerary-port" required> 
+                                <div id="departure-voyage-itinerary-port-results"></div>
                             </div>
                             <div class="form-group">
                                 <label for="departure-voyage-itinerary-via">Via</label>
@@ -2357,8 +2363,8 @@
                 <div class="sub-container">
                     <button type="button" class="save-draft" onclick="saveDraft('ArrivalReport')">Save Draft</button>
                     <button type="button" class="save-draft" onclick="clearFields('ArrivalReport')">Clear Fields</button>
-                    <button type="button" class="export-data" onclick="">Fetch Saved Data</button>
-                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('ArrivalReport')">Export Data</button>
+                    <!--<button type="button" class="export-data" onclick="">Fetch Saved Data</button>
+                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('ArrivalReport')">Export Data</button>-->
                 </div>
                 <form>
 
@@ -2468,6 +2474,7 @@
                             <div class="form-group">
                                 <label for="arrival-voyage-details-port">Arrival Port:</label>
                                 <input type="text" id="arrival-voyage-details-port" name="arrival-voyage-details-port" required>
+                                <div id="arrival-voyage-details-port-results"></div>
                             </div>
                             <div class="form-group">
                                 <label for="arrival-voyage-details-anchored-hours">Anchored Hours:</label>
@@ -3282,8 +3289,8 @@
                 <div class="sub-container">
                     <button type="button" class="save-draft" onclick="saveDraft('Bunkering')">Save Draft</button>
                     <button type="button" class="save-draft" onclick="clearFields('Bunkering')">Clear Fields</button>
-                    <button type="button" class="export-data" onclick="">Fetch Saved Data</button>
-                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('Bunkering')">Export Data</button>
+                    <!--<button type="button" class="export-data" onclick="">Fetch Saved Data</button>
+                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('Bunkering')">Export Data</button>-->
                 </div>
                 <form>
 
@@ -3326,6 +3333,7 @@
                             <div class="form-group">
                                 <label for="bunkering-details-bunkering-port">Bunkering Port:</label>
                                 <input type="text" id="bunkering-details-bunkering-port" name="bunkering-details-bunkering-port" required>
+                                <div id="bunkering-details-bunkering-port-results"></div>
                             </div>
                             <div class="form-group">
                                 <label for="bunkering-details-supplier">Supplier:</label>
@@ -3857,8 +3865,8 @@
                 <div class="sub-container">
                     <button type="button" class="save-draft" onclick="saveDraft('AllFast')">Save Draft</button>
                     <button type="button" class="save-draft" onclick="clearFields('AllFast')">Clear Fields</button>
-                    <button type="button" class="export-data" onclick="">Fetch Saved Data</button>
-                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('AllFast')">Export Data</button>
+                    <!--<button type="button" class="export-data" onclick="">Fetch Saved Data</button>
+                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('AllFast')">Export Data</button>-->
                 </div>
                 <form>
 
@@ -3893,10 +3901,6 @@
                                     <option value="Maple Harvest">Maple Harvest</option>
                                     <option value="World Swan II">World Swan II</option>
                                 </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="all-fast-voyage-details-port">Port:</label>
-                                <input type="text" id="all-fast-voyage-details-port" name="all-fast-voyage-details-port" required>
                             </div>
                             <div class="form-group">
                                 <label for="all-fast-voyage-details-voyage-no">Voyage No:</label>
