@@ -506,42 +506,42 @@ body.dark-mode form .form-group textarea[required] {
 
 /* Specific styles for all report results */
 #noon-voyage-details-port-results {
-    width: 21.3%;
+    width: 17%;
     top: 422px; 
 }
 
 #noon-details-since-last-report-next-port-results {
-    width: 20.6%; 
-    top: 681px; 
+    width: 16.5%; 
+    top: 678px; 
 }
 
 #noon-voyage-itinerary-port-results {
-    width: 20.6%; 
+    width: 16.5%; 
     top: 1145px; 
 }
 
 #departure-voyage-details-departure-port-results {
-    width: 21%; 
+    width: 17%; 
     top: 423px; 
 }
 
 #departure-details-since-last-report-next-port-results {
-    width: 21%; 
+    width: 16.5%; 
     top: 712px; 
 }
 
 #departure-voyage-itinerary-port-results {
-    width: 21%; 
+    width: 17%; 
     top: 1062px; 
 }
 
 #arrival-voyage-details-port-results {
-    width: 21%; 
+    width: 16.8%; 
     top: 423px; 
 }
 
 #bunkering-details-bunkering-port-results {
-    width: 20.8%; 
+    width: 16.5%; 
     top: 363px; 
 }
 
