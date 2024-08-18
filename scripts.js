@@ -40,9 +40,45 @@ document.addEventListener('DOMContentLoaded', function() {
     setupPortSearch('departure-details-since-last-report-next-port', 'departure-details-since-last-report-next-port-results');
     setupPortSearch('departure-voyage-itinerary-port', 'departure-voyage-itinerary-port-results');
 
-    // Add the port search functionality for Arrival and Bunkering Report fields
+    // Add the port search functionality for Arrival, Bunkering and All fast Report fields
     setupPortSearch('arrival-voyage-details-port', 'arrival-voyage-details-port-results');
     setupPortSearch('bunkering-details-bunkering-port', 'bunkering-details-bunkering-port-results');
+    setupPortSearch('allfast-voyage-details-port', 'allfast-voyage-details-port-results');
+
+    // Attach validation for latitude and longitude fields
+    const latitudeFields = [
+        'noon-voyage-details-latitude',
+        'departure-voyage-details-latitude',
+        'arrival-voyage-details-latitude',
+        'bunkering-voyage-details-latitude',
+        'allfast-voyage-details-latitude'
+    ];
+
+    const longitudeFields = [
+        'noon-voyage-details-longitude',
+        'departure-voyage-details-longitude',
+        'arrival-voyage-details-longitude',
+        'bunkering-voyage-details-longitude',
+        'allfast-voyage-details-longitude'
+    ];
+
+    latitudeFields.forEach(id => {
+        const field = document.getElementById(id);
+        if (field) {
+            field.addEventListener('blur', function() {
+                validateAndFormatLatLong(field, 'latitude');
+            });
+        }
+    });
+    
+    longitudeFields.forEach(id => {
+        const field = document.getElementById(id);
+        if (field) {
+            field.addEventListener('blur', function() {
+                validateAndFormatLatLong(field, 'longitude');
+            });
+        }
+    });
 });
 
 // Function to add custom validation for select elements
@@ -61,17 +97,25 @@ function handleReportTypeChange(reportSection) {
     const sections = document.querySelectorAll('.dynamic-section');
     sections.forEach(section => section.style.display = 'none');
     
-    if (reportSection === 'at-sea') {
+    if (reportSection === 'At Sea') {
         document.getElementById('at-sea-section').style.display = 'block';
-    } else if (reportSection === 'in-port') {
+    } else if (reportSection === 'In Port') {
         document.getElementById('in-port-section').style.display = 'block';
-    } else if (reportSection === 'at-anchorage') {
+    } else if (reportSection === 'At Anchorage') {
         document.getElementById('at-anchorage-section').style.display = 'block';
     }
 }
 
 // Function to export data to excel form
 function exportToExcel(reportId) {
+    // Find all disabled input fields within the table
+    const disabledFields = document.querySelectorAll('input[disabled]');
+
+    // Temporarily remove the disabled attribute
+    disabledFields.forEach((field) => {
+        field.disabled = false;
+    });
+
     const form = document.querySelector(`#${reportId} form`);
     const formData = new FormData(form);
     const data = [];
@@ -143,9 +187,9 @@ function exportToExcel(reportId) {
             'noon-average-weather-sea-temp': 'Sea Temp (Deg. C):',
             'noon-average-weather-observed-wind-dir': 'Observed Wind Dir. (T):',
             'noon-average-weather-wind-sea-height': 'Wind Sea Height (m):',
-            'sea-current-dir': 'Sea Current Direction (Rel.):',
-            'swell-height': 'Swell Height (m):',
-            'observed-sea-dir': 'Observed Sea Dir. (T):',
+            'noon-average-weather-sea-current-dir': 'Sea Current Direction (Rel.):',
+            'noon-average-weather-swell-height': 'Swell Height (m):',
+            'noon-average-weather-observed-sea-dir': 'Observed Sea Dir. (T):',
             'noon-average-weather-air-temp': 'Air Temp (Deg. C):',
             'noon-average-weather-observed-swell-dir': 'Observed Swell Dir. (T):',
             'noon-average-weather-sea-ds': 'Sea DS:',
@@ -176,6 +220,15 @@ function exportToExcel(reportId) {
             'noon-wind-force-dir-for-every-six-hours-18-00-sea-direction': 'Sea Direction (T) (18:00 - 00:00):',
             'noon-wind-force-dir-for-every-six-hours-18-00-sea-ds': 'Sea DS (18:00 - 00:00):',
 
+            // Noon 00:00 - 06:00	
+            'noon-wind-force-dir-for-every-six-hours-00-06-wind-force': 'Wind Force (Bft.) (00:00 - 06:00):',
+            'noon-wind-force-dir-for-every-six-hours-00-06-wind-direction': 'Wind Direction (T) (00:00 - 06:00):',
+            'noon-wind-force-dir-for-every-six-hours-00-06-swell-height': 'Swell Height (m) (00:00 - 06:00):',
+            'noon-wind-force-dir-for-every-six-hours-00-06-swell-direction': 'Swell Direction (T) (00:00 - 06:00):',
+            'noon-wind-force-dir-for-every-six-hours-00-06-wind-sea-height': 'Wind Sea Height (m) (00:00 - 06:00):',
+            'noon-wind-force-dir-for-every-six-hours-00-06-sea-direction': 'Sea Direction (T) (00:00 - 06:00):',
+            'noon-wind-force-dir-for-every-six-hours-00-06-sea-ds': 'Sea DS (00:00 - 06:00):',
+
             // Noon 6:00 - 12:00	
             'noon-wind-force-dir-for-every-six-hours-06-12-wind-force': 'Wind Force (Bft.) (06:00 - 12:00):',
             'noon-wind-force-dir-for-every-six-hours-06-12-wind-direction': 'Wind Direction (T) (06:00 - 12:00):',
@@ -193,7 +246,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-1-capacity': 'Tank 1 Capacity:',
             'noon-rob-details-tank-1-unit': 'Tank 1 Unit:',
             'noon-rob-details-tank-1-rob': 'Tank 1 ROB:',
-            'noon-rob-details-tank-1-date-time': 'Tank 1 Date/Time:',
+            'noon-rob-details-tank-1-date-time': 'Tank 1 Supply Date (LT):',
 
             'noon-rob-details-tank-2-number': 'Tank 2 Number:',
             'noon-rob-details-tank-2-description': 'Tank 2 Description:',
@@ -201,7 +254,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-2-capacity': 'Tank 2 Capacity:',
             'noon-rob-details-tank-2-unit': 'Tank 2 Unit:',
             'noon-rob-details-tank-2-rob': 'Tank 2 ROB:',
-            'noon-rob-details-tank-2-date-time': 'Tank 2 Date/Time:',
+            'noon-rob-details-tank-2-date-time': 'Tank 2 Supply Date (LT):',
 
             'noon-rob-details-tank-3-number': 'Tank 3 Number:',
             'noon-rob-details-tank-3-description': 'Tank 3 Description:',
@@ -209,7 +262,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-3-capacity': 'Tank 3 Capacity:',
             'noon-rob-details-tank-3-unit': 'Tank 3 Unit:',
             'noon-rob-details-tank-3-rob': 'Tank 3 ROB:',
-            'noon-rob-details-tank-3-date-time': 'Tank 3 Date/Time:',
+            'noon-rob-details-tank-3-date-time': 'Tank 3 Supply Date (LT):',
 
             'noon-rob-details-tank-4-number': 'Tank 4 Number:',
             'noon-rob-details-tank-4-description': 'Tank 4 Description:',
@@ -217,7 +270,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-4-capacity': 'Tank 4 Capacity:',
             'noon-rob-details-tank-4-unit': 'Tank 4 Unit:',
             'noon-rob-details-tank-4-rob': 'Tank 4 ROB:',
-            'noon-rob-details-tank-4-date-time': 'Tank 4 Date/Time:',
+            'noon-rob-details-tank-4-date-time': 'Tank 4 Supply Date (LT):',
             
             'noon-rob-details-tank-5-number': 'Tank 5 Number:',
             'noon-rob-details-tank-5-description': 'Tank 5 Description:',
@@ -225,7 +278,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-5-capacity': 'Tank 5 Capacity:',
             'noon-rob-details-tank-5-unit': 'Tank 5 Unit:',
             'noon-rob-details-tank-5-rob': 'Tank 5 ROB:',
-            'noon-rob-details-tank-5-date-time': 'Tank 5 Date/Time:',
+            'noon-rob-details-tank-5-date-time': 'Tank 5 Supply Date (LT):',
             
             'noon-rob-details-tank-6-number': 'Tank 6 Number:',
             'noon-rob-details-tank-6-description': 'Tank 6 Description:',
@@ -233,7 +286,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-6-capacity': 'Tank 6 Capacity:',
             'noon-rob-details-tank-6-unit': 'Tank 6 Unit:',
             'noon-rob-details-tank-6-rob': 'Tank 6 ROB:',
-            'noon-rob-details-tank-6-date-time': 'Tank 6 Date/Time:',
+            'noon-rob-details-tank-6-date-time': 'Tank 6 Supply Date (LT):',
 
             'noon-rob-details-tank-7-number': 'Tank 7 Number:',
             'noon-rob-details-tank-7-description': 'Tank 7 Description:',
@@ -241,7 +294,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-7-capacity': 'Tank 7 Capacity:',
             'noon-rob-details-tank-7-unit': 'Tank 7 Unit:',
             'noon-rob-details-tank-7-rob': 'Tank 7 ROB:',
-            'noon-rob-details-tank-7-date-time': 'Tank 7 Date/Time:',
+            'noon-rob-details-tank-7-date-time': 'Tank 7 Supply Date (LT):',
 
             'noon-rob-details-tank-8-number': 'Tank 8 Number:',
             'noon-rob-details-tank-8-description': 'Tank 8 Description:',
@@ -249,7 +302,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-8-capacity': 'Tank 8 Capacity:',
             'noon-rob-details-tank-8-unit': 'Tank 8 Unit:',
             'noon-rob-details-tank-8-rob': 'Tank 8 ROB:',
-            'noon-rob-details-tank-8-date-time': 'Tank 8 Date/Time:',
+            'noon-rob-details-tank-8-date-time': 'Tank 8 Supply Date (LT):',
 
             'noon-rob-details-tank-9-number': 'Tank 9 Number:',
             'noon-rob-details-tank-9-description': 'Tank 9 Description:',
@@ -257,7 +310,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-9-capacity': 'Tank 9 Capacity:',
             'noon-rob-details-tank-9-unit': 'Tank 9 Unit:',
             'noon-rob-details-tank-9-rob': 'Tank 9 ROB:',
-            'noon-rob-details-tank-9-date-time': 'Tank 9 Date/Time:',
+            'noon-rob-details-tank-9-date-time': 'Tank 9 Supply Date (LT):',
 
             'noon-rob-details-tank-10-number': 'Tank 10 Number:',
             'noon-rob-details-tank-10-description': 'Tank 10 Description:',
@@ -265,7 +318,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-10-capacity': 'Tank 10 Capacity:',
             'noon-rob-details-tank-10-unit': 'Tank 10 Unit:',
             'noon-rob-details-tank-10-rob': 'Tank 10 ROB:',
-            'noon-rob-details-tank-10-date-time': 'Tank 10 Date/Time:',
+            'noon-rob-details-tank-10-date-time': 'Tank 10 Supply Date (LT):',
 
             'noon-rob-details-tank-11-number': 'Tank 11 Number:',
             'noon-rob-details-tank-11-description': 'Tank 11 Description:',
@@ -273,7 +326,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-11-capacity': 'Tank 11 Capacity:',
             'noon-rob-details-tank-11-unit': 'Tank 11 Unit:',
             'noon-rob-details-tank-11-rob': 'Tank 11 ROB:',
-            'noon-rob-details-tank-11-date-time': 'Tank 11 Date/Time:',
+            'noon-rob-details-tank-11-date-time': 'Tank 11 Supply Date (LT):',
 
             'noon-rob-details-tank-12-number': 'Tank 12 Number:',
             'noon-rob-details-tank-12-description': 'Tank 12 Description:',
@@ -281,7 +334,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-12-capacity': 'Tank 12 Capacity:',
             'noon-rob-details-tank-12-unit': 'Tank 12 Unit:',
             'noon-rob-details-tank-12-rob': 'Tank 12 ROB:',
-            'noon-rob-details-tank-12-date-time': 'Tank 12 Date/Time:',
+            'noon-rob-details-tank-12-date-time': 'Tank 12 Supply Date (LT):',
 
             'noon-rob-details-tank-13-number': 'Tank 13 Number:',
             'noon-rob-details-tank-13-description': 'Tank 13 Description:',
@@ -289,7 +342,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-13-capacity': 'Tank 13 Capacity:',
             'noon-rob-details-tank-13-unit': 'Tank 13 Unit:',
             'noon-rob-details-tank-13-rob': 'Tank 13 ROB:',
-            'noon-rob-details-tank-13-date-time': 'Tank 13 Date/Time:',
+            'noon-rob-details-tank-13-date-time': 'Tank 13 Supply Date (LT):',
 
             'noon-rob-details-tank-14-number': 'Tank 14 Number:',
             'noon-rob-details-tank-14-description': 'Tank 14 Description:',
@@ -297,7 +350,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-14-capacity': 'Tank 14 Capacity:',
             'noon-rob-details-tank-14-unit': 'Tank 14 Unit:',
             'noon-rob-details-tank-14-rob': 'Tank 14 ROB:',
-            'noon-rob-details-tank-14-date-time': 'Tank 14 Date/Time:',
+            'noon-rob-details-tank-14-date-time': 'Tank 14 Supply Date (LT):',
 
             'noon-rob-details-tank-15-number': 'Tank 15 Number:',
             'noon-rob-details-tank-15-description': 'Tank 15 Description:',
@@ -305,7 +358,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-15-capacity': 'Tank 15 Capacity:',
             'noon-rob-details-tank-15-unit': 'Tank 15 Unit:',
             'noon-rob-details-tank-15-rob': 'Tank 15 ROB:',
-            'noon-rob-details-tank-15-date-time': 'Tank 15 Date/Time:',
+            'noon-rob-details-tank-15-date-time': 'Tank 15 Supply Date (LT):',
 
             'noon-rob-details-tank-16-number': 'Tank 16 Number:',
             'noon-rob-details-tank-16-description': 'Tank 16 Description:',
@@ -313,7 +366,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-16-capacity': 'Tank 16 Capacity:',
             'noon-rob-details-tank-16-unit': 'Tank 16 Unit:',
             'noon-rob-details-tank-16-rob': 'Tank 16 ROB:',
-            'noon-rob-details-tank-16-date-time': 'Tank 16 Date/Time:',
+            'noon-rob-details-tank-16-date-time': 'Tank 16 Supply Date (LT):',
 
             'noon-rob-details-tank-17-number': 'Tank 17 Number:',
             'noon-rob-details-tank-17-description': 'Tank 17 Description:',
@@ -321,7 +374,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-17-capacity': 'Tank 17 Capacity:',
             'noon-rob-details-tank-17-unit': 'Tank 17 Unit:',
             'noon-rob-details-tank-17-rob': 'Tank 17 ROB:',
-            'noon-rob-details-tank-17-date-time': 'Tank 17 Date/Time:',
+            'noon-rob-details-tank-17-date-time': 'Tank 17 Supply Date (LT):',
 
             'noon-rob-details-tank-18-number': 'Tank 18 Number:',
             'noon-rob-details-tank-18-description': 'Tank 18 Description:',
@@ -329,7 +382,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-18-capacity': 'Tank 18 Capacity:',
             'noon-rob-details-tank-18-unit': 'Tank 18 Unit:',
             'noon-rob-details-tank-18-rob': 'Tank 18 ROB:',
-            'noon-rob-details-tank-18-date-time': 'Tank 18 Date/Time:',
+            'noon-rob-details-tank-18-date-time': 'Tank 18 Supply Date (LT):',
 
             'noon-rob-details-tank-19-number': 'Tank 19 Number:',
             'noon-rob-details-tank-19-description': 'Tank 19 Description:',
@@ -337,7 +390,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-19-capacity': 'Tank 19 Capacity:',
             'noon-rob-details-tank-19-unit': 'Tank 19 Unit:',
             'noon-rob-details-tank-19-rob': 'Tank 19 ROB:',
-            'noon-rob-details-tank-19-date-time': 'Tank 19 Date/Time:',
+            'noon-rob-details-tank-19-date-time': 'Tank 19 Supply Date (LT):',
 
             'noon-rob-details-tank-20-number': 'Tank 20 Number:',
             'noon-rob-details-tank-20-description': 'Tank 20 Description:',
@@ -345,7 +398,7 @@ function exportToExcel(reportId) {
             'noon-rob-details-tank-20-capacity': 'Tank 20 Capacity:',
             'noon-rob-details-tank-20-unit': 'Tank 20 Unit:',
             'noon-rob-details-tank-20-rob': 'Tank 20 ROB:',
-            'noon-rob-details-tank-20-date-time': 'Tank 20 Date/Time:',
+            'noon-rob-details-tank-20-date-time': 'Tank 19 Supply Date (LT):',
 
             // Noon HSFO (MT)	
             'noon-hsfo-previous': 'HSFO Previous:',
@@ -365,11 +418,11 @@ function exportToExcel(reportId) {
             'noon-hsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
             'noon-hsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'noon-hsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'noon-hsfo-oil-ae-oil-grade': 'AE CC Oil Grade:',
-            'noon-hsfo-oil-ae-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'noon-hsfo-oil-ae-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'noon-hsfo-oil-ae-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'noon-hsfo-oil-ae-oil-cons': 'AE Oil Consumption:',
+            'noon-hsfo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
+            'noon-hsfo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
+            'noon-hsfo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
+            'noon-hsfo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
+            'noon-hsfo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
 
             // Noon BIOFUEL (MT)	
             'noon-biofuel-previous': 'BIOFUEL Previous:',
@@ -389,11 +442,11 @@ function exportToExcel(reportId) {
             'noon-biofuel-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
             'noon-biofuel-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'noon-biofuel-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'noon-biofuel-oil-ae-oil-grade': 'AE CC Oil Grade:',
-            'noon-biofuel-oil-ae-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'noon-biofuel-oil-ae-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'noon-biofuel-oil-ae-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'noon-biofuel-oil-ae-oil-cons': 'AE Oil Consumption:',
+            'noon-biofuel-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
+            'noon-biofuel-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
+            'noon-biofuel-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
+            'noon-biofuel-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
+            'noon-biofuel-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
 
             // Noon VLSFO (MT)	
             'noon-vlsfo-previous': 'VLSFO Previous:',
@@ -413,11 +466,11 @@ function exportToExcel(reportId) {
             'noon-vlsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
             'noon-vlsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'noon-vlsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'noon-vlsfo-oil-ae-oil-grade': 'AE CC Oil Grade:',
-            'noon-vlsfo-oil-ae-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'noon-vlsfo-oil-ae-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'noon-vlsfo-oil-ae-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'noon-vlsfo-oil-ae-oil-cons': 'AE Oil Consumption:',
+            'noon-vlsfo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
+            'noon-vlsfo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
+            'noon-vlsfo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
+            'noon-vlsfo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
+            'noon-vlsfo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
 
             // Noon LSMGO (MT)	
             'noon-lsmgo-previous': 'LSMGO Previous:',
@@ -437,11 +490,11 @@ function exportToExcel(reportId) {
             'noon-lsmgo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
             'noon-lsmgo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'noon-lsmgo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'noon-lsmgo-oil-ae-oil-grade': 'AE CC Oil Grade:',
-            'noon-lsmgo-oil-ae-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'noon-lsmgo-oil-ae-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'noon-lsmgo-oil-ae-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'noon-lsmgo-oil-ae-oil-cons': 'AE Oil Consumption:',
+            'noon-lsmgo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
+            'noon-lsmgo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
+            'noon-lsmgo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
+            'noon-lsmgo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
+            'noon-lsmgo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
 
             // Noon Master Remarks	
             'noon-remarks': 'Remarks:',
@@ -515,6 +568,15 @@ function exportToExcel(reportId) {
             'departure-wind-force-dir-for-every-six-hours-18-00-sea-direction': 'Sea Direction (T) (18:00 - 00:00):',
             'departure-wind-force-dir-for-every-six-hours-18-00-sea-ds': 'Sea DS (18:00 - 00:00):',
 
+            // Departure 00:00 - 06:00	
+            'departure-wind-force-dir-for-every-six-hours-00-06-wind-force': 'Wind Force (Bft.) (00:00 - 06:00):',
+            'departure-wind-force-dir-for-every-six-hours-00-06-wind-direction': 'Wind Direction (T) (00:00 - 06:00):',
+            'departure-wind-force-dir-for-every-six-hours-00-06-swell-height': 'Swell Height (m) (00:00 - 06:00):',
+            'departure-wind-force-dir-for-every-six-hours-00-06-swell-direction': 'Swell Direction (T) (00:00 - 06:00):',
+            'departure-wind-force-dir-for-every-six-hours-00-06-wind-sea-height': 'Wind Sea Height (m) (00:00 - 06:00):',
+            'departure-wind-force-dir-for-every-six-hours-00-06-sea-direction': 'Sea Direction (T) (00:00 - 06:00):',
+            'departure-wind-force-dir-for-every-six-hours-00-06-sea-ds': 'Sea DS (00:00 - 06:00):',
+
             // Departure 06:00 - 12:00
             'departure-wind-force-dir-for-every-six-hours-06-12-wind-force': 'Wind Force (Bft.) (06:00 - 12:00):',
             'departure-wind-force-dir-for-every-six-hours-06-12-wind-direction': 'Wind Direction (T) (06:00 - 12:00):',
@@ -542,11 +604,11 @@ function exportToExcel(reportId) {
             'departure-hsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
             'departure-hsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'departure-hsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'departure-hsfo-oil-ae-oil-grade': 'AE CC Oil Grade:',
-            'departure-hsfo-oil-ae-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'departure-hsfo-oil-ae-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'departure-hsfo-oil-ae-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'departure-hsfo-oil-ae-oil-cons': 'AE Oil Consumption:',
+            'departure-hsfo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
+            'departure-hsfo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
+            'departure-hsfo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
+            'departure-hsfo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
+            'departure-hsfo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
 
             // Departure BIOFUEL (MT)
             'departure-biofuel-previous': 'BIOFUEL Previous:',
@@ -566,11 +628,11 @@ function exportToExcel(reportId) {
             'departure-biofuel-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
             'departure-biofuel-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'departure-biofuel-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'departure-biofuel-oil-ae-oil-grade': 'AE CC Oil Grade:',
-            'departure-biofuel-oil-ae-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'departure-biofuel-oil-ae-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'departure-biofuel-oil-ae-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'departure-biofuel-oil-ae-oil-cons': 'AE Oil Consumption:',
+            'departure-biofuel-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
+            'departure-biofuel-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
+            'departure-biofuel-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
+            'departure-biofuel-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
+            'departure-biofuel-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
 
             // Departure VLSFO (MT)
             'departure-vlsfo-previous': 'VLSFO Previous:',
@@ -590,11 +652,11 @@ function exportToExcel(reportId) {
             'departure-vlsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
             'departure-vlsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'departure-vlsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'departure-vlsfo-oil-ae-oil-grade': 'AE CC Oil Grade:',
-            'departure-vlsfo-oil-ae-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'departure-vlsfo-oil-ae-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'departure-vlsfo-oil-ae-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'departure-vlsfo-oil-ae-oil-cons': 'AE Oil Consumption:',
+            'departure-vlsfo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
+            'departure-vlsfo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
+            'departure-vlsfo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
+            'departure-vlsfo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
+            'departure-vlsfo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
 
             // Departure LSMGO (MT)
             'departure-lsmgo-previous': 'LSMGO Previous:',
@@ -614,11 +676,11 @@ function exportToExcel(reportId) {
             'departure-lsmgo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
             'departure-lsmgo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'departure-lsmgo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'departure-lsmgo-oil-ae-oil-grade': 'AE CC Oil Grade:',
-            'departure-lsmgo-oil-ae-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'departure-lsmgo-oil-ae-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'departure-lsmgo-oil-ae-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'departure-lsmgo-oil-ae-oil-cons': 'AE Oil Consumption:',
+            'departure-lsmgo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
+            'departure-lsmgo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
+            'departure-lsmgo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
+            'departure-lsmgo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
+            'departure-lsmgo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
 
             // Departure Master Remarks
             'departure-remarks': 'Remarks:',
@@ -685,6 +747,15 @@ function exportToExcel(reportId) {
             'arrival-wind-force-dir-for-every-six-hours-18-00-sea-direction': 'Sea Direction (T) (18:00 - 00:00):',
             'arrival-wind-force-dir-for-every-six-hours-18-00-sea-ds': 'Sea DS (18:00 - 00:00):',
 
+            // Arrival 00:00 - 06:00	
+            'arrival-wind-force-dir-for-every-six-hours-00-06-wind-force': 'Wind Force (Bft.) (00:00 - 06:00):',
+            'arrival-wind-force-dir-for-every-six-hours-00-06-wind-direction': 'Wind Direction (T) (00:00 - 06:00):',
+            'arrival-wind-force-dir-for-every-six-hours-00-06-swell-height': 'Swell Height (m) (00:00 - 06:00):',
+            'arrival-wind-force-dir-for-every-six-hours-00-06-swell-direction': 'Swell Direction (T) (00:00 - 06:00):',
+            'arrival-wind-force-dir-for-every-six-hours-00-06-wind-sea-height': 'Wind Sea Height (m) (00:00 - 06:00):',
+            'arrival-wind-force-dir-for-every-six-hours-00-06-sea-direction': 'Sea Direction (T) (00:00 - 06:00):',
+            'arrival-wind-force-dir-for-every-six-hours-00-06-sea-ds': 'Sea DS (00:00 - 06:00):',
+
             // Arrival 06:00 - 12:00
             'arrival-wind-force-dir-for-every-six-hours-06-12-wind-force': 'Wind Force (Bft.) (06:00 - 12:00):',
             'arrival-wind-force-dir-for-every-six-hours-06-12-wind-direction': 'Wind Direction (T) (06:00 - 12:00):',
@@ -712,11 +783,11 @@ function exportToExcel(reportId) {
             'arrival-hsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
             'arrival-hsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'arrival-hsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'arrival-hsfo-oil-ae-oil-grade': 'AE CC Oil Grade:',
-            'arrival-hsfo-oil-ae-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'arrival-hsfo-oil-ae-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'arrival-hsfo-oil-ae-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'arrival-hsfo-oil-ae-oil-cons': 'AE Oil Consumption:',
+            'arrival-hsfo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
+            'arrival-hsfo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
+            'arrival-hsfo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
+            'arrival-hsfo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
+            'arrival-hsfo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
 
             // Arrival BIOFUEL (MT)
             'arrival-biofuel-previous': 'BIOFUEL Previous:',
@@ -736,11 +807,11 @@ function exportToExcel(reportId) {
             'arrival-biofuel-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
             'arrival-biofuel-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'arrival-biofuel-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'arrival-biofuel-oil-ae-oil-grade': 'AE CC Oil Grade:',
-            'arrival-biofuel-oil-ae-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'arrival-biofuel-oil-ae-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'arrival-biofuel-oil-ae-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'arrival-biofuel-oil-ae-oil-cons': 'AE Oil Consumption:',
+            'arrival-biofuel-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
+            'arrival-biofuel-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
+            'arrival-biofuel-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
+            'arrival-biofuel-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
+            'arrival-biofuel-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
 
             // Arrival VLSFO (MT)
             'arrival-vlsfo-previous': 'VLSFO Previous:',
@@ -760,11 +831,11 @@ function exportToExcel(reportId) {
             'arrival-vlsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
             'arrival-vlsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'arrival-vlsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'arrival-vlsfo-oil-ae-oil-grade': 'AE CC Oil Grade:',
-            'arrival-vlsfo-oil-ae-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'arrival-vlsfo-oil-ae-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'arrival-vlsfo-oil-ae-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'arrival-vlsfo-oil-ae-oil-cons': 'AE Oil Consumption:',
+            'arrival-vlsfo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
+            'arrival-vlsfo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
+            'arrival-vlsfo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
+            'arrival-vlsfo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
+            'arrival-vlsfo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
 
             // Arrival LSMGO (MT)
             'arrival-lsmgo-previous': 'LSMGO Previous:',
@@ -784,11 +855,11 @@ function exportToExcel(reportId) {
             'arrival-lsmgo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
             'arrival-lsmgo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'arrival-lsmgo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'arrival-lsmgo-oil-ae-oil-grade': 'AE CC Oil Grade:',
-            'arrival-lsmgo-oil-ae-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'arrival-lsmgo-oil-ae-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'arrival-lsmgo-oil-ae-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'arrival-lsmgo-oil-ae-oil-cons': 'AE Oil Consumption:',
+            'arrival-lsmgo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
+            'arrival-lsmgo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
+            'arrival-lsmgo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
+            'arrival-lsmgo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
+            'arrival-lsmgo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
 
             // Arrival Master Remarks
             'arrival-remarks': 'Remarks:',
@@ -836,16 +907,17 @@ function exportToExcel(reportId) {
 
         'allfast': {
             // Voyage Details
-            'all-fast-voyage-details-vessel-name': 'Vessel Name:',
-            'all-fast-voyage-details-voyage-no': 'Voyage No:',
-            'all-fast-voyage-details-datetime': 'All Fast Date/Time (LT):',
-            'all-fast-voyage-details-gmt-offset': 'GMT Offset:',
+            'allfast-voyage-details-vessel-name': 'Vessel Name:',
+            'allfast-voyage-details-voyage-no': 'Voyage No:',
+            'allfast-voyage-details-datetime': 'All Fast Date/Time (LT):',
+            'allfast-voyage-details-gmt-offset': 'GMT Offset:',
+            'allfast-voyage-details-port': 'Port:',
 
             // All Fast ROBs
-            'all-fast-rob-hsfo': 'HSFO (MT):',
-            'all-fast-rob-biofuel': 'BIOFUEL (MT):',
-            'all-fast-rob-vlsfo': 'VLSFO (MT):',
-            'all-fast-rob-lsmgo': 'LSMGO (MT):',
+            'allfast-rob-hsfo': 'HSFO (MT):',
+            'allfast-rob-biofuel': 'BIOFUEL (MT):',
+            'allfast-rob-vlsfo': 'VLSFO (MT):',
+            'allfast-rob-lsmgo': 'LSMGO (MT):',
         }
     };
 
@@ -905,7 +977,7 @@ function exportToExcel(reportId) {
             'departure-voyage-itinerary-port': 'Voyage Itinerary',
             'departure-average-weather-wind-force': 'Average Weather',
             'departure-bad-weather-details-wind-force-since-last-report': 'Bad Weather Details',
-            'departure-wind-force-dir-for-every-six-hours-12-18-wind-force': 'Wind/Force for every six hours',
+            'departure-wind-force-dir-for-every-six-hours-12-18-wind-   force': 'Wind/Force for every six hours',
             'departure-rob-details-tank-1-fuel-grade': 'ROB Details',
             'departure-hsfo-previous': 'HSFO (MT)',
             'departure-biofuel-previous': 'BIOFUEL (MT)',
@@ -948,8 +1020,8 @@ function exportToExcel(reportId) {
         
         'allfast': {
             // All Fast Section Title
-            'all-fast-voyage-details-vessel-name': 'Voyage Details',
-            'all-fast-rob-hsfo': 'All Fast ROBs'
+            'allfast-voyage-details-vessel-name': 'Voyage Details',
+            'allfast-rob-hsfo': 'All Fast ROBs'
         }
     };
 
@@ -967,6 +1039,7 @@ function exportToExcel(reportId) {
             'noon-wind-force-dir-for-every-six-hours-12-18-sea-ds',
             'noon-wind-force-dir-for-every-six-hours-18-00-sea-ds',
             'noon-wind-force-dir-for-every-six-hours-06-12-sea-ds',
+            'noon-wind-force-dir-for-every-six-hours-00-06-sea-ds',
             'noon-rob-details-tank-1-date-time',
             'noon-rob-details-tank-2-date-time',
             'noon-rob-details-tank-3-date-time',
@@ -991,10 +1064,10 @@ function exportToExcel(reportId) {
             'noon-biofuel-total-cons',
             'noon-vlsfo-total-cons',
             'noon-lsmgo-total-cons',
-            'noon-hsfo-oil-ae-oil-cons',
-            'noon-biofuel-oil-ae-oil-cons',
-            'noon-vlsfo-oil-ae-oil-cons',
-            'noon-lsmgo-oil-ae-oil-cons'
+            'noon-hsfo-oil-ae-cc-oil-cons',
+            'noon-biofuel-oil-ae-cc-oil-cons',
+            'noon-vlsfo-oil-ae-cc-oil-cons',
+            'noon-lsmgo-oil-ae-cc-oil-cons'
         ],
 
         'departurereport': [
@@ -1007,16 +1080,17 @@ function exportToExcel(reportId) {
             'departure-bad-weather-details-sea-state-continuous',
             'departure-wind-force-dir-for-every-six-hours-12-18-sea-ds',
             'departure-wind-force-dir-for-every-six-hours-18-00-sea-ds',
+            'departure-wind-force-dir-for-every-six-hours-00-06-sea-ds',
             'departure-wind-force-dir-for-every-six-hours-06-12-sea-ds',
             'departure-rob-details-tank-13-date-time',
             'departure-hsfo-total-cons',
             'departure-biofuel-total-cons',
             'departure-vlsfo-total-cons',
             'departure-lsmgo-total-cons',
-            'departure-hsfo-oil-ae-oil-cons',
-            'departure-biofuel-oil-ae-oil-cons',
-            'departure-vlsfo-oil-ae-oil-cons',
-            'departure-lsmgo-oil-ae-oil-cons'
+            'departure-hsfo-oil-ae-cc-oil-cons',
+            'departure-biofuel-oil-ae-cc-oil-cons',
+            'departure-vlsfo-oil-ae-cc-oil-cons',
+            'departure-lsmgo-oil-ae-cc-oil-cons'
         ],
 
         'arrivalreport': [
@@ -1028,16 +1102,17 @@ function exportToExcel(reportId) {
             'arrival-bad-weather-details-sea-state-continuous',
             'arrival-wind-force-dir-for-every-six-hours-12-18-sea-ds',
             'arrival-wind-force-dir-for-every-six-hours-18-00-sea-ds',
+            'arrival-wind-force-dir-for-every-six-hours-00-06-sea-ds',
             'arrival-wind-force-dir-for-every-six-hours-06-12-sea-ds',
             'arrival-rob-details-tank-13-date-time',
             'arrival-hsfo-total-cons',
             'arrival-biofuel-total-cons',
             'arrival-vlsfo-total-cons',
             'arrival-lsmgo-total-cons',
-            'arrival-hsfo-oil-ae-oil-cons',
-            'arrival-biofuel-oil-ae-oil-cons',
-            'arrival-vlsfo-oil-ae-oil-cons',
-            'arrival-lsmgo-oil-ae-oil-cons'
+            'arrival-hsfo-oil-ae-cc-oil-cons',
+            'arrival-biofuel-oil-ae-cc-oil-cons',
+            'arrival-vlsfo-oil-ae-cc-oil-cons',
+            'arrival-lsmgo-oil-ae-cc-oil-cons'
         ],
 
         'bunkering': [
@@ -1049,8 +1124,8 @@ function exportToExcel(reportId) {
 
         'allfast': [
             // All Fast Section Title
-            'all-fast-voyage-details-gmt-offset',
-            'all-fast-rob-lsmgo'
+            'allfast-voyage-details-port',
+            'allfast-rob-lsmgo'
         ]
     };
 
@@ -1077,8 +1152,8 @@ function exportToExcel(reportId) {
 
     // Set column widths
     const wscols = [
-        { wch: 35 }, // Field column width
-        { wch: 25 }  // Value column width
+        { wch: 40 }, // Field column width
+        { wch: 30 }  // Value column width
     ];
     worksheet['!cols'] = wscols;
 
@@ -1110,6 +1185,11 @@ function exportToExcel(reportId) {
 
     // Clear saved local storage
     localStorage.clear();
+
+    disabledFields.forEach((field) => {
+        field.disabled = true;
+    });
+
 }
 
 
@@ -1230,10 +1310,10 @@ function addRowAllFast() {
     const tableBodyAllFast = document.getElementById('allFastRobTableBody');
     const newRowAllFast = document.createElement('tr');
     newRowAllFast.innerHTML = `
-        <td><input class="validate" type="text" name="all-fast-rob-hsfo" required></td>
-        <td><input class="validate" type="text" name="all-fast-rob-biofuel" required></td>
-        <td><input class="validate" type="text" name="all-fast-rob-vlsfo" required></td>
-        <td><input class="validate" type="text" name="all-fast-rob-lsmgo" required></td>
+        <td><input class="validate" type="text" name="allfast-rob-hsfo" required></td>
+        <td><input class="validate" type="text" name="allfast-rob-biofuel" required></td>
+        <td><input class="validate" type="text" name="allfast-rob-vlsfo" required></td>
+        <td><input class="validate" type="text" name="allfast-rob-lsmgo" required></td>
         <td><button type="button" class="remove-button" onclick="removeRow(this)">Remove</button></td>
     `;
     tableBodyAllFast.appendChild(newRowAllFast);
@@ -1260,8 +1340,8 @@ function addRowRobDetail(button) {
         newRowRobDetail.innerHTML = `
             <td id="noon-rob-details-tank-${newTankNumber}-number" name="noon-rob-details-tank-${newTankNumber}-number">${newTankNumber}</td>
             <td><input type="text" id="noon-rob-details-tank-${newTankNumber}-description" name="noon-rob-details-tank-${newTankNumber}-description" placeholder="Enter tank name here"></td>
-            <td>
-                <select id="noon-rob-details-tank-${newTankNumber}-fuel-grade" name="noon-rob-details-tank-${newTankNumber}-fuel-grade">
+            <td class="fuel-grade-select-cell">
+                <select class="fuel-grade-select" id="noon-rob-details-tank-${newTankNumber}-fuel-grade" name="noon-rob-details-tank-${newTankNumber}-fuel-grade">
                     <option value="-1">Select</option>
                     <option value="hsfo">HSFO</option>
                     <option value="biofuel">BIO FUEL</option>
@@ -1270,15 +1350,15 @@ function addRowRobDetail(button) {
                 </select>
             </td>
             <td><input class="validate" type="text" id="noon-rob-details-tank-${newTankNumber}-capacity" name="noon-rob-details-tank-${newTankNumber}-capacity" placeholder="Enter tank capacity"></td>
-            <td>
-                <select id="noon-rob-details-tank-${newTankNumber}-unit" name="noon-rob-details-tank-${newTankNumber}-unit">
+            <td class="unit-select-cell">
+                <select class="unit-select" id="noon-rob-details-tank-${newTankNumber}-unit" name="noon-rob-details-tank-${newTankNumber}-unit">
                     <option value="MT">MT</option>
                     <option value="liters">L</option>
                     <option value="gallons">GAL</option>
                 </select>
             </td>
             <td><input class="validate" type="text" id="noon-rob-details-tank-${newTankNumber}-rob" name="noon-rob-details-tank-${newTankNumber}-rob"></td>
-            <td><input type="datetime-local" id="noon-rob-details-tank-${newTankNumber}-date-time" name="noon-rob-details-tank-${newTankNumber}-date-time"></td>
+            <td><input class="supply-date-cell" type="datetime-local" id="noon-rob-details-tank-${newTankNumber}-date-time" name="noon-rob-details-tank-${newTankNumber}-date-time"></td>
             <td><button type="button" class="remove-button" onclick="removeRow(this)">Remove</button></td>
         `;
 
@@ -1364,7 +1444,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Dynamic form
 function handleReportTypeChange(reportSection) {
 
-    if (reportSection === 'at-sea') {
+    if (reportSection === 'At Sea') {
         document.querySelectorAll('.in-port-section').forEach(function(element) {
             element.style.display = 'none';
          });
@@ -1374,7 +1454,7 @@ function handleReportTypeChange(reportSection) {
          document.querySelectorAll('.at-sea-section-fieldset').forEach(function(element) {
             element.style.display = 'block';
          });
-    } else if (reportSection === 'in-port') {
+    } else if (reportSection === 'In Port') {
         document.querySelectorAll('.at-sea-section').forEach(function(element) {
             element.style.display = 'none';
          });
@@ -1384,7 +1464,7 @@ function handleReportTypeChange(reportSection) {
          document.querySelectorAll('.in-port-section').forEach(function(element) {
             element.style.display = 'flex';
          });
-    } else if (reportSection === 'at-anchorage') {
+    } else if (reportSection === 'At Anchorage') {
         document.querySelectorAll('.in-port-section').forEach(function(element) {
             element.style.display = 'none';
          });
@@ -1455,3 +1535,613 @@ function setupPortSearch(inputId, resultsId) {
         }
     });
 }
+
+function validateAndFormatLatLong(field, type) {
+    const value = field.value.trim();
+    let latLongPattern;
+    
+    if (type === 'latitude') {
+        latLongPattern = /^(\d{1,2})\s+(\d{1,2})\s+(\d{1,2})\s+([NS])$/i;
+    } else if (type === 'longitude') {
+        latLongPattern = /^(\d{1,3})\s+(\d{1,2})\s+(\d{1,2})\s+([EW])$/i;
+    }
+
+    const match = value.match(latLongPattern);
+
+    if (match) {
+        const degrees = match[1];
+        const minutes = match[2];
+        const seconds = match[3];
+        const direction = match[4].toUpperCase();
+
+        // Ensure valid ranges
+        const maxDegrees = type === 'latitude' ? 90 : 180;
+        if (parseInt(degrees) > maxDegrees || parseInt(minutes) >= 60 || parseInt(seconds) >= 60) {
+            field.value = '';
+            return;
+        }
+
+        // Format the value
+        field.value = `${degrees}° ${minutes}' ${seconds}'' ${direction}`;
+    } else {
+        field.value = ''; // Clear the field if the format is invalid
+    }
+}
+
+// ROB Fuels Auto Computed fields
+document.addEventListener('DOMContentLoaded', function() {
+    const fields = [
+        // HSFO Fields
+        {
+            propulsion: 'noon-hsfo-me-propulsion',
+            aeCons: 'noon-hsfo-ae-cons',
+            boilerCons: 'noon-hsfo-boiler-cons',
+            incinerators: 'noon-hsfo-incinerators',
+            totalCons: 'noon-hsfo-total-cons'
+        },
+        {
+            propulsion: 'departure-hsfo-me-propulsion',
+            aeCons: 'departure-hsfo-ae-cons',
+            boilerCons: 'departure-hsfo-boiler-cons',
+            incinerators: 'departure-hsfo-incinerators',
+            totalCons: 'departure-hsfo-total-cons'
+        },
+        {
+            propulsion: 'arrival-hsfo-me-propulsion',
+            aeCons: 'arrival-hsfo-ae-cons',
+            boilerCons: 'arrival-hsfo-boiler-cons',
+            incinerators: 'arrival-hsfo-incinerators',
+            totalCons: 'arrival-hsfo-total-cons'
+        },
+        // Biofuel Fields
+        {
+            propulsion: 'noon-biofuel-me-propulsion',
+            aeCons: 'noon-biofuel-ae-cons',
+            boilerCons: 'noon-biofuel-boiler-cons',
+            incinerators: 'noon-biofuel-incinerators',
+            totalCons: 'noon-biofuel-total-cons'
+        },
+        {
+            propulsion: 'departure-biofuel-me-propulsion',
+            aeCons: 'departure-biofuel-ae-cons',
+            boilerCons: 'departure-biofuel-boiler-cons',
+            incinerators: 'departure-biofuel-incinerators',
+            totalCons: 'departure-biofuel-total-cons'
+        },
+        {
+            propulsion: 'arrival-biofuel-me-propulsion',
+            aeCons: 'arrival-biofuel-ae-cons',
+            boilerCons: 'arrival-biofuel-boiler-cons',
+            incinerators: 'arrival-biofuel-incinerators',
+            totalCons: 'arrival-biofuel-total-cons'
+        },
+        // VLSFO Fields
+        {
+            propulsion: 'noon-vlsfo-me-propulsion',
+            aeCons: 'noon-vlsfo-ae-cons',
+            boilerCons: 'noon-vlsfo-boiler-cons',
+            incinerators: 'noon-vlsfo-incinerators',
+            totalCons: 'noon-vlsfo-total-cons'
+        },
+        {
+            propulsion: 'departure-vlsfo-me-propulsion',
+            aeCons: 'departure-vlsfo-ae-cons',
+            boilerCons: 'departure-vlsfo-boiler-cons',
+            incinerators: 'departure-vlsfo-incinerators',
+            totalCons: 'departure-vlsfo-total-cons'
+        },
+        {
+            propulsion: 'arrival-vlsfo-me-propulsion',
+            aeCons: 'arrival-vlsfo-ae-cons',
+            boilerCons: 'arrival-vlsfo-boiler-cons',
+            incinerators: 'arrival-vlsfo-incinerators',
+            totalCons: 'arrival-vlsfo-total-cons'
+        },
+        // LSMGO Fields
+        {
+            propulsion: 'noon-lsmgo-me-propulsion',
+            aeCons: 'noon-lsmgo-ae-cons',
+            boilerCons: 'noon-lsmgo-boiler-cons',
+            incinerators: 'noon-lsmgo-incinerators',
+            totalCons: 'noon-lsmgo-total-cons'
+        },
+        {
+            propulsion: 'departure-lsmgo-me-propulsion',
+            aeCons: 'departure-lsmgo-ae-cons',
+            boilerCons: 'departure-lsmgo-boiler-cons',
+            incinerators: 'departure-lsmgo-incinerators',
+            totalCons: 'departure-lsmgo-total-cons'
+        },
+        {
+            propulsion: 'arrival-lsmgo-me-propulsion',
+            aeCons: 'arrival-lsmgo-ae-cons',
+            boilerCons: 'arrival-lsmgo-boiler-cons',
+            incinerators: 'arrival-lsmgo-incinerators',
+            totalCons: 'arrival-lsmgo-total-cons'
+        }
+    ];
+
+    function formatValue(value) {
+        return value === 0 ? '' : value.toString();
+    }
+
+    function calculateTotalCons(fieldSet) {
+        const propulsionField = document.getElementById(fieldSet.propulsion);
+        const aeConsField = document.getElementById(fieldSet.aeCons);
+        const boilerConsField = document.getElementById(fieldSet.boilerCons);
+        const incineratorsField = document.getElementById(fieldSet.incinerators);
+        const totalConsField = document.getElementById(fieldSet.totalCons);
+
+        const propulsion = parseFloat(propulsionField.value) || 0;
+        const aeCons = parseFloat(aeConsField.value) || 0;
+        const boilerCons = parseFloat(boilerConsField.value) || 0;
+        const incinerators = parseFloat(incineratorsField.value) || 0;
+
+        const total = propulsion + aeCons + boilerCons + incinerators;
+        const totalFormat = total.toFixed(3);
+
+        // Update each field with the value as typed by the user
+        propulsionField.value = formatValue(propulsionField.value);
+        aeConsField.value = formatValue(aeConsField.value);
+        boilerConsField.value = formatValue(boilerConsField.value);
+        incineratorsField.value = formatValue(incineratorsField.value);
+        totalConsField.value = formatValue(totalFormat)
+    }
+
+    fields.forEach(fieldSet => {
+        document.getElementById(fieldSet.propulsion).addEventListener('input', () => calculateTotalCons(fieldSet));
+        document.getElementById(fieldSet.aeCons).addEventListener('input', () => calculateTotalCons(fieldSet));
+        document.getElementById(fieldSet.boilerCons).addEventListener('input', () => calculateTotalCons(fieldSet));
+        document.getElementById(fieldSet.incinerators).addEventListener('input', () => calculateTotalCons(fieldSet));
+
+        // Initial calculation in case fields are pre-filled
+        calculateTotalCons(fieldSet);
+    });
+
+    function calculateNoonAverageWindForce() {
+        const fields = [
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-12-18-wind-force').value) || 0,
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-18-00-wind-force').value) || 0,
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-00-06-wind-force').value) || 0,
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-06-12-wind-force').value) || 0
+        ];
+    
+        const populatedFields = fields.filter(value => value !== 0);
+        const sum = populatedFields.reduce((acc, value) => acc + value, 0);
+        const average = sum / populatedFields.length;
+    
+        document.getElementById('noon-average-weather-wind-force').value = average.toFixed(2);
+    }    
+
+    function calculateNoonAverageSeaDS() {
+        const fields = [
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-12-18-sea-ds').value) || 0,
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-18-00-sea-ds').value) || 0,
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-00-06-sea-ds').value) || 0,
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-06-12-sea-ds').value) || 0
+        ];
+    
+        const populatedFields = fields.filter(value => value !== 0);
+        const sum = populatedFields.reduce((acc, value) => acc + value, 0);
+        const average = sum / populatedFields.length;
+    
+        document.getElementById('noon-average-weather-sea-ds').value = average.toFixed(2);
+    }
+    
+    
+    function calculateNoonAverageSwellHeight() {
+        const fields = [
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-12-18-swell-height').value) || 0,
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-18-00-swell-height').value) || 0,
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-00-06-swell-height').value) || 0,
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-06-12-swell-height').value) || 0
+        ];
+    
+        const populatedFields = fields.filter(value => value !== 0);
+        const sum = populatedFields.reduce((acc, value) => acc + value, 0);
+        const average = sum / populatedFields.length;
+    
+        document.getElementById('noon-average-weather-swell-height').value = average.toFixed(2);
+    }
+
+    function calculateNoonAverageWindSeaHeight() {
+        const fields = [
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-12-18-wind-sea-height').value) || 0,
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-18-00-wind-sea-height').value) || 0,
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-00-06-wind-sea-height').value) || 0,
+            parseFloat(document.getElementById('noon-wind-force-dir-for-every-six-hours-06-12-wind-sea-height').value) || 0
+        ];
+    
+        const populatedFields = fields.filter(value => value !== 0);
+        const sum = populatedFields.reduce((acc, value) => acc + value, 0);
+        const average = sum / populatedFields.length;
+    
+        document.getElementById('noon-average-weather-wind-sea-height').value = average.toFixed(2);
+    }
+
+    // Attach event listeners for noon wind force calculation
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-12-18-wind-force').addEventListener('input', calculateNoonAverageWindForce);
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-18-00-wind-force').addEventListener('input', calculateNoonAverageWindForce);
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-00-06-wind-force').addEventListener('input', calculateNoonAverageWindForce);
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-06-12-wind-force').addEventListener('input', calculateNoonAverageWindForce);
+
+    // Attach event listeners for noon sea DS calculation
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-12-18-sea-ds').addEventListener('input', calculateNoonAverageSeaDS);
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-18-00-sea-ds').addEventListener('input', calculateNoonAverageSeaDS);
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-00-06-sea-ds').addEventListener('input', calculateNoonAverageSeaDS);
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-06-12-sea-ds').addEventListener('input', calculateNoonAverageSeaDS);
+
+    // Attach event listeners for noon swell height calculation
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-12-18-swell-height').addEventListener('input', calculateNoonAverageSwellHeight);
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-18-00-swell-height').addEventListener('input', calculateNoonAverageSwellHeight);
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-00-06-swell-height').addEventListener('input', calculateNoonAverageSwellHeight);
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-06-12-swell-height').addEventListener('input', calculateNoonAverageSwellHeight);
+
+    // Attach event listeners for noon wind sea height calculation
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-12-18-wind-sea-height').addEventListener('input', calculateNoonAverageWindSeaHeight);
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-18-00-wind-sea-height').addEventListener('input', calculateNoonAverageWindSeaHeight);
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-00-06-wind-sea-height').addEventListener('input', calculateNoonAverageWindSeaHeight);
+    document.getElementById('noon-wind-force-dir-for-every-six-hours-06-12-wind-sea-height').addEventListener('input', calculateNoonAverageWindSeaHeight);
+});
+
+function formatFieldToThreeDecimalPlaces(fieldId) {
+    const field = document.getElementById(fieldId);
+    
+    // Function to format the value
+    function formatValue() {
+        let value = parseFloat(field.value);
+        if (!isNaN(value) && value !== 0) {
+            // Round to three decimal places and ensure the format
+            field.value = value.toFixed(3);
+        } else {
+            field.value = ''; // Do not display anything if the field is empty
+        }
+    }
+
+    // Trigger formatting when the user stops typing (debounce effect)
+    let typingTimer;
+    const typingDelay = 500; // Adjust the delay as needed
+
+    field.addEventListener('input', function() {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(formatValue, typingDelay);
+    });
+
+    // Also trigger formatting when the user leaves the field
+    field.addEventListener('blur', formatValue);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // List of field IDs
+    const fieldIds = [
+
+        // HSFO Fields Noon
+        'noon-hsfo-previous',
+        'noon-hsfo-current',
+        'noon-hsfo-me-propulsion',
+        'noon-hsfo-ae-cons',
+        'noon-hsfo-boiler-cons',
+        'noon-hsfo-incinerators',
+        'noon-hsfo-me-24',
+        'noon-hsfo-ae-24',
+        'noon-hsfo-total-cons',
+
+        // HSFO Fields Departure
+        'departure-hsfo-previous',
+        'departure-hsfo-current',
+        'departure-hsfo-me-propulsion',
+        'departure-hsfo-ae-cons',
+        'departure-hsfo-boiler-cons',
+        'departure-hsfo-incinerators',
+        'departure-hsfo-me-24',
+        'departure-hsfo-ae-24',
+        'departure-hsfo-total-cons',
+
+        // HSFO Fields Arrival
+        'arrival-hsfo-previous',
+        'arrival-hsfo-current',
+        'arrival-hsfo-me-propulsion',
+        'arrival-hsfo-ae-cons',
+        'arrival-hsfo-boiler-cons',
+        'arrival-hsfo-incinerators',
+        'arrival-hsfo-me-24',
+        'arrival-hsfo-ae-24',
+        'arrival-hsfo-total-cons',
+
+        // BIOFUEL Field Noon
+        'noon-biofuel-previous',
+        'noon-biofuel-current',
+        'noon-biofuel-me-propulsion',
+        'noon-biofuel-ae-cons',
+        'noon-biofuel-boiler-cons',
+        'noon-biofuel-incinerators',
+        'noon-biofuel-me-24',
+        'noon-biofuel-ae-24',
+        'noon-biofuel-total-cons',
+
+        // BIOFUEL Field Departure
+        'departure-biofuel-previous',
+        'departure-biofuel-current',
+        'departure-biofuel-me-propulsion',
+        'departure-biofuel-ae-cons',
+        'departure-biofuel-boiler-cons',
+        'departure-biofuel-incinerators',
+        'departure-biofuel-me-24',
+        'departure-biofuel-ae-24',
+        'departure-biofuel-total-cons',
+
+        // BIOFUEL Field Arrival
+        'arrival-biofuel-previous',
+        'arrival-biofuel-current',
+        'arrival-biofuel-me-propulsion',
+        'arrival-biofuel-ae-cons',
+        'arrival-biofuel-boiler-cons',
+        'arrival-biofuel-incinerators',
+        'arrival-biofuel-me-24',
+        'arrival-biofuel-ae-24',
+        'arrival-biofuel-total-cons',
+
+        // VLSFO Field Noon
+        'noon-vlsfo-previous',
+        'noon-vlsfo-current',
+        'noon-vlsfo-me-propulsion',
+        'noon-vlsfo-ae-cons',
+        'noon-vlsfo-boiler-cons',
+        'noon-vlsfo-incinerators',
+        'noon-vlsfo-me-24',
+        'noon-vlsfo-ae-24',
+        'noon-vlsfo-total-cons',
+
+        // VLSFO Field Departure
+        'departure-vlsfo-previous',
+        'departure-vlsfo-current',
+        'departure-vlsfo-me-propulsion',
+        'departure-vlsfo-ae-cons',
+        'departure-vlsfo-boiler-cons',
+        'departure-vlsfo-incinerators',
+        'departure-vlsfo-me-24',
+        'departure-vlsfo-ae-24',
+        'departure-vlsfo-total-cons',
+
+        // VLSFO Field Arrival
+        'arrival-vlsfo-previous',
+        'arrival-vlsfo-current',
+        'arrival-vlsfo-me-propulsion',
+        'arrival-vlsfo-ae-cons',
+        'arrival-vlsfo-boiler-cons',
+        'arrival-vlsfo-incinerators',
+        'arrival-vlsfo-me-24',
+        'arrival-vlsfo-ae-24',
+        'arrival-vlsfo-total-cons',
+
+        // LSMGO Fields Noon
+        'noon-lsmgo-previous',
+        'noon-lsmgo-current',
+        'noon-lsmgo-me-propulsion',
+        'noon-lsmgo-ae-cons',
+        'noon-lsmgo-boiler-cons',
+        'noon-lsmgo-incinerators',
+        'noon-lsmgo-me-24',
+        'noon-lsmgo-ae-24',
+        'noon-lsmgo-total-cons',
+
+        // LSMGO Fields Departure
+        'departure-lsmgo-previous',
+        'departure-lsmgo-current',
+        'departure-lsmgo-me-propulsion',
+        'departure-lsmgo-ae-cons',
+        'departure-lsmgo-boiler-cons',
+        'departure-lsmgo-incinerators',
+        'departure-lsmgo-me-24',
+        'departure-lsmgo-ae-24',
+        'departure-lsmgo-total-cons',
+
+        // LSMGO Fields Arrival
+        'arrival-lsmgo-previous',
+        'arrival-lsmgo-current',
+        'arrival-lsmgo-me-propulsion',
+        'arrival-lsmgo-ae-cons',
+        'arrival-lsmgo-boiler-cons',
+        'arrival-lsmgo-incinerators',
+        'arrival-lsmgo-me-24',
+        'arrival-lsmgo-ae-24',
+        'arrival-lsmgo-total-cons',
+    ];
+
+    // Apply formatting to each field
+    fieldIds.forEach(formatFieldToThreeDecimalPlaces);
+});
+
+
+function updateTotalConsField(fieldId, value) {
+    const field = document.getElementById(fieldId);
+    field.value = formatValueToThreeDecimalPlaces(value); // Updates the field with formatted value
+}
+
+function calculateTotalCons(fields, totalConsFieldId) {
+    let sum = 0;
+    fields.forEach(fieldId => {
+        const fieldValue = parseFloat(document.getElementById(fieldId).value) || 0;
+        sum += fieldValue;
+    });
+    updateTotalConsField(totalConsFieldId, sum); // Applies the formatting to the total-cons field
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const fieldsToWatch = [
+        // HSFO Fields
+        {
+            fields: ['noon-hsfo-me-propulsion', 'noon-hsfo-ae-cons', 'noon-hsfo-boiler-cons', 'noon-hsfo-incinerators'],
+            totalConsFieldId: 'noon-hsfo-total-cons'
+        },
+        {
+            fields: ['departure-hsfo-me-propulsion', 'departure-hsfo-ae-cons', 'departure-hsfo-boiler-cons', 'departure-hsfo-incinerators'],
+            totalConsFieldId: 'departure-hsfo-total-cons'
+        },
+        {
+            fields: ['arrival-hsfo-me-propulsion', 'arrival-hsfo-ae-cons', 'arrival-hsfo-boiler-cons', 'arrival-hsfo-incinerators'],
+            totalConsFieldId: 'arrival-hsfo-total-cons'
+        },
+        // Biofuel Fields
+        {
+            fields: ['noon-biofuel-me-propulsion', 'noon-biofuel-ae-cons', 'noon-biofuel-boiler-cons', 'noon-biofuel-incinerators'],
+            totalConsFieldId: 'noon-biofuel-total-cons'
+        },
+        {
+            fields: ['departure-biofuel-me-propulsion', 'departure-biofuel-ae-cons', 'departure-biofuel-boiler-cons', 'departure-biofuel-incinerators'],
+            totalConsFieldId: 'departure-biofuel-total-cons'
+        },
+        {
+            fields: ['arrival-biofuel-me-propulsion', 'arrival-biofuel-ae-cons', 'arrival-biofuel-boiler-cons', 'arrival-biofuel-incinerators'],
+            totalConsFieldId: 'arrival-biofuel-total-cons'
+        },
+        // VLSFO Fields
+        {
+            fields: ['noon-vlsfo-me-propulsion', 'noon-vlsfo-ae-cons', 'noon-vlsfo-boiler-cons', 'noon-vlsfo-incinerators'],
+            totalConsFieldId: 'noon-vlsfo-total-cons'
+        },
+        {
+            fields: ['departure-vlsfo-me-propulsion', 'departure-vlsfo-ae-cons', 'departure-vlsfo-boiler-cons', 'departure-vlsfo-incinerators'],
+            totalConsFieldId: 'departure-vlsfo-total-cons'
+        },
+        {
+            fields: ['arrival-vlsfo-me-propulsion', 'arrival-vlsfo-ae-cons', 'arrival-vlsfo-boiler-cons', 'arrival-vlsfo-incinerators'],
+            totalConsFieldId: 'arrival-vlsfo-total-cons'
+        },
+        // LSMGO Fields
+        {
+            fields: ['noon-lsmgo-me-propulsion', 'noon-lsmgo-ae-cons', 'noon-lsmgo-boiler-cons', 'noon-lsmgo-incinerators'],
+            totalConsFieldId: 'noon-lsmgo-total-cons'
+        },
+        {
+            fields: ['departure-lsmgo-me-propulsion', 'departure-lsmgo-ae-cons', 'departure-lsmgo-boiler-cons', 'departure-lsmgo-incinerators'],
+            totalConsFieldId: 'departure-lsmgo-total-cons'
+        },
+        {
+            fields: ['arrival-lsmgo-me-propulsion', 'arrival-lsmgo-ae-cons', 'arrival-lsmgo-boiler-cons', 'arrival-lsmgo-incinerators'],
+            totalConsFieldId: 'arrival-lsmgo-total-cons'
+        }
+    ];
+
+    fieldsToWatch.forEach(fieldSet => {
+        fieldSet.fields.forEach(fieldId => {
+            document.getElementById(fieldId).addEventListener('input', function() {
+                calculateTotalCons(fieldSet.fields, fieldSet.totalConsFieldId);
+            });
+        });
+        // Initial calculation to ensure correct values on page load
+        calculateTotalCons(fieldSet.fields, fieldSet.totalConsFieldId);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    function updateROBValues() {
+        const fuelTypes = {
+            'hsfo': 0,
+            'biofuel': 0,
+            'vlsfo': 0,
+            'lsmgo': 0
+        };
+
+        // Iterate through each row of the ROB details table
+        document.querySelectorAll('#robDetailsTableBody tr').forEach(row => {
+            const fuelGradeElement = row.querySelector('.fuel-grade-select');
+            const robValueElement = row.querySelector('[id^="noon-rob-details-tank-"][id$="-rob"]');
+
+            if (fuelGradeElement && robValueElement) {
+                const fuelGrade = fuelGradeElement.value.toLowerCase();
+                const robValue = parseFloat(robValueElement.value) || 0;
+
+                if (fuelTypes.hasOwnProperty(fuelGrade)) {
+                    fuelTypes[fuelGrade] += robValue;
+                }
+            }
+        });
+
+        // Update the corresponding noon-current fields
+        document.getElementById('noon-hsfo-current').value = fuelTypes['hsfo'].toFixed(3);
+        document.getElementById('noon-biofuel-current').value = fuelTypes['biofuel'].toFixed(3);
+        document.getElementById('noon-vlsfo-current').value = fuelTypes['vlsfo'].toFixed(3);
+        document.getElementById('noon-lsmgo-current').value = fuelTypes['lsmgo'].toFixed(3);
+    }
+
+    // Event delegation: Attach the event listeners to the table body
+    document.getElementById('robDetailsTableBody').addEventListener('input', function(event) {
+        if (event.target.matches('.fuel-grade-select') || event.target.matches('[id^="noon-rob-details-tank-"][id$="-rob"]')) {
+            updateROBValues();
+        }
+    });
+
+    // Add event listener for when a new row is added
+    document.getElementById('add-rob-row-button').addEventListener('click', function() {
+        // We don't need to reattach event listeners with delegation; the new row will be handled automatically
+        updateROBValues(); // Ensure the initial sum includes the new row
+    });
+
+    // Initial calculation on page load
+    updateROBValues();
+});
+
+function formatFieldToTwoDecimalPlaces(fieldId) {
+    const field = document.getElementById(fieldId);
+    
+    // Function to format the value
+    function formatValue() {
+        let value = parseFloat(field.value);
+            if (!isNaN(value) && value !== 0) {
+                // Round to three decimal places and ensure the format
+                field.value = value.toFixed(2);
+            } else if (field.value.trim() !== '') {
+                field.value = '0.00';
+            } else {
+                field.value = ''; // Do not display anything if the field is empty
+            }
+    }
+
+    // Trigger formatting when the user stops typing (debounce effect)
+    let typingTimer;
+    const typingDelay = 500; // Adjust the delay as needed
+
+    field.addEventListener('input', function() {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(formatValue, typingDelay);
+    });
+
+    // Also trigger formatting when the user leaves the field
+    field.addEventListener('blur', formatValue);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // List of field IDs to format to two decimal places
+    const twoDecimalFieldIds = [
+        'noon-wind-force-dir-for-every-six-hours-12-18-swell-height',
+        'noon-wind-force-dir-for-every-six-hours-18-00-swell-height',
+        'noon-wind-force-dir-for-every-six-hours-00-06-swell-height',
+        'noon-wind-force-dir-for-every-six-hours-06-12-swell-height',
+        'departure-wind-force-dir-for-every-six-hours-12-18-swell-height',
+        'departure-wind-force-dir-for-every-six-hours-18-00-swell-height',
+        'departure-wind-force-dir-for-every-six-hours-00-06-swell-height',
+        'departure-wind-force-dir-for-every-six-hours-06-12-swell-height',
+        'arrival-wind-force-dir-for-every-six-hours-12-18-swell-height',
+        'arrival-wind-force-dir-for-every-six-hours-18-00-swell-height',
+        'arrival-wind-force-dir-for-every-six-hours-00-06-swell-height',
+        'arrival-wind-force-dir-for-every-six-hours-06-12-swell-height',
+
+        //new fields
+        'noon-wind-force-dir-for-every-six-hours-12-18-wind-sea-height',
+        'noon-wind-force-dir-for-every-six-hours-18-00-wind-sea-height',
+        'noon-wind-force-dir-for-every-six-hours-00-06-wind-sea-height',
+        'noon-wind-force-dir-for-every-six-hours-06-12-wind-sea-height',
+        'departure-wind-force-dir-for-every-six-hours-12-18-wind-sea-height',
+        'departure-wind-force-dir-for-every-six-hours-18-00-wind-sea-height',
+        'departure-wind-force-dir-for-every-six-hours-00-06-wind-sea-height',
+        'departure-wind-force-dir-for-every-six-hours-06-12-wind-sea-height',
+        'arrival-wind-force-dir-for-every-six-hours-12-18-wind-sea-height',
+        'arrival-wind-force-dir-for-every-six-hours-18-00-wind-sea-height',
+        'arrival-wind-force-dir-for-every-six-hours-00-06-wind-sea-height',
+        'arrival-wind-force-dir-for-every-six-hours-06-12-wind-sea-height'
+    ];
+
+    // Apply formatting to each field
+    twoDecimalFieldIds.forEach(formatFieldToTwoDecimalPlaces);
+});

@@ -190,9 +190,14 @@ legend {
     margin-bottom: 5px;
 }
 
-#robDetailsTable, #windForceDir, #robDetailsTable input {
+#robDetailsTable input, 
+#windForceDir input, 
+#robDetailsTable input,  
+.tab-content table input
+, #allFastRobTable input {
     text-align: center !important;
 }
+
 
 .form-group input[type="text"],
 .form-group input[type="datetime-local"],
@@ -297,7 +302,7 @@ body.dark-mode input[type="datetime-local"],
 body.dark-mode input[type="date"],
 body.dark-mode select,
 body.dark-mode textarea {
-    background-color: #555;
+    background-color: #555 !important;
     color: #f4f4f4;
     border: 1px solid #666;
 }
@@ -493,7 +498,8 @@ body.dark-mode form .form-group textarea[required] {
 #departure-details-since-last-report-next-port-results,
 #departure-voyage-itinerary-port-results,
 #arrival-voyage-details-port-results,
-#bunkering-details-bunkering-port-results {
+#bunkering-details-bunkering-port-results,
+#allfast-voyage-details-port-results {
     position: absolute;
     background-color: white;
     border: 1px solid #ccc;
@@ -504,6 +510,20 @@ body.dark-mode form .form-group textarea[required] {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Highlight result item on hover */
+#noon-voyage-details-port:hover,
+#noon-voyage-itinerary-port:hover,
+#noon-details-since-last-report-next-port:hover,
+#departure-voyage-details-departure-port:hover,
+#departure-details-since-last-report-next-port:hover,
+#departure-voyage-itinerary-port:hover,
+#arrival-voyage-details-port:hover,
+#bunkering-details-bunkering-port:hover,
+#allfast-voyage-details-port:hover {
+    cursor: pointer;
+    border-color: #007bff;
+}
+
 /* Specific styles for all report results */
 #noon-voyage-details-port-results {
     width: 17%;
@@ -512,12 +532,12 @@ body.dark-mode form .form-group textarea[required] {
 
 #noon-details-since-last-report-next-port-results {
     width: 16.5%; 
-    top: 678px; 
+    top: 709px; 
 }
 
 #noon-voyage-itinerary-port-results {
     width: 16.5%; 
-    top: 1145px; 
+    top: 1171px; 
 }
 
 #departure-voyage-details-departure-port-results {
@@ -526,13 +546,13 @@ body.dark-mode form .form-group textarea[required] {
 }
 
 #departure-details-since-last-report-next-port-results {
-    width: 16.5%; 
-    top: 712px; 
+    width: 167%; 
+    top: 709px; 
 }
 
 #departure-voyage-itinerary-port-results {
-    width: 17%; 
-    top: 1062px; 
+    width: 16.5%; 
+    top: 1057px; 
 }
 
 #arrival-voyage-details-port-results {
@@ -545,6 +565,11 @@ body.dark-mode form .form-group textarea[required] {
     top: 363px; 
 }
 
+#allfast-voyage-details-port-results {
+    width: 69%; 
+    top: 422px; 
+}
+
 /* Styling for each result item */
 #noon-voyage-details-port-results .result-item,
 #noon-voyage-itinerary-port-results .result-item,
@@ -553,7 +578,8 @@ body.dark-mode form .form-group textarea[required] {
 #departure-details-since-last-report-next-port-results .result-item,
 #departure-voyage-itinerary-port-results .result-item,
 #arrival-voyage-details-port-results .result-item,
-#bunkering-details-bunkering-port-results .result-item {
+#bunkering-details-bunkering-port-results .result-item,
+#allfast-voyage-details-port-results .result-item {
     padding: 8px 12px; /* Slightly smaller padding */
     cursor: pointer;
     border-bottom: 1px solid #ddd;
@@ -568,7 +594,8 @@ body.dark-mode form .form-group textarea[required] {
 #departure-details-since-last-report-next-port-results .result-item:hover,
 #departure-voyage-itinerary-port-results .result-item:hover,
 #arrival-voyage-details-port-results .result-item:hover,
-#bunkering-details-bunkering-port-results .result-item:hover {
+#bunkering-details-bunkering-port-results .result-item:hover,
+#allfast-voyage-details-port-results .result-item:hover {
     background-color: #f1f1f1;
 }
 
@@ -580,7 +607,8 @@ body.dark-mode #departure-voyage-details-departure-port-results,
 body.dark-mode #departure-details-since-last-report-next-port-results,
 body.dark-mode #departure-voyage-itinerary-port-results,
 body.dark-mode #arrival-voyage-details-port-results,
-body.dark-mode #bunkering-details-bunkering-port-results {
+body.dark-mode #bunkering-details-bunkering-port-results,
+body.dark-mode #allfast-voyage-details-port-results {
     background-color: #444;
     color: #f4f4f4;
     border: 1px solid #666;
@@ -593,7 +621,8 @@ body.dark-mode #departure-voyage-details-departure-port-results .result-item:hov
 body.dark-mode #departure-details-since-last-report-next-port-results .result-item:hover,
 body.dark-mode #departure-voyage-itinerary-port-results .result-item:hover,
 body.dark-mode #arrival-voyage-details-port-results .result-item:hover,
-body.dark-mode #bunkering-details-bunkering-port-results .result-item:hover {
+body.dark-mode #bunkering-details-bunkering-port-results .result-item:hover
+body.dark-mode #allfast-voyage-details-port-results .result-item:hover {
     background-color: #555;
 }
 
@@ -605,7 +634,211 @@ body.dark-mode #bunkering-details-bunkering-port-results .result-item:hover {
 #departure-details-since-last-report-next-port:focus,
 #departure-voyage-itinerary-port:focus,
 #arrival-voyage-details-port:focus,
-#bunkering-details-bunkering-port:focus {
+#bunkering-details-bunkering-port:focus,
+#allfast-voyage-details-port:focus {
     border-color: #007BFF;
     outline: none;
 }
+
+input:disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed; 
+}
+
+/* General styling for select elements inside the table */
+table select.oil-grade-select,
+select.fuel-grade-select,
+select.unit-select,
+select.wind-force-select,
+select.wind-direction-select,
+select.swell-direction-select,
+select.sea-direction-select,
+select.sea-ds-select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 30px;
+    padding: 6px 10px 6px 10px;
+    font-size: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hover and focus effects for all select elements */
+table select.oil-grade-select:hover,
+select.fuel-grade-select:hover, 
+select.unit-select:hover,
+select.wind-force-select:hover,
+select.wind-direction-select:hover, 
+select.swell-direction-select:hover, 
+select.sea-direction-select:hover,
+select.sea-ds-select:hover {
+    border-color: #007bff;
+}
+
+table select.oil-grade-select:focus,
+select.fuel-grade-select:focus,
+select.unit-select:focus,
+select.wind-force-select:focus,
+select.wind-direction-select:focus, 
+select.swell-direction-select:focus, 
+select.sea-direction-select:focus,
+select.sea-ds-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Custom arrow for all select elements */
+table td.oil-grade-select-cell,
+table td.fuel-grade-select-cell,
+table td.unit-select-cell,
+table td.wind-force-select-cell,
+table td.wind-direction-select-cell,
+table td.swell-direction-select-cell,
+table td.sea-direction-select-cell,
+table td.sea-ds-select-cell {
+    position: relative;
+}
+
+table td.oil-grade-select-cell::after,
+td.fuel-grade-select-cell::after,
+td.unit-select-cell::after,
+td.wind-force-select-cell::after,
+td.wind-direction-select-cell::after,
+td.swell-direction-select-cell::after,
+td.sea-direction-select-cell::after,
+td.sea-ds-select-cell::after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #007bff;
+    font-size: 12px;
+}
+
+/* Width adjustments for select-cell classes */
+table td.oil-grade-select-cell {
+    width: 9%;
+}
+
+table td.fuel-grade-select-cell {
+    width: 8%;
+}
+
+table td.unit-select-cell {
+    width: 6%;
+}
+
+table td.wind-force-select-cell {
+    width: 14%; /* Wider width for wind-force-select-cell */
+}
+
+table td.wind-direction-select-cell,
+table td.swell-direction-select-cell,
+table td.sea-direction-select-cell,
+table td.sea-ds-select-cell {
+    width: 11%; /* Adjust width for other select-cell classes */
+}
+
+/* Styling the input field for supply date */
+table input.supply-date-cell {
+    width: 80%;
+    height: 18px;
+    padding: 5px 30px 5px 10px; /* Extra padding on the right for the icon */
+    font-size: 12px;
+    line-height: 1.5;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+/* Hover and focus effects for supply date input */
+table input.supply-date-cell:hover {
+    border-color: #007bff;
+}
+
+table input.supply-date-cell:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Custom calendar icon for supply date input */
+table td.supply-date-cell::after {
+    content: '\1F4C5'; /* Unicode for calendar emoji or replace with a custom icon */
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #007bff;
+    font-size: 14px;
+}
+
+/* General styling for select elements */
+select.common-select{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 26px;
+    padding: 2px 30px 2px 10px;
+    font-size: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hover and focus effects for select elements */
+select.common-select:hover {
+    border-color: #007bff;
+}
+
+select.common-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+
+.common-select-container {
+    position: relative;
+}
+
+.common-select-container::after {
+    content: '\25BC';
+    position: absolute;
+    top: 70%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #007bff;
+    font-size: 12px;
+}
+
+.common-date {
+    width: 96%;
+    height: 16px;
+    background-color: #ffffff !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+}
+.common-date:hover {
+    border-color: #007bff !important;
+}
+
+.common-date:focus {
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
