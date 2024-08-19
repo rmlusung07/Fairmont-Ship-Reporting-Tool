@@ -23,11 +23,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Restore drafts for all report sections
     restoreAllDrafts();
-
-    // Handle dynamic form change
+ 
+    // Handle dynamic form change noon section
     const reportTypeSelect = document.getElementById('noon-voyage-details-report-type');
     reportTypeSelect.addEventListener('change', function() {
         handleReportTypeChange(this.value);
+    });
+
+    //Handle dynamic form change departure section
+    const departureTypeSelect = document.getElementById('departure-voyage-details-departure-type');
+    const cospLabelDeparture = document.querySelector('label[for="departure-voyage-details-date-time"]');
+
+    departureTypeSelect.addEventListener('change', function () {
+        if (this.value === 'At Berth') {
+            cospLabelDeparture.textContent = 'SBE Date/Time (LT):';
+        } else if (this.value === 'Pilot Station') {
+            cospLabelDeparture.textContent = 'COSP Date/Time (LT):';
+        }
+    });
+
+    // Handle dynamic form change arrival section
+
+    const arrivalTypeSelect = document.getElementById('arrival-voyage-details-arrival-type');
+    const cospLabeArrival = document.querySelector('label[for="arrival-voyage-details-date-time"]');
+    const berthSections = document.querySelectorAll('.berth-section');
+
+    arrivalTypeSelect.addEventListener('change', function () {
+        if (this.value === 'At Berth') {
+            berthSections.forEach(section => {
+                section.style.display = 'none';
+                cospLabeArrival.textContent = 'FWE Date/Time (LT) :';
+            });
+        } else if (this.value === 'Pilot Station') {
+            berthSections.forEach(section => {
+                section.style.display = 'block';
+                cospLabeArrival.textContent = 'EOSP Date/Time (LT) :';
+            });
+        }
     });
 
     // Add the port search functionality for Noon Report fields
@@ -413,17 +445,26 @@ function exportToExcel(reportId) {
 
             //Noon HSFO Oil
             'noon-hsfo-oil-me-cyl-oil-grade': 'ME CYL Oil Grade:',
+            'noon-hsfo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'noon-hsfo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'noon-hsfo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
             'noon-hsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            'noon-hsfo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'noon-hsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'noon-hsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'noon-hsfo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
-            'noon-hsfo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'noon-hsfo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'noon-hsfo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'noon-hsfo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
-
+            'noon-hsfo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
+            'noon-hsfo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
+            'noon-hsfo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
+            'noon-hsfo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
+            'noon-hsfo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
+            'noon-hsfo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
+            'noon-hsfo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
+            'noon-hsfo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
+            'noon-hsfo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
+            'noon-hsfo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
+            'noon-hsfo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
+            'noon-hsfo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+            
             // Noon BIOFUEL (MT)	
             'noon-biofuel-previous': 'BIOFUEL Previous:',
             'noon-biofuel-current': 'BIOFUEL Current:',
@@ -437,16 +478,25 @@ function exportToExcel(reportId) {
 
             //Noon BIOFUEL Oil
             'noon-biofuel-oil-me-cyl-oil-grade': 'ME CYL Oil Grade:',
+            'noon-biofuel-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'noon-biofuel-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'noon-biofuel-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
             'noon-biofuel-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            'noon-biofuel-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'noon-biofuel-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'noon-biofuel-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'noon-biofuel-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
-            'noon-biofuel-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'noon-biofuel-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'noon-biofuel-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'noon-biofuel-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
+            'noon-biofuel-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
+            'noon-biofuel-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
+            'noon-biofuel-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
+            'noon-biofuel-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
+            'noon-biofuel-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
+            'noon-biofuel-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
+            'noon-biofuel-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
+            'noon-biofuel-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
+            'noon-biofuel-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
+            'noon-biofuel-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
+            'noon-biofuel-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
+            'noon-biofuel-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
 
             // Noon VLSFO (MT)	
             'noon-vlsfo-previous': 'VLSFO Previous:',
@@ -461,16 +511,25 @@ function exportToExcel(reportId) {
 
             //Noon VLSFO Oil
             'noon-vlsfo-oil-me-cyl-oil-grade': 'ME CYL Oil Grade:',
+            'noon-vlsfo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'noon-vlsfo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'noon-vlsfo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
             'noon-vlsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            'noon-vlsfo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'noon-vlsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'noon-vlsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'noon-vlsfo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
-            'noon-vlsfo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'noon-vlsfo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'noon-vlsfo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'noon-vlsfo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
+            'noon-vlsfo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
+            'noon-vlsfo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
+            'noon-vlsfo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
+            'noon-vlsfo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
+            'noon-vlsfo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
+            'noon-vlsfo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
+            'noon-vlsfo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
+            'noon-vlsfo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
+            'noon-vlsfo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
+            'noon-vlsfo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
+            'noon-vlsfo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
+            'noon-vlsfo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
 
             // Noon LSMGO (MT)	
             'noon-lsmgo-previous': 'LSMGO Previous:',
@@ -485,16 +544,25 @@ function exportToExcel(reportId) {
 
             //Noon LSMGO Oil
             'noon-lsmgo-oil-me-cyl-oil-grade': 'ME CYL Oil Grade:',
+            'noon-lsmgo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'noon-lsmgo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'noon-lsmgo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
             'noon-lsmgo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            'noon-lsmgo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'noon-lsmgo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'noon-lsmgo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'noon-lsmgo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
-            'noon-lsmgo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'noon-lsmgo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'noon-lsmgo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'noon-lsmgo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
+            'noon-lsmgo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
+            'noon-lsmgo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
+            'noon-lsmgo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
+            'noon-lsmgo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
+            'noon-lsmgo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
+            'noon-lsmgo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
+            'noon-lsmgo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
+            'noon-lsmgo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
+            'noon-lsmgo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
+            'noon-lsmgo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
+            'noon-lsmgo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
+            'noon-lsmgo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
 
             // Noon Master Remarks	
             'noon-remarks': 'Remarks:',
@@ -586,7 +654,7 @@ function exportToExcel(reportId) {
             'departure-wind-force-dir-for-every-six-hours-06-12-sea-direction': 'Sea Direction (T) (06:00 - 12:00):',
             'departure-wind-force-dir-for-every-six-hours-06-12-sea-ds': 'Sea DS (06:00 - 12:00):',
 
-            // Departure HSFO (MT)
+            // Departure HSFO (MT)	
             'departure-hsfo-previous': 'HSFO Previous:',
             'departure-hsfo-current': 'HSFO Current:',
             'departure-hsfo-me-propulsion': 'HSFO ME Propulsion:',
@@ -597,20 +665,29 @@ function exportToExcel(reportId) {
             'departure-hsfo-ae-24': 'HSFO AE 24:',
             'departure-hsfo-total-cons': 'HSFO Total Cons:',
 
-            //Departure HSFO Oil
+            //  Departure HSFO Oil
             'departure-hsfo-oil-me-cyl-oil-grade': 'ME CYL Oil Grade:',
+            'departure-hsfo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'departure-hsfo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'departure-hsfo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
             'departure-hsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            'departure-hsfo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'departure-hsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'departure-hsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'departure-hsfo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
-            'departure-hsfo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'departure-hsfo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'departure-hsfo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'departure-hsfo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
-
-            // Departure BIOFUEL (MT)
+            'departure-hsfo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
+            'departure-hsfo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
+            'departure-hsfo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
+            'departure-hsfo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
+            'departure-hsfo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
+            'departure-hsfo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
+            'departure-hsfo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
+            'departure-hsfo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
+            'departure-hsfo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
+            'departure-hsfo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
+            'departure-hsfo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
+            'departure-hsfo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+            
+            // Departure BIOFUEL (MT)	
             'departure-biofuel-previous': 'BIOFUEL Previous:',
             'departure-biofuel-current': 'BIOFUEL Current:',
             'departure-biofuel-me-propulsion': 'BIOFUEL ME Propulsion:',
@@ -621,20 +698,29 @@ function exportToExcel(reportId) {
             'departure-biofuel-ae-24': 'BIOFUEL AE 24:',
             'departure-biofuel-total-cons': 'BIOFUEL Total Cons:',
 
-            //Departure BIOFUEL Oil
+            // Departure BIOFUEL Oil
             'departure-biofuel-oil-me-cyl-oil-grade': 'ME CYL Oil Grade:',
+            'departure-biofuel-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'departure-biofuel-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'departure-biofuel-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
             'departure-biofuel-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            'departure-biofuel-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'departure-biofuel-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'departure-biofuel-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'departure-biofuel-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
-            'departure-biofuel-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'departure-biofuel-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'departure-biofuel-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'departure-biofuel-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
+            'departure-biofuel-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
+            'departure-biofuel-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
+            'departure-biofuel-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
+            'departure-biofuel-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
+            'departure-biofuel-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
+            'departure-biofuel-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
+            'departure-biofuel-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
+            'departure-biofuel-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
+            'departure-biofuel-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
+            'departure-biofuel-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
+            'departure-biofuel-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
+            'departure-biofuel-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
 
-            // Departure VLSFO (MT)
+            // Departure VLSFO (MT)	
             'departure-vlsfo-previous': 'VLSFO Previous:',
             'departure-vlsfo-current': 'VLSFO Current:',
             'departure-vlsfo-me-propulsion': 'VLSFO ME Propulsion:',
@@ -645,20 +731,29 @@ function exportToExcel(reportId) {
             'departure-vlsfo-ae-24': 'VLSFO AE 24:',
             'departure-vlsfo-total-cons': 'VLSFO Total Cons:',
 
-            //Departure VLSFO Oil
+            // Departure VLSFO Oil
             'departure-vlsfo-oil-me-cyl-oil-grade': 'ME CYL Oil Grade:',
+            'departure-vlsfo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'departure-vlsfo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'departure-vlsfo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
             'departure-vlsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            'departure-vlsfo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'departure-vlsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'departure-vlsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'departure-vlsfo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
-            'departure-vlsfo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'departure-vlsfo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'departure-vlsfo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'departure-vlsfo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
+            'departure-vlsfo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
+            'departure-vlsfo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
+            'departure-vlsfo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
+            'departure-vlsfo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
+            'departure-vlsfo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
+            'departure-vlsfo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
+            'departure-vlsfo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
+            'departure-vlsfo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
+            'departure-vlsfo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
+            'departure-vlsfo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
+            'departure-vlsfo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
+            'departure-vlsfo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
 
-            // Departure LSMGO (MT)
+            // Departure LSMGO (MT)	
             'departure-lsmgo-previous': 'LSMGO Previous:',
             'departure-lsmgo-current': 'LSMGO Current:',
             'departure-lsmgo-me-propulsion': 'LSMGO ME Propulsion:',
@@ -669,18 +764,27 @@ function exportToExcel(reportId) {
             'departure-lsmgo-ae-24': 'LSMGO AE 24:',
             'departure-lsmgo-total-cons': 'LSMGO Total Cons:',
 
-            //Departure LSMGO Oil
+            // Departure LSMGO Oil
             'departure-lsmgo-oil-me-cyl-oil-grade': 'ME CYL Oil Grade:',
+            'departure-lsmgo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'departure-lsmgo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'departure-lsmgo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
             'departure-lsmgo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            'departure-lsmgo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'departure-lsmgo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'departure-lsmgo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'departure-lsmgo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
-            'departure-lsmgo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'departure-lsmgo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'departure-lsmgo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'departure-lsmgo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
+            'departure-lsmgo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
+            'departure-lsmgo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
+            'departure-lsmgo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
+            'departure-lsmgo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
+            'departure-lsmgo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
+            'departure-lsmgo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
+            'departure-lsmgo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
+            'departure-lsmgo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
+            'departure-lsmgo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
+            'departure-lsmgo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
+            'departure-lsmgo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
+            'departure-lsmgo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
 
             // Departure Master Remarks
             'departure-remarks': 'Remarks:',
@@ -765,7 +869,7 @@ function exportToExcel(reportId) {
             'arrival-wind-force-dir-for-every-six-hours-06-12-sea-direction': 'Sea Direction (T) (06:00 - 12:00):',
             'arrival-wind-force-dir-for-every-six-hours-06-12-sea-ds': 'Sea DS (06:00 - 12:00):',
 
-            // Arrival HSFO (MT)
+            // Arrival HSFO (MT)	
             'arrival-hsfo-previous': 'HSFO Previous:',
             'arrival-hsfo-current': 'HSFO Current:',
             'arrival-hsfo-me-propulsion': 'HSFO ME Propulsion:',
@@ -776,20 +880,29 @@ function exportToExcel(reportId) {
             'arrival-hsfo-ae-24': 'HSFO AE 24:',
             'arrival-hsfo-total-cons': 'HSFO Total Cons:',
 
-            //Arrival HSFO Oil
+            // Arrival HSFO Oil
             'arrival-hsfo-oil-me-cyl-oil-grade': 'ME CYL Oil Grade:',
+            'arrival-hsfo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'arrival-hsfo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'arrival-hsfo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
             'arrival-hsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            'arrival-hsfo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'arrival-hsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'arrival-hsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'arrival-hsfo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
-            'arrival-hsfo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'arrival-hsfo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'arrival-hsfo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'arrival-hsfo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
-
-            // Arrival BIOFUEL (MT)
+            'arrival-hsfo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
+            'arrival-hsfo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
+            'arrival-hsfo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
+            'arrival-hsfo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
+            'arrival-hsfo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
+            'arrival-hsfo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
+            'arrival-hsfo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
+            'arrival-hsfo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
+            'arrival-hsfo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
+            'arrival-hsfo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
+            'arrival-hsfo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
+            'arrival-hsfo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+            
+            // Arrival BIOFUEL (MT)	
             'arrival-biofuel-previous': 'BIOFUEL Previous:',
             'arrival-biofuel-current': 'BIOFUEL Current:',
             'arrival-biofuel-me-propulsion': 'BIOFUEL ME Propulsion:',
@@ -800,20 +913,29 @@ function exportToExcel(reportId) {
             'arrival-biofuel-ae-24': 'BIOFUEL AE 24:',
             'arrival-biofuel-total-cons': 'BIOFUEL Total Cons:',
 
-            //Arrival BIOFUEL Oil
+            // Arrival BIOFUEL Oil
             'arrival-biofuel-oil-me-cyl-oil-grade': 'ME CYL Oil Grade:',
+            'arrival-biofuel-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'arrival-biofuel-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'arrival-biofuel-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
             'arrival-biofuel-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            'arrival-biofuel-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'arrival-biofuel-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'arrival-biofuel-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'arrival-biofuel-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
-            'arrival-biofuel-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'arrival-biofuel-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'arrival-biofuel-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'arrival-biofuel-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
+            'arrival-biofuel-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
+            'arrival-biofuel-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
+            'arrival-biofuel-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
+            'arrival-biofuel-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
+            'arrival-biofuel-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
+            'arrival-biofuel-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
+            'arrival-biofuel-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
+            'arrival-biofuel-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
+            'arrival-biofuel-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
+            'arrival-biofuel-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
+            'arrival-biofuel-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
+            'arrival-biofuel-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
 
-            // Arrival VLSFO (MT)
+            // Arrival VLSFO (MT)	
             'arrival-vlsfo-previous': 'VLSFO Previous:',
             'arrival-vlsfo-current': 'VLSFO Current:',
             'arrival-vlsfo-me-propulsion': 'VLSFO ME Propulsion:',
@@ -824,20 +946,29 @@ function exportToExcel(reportId) {
             'arrival-vlsfo-ae-24': 'VLSFO AE 24:',
             'arrival-vlsfo-total-cons': 'VLSFO Total Cons:',
 
-            //Arrival VLSFO Oil
+            // Arrival VLSFO Oil
             'arrival-vlsfo-oil-me-cyl-oil-grade': 'ME CYL Oil Grade:',
+            'arrival-vlsfo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'arrival-vlsfo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'arrival-vlsfo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
             'arrival-vlsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            'arrival-vlsfo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'arrival-vlsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'arrival-vlsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'arrival-vlsfo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
-            'arrival-vlsfo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'arrival-vlsfo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'arrival-vlsfo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'arrival-vlsfo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
+            'arrival-vlsfo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
+            'arrival-vlsfo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
+            'arrival-vlsfo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
+            'arrival-vlsfo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
+            'arrival-vlsfo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
+            'arrival-vlsfo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
+            'arrival-vlsfo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
+            'arrival-vlsfo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
+            'arrival-vlsfo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
+            'arrival-vlsfo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
+            'arrival-vlsfo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
+            'arrival-vlsfo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
 
-            // Arrival LSMGO (MT)
+            // Arrival LSMGO (MT)	
             'arrival-lsmgo-previous': 'LSMGO Previous:',
             'arrival-lsmgo-current': 'LSMGO Current:',
             'arrival-lsmgo-me-propulsion': 'LSMGO ME Propulsion:',
@@ -847,19 +978,28 @@ function exportToExcel(reportId) {
             'arrival-lsmgo-me-24': 'LSMGO ME 24:',
             'arrival-lsmgo-ae-24': 'LSMGO AE 24:',
             'arrival-lsmgo-total-cons': 'LSMGO Total Cons:',
-            
-            //Arrival LSMGO Oil
+
+            // Arrival LSMGO Oil
             'arrival-lsmgo-oil-me-cyl-oil-grade': 'ME CYL Oil Grade:',
+            'arrival-lsmgo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'arrival-lsmgo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'arrival-lsmgo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
             'arrival-lsmgo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            'arrival-lsmgo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'arrival-lsmgo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'arrival-lsmgo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'arrival-lsmgo-oil-ae-cc-oil-grade': 'AE CC Oil Grade:',
-            'arrival-lsmgo-oil-ae-cc-total-runn-hrs-ae1': 'AE1 Total Running Hours:',
-            'arrival-lsmgo-oil-ae-cc-total-runn-hrs-ae2': 'AE2 Total Running Hours:',
-            'arrival-lsmgo-oil-ae-cc-total-runn-hrs-ae3': 'AE3 Total Running Hours:',
-            'arrival-lsmgo-oil-ae-cc-oil-cons': 'AE Oil Consumption:',
+            'arrival-lsmgo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
+            'arrival-lsmgo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
+            'arrival-lsmgo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
+            'arrival-lsmgo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
+            'arrival-lsmgo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
+            'arrival-lsmgo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
+            'arrival-lsmgo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
+            'arrival-lsmgo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
+            'arrival-lsmgo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
+            'arrival-lsmgo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
+            'arrival-lsmgo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
+            'arrival-lsmgo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
 
             // Arrival Master Remarks
             'arrival-remarks': 'Remarks:',
@@ -868,7 +1008,7 @@ function exportToExcel(reportId) {
         'bunkering': {
 
             // Bunkering Details
-            'bunkering-details-vessel-name': 'Vessel Name:',
+            'bunkering-voyage-details-vessel-name': 'Vessel Name:',
             'bunkering-details-voyage-no': 'Voyage No:',
             'bunkering-details-bunkering-port': 'Bunkering Port:',
             'bunkering-details-supplier': 'Supplier:',
@@ -936,10 +1076,16 @@ function exportToExcel(reportId) {
         if (adjustedReportSection === 'noon') {
             const exportReportType = form.querySelector(`#${adjustedReportSection}-voyage-details-report-type`);
             exportedReportType = exportReportType ? exportReportType.options[exportReportType.selectedIndex].text : '';
+        } else if (adjustedReportSection === 'departure') {
+            const exportDepartureType = form.querySelector(`#${adjustedReportSection}-voyage-details-departure-type`);
+            exportedReportType = exportDepartureType ? exportDepartureType.options[exportDepartureType.selectedIndex].text : '';
+        } else if (adjustedReportSection === 'arrival') {
+            const exportArrivalType = form.querySelector(`#${adjustedReportSection}-voyage-details-arrival-type`);
+            exportedReportType = exportArrivalType ? exportArrivalType.options[exportArrivalType.selectedIndex].text : '';
         }
-
+        
         const title = `${vesselName} / ${formattedDate}${exportedReportType ? ` / ${exportedReportType}` : ''}`;
-
+        
         data.push([title]);
         data.push([""]);
 
@@ -1067,7 +1213,11 @@ function exportToExcel(reportId) {
             'noon-hsfo-oil-ae-cc-oil-cons',
             'noon-biofuel-oil-ae-cc-oil-cons',
             'noon-vlsfo-oil-ae-cc-oil-cons',
-            'noon-lsmgo-oil-ae-cc-oil-cons'
+            'noon-lsmgo-oil-ae-cc-oil-cons',
+            'noon-hsfo-oil-ae3-cc-oil-cons',
+            'noon-biofuel-oil-ae3-cc-oil-cons',
+            'noon-vlsfo-oil-ae3-cc-oil-cons',
+            'noon-lsmgo-oil-ae3-cc-oil-cons'
         ],
 
         'departurereport': [
@@ -1090,7 +1240,11 @@ function exportToExcel(reportId) {
             'departure-hsfo-oil-ae-cc-oil-cons',
             'departure-biofuel-oil-ae-cc-oil-cons',
             'departure-vlsfo-oil-ae-cc-oil-cons',
-            'departure-lsmgo-oil-ae-cc-oil-cons'
+            'departure-lsmgo-oil-ae-cc-oil-cons',
+            'departure-hsfo-oil-ae3-cc-oil-cons',
+            'departure-biofuel-oil-ae3-cc-oil-cons',
+            'departure-vlsfo-oil-ae3-cc-oil-cons',
+            'departure-lsmgo-oil-ae3-cc-oil-cons'
         ],
 
         'arrivalreport': [
@@ -1112,7 +1266,11 @@ function exportToExcel(reportId) {
             'arrival-hsfo-oil-ae-cc-oil-cons',
             'arrival-biofuel-oil-ae-cc-oil-cons',
             'arrival-vlsfo-oil-ae-cc-oil-cons',
-            'arrival-lsmgo-oil-ae-cc-oil-cons'
+            'arrival-lsmgo-oil-ae-cc-oil-cons',
+            'arrival-hsfo-oil-ae3-cc-oil-cons',
+            'arrival-biofuel-oil-ae3-cc-oil-cons',
+            'arrival-vlsfo-oil-ae3-cc-oil-cons',
+            'arrival-lsmgo-oil-ae3-cc-oil-cons'
         ],
 
         'bunkering': [
@@ -1168,7 +1326,17 @@ function exportToExcel(reportId) {
         const filenameExportReportType = form.querySelector(`#${adjustedReportSection}-voyage-details-report-type`);
         filenameReportType = filenameExportReportType ? 
             (filenameExportReportType.selectedIndex !== -1 ? filenameExportReportType.options[filenameExportReportType.selectedIndex].text : '') 
-            : ''; // Only set this value if exporting from the noon report
+            : '';
+    } else if (adjustedReportSection === 'departure') {
+        const filenameExportDepartureType = form.querySelector(`#${adjustedReportSection}-voyage-details-departure-type`);
+        filenameReportType = filenameExportDepartureType ? 
+            (filenameExportDepartureType.selectedIndex !== -1 ? filenameExportDepartureType.options[filenameExportDepartureType.selectedIndex].text : '') 
+            : '';
+    } else if (adjustedReportSection === 'arrival') {
+        const filenameExportArrivalType = form.querySelector(`#${adjustedReportSection}-voyage-details-arrival-type`);
+        filenameReportType = filenameExportArrivalType ? 
+            (filenameExportArrivalType.selectedIndex !== -1 ? filenameExportArrivalType.options[filenameExportArrivalType.selectedIndex].text : '') 
+            : '';
     }
 
     const filenameDate = new Date();

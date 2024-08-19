@@ -237,9 +237,10 @@ textarea {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 80px;
+    height: 150px;
     resize: vertical;
     border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
 }
 
 button[type="submit"] {

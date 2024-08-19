@@ -60,7 +60,7 @@
                                     <option value="Kellet Island">Kellett Island</option>
                                     <option value="Trident Star">Trident Star</option>
                                     <option value="Weco Laura">Weco Laura</option>
-                                    <option value="cmb-permeke">CMB Permeke</option>
+                                    <option value="CMB Permeke">CMB Permeke</option>
                                     <option value="Cape Magnolia">Cape Magnolia</option>
                                     <option value="Andalucia">Andalucia</option>
                                     <option value="Brilliant Express">Brilliant Express</option>
@@ -1063,6 +1063,7 @@
 
                         <!-- Noon HSFO Content -->
                         <div id="Noon_HSFO" class="tab-content hsfo">
+                            
                             <table>
                                 <thead>
                                     <tr>
@@ -1097,73 +1098,125 @@
                                         
                                     </tr>
                                 </tbody>
-                                </table>
+                            </table>
                                 
-                                <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
 
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">ME CYL</th>
-                                            <th colspan="3">ME CC</th>
-                                            <th colspan="6">AE CC</th>
-                                        </tr>
-                                        <tr>
-                                            <th rowspan="2">Oil Grade</th>
-                                            <th rowspan="2">Total Runn Hrs.</th>
-                                            <th rowspan="2">Oil Cons.</th>
-                                            <th rowspan="2">Oil Grade</th>
-                                            <th rowspan="2">Total Run Hrs.</th>
-                                            <th rowspan="2">Oil Cons.</th>
-                                            <th rowspan="2">Oil Grade</th>
-                                            <th colspan="3">Total Run Hrs</th>
-                                            <th rowspan="2">Oil Cons.</th>
-                                        </tr>
-                                        <tr>
-                                            <th colspan="1"> AE1</th>
-                                            <th colspan="1"> AE2</th>
-                                            <th colspan="1"> AE3</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="oil-grade-select-cell">
-                                                <select class="oil-grade-select" id="noon-hsfo-oil-me-cyl-oil-grade" name="noon-hsfo-oil-me-cyl-oil-grade">
-                                                    <option value="">Select</option>
-                                                    <option value="TBN 100">TBN 100</option>
-                                                    <option value="TBN 70">TBN 70</option>
-                                                    <option value="TBN 40">TBN 40</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="validate" type="text" name="noon-hsfo-oil-me-cyl-total-runn-hrs"></td>
-                                            <td><input class="validate" type="text" name="noon-hsfo-oil-me-cyl-oil-cons" disabled></td>
-                                            <td class="oil-grade-select-cell">
-                                                <select class="oil-grade-select" id="noon-hsfo-oil-me-cc-oil-grade" name="noon-hsfo-oil-me-cc-oil-grade">
-                                                    <option value="">Select</option>
-                                                    <option value="TBN 100">TBN 100</option>
-                                                    <option value="TBN 70">TBN 70</option>
-                                                    <option value="TBN 40">TBN 40</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="validate" type="text" name="noon-hsfo-oil-me-cc-total-run-hrs"></td>
-                                            <td><input class="validate" type="text" name="noon-hsfo-oil-me-cc-oil-cons" disabled></td>
-                                            <td class="oil-grade-select-cell">
-                                                <select class="oil-grade-select" id="noon-hsfo-oil-ae-cc-oil-grade" name="noon-hsfo-oil-ae-cc-oil-grade">
-                                                    <option value="">Select</option>
-                                                    <option value="TBN 100">TBN 100</option>
-                                                    <option value="TBN 70">TBN 70</option>
-                                                    <option value="TBN 40">TBN 40</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="validate" type="text" name="noon-hsfo-oil-ae-cc-total-runn-hrs-ae1"></td>
-                                            <td><input class="validate" type="text" name="noon-hsfo-oil-ae-cc-total-runn-hrs-ae2"></td>
-                                            <td><input class="validate" type="text" name="noon-hsfo-oil-ae-cc-total-runn-hrs-ae3"></td>
-                                            <td><input class="validate" type="text" name="noon-hsfo-oil-ae-cc-oil-cons" disabled></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="4">ME CYL</th>
+                                        <th colspan="4">ME CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
+                                        <th rowspan="2">Total Runn Hrs.</th>
+                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
+                                        <th rowspan="2">Total Run Hrs.</th>
+                                        <th rowspan="2">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="noon-hsfo-oil-me-cyl-oil-grade" name="noon-hsfo-oil-me-cyl-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-me-cyl-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-me-cyl-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-me-cyl-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="noon-hsfo-oil-me-cc-oil-grade" name="noon-hsfo-oil-me-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-me-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-me-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-me-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
-                                <br /> <!-- Inserting bread line to put enough space between different table --> 
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">AE CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">AE1 CC</th>
+                                        <th colspan="4">AE2 CC</th>
+                                        <th colspan="4">AE3 CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="noon-hsfo-oil-ae1-cc-oil-grade" name="noon-hsfo-oil-ae1-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-ae1-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-ae1-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-ae1-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="noon-hsfo-oil-ae2-cc-oil-grade" name="noon-hsfo-oil-ae2-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-ae2-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-ae2-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-ae2-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="noon-hsfo-oil-ae3-cc-oil-grade" name="noon-hsfo-oil-ae3-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-ae3-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-ae3-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-hsfo-oil-ae3-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br />
+
                         </div>
 
                         <!-- Noon BIOFUEL Content -->
@@ -1204,30 +1257,23 @@
                                 </tbody>
                             </table>
 
-                            <br />
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
 
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="3">ME CYL</th>
-                                        <th colspan="3">ME CC</th>
-                                        <th colspan="6">AE CC</th>
+                                        <th colspan="4">ME CYL</th>
+                                        <th colspan="4">ME CC</th>
                                     </tr>
                                     <tr>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Runn Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Run Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th colspan="3">Total Run Hrs</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="1"> AE1</th>
-                                        <th colspan="1"> AE2</th>
-                                        <th colspan="1"> AE3</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1240,6 +1286,7 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="noon-biofuel-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="noon-biofuel-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" name="noon-biofuel-oil-me-cyl-oil-cons" disabled></td>
                                         <td class="oil-grade-select-cell">
@@ -1250,23 +1297,83 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="noon-biofuel-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="noon-biofuel-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" name="noon-biofuel-oil-me-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">AE CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">AE1 CC</th>
+                                        <th colspan="4">AE2 CC</th>
+                                        <th colspan="4">AE3 CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="noon-biofuel-oil-ae-cc-oil-grade" name="noon-biofuel-oil-ae-cc-oil-grade">
+                                            <select class="oil-grade-select" id="noon-biofuel-oil-ae1-cc-oil-grade" name="noon-biofuel-oil-ae1-cc-oil-grade">
                                                 <option value="">Select</option>
                                                 <option value="TBN 100">TBN 100</option>
                                                 <option value="TBN 70">TBN 70</option>
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
-                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae-cc-total-runn-hrs-ae1"></td>
-                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae-cc-total-runn-hrs-ae2"></td>
-                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae-cc-total-runn-hrs-ae3"></td>
-                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae1-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae1-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae1-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="noon-biofuel-oil-ae2-cc-oil-grade" name="noon-biofuel-oil-ae2-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae2-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae2-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae2-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="noon-biofuel-oil-ae3-cc-oil-grade" name="noon-biofuel-oil-ae3-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae3-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae3-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-biofuel-oil-ae3-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
-                            </table>    
+                            </table>
+
+                            <br />   
+
                         </div>
 
                         <!-- Noon VLSFO Content -->
@@ -1310,31 +1417,24 @@
                                     </tr>
                                 </tbody>
                             </table>
-
-                            <br />
                             
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="3">ME CYL</th>
-                                        <th colspan="3">ME CC</th>
-                                        <th colspan="6">AE CC</th>
+                                        <th colspan="4">ME CYL</th>
+                                        <th colspan="4">ME CC</th>
                                     </tr>
                                     <tr>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Runn Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Run Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th colspan="3">Total Run Hrs</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="1"> AE1</th>
-                                        <th colspan="1"> AE2</th>
-                                        <th colspan="1"> AE3</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1347,6 +1447,7 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="noon-vlsfo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" name="noon-vlsfo-oil-me-cyl-oil-cons" disabled></td>
                                         <td class="oil-grade-select-cell">
@@ -1357,25 +1458,84 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="noon-vlsfo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" name="noon-vlsfo-oil-me-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">AE CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">AE1 CC</th>
+                                        <th colspan="4">AE2 CC</th>
+                                        <th colspan="4">AE3 CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="noon-vlsfo-oil-ae-cc-oil-grade" name="noon-vlsfo-oil-ae-cc-oil-grade">
+                                            <select class="oil-grade-select" id="noon-vlsfo-oil-ae1-cc-oil-grade" name="noon-vlsfo-oil-ae1-cc-oil-grade">
                                                 <option value="">Select</option>
                                                 <option value="TBN 100">TBN 100</option>
                                                 <option value="TBN 70">TBN 70</option>
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
-                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae-cc-total-runn-hrs-ae1"></td>
-                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae-cc-total-runn-hrs-ae2"></td>
-                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae-cc-total-runn-hrs-ae3"></td>
-                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae1-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae1-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae1-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="noon-vlsfo-oil-ae2-cc-oil-grade" name="noon-vlsfo-oil-ae2-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae2-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae2-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae2-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="noon-vlsfo-oil-ae3-cc-oil-grade" name="noon-vlsfo-oil-ae3-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae3-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae3-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-vlsfo-oil-ae3-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
-                            </table>        
-                        </div>
+                            </table>
 
+                            <br />  
+
+                        </div>
                         <!-- Noon LSMGO Content -->
                         <div id="Noon_LSMGO" class="tab-content">
                             <table>
@@ -1414,30 +1574,23 @@
                                 </tbody>
                             </table>
                         
-                            <br />
-                            
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="3">ME CYL</th>
-                                        <th colspan="3">ME CC</th>
-                                        <th colspan="6">AE CC</th>
+                                        <th colspan="4">ME CYL</th>
+                                        <th colspan="4">ME CC</th>
                                     </tr>
                                     <tr>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Runn Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Run Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th colspan="3">Total Run Hrs</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="1"> AE1</th>
-                                        <th colspan="1"> AE2</th>
-                                        <th colspan="1"> AE3</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1450,6 +1603,7 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="noon-lsmgo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" name="noon-lsmgo-oil-me-cyl-oil-cons" disabled></td>
                                         <td class="oil-grade-select-cell">
@@ -1460,23 +1614,83 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="noon-lsmgo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" name="noon-lsmgo-oil-me-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">AE CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">AE1 CC</th>
+                                        <th colspan="4">AE2 CC</th>
+                                        <th colspan="4">AE3 CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="noon-lsmgo-oil-ae-cc-oil-grade" name="noon-lsmgo-oil-ae-cc-oil-grade">
+                                            <select class="oil-grade-select" id="noon-lsmgo-oil-ae1-cc-oil-grade" name="noon-lsmgo-oil-ae1-cc-oil-grade">
                                                 <option value="">Select</option>
                                                 <option value="TBN 100">TBN 100</option>
                                                 <option value="TBN 70">TBN 70</option>
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
-                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae-cc-total-runn-hrs-ae1"></td>
-                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae-cc-total-runn-hrs-ae2"></td>
-                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae-cc-total-runn-hrs-ae3"></td>
-                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae1-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae1-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae1-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="noon-lsmgo-oil-ae2-cc-oil-grade" name="noon-lsmgo-oil-ae2-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae2-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae2-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae2-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="noon-lsmgo-oil-ae3-cc-oil-grade" name="noon-lsmgo-oil-ae3-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae3-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae3-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="noon-lsmgo-oil-ae3-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
-                            </table>  
+                            </table>
+
+                            <br />
+
                         </div>
                     </fieldset>
 
@@ -1517,7 +1731,7 @@
                                     <option value="Kellet Island">Kellett Island</option>
                                     <option value="Trident Star">Trident Star</option>
                                     <option value="Weco Laura">Weco Laura</option>
-                                    <option value="cmb-permeke">CMB Permeke</option>
+                                    <option value="CMB Permeke">CMB Permeke</option>
                                     <option value="Cape Magnolia">Cape Magnolia</option>
                                     <option value="Andalucia">Andalucia</option>
                                     <option value="Brilliant Express">Brilliant Express</option>
@@ -1543,7 +1757,7 @@
                                 <input class="validate" type="text" id="voyage-no" name="departure-voyage-details-voyage-no" required>
                             </div>
                             <div class="form-group">
-                                <label for="departure-voyage-details-date-time">COSP Date/Time (LT):</label>
+                                <label class="berth-section" for="departure-voyage-details-date-time">COSP Date/Time (LT):</label>
                                 <input class="common-date" type="datetime-local" id="departure-voyage-details-date-time" name="departure-voyage-details-date-time" required>
                             </div>
                             <div class="form-group common-select-container">
@@ -1607,7 +1821,7 @@
                                 <select class="common-select" id="departure-voyage-details-departure-type" name="departure-voyage-details-departure-type" required>
                                     <option value="">Select</option>
                                     <option value="Pilot Station">Pilot Station</option>
-                                    <option value="Berth">Berth</option>
+                                    <option value="At Berth">At Berth</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -2336,30 +2550,23 @@
 
                             </table>
                                 
-                            <br />
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
 
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="3">ME CYL</th>
-                                        <th colspan="3">ME CC</th>
-                                        <th colspan="6">AE CC</th>
+                                        <th colspan="4">ME CYL</th>
+                                        <th colspan="4">ME CC</th>
                                     </tr>
                                     <tr>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Runn Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Run Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th colspan="3">Total Run Hrs</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="1"> AE1</th>
-                                        <th colspan="1"> AE2</th>
-                                        <th colspan="1"> AE3</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -2372,6 +2579,7 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="departure-hsfo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="departure-hsfo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" name="departure-hsfo-oil-me-cyl-oil-cons" disabled></td>
                                         <td class="oil-grade-select-cell">
@@ -2382,23 +2590,83 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="departure-hsfo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="departure-hsfo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" name="departure-hsfo-oil-me-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">AE CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">AE1 CC</th>
+                                        <th colspan="4">AE2 CC</th>
+                                        <th colspan="4">AE3 CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="departure-hsfo-oil-ae-cc-oil-grade" name="departure-hsfo-oil-ae-cc-oil-grade">
+                                            <select class="oil-grade-select" id="departure-hsfo-oil-ae1-cc-oil-grade" name="departure-hsfo-oil-ae1-cc-oil-grade">
                                                 <option value="">Select</option>
                                                 <option value="TBN 100">TBN 100</option>
                                                 <option value="TBN 70">TBN 70</option>
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
-                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae-cc-total-runn-hrs-ae1"></td>
-                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae-cc-total-runn-hrs-ae2"></td>
-                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae-cc-total-runn-hrs-ae3"></td>
-                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae1-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae1-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae1-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="departure-hsfo-oil-ae2-cc-oil-grade" name="departure-hsfo-oil-ae2-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae2-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae2-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae2-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="departure-hsfo-oil-ae3-cc-oil-grade" name="departure-hsfo-oil-ae3-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae3-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae3-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="departure-hsfo-oil-ae3-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
+
+                            <br />
+
                         </div>
 
                         <!-- Departure BIOFUEL Content -->
@@ -2439,30 +2707,23 @@
                                 </tbody>
                             </table>
 
-                            <br />
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
 
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="3">ME CYL</th>
-                                        <th colspan="3">ME CC</th>
-                                        <th colspan="6">AE CC</th>
+                                        <th colspan="4">ME CYL</th>
+                                        <th colspan="4">ME CC</th>
                                     </tr>
                                     <tr>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Runn Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Run Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th colspan="3">Total Run Hrs</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="1"> AE1</th>
-                                        <th colspan="1"> AE2</th>
-                                        <th colspan="1"> AE3</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -2475,6 +2736,7 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="departure-biofuel-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="departure-biofuel-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" name="departure-biofuel-oil-me-cyl-oil-cons" disabled></td>
                                         <td class="oil-grade-select-cell">
@@ -2485,23 +2747,83 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="departure-biofuel-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="departure-biofuel-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" name="departure-biofuel-oil-me-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">AE CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">AE1 CC</th>
+                                        <th colspan="4">AE2 CC</th>
+                                        <th colspan="4">AE3 CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="departure-biofuel-oil-ae-cc-oil-grade" name="departure-biofuel-oil-ae-cc-oil-grade">
+                                            <select class="oil-grade-select" id="departure-biofuel-oil-ae1-cc-oil-grade" name="departure-biofuel-oil-ae1-cc-oil-grade">
                                                 <option value="">Select</option>
                                                 <option value="TBN 100">TBN 100</option>
                                                 <option value="TBN 70">TBN 70</option>
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
-                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae-cc-total-runn-hrs-ae1"></td>
-                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae-cc-total-runn-hrs-ae2"></td>
-                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae-cc-total-runn-hrs-ae3"></td>
-                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae1-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae1-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae1-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="departure-biofuel-oil-ae2-cc-oil-grade" name="departure-biofuel-oil-ae2-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae2-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae2-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae2-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="departure-biofuel-oil-ae3-cc-oil-grade" name="departure-biofuel-oil-ae3-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae3-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae3-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="departure-biofuel-oil-ae3-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
-                            </table>    
+                            </table>
+
+                            <br />
+
                         </div>
 
                         <!-- Departure VLSFO Content -->
@@ -2546,30 +2868,23 @@
                                 </tbody>
                             </table>
 
-                            <br />
-                            
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="3">ME CYL</th>
-                                        <th colspan="3">ME CC</th>
-                                        <th colspan="6">AE CC</th>
+                                        <th colspan="4">ME CYL</th>
+                                        <th colspan="4">ME CC</th>
                                     </tr>
                                     <tr>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Runn Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Run Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th colspan="3">Total Run Hrs</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="1"> AE1</th>
-                                        <th colspan="1"> AE2</th>
-                                        <th colspan="1"> AE3</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -2582,6 +2897,7 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="departure-vlsfo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" name="departure-vlsfo-oil-me-cyl-oil-cons" disabled></td>
                                         <td class="oil-grade-select-cell">
@@ -2592,23 +2908,83 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="departure-vlsfo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" name="departure-vlsfo-oil-me-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">AE CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">AE1 CC</th>
+                                        <th colspan="4">AE2 CC</th>
+                                        <th colspan="4">AE3 CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="departure-vlsfo-oil-ae-cc-oil-grade" name="departure-vlsfo-oil-ae-cc-oil-grade">
+                                            <select class="oil-grade-select" id="departure-vlsfo-oil-ae1-cc-oil-grade" name="departure-vlsfo-oil-ae1-cc-oil-grade">
                                                 <option value="">Select</option>
                                                 <option value="TBN 100">TBN 100</option>
                                                 <option value="TBN 70">TBN 70</option>
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
-                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae-cc-total-runn-hrs-ae1"></td>
-                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae-cc-total-runn-hrs-ae2"></td>
-                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae-cc-total-runn-hrs-ae3"></td>
-                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae1-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae1-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae1-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="departure-vlsfo-oil-ae2-cc-oil-grade" name="departure-vlsfo-oil-ae2-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae2-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae2-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae2-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="departure-vlsfo-oil-ae3-cc-oil-grade" name="departure-vlsfo-oil-ae3-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae3-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae3-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="departure-vlsfo-oil-ae3-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
-                            </table>      
+                            </table>
+
+                            <br />
+
                         </div>
 
                         <!-- Departure LSMGO Content -->
@@ -2649,30 +3025,23 @@
                                 </tbody>
                             </table>
                         
-                            <br />
-                            
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="3">ME CYL</th>
-                                        <th colspan="3">ME CC</th>
-                                        <th colspan="6">AE CC</th>
+                                        <th colspan="4">ME CYL</th>
+                                        <th colspan="4">ME CC</th>
                                     </tr>
                                     <tr>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Runn Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Run Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th colspan="3">Total Run Hrs</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="1"> AE1</th>
-                                        <th colspan="1"> AE2</th>
-                                        <th colspan="1"> AE3</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -2685,6 +3054,7 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="departure-lsmgo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" name="departure-lsmgo-oil-me-cyl-oil-cons" disabled></td>
                                         <td class="oil-grade-select-cell">
@@ -2695,23 +3065,83 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="departure-lsmgo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" name="departure-lsmgo-oil-me-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">AE CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">AE1 CC</th>
+                                        <th colspan="4">AE2 CC</th>
+                                        <th colspan="4">AE3 CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="departure-lsmgo-oil-ae-cc-oil-grade" name="departure-lsmgo-oil-ae-cc-oil-grade">
+                                            <select class="oil-grade-select" id="departure-lsmgo-oil-ae1-cc-oil-grade" name="departure-lsmgo-oil-ae1-cc-oil-grade">
                                                 <option value="">Select</option>
                                                 <option value="TBN 100">TBN 100</option>
                                                 <option value="TBN 70">TBN 70</option>
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
-                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae-cc-total-runn-hrs-ae1"></td>
-                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae-cc-total-runn-hrs-ae2"></td>
-                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae-cc-total-runn-hrs-ae3"></td>
-                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae1-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae1-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae1-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="departure-lsmgo-oil-ae2-cc-oil-grade" name="departure-lsmgo-oil-ae2-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae2-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae2-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae2-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="departure-lsmgo-oil-ae3-cc-oil-grade" name="departure-lsmgo-oil-ae3-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae3-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae3-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="departure-lsmgo-oil-ae3-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
-                            </table> 
+                            </table>
+
+                            <br />
+
                         </div>
                     </fieldset>
 
@@ -2752,7 +3182,7 @@
                                     <option value="Kellet Island">Kellett Island</option>
                                     <option value="Trident Star">Trident Star</option>
                                     <option value="Weco Laura">Weco Laura</option>
-                                    <option value="cmb-permeke">CMB Permeke</option>
+                                    <option value="CMB Permeke">CMB Permeke</option>
                                     <option value="Cape Magnolia">Cape Magnolia</option>
                                     <option value="Andalucia">Andalucia</option>
                                     <option value="Brilliant Express">Brilliant Express</option>
@@ -2841,7 +3271,7 @@
                                 <select class="common-select" id="arrival-voyage-details-arrival-type" name="arrival-voyage-details-arrival-type" required>
                                     <option value="">Select</option>
                                     <option value="Pilot Station">Pilot Station</option>
-                                    <option value="Berth">Berth</option>
+                                    <option value="At Berth">At Berth</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -2849,11 +3279,11 @@
                                 <input type="text" id="arrival-voyage-details-port" name="arrival-voyage-details-port" required>
                                 <div id="arrival-voyage-details-port-results"></div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group berth-section">
                                 <label for="arrival-voyage-details-anchored-hours">Anchored Hours:</label>
                                 <input class="validate" type="text" id="arrival-voyage-details-anchored-hours" name="arrival-voyage-details-anchored-hours" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group berth-section">
                                 <label for="arrival-voyage-details-drifting-hours">Drifting Hours:</label>
                                 <input class="validate" type="text" id="arrival-voyage-details-drifting-hours" name="arrival-voyage-details-drifting-hours" required>
                             </div>
@@ -3449,69 +3879,123 @@
                                 </tbody>
                                 </table>
                                 
-                                <br />
+                                <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
 
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">ME CYL</th>
-                                            <th colspan="3">ME CC</th>
-                                            <th colspan="6">AE CC</th>
-                                        </tr>
-                                        <tr>
-                                            <th rowspan="2">Oil Grade</th>
-                                            <th rowspan="2">Total Runn Hrs.</th>
-                                            <th rowspan="2">Oil Cons.</th>
-                                            <th rowspan="2">Oil Grade</th>
-                                            <th rowspan="2">Total Run Hrs.</th>
-                                            <th rowspan="2">Oil Cons.</th>
-                                            <th rowspan="2">Oil Grade</th>
-                                            <th colspan="3">Total Run Hrs</th>
-                                            <th rowspan="2">Oil Cons.</th>
-                                        </tr>
-                                        <tr>
-                                            <th colspan="1"> AE1</th>
-                                            <th colspan="1"> AE2</th>
-                                            <th colspan="1"> AE3</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="oil-grade-select-cell">
-                                                <select class="oil-grade-select" id="arrival-hsfo-oil-me-cyl-oil-grade" name="arrival-hsfo-oil-me-cyl-oil-grade">
-                                                    <option value="">Select</option>
-                                                    <option value="TBN 100">TBN 100</option>
-                                                    <option value="TBN 70">TBN 70</option>
-                                                    <option value="TBN 40">TBN 40</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="validate" type="text" name="arrival-hsfo-oil-me-cyl-total-runn-hrs"></td>
-                                            <td><input class="validate" type="text" name="arrival-hsfo-oil-me-cyl-oil-cons" disabled></td>
-                                            <td class="oil-grade-select-cell">
-                                                <select class="oil-grade-select" id="arrival-hsfo-oil-me-cc-oil-grade" name="arrival-hsfo-oil-me-cc-oil-grade">
-                                                    <option value="">Select</option>
-                                                    <option value="TBN 100">TBN 100</option>
-                                                    <option value="TBN 70">TBN 70</option>
-                                                    <option value="TBN 40">TBN 40</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="validate" type="text" name="arrival-hsfo-oil-me-cc-total-run-hrs"></td>
-                                            <td><input class="validate" type="text" name="arrival-hsfo-oil-me-cc-oil-cons" disabled></td>
-                                            <td class="oil-grade-select-cell">
-                                                <select class="oil-grade-select" id="arrival-hsfo-oil-ae-cc-oil-grade" name="arrival-hsfo-oil-ae-cc-oil-grade">
-                                                    <option value="">Select</option>
-                                                    <option value="TBN 100">TBN 100</option>
-                                                    <option value="TBN 70">TBN 70</option>
-                                                    <option value="TBN 40">TBN 40</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="validate" type="text" name="arrival-hsfo-oil-ae-cc-total-runn-hrs-ae1"></td>
-                                            <td><input class="validate" type="text" name="arrival-hsfo-oil-ae-cc-total-runn-hrs-ae2"></td>
-                                            <td><input class="validate" type="text" name="arrival-hsfo-oil-ae-cc-total-runn-hrs-ae3"></td>
-                                            <td><input class="validate" type="text" name="arrival-hsfo-oil-ae-cc-oil-cons" disabled></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="4">ME CYL</th>
+                                        <th colspan="4">ME CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
+                                        <th rowspan="2">Total Runn Hrs.</th>
+                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
+                                        <th rowspan="2">Total Run Hrs.</th>
+                                        <th rowspan="2">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="arrival-hsfo-oil-me-cyl-oil-grade" name="arrival-hsfo-oil-me-cyl-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-me-cyl-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-me-cyl-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-me-cyl-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="arrival-hsfo-oil-me-cc-oil-grade" name="arrival-hsfo-oil-me-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-me-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-me-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-me-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">AE CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">AE1 CC</th>
+                                        <th colspan="4">AE2 CC</th>
+                                        <th colspan="4">AE3 CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="arrival-hsfo-oil-ae1-cc-oil-grade" name="arrival-hsfo-oil-ae1-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-ae1-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-ae1-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-ae1-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="arrival-hsfo-oil-ae2-cc-oil-grade" name="arrival-hsfo-oil-ae2-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-ae2-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-ae2-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-ae2-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="arrival-hsfo-oil-ae3-cc-oil-grade" name="arrival-hsfo-oil-ae3-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-ae3-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-ae3-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-hsfo-oil-ae3-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br />
+
                         </div>
 
                         <!-- Arrival BIOFUEL Content -->
@@ -3552,30 +4036,23 @@
                                 </tbody>
                             </table>
 
-                            <br />
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
 
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="3">ME CYL</th>
-                                        <th colspan="3">ME CC</th>
-                                        <th colspan="6">AE CC</th>
+                                        <th colspan="4">ME CYL</th>
+                                        <th colspan="4">ME CC</th>
                                     </tr>
                                     <tr>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Runn Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Run Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th colspan="3">Total Run Hrs</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="1"> AE1</th>
-                                        <th colspan="1"> AE2</th>
-                                        <th colspan="1"> AE3</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -3588,6 +4065,7 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="arrival-biofuel-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" name="arrival-biofuel-oil-me-cyl-oil-cons" disabled></td>
                                         <td class="oil-grade-select-cell">
@@ -3598,23 +4076,82 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="arrival-biofuel-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" name="arrival-biofuel-oil-me-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">AE CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">AE1 CC</th>
+                                        <th colspan="4">AE2 CC</th>
+                                        <th colspan="4">AE3 CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="arrival-biofuel-oil-ae-cc-oil-grade" name="arrival-biofuel-oil-ae-cc-oil-grade">
+                                            <select class="oil-grade-select" id="arrival-biofuel-oil-ae1-cc-oil-grade" name="arrival-biofuel-oil-ae1-cc-oil-grade">
                                                 <option value="">Select</option>
                                                 <option value="TBN 100">TBN 100</option>
                                                 <option value="TBN 70">TBN 70</option>
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
-                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae-cc-total-runn-hrs-ae1"></td>
-                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae-cc-total-runn-hrs-ae2"></td>
-                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae-cc-total-runn-hrs-ae3"></td>
-                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae1-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae1-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae1-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="arrival-biofuel-oil-ae2-cc-oil-grade" name="arrival-biofuel-oil-ae2-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae2-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae2-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae2-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="arrival-biofuel-oil-ae3-cc-oil-grade" name="arrival-biofuel-oil-ae3-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae3-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae3-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-biofuel-oil-ae3-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
-                            </table>    
+                            </table>
+
+                            <br />    
                         </div>
 
                         <!-- Arrival VLSFO Content -->
@@ -3659,30 +4196,23 @@
                                 </tbody>
                             </table>
 
-                            <br />
-                            
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="3">ME CYL</th>
-                                        <th colspan="3">ME CC</th>
-                                        <th colspan="6">AE CC</th>
+                                        <th colspan="4">ME CYL</th>
+                                        <th colspan="4">ME CC</th>
                                     </tr>
                                     <tr>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Runn Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Run Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th colspan="3">Total Run Hrs</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="1"> AE1</th>
-                                        <th colspan="1"> AE2</th>
-                                        <th colspan="1"> AE3</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -3695,6 +4225,7 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="arrival-vlsfo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" name="arrival-vlsfo-oil-me-cyl-oil-cons" disabled></td>
                                         <td class="oil-grade-select-cell">
@@ -3705,23 +4236,83 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="arrival-vlsfo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" name="arrival-vlsfo-oil-me-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">AE CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">AE1 CC</th>
+                                        <th colspan="4">AE2 CC</th>
+                                        <th colspan="4">AE3 CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="arrival-vlsfo-oil-ae-cc-oil-grade" name="arrival-vlsfo-oil-ae-cc-oil-grade">
+                                            <select class="oil-grade-select" id="arrival-vlsfo-oil-ae1-cc-oil-grade" name="arrival-vlsfo-oil-ae1-cc-oil-grade">
                                                 <option value="">Select</option>
                                                 <option value="TBN 100">TBN 100</option>
                                                 <option value="TBN 70">TBN 70</option>
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
-                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae-cc-total-runn-hrs-ae1"></td>
-                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae-cc-total-runn-hrs-ae2"></td>
-                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae-cc-total-runn-hrs-ae3"></td>
-                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae1-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae1-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae1-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="arrival-vlsfo-oil-ae2-cc-oil-grade" name="arrival-vlsfo-oil-ae2-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae2-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae2-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae2-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="arrival-vlsfo-oil-ae3-cc-oil-grade" name="arrival-vlsfo-oil-ae3-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae3-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae3-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-vlsfo-oil-ae3-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
-                            </table>      
+                            </table>
+
+                            <br /> 
+
                         </div>
 
                         <!-- Arrival LSMGO Content -->
@@ -3762,30 +4353,23 @@
                                 </tbody>
                             </table>
                         
-                            <br />
-                            
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="3">ME CYL</th>
-                                        <th colspan="3">ME CC</th>
-                                        <th colspan="6">AE CC</th>
+                                        <th colspan="4">ME CYL</th>
+                                        <th colspan="4">ME CC</th>
                                     </tr>
                                     <tr>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Runn Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
                                         <th rowspan="2">Oil Grade</th>
+                                        <th rowspan="2">Oil Quantity</th>
                                         <th rowspan="2">Total Run Hrs.</th>
                                         <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th colspan="3">Total Run Hrs</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="1"> AE1</th>
-                                        <th colspan="1"> AE2</th>
-                                        <th colspan="1"> AE3</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -3798,6 +4382,7 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="arrival-lsmgo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" name="arrival-lsmgo-oil-me-cyl-oil-cons" disabled></td>
                                         <td class="oil-grade-select-cell">
@@ -3808,23 +4393,82 @@
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
+                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" name="arrival-lsmgo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" name="arrival-lsmgo-oil-me-cc-oil-cons" disabled></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">AE CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4">AE1 CC</th>
+                                        <th colspan="4">AE2 CC</th>
+                                        <th colspan="4">AE3 CC</th>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="arrival-lsmgo-oil-ae-cc-oil-grade" name="arrival-lsmgo-oil-ae-cc-oil-grade">
+                                            <select class="oil-grade-select" id="arrival-lsmgo-oil-ae1-cc-oil-grade" name="arrival-lsmgo-oil-ae1-cc-oil-grade">
                                                 <option value="">Select</option>
                                                 <option value="TBN 100">TBN 100</option>
                                                 <option value="TBN 70">TBN 70</option>
                                                 <option value="TBN 40">TBN 40</option>
                                             </select>
                                         </td>
-                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae-cc-total-runn-hrs-ae1"></td>
-                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae-cc-total-runn-hrs-ae2"></td>
-                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae-cc-total-runn-hrs-ae3"></td>
-                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae1-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae1-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae1-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="arrival-lsmgo-oil-ae2-cc-oil-grade" name="arrival-lsmgo-oil-ae2-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae2-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae2-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae2-cc-oil-cons" disabled></td>
+                                        <td class="oil-grade-select-cell">
+                                            <select class="oil-grade-select" id="arrival-lsmgo-oil-ae3-cc-oil-grade" name="arrival-lsmgo-oil-ae3-cc-oil-grade">
+                                                <option value="">Select</option>
+                                                <option value="TBN 100">TBN 100</option>
+                                                <option value="TBN 70">TBN 70</option>
+                                                <option value="TBN 40">TBN 40</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae3-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae3-cc-total-runn-hrs"></td>
+                                        <td><input class="validate" type="text" name="arrival-lsmgo-oil-ae3-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
-                            </table> 
+                            </table>
+
+                            <br /> 
                         </div>
                     </fieldset>
 
@@ -3865,7 +4509,7 @@
                                     <option value="Kellet Island">Kellett Island</option>
                                     <option value="Trident Star">Trident Star</option>
                                     <option value="Weco Laura">Weco Laura</option>
-                                    <option value="cmb-permeke">CMB Permeke</option>
+                                    <option value="CMB Permeke">CMB Permeke</option>
                                     <option value="Cape Magnolia">Cape Magnolia</option>
                                     <option value="Andalucia">Andalucia</option>
                                     <option value="Brilliant Express">Brilliant Express</option>
@@ -3899,79 +4543,79 @@
                                 <label for="bunkering-details-supplier">Supplier:</label>
                                 <select class="common-select" id="bunkering-details-supplier" name="bunkering-details-supplier">
                                     <option value="">Select Supplier</option>
-                                    <option value="21320">A/S Global Risk Management Ltd. Fondsmaeglerselskab</option>
-                                    <option value="10013">Ada Resources</option>
-                                    <option value="17048">Adani Bunkering Pvt. Ltd</option
-                                    ><option value="18090">Amoil International Limited</option>
-                                    <option value="16716">Arbutus Point Marine Ltd.</option>
-                                    <option value="17776">Arte Bunkering LLC</option>
-                                    <option value="18968">BMT Bunker und Mineraloltransport GmbH</option>
-                                    <option value="18893">Bomin Atlantic LLC</option>
-                                    <option value="17720">Bomin Bunker Oil Corp.</option>
-                                    <option value="10117">Bp Marine Ltd</option>
-                                    <option value="21036">BP Singapore Pte. Ltd</option>
-                                    <option value="11685">Bunker Hedge Allocation</option>
-                                    <option value="16562">C.I Quality Bunkers Supply S.A.S</option>
-                                    <option value="10164">Cepsa Marine Fuels. S.A.</option>
-                                    <option value="10172">Chevron Marine Products Llc</option>
-                                    <option value="10174">Chimbusco Pan Nation Petro-Chemical Co. Ltd</option>
-                                    <option value="12732">Chimbusco International Petroleum (Singapore) Pte. Ltd.</option>
-                                    <option value="18485">Clipper Oil Inc</option>
-                                    <option value="12350">Cockett Marine Oil (Asia)</option>
-                                    <option value="21595">Compania Espanola de Petroleos S.A.</option>
-                                    <option value="10241">Costank (S) Pte Ltd</option>
-                                    <option value="19610">Equatorial Marine Fuel Management Services Pte Ltd</option>
-                                    <option value="10303">Fal Energy Co., Ltd.</option>
-                                    <option value="10317">Fratelli Consulich Bunkers(HK)</option>
-                                    <option value="10331">General Petroleum LLC dba PTL Marine</option>
-                                    <option value="13272">Global Companies L.L.C.</option>
-                                    <option value="18669">Golden Island Diesel Oil Trading Pte Ltd</option>
-                                    <option value="20578">Goodfuels B.V.</option>
-                                    <option value="13190">Hanwa Singapore (Pte) Ltd</option>
-                                    <option value="13867">Harbor Plaza Consolidated</option>
-                                    <option value="10395">Ian Taylor Y Cia. S.A.</option>
-                                    <option value="21165">Island Oil Limited</option>
-                                    <option value="11714">J Aron &amp; Co GS (Singapore)</option>
-                                    <option value="11909">The Jankovich Company</option>
-                                    <option value="10440">Japan Energy</option>
-                                    <option value="10452">John W.Stone Oil Distributor LLC</option>
-                                    <option value="18652">Kanematsu Corporation</option>
-                                    <option value="20884">KPI Oceanconnect Global Accounts Pte. Ltd.</option>
-                                    <option value="20883">KPI Oceanconnect Global Accounts Ltd</option>
-                                    <option value="10508">Manildra Park Pty Ltd</option>
-                                    <option value="20001">Marathon Petroleum Company LP</option>
-                                    <option value="10514">Marine Petrobulk Ltd Partnership</option>
-                                    <option value="11005">Marubeni Corporation</option>
-                                    <option value="12598">Marubeni Petroleum Co. Ltd.</option>
-                                    <option value="18624">Minerva Bunkering (USA) LLC</option>
-                                    <option value="15239">Minerva Bunkering Pte Ltd</option>
-                                    <option value="11259">Mitsui &amp; Co Energy Risk Mgt</option>
-                                    <option value="19863">Monjasa Pte. Ltd.</option>
-                                    <option value="11719">Morgan Stanley</option>
-                                    <option value="17084">Nayada Agency Co., Ltd</option>
-                                    <option value="12869">O Rourke Marine Services</option>
-                                    <option value="21476">Panthera Energy Trading USA Inc</option>
-                                    <option value="10640">Peninsula Petroleum Ltd.</option>
-                                    <option value="20212">Peninsula Petroleum Far East Pte. Ltd.</option>
-                                    <option value="20375">Prio Supply S.A.</option>
-                                    <option value="21163">Propeller Fuels Ltd</option>
-                                    <option value="20974">Raizen S.A.</option>
-                                    <option value="18776">SARAS SpA</option>
-                                    <option value="10729">Sea Swift Pty Ltd.</option>
-                                    <option value="12920">Sinanen Co., Ltd.</option>
-                                    <option value="19792">Skandinaviska Enskilda Banken AB (publ.)</option>
-                                    <option value="15083">Skygroup Logistics Limited</option>
-                                    <option value="21204">TFG Marine Pte Ltd</option>
-                                    <option value="16220">Tropic Oil Company</option>
-                                    <option value="20940">Total Bunkering SA</option>
-                                    <option value="21264">Toyota Tsusho Marine Fuels Corporation</option>
-                                    <option value="19062">Trefoil Trading B.V.</option>
-                                    <option value="18269">Varo Energy Germany GmbH</option>
-                                    <option value="16901">Veritas Petroleum Services B.V.(Head office)</option>
-                                    <option value="19436">VOOIL LLC</option>
-                                    <option value="14381">Voy Exp/Rev Allocation-Bunker</option>
-                                    <option value="10930">World Fuel Services</option>
-                                    <option value="19065">Yingkou Ocean Favor Shipping Agency Co. Ltd</option>
+                                    <option value="A/S Global Risk Management Ltd. Fondsmaeglerselskab">A/S Global Risk Management Ltd. Fondsmaeglerselskab</option>
+                                    <option value="Ada Resources">Ada Resources</option>
+                                    <option value="Adani Bunkering Pvt. Ltd">Adani Bunkering Pvt. Ltd</option>
+                                    <option value="Amoil International Limited">Amoil International Limited</option>
+                                    <option value="Arbutus Point Marine Ltd.">Arbutus Point Marine Ltd.</option>
+                                    <option value="Arte Bunkering LLC">Arte Bunkering LLC</option>
+                                    <option value="BMT Bunker und Mineraloltransport GmbH">BMT Bunker und Mineraloltransport GmbH</option>
+                                    <option value="Bomin Atlantic LLC">Bomin Atlantic LLC</option>
+                                    <option value="Bomin Bunker Oil Corp.">Bomin Bunker Oil Corp.</option>
+                                    <option value="Bp Marine Ltd">Bp Marine Ltd</option>
+                                    <option value="BP Singapore Pte. Ltd">BP Singapore Pte. Ltd</option>
+                                    <option value="Bunker Hedge Allocation">Bunker Hedge Allocation</option>
+                                    <option value="C.I Quality Bunkers Supply S.A.S">C.I Quality Bunkers Supply S.A.S</option>
+                                    <option value="Cepsa Marine Fuels. S.A.">Cepsa Marine Fuels. S.A.</option>
+                                    <option value="Chevron Marine Products Llc">Chevron Marine Products Llc</option>
+                                    <option value="Chimbusco Pan Nation Petro-Chemical Co. Ltd">Chimbusco Pan Nation Petro-Chemical Co. Ltd</option>
+                                    <option value="Chimbusco International Petroleum (Singapore) Pte. Ltd.">Chimbusco International Petroleum (Singapore) Pte. Ltd.</option>
+                                    <option value="Clipper Oil Inc">Clipper Oil Inc</option>
+                                    <option value="Cockett Marine Oil (Asia)">Cockett Marine Oil (Asia)</option>
+                                    <option value="Compania Espanola de Petroleos S.A.">Compania Espanola de Petroleos S.A.</option>
+                                    <option value="Costank (S) Pte Ltd">Costank (S) Pte Ltd</option>
+                                    <option value="Equatorial Marine Fuel Management Services Pte Ltd">Equatorial Marine Fuel Management Services Pte Ltd</option>
+                                    <option value="Fal Energy Co., Ltd.">Fal Energy Co., Ltd.</option>
+                                    <option value="Fratelli Consulich Bunkers(HK)">Fratelli Consulich Bunkers(HK)</option>
+                                    <option value="General Petroleum LLC dba PTL Marine">General Petroleum LLC dba PTL Marine</option>
+                                    <option value="Global Companies L.L.C.">Global Companies L.L.C.</option>
+                                    <option value="Golden Island Diesel Oil Trading Pte Ltd">Golden Island Diesel Oil Trading Pte Ltd</option>
+                                    <option value="Goodfuels B.V.">Goodfuels B.V.</option>
+                                    <option value="Hanwa Singapore (Pte) Ltd">Hanwa Singapore (Pte) Ltd</option>
+                                    <option value="Harbor Plaza Consolidated">Harbor Plaza Consolidated</option>
+                                    <option value="Ian Taylor Y Cia. S.A.">Ian Taylor Y Cia. S.A.</option>
+                                    <option value="Island Oil Limited">Island Oil Limited</option>
+                                    <option value="J Aron &amp; Co GS (Singapore)">J Aron &amp; Co GS (Singapore)</option>
+                                    <option value="The Jankovich Company">The Jankovich Company</option>
+                                    <option value="Japan Energy">Japan Energy</option>
+                                    <option value="John W.Stone Oil Distributor LLC">John W.Stone Oil Distributor LLC</option>
+                                    <option value="Kanematsu Corporation">Kanematsu Corporation</option>
+                                    <option value="KPI Oceanconnect Global Accounts Pte. Ltd.">KPI Oceanconnect Global Accounts Pte. Ltd.</option>
+                                    <option value="KPI Oceanconnect Global Accounts Ltd">KPI Oceanconnect Global Accounts Ltd</option>
+                                    <option value="Manildra Park Pty Ltd">Manildra Park Pty Ltd</option>
+                                    <option value="Marathon Petroleum Company LP">Marathon Petroleum Company LP</option>
+                                    <option value="Marine Petrobulk Ltd Partnership">Marine Petrobulk Ltd Partnership</option>
+                                    <option value="Marubeni Corporation">Marubeni Corporation</option>
+                                    <option value="Marubeni Petroleum Co. Ltd.">Marubeni Petroleum Co. Ltd.</option>
+                                    <option value="Minerva Bunkering (USA) LLC">Minerva Bunkering (USA) LLC</option>
+                                    <option value="Minerva Bunkering Pte Ltd">Minerva Bunkering Pte Ltd</option>
+                                    <option value="Mitsui &amp; Co Energy Risk Mgt">Mitsui &amp; Co Energy Risk Mgt</option>
+                                    <option value="Monjasa Pte. Ltd.">Monjasa Pte. Ltd.</option>
+                                    <option value="Morgan Stanley">Morgan Stanley</option>
+                                    <option value="Nayada Agency Co., Ltd">Nayada Agency Co., Ltd</option>
+                                    <option value="O Rourke Marine Services">O Rourke Marine Services</option>
+                                    <option value="Panthera Energy Trading USA Inc">Panthera Energy Trading USA Inc</option>
+                                    <option value="Peninsula Petroleum Ltd.">Peninsula Petroleum Ltd.</option>
+                                    <option value="Peninsula Petroleum Far East Pte. Ltd.">Peninsula Petroleum Far East Pte. Ltd.</option>
+                                    <option value="Prio Supply S.A.">Prio Supply S.A.</option>
+                                    <option value="Propeller Fuels Ltd">Propeller Fuels Ltd</option>
+                                    <option value="Raizen S.A.">Raizen S.A.</option>
+                                    <option value="SARAS SpA">SARAS SpA</option>
+                                    <option value="Sea Swift Pty Ltd.">Sea Swift Pty Ltd.</option>
+                                    <option value="Sinanen Co., Ltd.">Sinanen Co., Ltd.</option>
+                                    <option value="Skandinaviska Enskilda Banken AB (publ.)">Skandinaviska Enskilda Banken AB (publ.)</option>
+                                    <option value="Skygroup Logistics Limited">Skygroup Logistics Limited</option>
+                                    <option value="TFG Marine Pte Ltd">TFG Marine Pte Ltd</option>
+                                    <option value="Tropic Oil Company">Tropic Oil Company</option>
+                                    <option value="Total Bunkering SA">Total Bunkering SA</option>
+                                    <option value="Toyota Tsusho Marine Fuels Corporation">Toyota Tsusho Marine Fuels Corporation</option>
+                                    <option value="Trefoil Trading B.V.">Trefoil Trading B.V.</option>
+                                    <option value="Varo Energy Germany GmbH">Varo Energy Germany GmbH</option>
+                                    <option value="Veritas Petroleum Services B.V.(Head office)">Veritas Petroleum Services B.V.(Head office)</option>
+                                    <option value="VOOIL LLC">VOOIL LLC</option>
+                                    <option value="Voy Exp/Rev Allocation-Bunker">Voy Exp/Rev Allocation-Bunker</option>
+                                    <option value="World Fuel Services">World Fuel Services</option>
+                                    <option value="Yingkou Ocean Favor Shipping Agency Co. Ltd">Yingkou Ocean Favor Shipping Agency Co. Ltd</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -4089,7 +4733,7 @@
                             <div class="form-group common-select-container">
                                 <label for="bunkering-bunker-type-quantity-taken-hsfo-viscosity">HSFO Viscosity (CST):</label>
                                 <select class="common-select" id="bunkering-bunker-type-quantity-taken-hsfo-viscosity" name="bunkering-bunker-type-quantity-taken-hsfo-viscosity" >
-                                    <option>Select...</option>
+                                    <option value="">Select...</option>
                                     <option value="Less than 80">Less than 80</option>
                                     <option value="Greater than 80">Greater than 80</option>
                                 </select>
@@ -4101,7 +4745,7 @@
                             <div class="form-group common-select-container">
                                 <label for="bunkering-bunker-type-quantity-taken-biofuel-viscosity">BIOFUEL Viscosity (CST):</label>
                                 <select class="common-select" id="bunkering-bunker-type-quantity-taken-biofuel-viscosity" name="bunkering-bunker-type-quantity-taken-biofuel-viscosity" >
-                                    <option>Select...</option>
+                                    <option value="">Select...</option>
                                     <option value="Less than 80">Less than 80</option>
                                     <option value="Greater than 80">Greater than 80</option>
                                 </select>
@@ -4113,7 +4757,7 @@
                             <div class="form-group common-select-container">
                                 <label for="bunkering-bunker-type-quantity-taken-vlsfo-viscosity">VLSFO Viscosity (CST):</label>
                                 <select class="common-select" id="bunkering-bunker-type-quantity-taken-vlsfo-viscosity" name="bunkering-bunker-type-quantity-taken-vlsfo-viscosity" >
-                                    <option>Select...</option>
+                                    <option value="">Select...</option>
                                     <option value="Less than 80">Less than 80</option>
                                     <option value="Greater than 80">Greater than 80</option>
                                 </select>
@@ -4125,7 +4769,7 @@
                             <div class="form-group common-select-container">
                                 <label for="bunkering-bunker-type-quantity-taken-lsmgo-viscosity">LSMGO Viscosity (CST):</label>
                                 <select class="common-select" id="bunkering-bunker-type-quantity-taken-lsmgo-viscosity" name="bunkering-bunker-type-quantity-taken-lsmgo-viscosity" >
-                                    <option>Select...</option>
+                                    <option value="">Select...</option>
                                     <option value="Less than 80">Less than 80</option>
                                     <option value="Greater than 80">Greater than 80</option>
                                 </select>
@@ -4140,9 +4784,9 @@
                             <div class="form-group common-select-container">
                                 <label for="bunkering-associated-information-in-port-vs-off-shore-delivery">In Port vs Off Shore Delivery:</label>
                                 <select class="common-select" id="bunkering-associated-information-in-port-vs-off-shore-delivery" name="bunkering-associated-information-in-port-vs-off-shore-delivery" required>
-                                    <option>Select...</option>
-                                    <option>In Port</option>
-                                    <option>Off Shore</option>
+                                    <option value="">Select...</option>
+                                    <option value="In Port">In Port</option>
+                                    <option value="Off Shore">Off Shore</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -4441,7 +5085,7 @@
                                     <option value="Kellet Island">Kellett Island</option>
                                     <option value="Trident Star">Trident Star</option>
                                     <option value="Weco Laura">Weco Laura</option>
-                                    <option value="cmb-permeke">CMB Permeke</option>
+                                    <option value="CMB Permeke">CMB Permeke</option>
                                     <option value="Cape Magnolia">Cape Magnolia</option>
                                     <option value="Andalucia">Andalucia</option>
                                     <option value="Brilliant Express">Brilliant Express</option>
