@@ -200,6 +200,7 @@ legend {
 
 
 .form-group input[type="text"],
+.form-group input[type="email"],
 .form-group input[type="datetime-local"],
 .form-group input[type="date"],
 .form-group select,
@@ -231,6 +232,29 @@ input[type="datetime-local"] {
 
 .four-columns .form-group:last-child {
     margin-right: 0;
+}
+
+.two-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.two-columns .form-group {
+    flex: 1 1 48%;
+    box-sizing: border-box; /* Ensures padding and borders are included in the width */
+    margin-bottom: 15px; /* Adds some space between rows */
+    margin-right: 10px;
+}
+
+.two-columns .form-group:nth-child(2n) {
+    margin-right: 0; /* Removes the right margin for the last item in the row */
+}
+
+.two-columns .form-group input {
+    width: 100%; /* Ensures the input field takes the full width of its parent container */
+    box-sizing: border-box; /* Ensures padding and borders are included in the width */
+    
 }
 
 textarea {
@@ -278,10 +302,6 @@ td {
     padding: 5px;
     text-align: center;
     font-size: 14px;
-}
-
-.rob-nav button {
-    margin-right: 10px;
 }
 
 .rob-section {
@@ -365,7 +385,8 @@ input[type="text"] {
     margin: 10px 0 20px 20px;
 }
 
-.w3-bar .w3-button:hover {
+.w3-bar .w3-button:hover,
+.w3-bar .w3-button.active {
     background-color: #0056b3;
 }
 
@@ -843,3 +864,21 @@ select.common-select:focus {
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
+.tabs .tab-link {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 0 20px 10px;
+    display: inline-block;
+}
+
+.tabs .tab-link:hover {
+    background-color: #0056b3;
+}
+
+.tabs .tab-link.active {
+    background-color: #0056b3;
+}
