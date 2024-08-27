@@ -564,6 +564,30 @@ function exportToExcel(reportId) {
             'noon-lsmgo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
             'noon-lsmgo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
 
+            //Arrival Known Next Port Agent Details Port 1
+            'port1-agent-company-name': 'port1-agent-company-name',
+            'port1-agent-address': 'port1-agent-address',
+            'port1-agent-pic-name': 'port1-agent-pic-name',
+            'port1-agent-telephone': 'port1-agent-telephone',
+            'port1-agent-mobile': 'port1-agent-mobile',
+            'port1-agent-email': 'port1-agent-email',
+
+            //Arrival Known Next Port Agent Details Port 2
+            'port2-agent-company-name': 'port2-agent-company-name',
+            'port2-agent-address': 'port2-agent-address',
+            'port2-agent-pic-name': 'port2-agent-pic-name',
+            'port2-agent-telephone': 'port2-agent-telephone',
+            'port2-agent-mobile': 'port2-agent-mobile',
+            'port2-agent-email': 'port2-agent-email',
+
+            //Arrival Known Next Port Agent Details Port 2
+            'port3-agent-company-name': 'port3-agent-company-name',
+            'port3-agent-address': 'port3-agent-address',
+            'port3-agent-pic-name': 'port3-agent-pic-name',
+            'port3-agent-telephone': 'port3-agent-telephone',
+            'port3-agent-mobile': 'port3-agent-mobile',
+            'port3-agent-email': 'port3-agent-email',
+
             // Noon Master Remarks	
             'noon-remarks': 'Remarks:',
             'noon-master-name': 'Masters Name:'
@@ -1095,80 +1119,85 @@ function exportToExcel(reportId) {
         'noonreport' : {
 
             // Noon Report Section Title
-            'noon-voyage-details-vessel-name': 'Voyage Details',
-            'noon-details-since-last-report-cp-ordered-speed': 'Details Since Last Report',
-            'noon-conditions-condition': 'Noon Conditions',
-            'noon-voyage-itinerary-port': 'Voyage Itinerary',
-            'noon-average-weather-wind-force': 'Average Weather',
-            'noon-bad-weather-details-wind-force-since-last-report': 'Bad Weather Details',
-            'noon-wind-force-dir-for-every-six-hours-12-18-wind-force': 'Wind/Force for every six hours',
-            'noon-rob-details-tank-1-description': 'ROB Details',
+            'noon-voyage-details-vessel-name': 'VOYAGE DETAILS',
+            'noon-details-since-last-report-cp-ordered-speed': 'DETAILS SINCE LAST REPORT',
+            'noon-conditions-condition': 'NOON CONDITIONS',
+            'noon-voyage-itinerary-port': 'VOYAGE ITINERARY',
+            'noon-average-weather-wind-force': 'AVERAGE WEATHER',
+            'noon-bad-weather-details-wind-force-since-last-report': 'BAD WEATHER DETAILS',
+            'noon-wind-force-dir-for-every-six-hours-12-18-wind-force': 'WIND/FORCE FOR EVERY SIX HOURS',
+            'noon-rob-details-tank-1-description': 'ROB DETAILS',
             'noon-hsfo-previous': 'HSFO (MT)',
             'noon-biofuel-previous': 'BIOFUEL (MT)',
             'noon-vlsfo-previous': 'VLSFO (MT)',
             'noon-lsmgo-previous': 'LSMGO (MT)',
-            'noon-hsfo-oil-me-cyl-oil-grade': 'HSFO Oil',
-            'noon-biofuel-oil-me-cyl-oil-grade': 'BIOFUEL Oil',
-            'noon-vlsfo-oil-me-cyl-oil-grade': 'VLSFO Oil',
-            'noon-lsmgo-oil-me-cyl-oil-grade': 'LSMGO Oil',
-            'noon-remarks': 'Master Remarks',
+            'noon-hsfo-oil-me-cyl-oil-grade': 'HSFO OIL',
+            'noon-biofuel-oil-me-cyl-oil-grade': 'BIOFUEL OIL',
+            'noon-vlsfo-oil-me-cyl-oil-grade': 'VLSFO OIL',
+            'noon-lsmgo-oil-me-cyl-oil-grade': 'LSMGO OIL',
+            'port1-agent-company-name': 'ALL KNOWN NEXT PORT AGENT DETAILS (PORT 1)',
+            'port2-agent-company-name': 'ALL KNOWN NEXT PORT AGENT DETAILS (PORT 2)',
+            'port3-agent-company-name': 'ALL KNOWN NEXT PORT AGENT DETAILS (PORT 3)',
+            'noon-remarks': 'MASTER REMARKS',
         },
+
 
         'departurereport': {
 
             // Departure Report Section Title
-            'departure-voyage-details-vessel-name': 'Voyage Details',
-            'departure-details-since-last-report-cp-ordered-speed' : 'Details Since Last Report',
-            'departure-conditions-condition': 'Departure Conditions',
-            'departure-voyage-itinerary-port': 'Voyage Itinerary',
-            'departure-average-weather-wind-force': 'Average Weather',
-            'departure-bad-weather-details-wind-force-since-last-report': 'Bad Weather Details',
-            'departure-wind-force-dir-for-every-six-hours-12-18-wind-   force': 'Wind/Force for every six hours',
-            'departure-rob-details-tank-1-fuel-grade': 'ROB Details',
+            'departure-voyage-details-vessel-name': 'VOYAGE DETAILS',
+            'departure-details-since-last-report-cp-ordered-speed' : 'DETAILS SINCE LAST REPORT',
+            'departure-conditions-condition': 'DEPARTURE CONDITIONS',
+            'departure-voyage-itinerary-port': 'VOYAGE ITINERARY',
+            'departure-average-weather-wind-force': 'AVERAGE WEATHER',
+            'departure-bad-weather-details-wind-force-since-last-report': 'BAD WEATHER DETAILS',
+            'departure-wind-force-dir-for-every-six-hours-12-18-wind-force': 'WIND/FORCE FOR EVERY SIX HOURS',
+            'departure-rob-details-tank-1-fuel-grade': 'ROB DETAILS',
             'departure-hsfo-previous': 'HSFO (MT)',
             'departure-biofuel-previous': 'BIOFUEL (MT)',
             'departure-vlsfo-previous': 'VLSFO (MT)',
             'departure-lsmgo-previous': 'LSMGO (MT)',
-            'departure-hsfo-oil-me-cyl-oil-grade': 'HSFO Oil',
-            'departure-biofuel-oil-me-cyl-oil-grade': 'BIOFUEL Oil',
-            'departure-vlsfo-oil-me-cyl-oil-grade': 'VLSFO Oil',
-            'departure-lsmgo-oil-me-cyl-oil-grade': 'LSMGO Oil',
-            'departure-remarks': 'Master Remarks',
+            'departure-hsfo-oil-me-cyl-oil-grade': 'HSFO OIL',
+            'departure-biofuel-oil-me-cyl-oil-grade': 'BIOFUEL OIL',
+            'departure-vlsfo-oil-me-cyl-oil-grade': 'VLSFO OIL',
+            'departure-lsmgo-oil-me-cyl-oil-grade': 'LSMGO OIL',
+            'departure-remarks': 'MASTER REMARKS',
         },
 
         'arrivalreport': {
             // Arrival Report Section Title
-            'arrival-voyage-details-vessel-name': 'Voyage Details',
-            'arrival-voyage-details-cp-ordered-speed': 'Details Since Last Report',
-            'arrival-conditions-condition': 'Arrival Conditions',
-            'arrival-average-weather-wind-force': 'Average Weather',
-            'arrival-bad-weather-details-wind-force-since-last-report': 'Bad Weather Details',
-            'arrival-wind-force-dir-for-every-six-hours-12-18-wind-force': 'Wind/Force for every six hours',
-            'arrival-rob-details-tank-1-fuel-grade': 'ROB Details',
+            'arrival-voyage-details-vessel-name': 'VOYAGE DETAILS',
+            'arrival-voyage-details-cp-ordered-speed': 'DETAILS SINCE LAST REPORT',
+            'arrival-conditions-condition': 'ARRIVAL CONDITIONS',
+            'arrival-average-weather-wind-force': 'AVERAGE WEATHER',
+            'arrival-bad-weather-details-wind-force-since-last-report': 'BAD WEATHER DETAILS',
+            'arrival-wind-force-dir-for-every-six-hours-12-18-wind-force': 'WIND/FORCE FOR EVERY SIX HOURS',
+            'arrival-rob-details-tank-1-fuel-grade': 'ROB DETAILS',
             'arrival-hsfo-previous': 'HSFO (MT)',
             'arrival-biofuel-previous': 'BIOFUEL (MT)',
             'arrival-vlsfo-previous': 'VLSFO (MT)',
             'arrival-lsmgo-previous': 'LSMGO (MT)',
-            'arrival-hsfo-oil-me-cyl-oil-grade': 'HSFO Oil',
-            'arrival-biofuel-oil-me-cyl-oil-grade': 'BIOFUEL Oil',
-            'arrival-vlsfo-oil-me-cyl-oil-grade': 'VLSFO Oil',
-            'arrival-lsmgo-oil-me-cyl-oil-grade': 'LSMGO Oil',
-            'arrival-remarks': 'Master Remarks',
+            'arrival-hsfo-oil-me-cyl-oil-grade': 'HSFO OIL',
+            'arrival-biofuel-oil-me-cyl-oil-grade': 'BIOFUEL OIL',
+            'arrival-vlsfo-oil-me-cyl-oil-grade': 'VLSFO OIL',
+            'arrival-lsmgo-oil-me-cyl-oil-grade': 'LSMGO OIL',
+            'arrival-remarks': 'MASTER REMARKS',
         },
-        
+
         'bunkering': {
             // Bunkering Report Section Title
-            'bunkering-details-vessel-name': 'Bunkering Details',
-            'bunkering-bunker-type-quantity-taken-hsfo-quantity': 'Bunker Type Quantity Taken (in MT)',
-            'bunkering-associated-information-in-port-vs-off-shore-delivery': 'Associated Information',
-            'bunkering-remarks': 'Master Remarks',
+            'bunkering-details-vessel-name': 'BUNKERING DETAILS',
+            'bunkering-bunker-type-quantity-taken-hsfo-quantity': 'BUNKER TYPE QUANTITY TAKEN (IN MT)',
+            'bunkering-associated-information-in-port-vs-off-shore-delivery': 'ASSOCIATED INFORMATION',
+            'bunkering-remarks': 'MASTER REMARKS',
         },
-        
+
         'allfast': {
             // All Fast Section Title
-            'allfast-voyage-details-vessel-name': 'Voyage Details',
-            'allfast-rob-hsfo': 'All Fast ROBs'
+            'allfast-voyage-details-vessel-name': 'VOYAGE DETAILS',
+            'allfast-rob-hsfo': 'ALL FAST ROBS'
         }
+
     };
 
     // List of fields to insert blank rows after
@@ -1217,7 +1246,10 @@ function exportToExcel(reportId) {
             'noon-hsfo-oil-ae3-cc-oil-cons',
             'noon-biofuel-oil-ae3-cc-oil-cons',
             'noon-vlsfo-oil-ae3-cc-oil-cons',
-            'noon-lsmgo-oil-ae3-cc-oil-cons'
+            'noon-lsmgo-oil-ae3-cc-oil-cons',
+            'port1-agent-email',
+            'port2-agent-email',
+            'port3-agent-email'
         ],
 
         'departurereport': [
@@ -1310,7 +1342,7 @@ function exportToExcel(reportId) {
 
     // Set column widths
     const wscols = [
-        { wch: 40 }, // Field column width
+        { wch: 45 }, // Field column width
         { wch: 30 }  // Value column width
     ];
     worksheet['!cols'] = wscols;
@@ -1476,16 +1508,8 @@ function openPortTab(event, portId) {
 // Show Port 1 by default on page load
 openPortTab({ currentTarget: document.querySelector('.tab-link.active') }, 'Port1');
 
-function openTab(evt, tabName) {
-    evt.preventDefault();
-    const form = evt.target.closest('form');
-    const elements = form.elements;
-
-    Array.from(elements).forEach(element => {
-        element.setAttribute('data-required', element.required);
-        element.required = false;
-    });
-
+// Set up event listeners only once when the page loads
+document.addEventListener('DOMContentLoaded', function() {
     const robNavButtons = document.querySelectorAll('.w3-bar-item.w3-button');
 
     robNavButtons.forEach(button => {
@@ -1496,6 +1520,17 @@ function openTab(evt, tabName) {
             // Add the 'active' class to the clicked button
             this.classList.add('active');
         });
+    });
+});
+
+function openTab(evt, tabName) {
+    evt.preventDefault();
+    const form = evt.target.closest('form');
+    const elements = form.elements;
+
+    Array.from(elements).forEach(element => {
+        element.setAttribute('data-required', element.required);
+        element.required = false;
     });
 
     document.querySelectorAll(".tab-content").forEach(content => content.style.display = "none");
