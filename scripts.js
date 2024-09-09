@@ -1481,32 +1481,32 @@ function resetTabContent(reportName) {
     if (hsfoButton) hsfoButton.classList.add("w3-theme");
 }
 
-// Function to switch between port tabs
-function openPortTab(event, portId) {
-    // Hide all port tabs
-    const allPortTabs = document.querySelectorAll('.port-tab-content');
-    allPortTabs.forEach(tab => {
-        tab.style.display = 'none';
-    });
+// // Function to switch between port tabs
+// function openPortTab(event, portId) {
+//     // Hide all port tabs
+//     const allPortTabs = document.querySelectorAll('.port-tab-content');
+//     allPortTabs.forEach(tab => {
+//         tab.style.display = 'none';
+//     });
 
-    // Remove 'active' class from all buttons
-    const allButtons = document.querySelectorAll('.tab-link');
-    allButtons.forEach(button => {
-        button.classList.remove('active');
-    });
+//     // Remove 'active' class from all buttons
+//     const allButtons = document.querySelectorAll('.tab-link');
+//     allButtons.forEach(button => {
+//         button.classList.remove('active');
+//     });
 
-    // Show the selected port tab
-    const selectedTab = document.getElementById(portId);
-    if (selectedTab) {
-        selectedTab.style.display = 'flex';
-    }
+//     // Show the selected port tab
+//     const selectedTab = document.getElementById(portId);
+//     if (selectedTab) {
+//         selectedTab.style.display = 'flex';
+//     }
 
-    // Add 'active' class to the clicked button
-    event.currentTarget.classList.add('active');
-}
+//     // Add 'active' class to the clicked button
+//     event.currentTarget.classList.add('active');
+// }
 
-// Show Port 1 by default on page load
-openPortTab({ currentTarget: document.querySelector('.tab-link.active') }, 'Port1');
+// // Show Port 1 by default on page load
+// openPortTab({ currentTarget: document.querySelector('.tab-link.active') }, 'Port1');
 
 // Set up event listeners only once when the page loads
 document.addEventListener('DOMContentLoaded', function() {
@@ -1561,9 +1561,8 @@ function addRowAllFast() {
     tableBodyAllFast.appendChild(newRowAllFast);
 }
 
-
 let tankNumber = 1;
-const maxRowsRobTank = 20;
+const maxRowsRobTank = 30;
 
 function addRowRobDetail(button) {
     const tableBody = document.getElementById('robDetailsTableBody'); // Directly select the table body
@@ -1608,6 +1607,125 @@ function addRowRobDetail(button) {
     }
 }
 
+const maxAgentRows = 20;
+
+function addRowWeeklyScheduleAgent(button) {
+    // Identify the closest table body where the button is clicked
+    const tableBody = button.closest('tbody');
+    const rowCount = tableBody.querySelectorAll('tr').length;
+
+    // Check if the row count exceeds the limit
+    if (rowCount >= maxAgentRows) {
+        alert('Maximum of 20 rows reached for agents!');
+        return;
+    }
+
+    const newRow = document.createElement('tr');
+    const newRowNumber = rowCount + 1;
+
+    newRow.innerHTML = `
+        <td><input type="text" id="weeklyreport-schedule-details-agent-name-${newRowNumber}" name="weeklyreport-schedule-details-agent-name-${newRowNumber}"></td>
+        <td><input type="text" id="weeklyreport-schedule-details-agent-address-${newRowNumber}" name="weeklyreport-schedule-details-agent-address-${newRowNumber}"></td>
+        <td><input type="text" id="weeklyreport-schedule-details-agent-pic-name-${newRowNumber}" name="weeklyreport-schedule-details-agent-pic-name-${newRowNumber}"></td>
+        <td><input type="text" id="weeklyreport-schedule-details-agent-telephone-${newRowNumber}" name="weeklyreport-schedule-details-agent-telephone-${newRowNumber}"></td>
+        <td><input type="text" id="weeklyreport-schedule-details-agent-mobile-${newRowNumber}" name="weeklyreport-schedule-details-agent-mobile-${newRowNumber}"></td>
+        <td><input type="text" id="weeklyreport-schedule-details-agent-email-${newRowNumber}" name="weeklyreport-schedule-details-agent-email-${newRowNumber}"></td>
+        <td><button type="button" class="remove-button" onclick="removeRow(this)">Remove</button></td>
+    `;
+
+    tableBody.appendChild(newRow);
+}
+
+function removeRow(button) {
+    button.closest('tr').remove();
+}
+
+let portSetNumber = 1;
+
+function addRowWeeklyScheduleNewPort() {
+    // Increment the set number to ensure unique IDs for each new set of tables
+    portSetNumber++;
+
+    const newPortTableHTML = `
+        <div id="tableSet-${portSetNumber}">
+            <table id="weeklyScheduleTable-${portSetNumber}">
+                <thead>
+                    <tr>
+                        <th>PORT</th>
+                        <th>ACTIVITY</th>
+                        <th>ETA/ETB</th>
+                        <th>ETCD</th>
+                        <th>CARGO</th>
+                        <th>CARGO QTY</th>
+                        <th>REMARKS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="weeklyreport-schedule-details-port-${portSetNumber}-1" name="weeklyreport-schedule-details-port-${portSetNumber}-1"></td>
+                        <td class="fuel-grade-select-cell">
+                            <select class="fuel-grade-select" id="weeklyreport-schedule-details-activity-port-${portSetNumber}-1" name="weeklyreport-schedule-details-activity-port-${portSetNumber}-1">
+                                <option value="">Select</option>
+                                <option value="Loading">Loading</option>
+                                <option value="Bunkering">Bunkering</option>
+                                <option value="Discharging">Discharging</option>
+                            </select>
+                        </td>
+                        <td><input class="supply-date-cell" type="datetime-local" id="weeklyreport-eta-etb-port-${portSetNumber}-1-date-time" name="weeklyreport-eta-etb-port-${portSetNumber}-1-date-time"></td>
+                        <td><input class="supply-date-cell" type="datetime-local" id="weeklyreport-etcd-port-${portSetNumber}-1-date-time" name="weeklyreport-etcd-port-${portSetNumber}-1-date-time"></td>
+                        <td class="fuel-grade-select-cell">
+                            <select class="fuel-grade-select" id="weeklyreport-schedule-details-cargo-port-${portSetNumber}-1" name="weeklyreport-schedule-details-cargo-port-${portSetNumber}-1">
+                                <option value="">Select</option>
+                                <option value="Coal">Coal</option>
+                                <option value="Oil">Oil</option>
+                            </select>
+                        </td>
+                        <td><input type="text" id="weeklyreport-schedule-details-cargo-qty-port-${portSetNumber}-1" name="weeklyreport-schedule-details-cargo-qty-port-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weeklyreport-schedule-details-remarks-port-${portSetNumber}-1" name="weeklyreport-schedule-details-remarks-port-${portSetNumber}-1"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <table id="weeklyScheduleTableAgents-${portSetNumber}">
+                <thead>
+                    <tr>
+                        <th>Agent's Name</th>
+                        <th>Address</th>
+                        <th>PIC Name</th>
+                        <th>Telephone</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="weeklyreport-schedule-details-agent-name-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-name-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weeklyreport-schedule-details-agent-address-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-address-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weeklyreport-schedule-details-agent-pic-name-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-pic-name-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weeklyreport-schedule-details-agent-telephone-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-telephone-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weeklyreport-schedule-details-agent-mobile-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-mobile-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weeklyreport-schedule-details-agent-email-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-email-${portSetNumber}-1"></td>
+                        <td><button type="button" class="add-row-button" onclick="addRowWeeklyScheduleAgent(this)">Add Agent</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <!-- Add Remove Button -->
+            <button type="button" class="remove-button right-remove-button" onclick="removeTableSet(${portSetNumber})">Remove Table Set</button> 
+        </div>`;
+
+    // Append the new set of tables to the document body or a specific container
+    document.getElementById('newTableContainer').insertAdjacentHTML('beforeend', newPortTableHTML);
+}
+
+function removeTableSet(setNumber) {
+    const tableSet = document.getElementById(`tableSet-${setNumber}`);
+    if (tableSet) {
+        tableSet.remove();
+    }
+}
+
 function removeRow(button) {
     const rowToRemove = button.closest('tr');
     rowToRemove.remove(); 
@@ -1617,7 +1735,6 @@ function removeRow(button) {
         row.querySelector('td').textContent = index + 1; // Reassign the tank numbers to be sequential
     });
 }
-
 
 
 function validateNumberFields() {

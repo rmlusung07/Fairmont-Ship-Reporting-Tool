@@ -391,6 +391,7 @@ input[type="text"] {
     background-color: #0056b3;
 }
 
+
 .checkbox-container {
     display: flex;
 }
@@ -416,12 +417,55 @@ input[type="text"] {
     transform: scale(1.05);
 }
 
+.right-remove-button {
+    float: right;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.right-remove-button:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+}
+
+.right-remove-button:active {
+    background-color: #d22;
+    transform: scale(1);
+}
+
+
 /* All fast remove button style */
 .add-row-button {
     background-color: #007BFF;
     color: white;
     border: none;
     padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-row-weekly-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.add-row-weekly-button:active {
+    background-color: #004494;
+    transform: scale(1);
+}
+
+.add-row-weekly-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
     cursor: pointer;
     border-radius: 3px;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -435,6 +479,21 @@ input[type="text"] {
 .add-row-button:active {
     background-color: #004494;
     transform: scale(1);
+}
+
+.additional-row {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    margin-top: -5px;
+}
+
+#weeklyScheduleTable {
+    margin-bottom: 20px;
+}
+
+#weeklyScheduleTableAgents {
+    margin-bottom: 20px;
 }
 
 /* Table Screen View */

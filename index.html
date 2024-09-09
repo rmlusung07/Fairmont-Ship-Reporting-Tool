@@ -33,6 +33,7 @@
             <button onclick="openReport(event, 'ArrivalReport')">Arrival Report</button>
             <button onclick="openReport(event, 'Bunkering')">Bunkering</button>
             <button onclick="openReport(event, 'AllFast')">All Fast</button>
+            <button onclick="openReport(event, 'WeeklySchedule')">Weekly Schedule</button>
         </nav>
 
         <!-- Main content starts here -->
@@ -1694,14 +1695,14 @@
                         </div>
                     </fieldset>
                     
-                    <fieldset>
+                    <!-- <fieldset>
                         <legend>All Known Next Port Agent Details</legend>
                         <div class="tabs">
                             <button type="button" class="tab-link active" onclick="openPortTab(event, 'Port1')">Port 1</button>
                             <button type="button" class="tab-link" onclick="openPortTab(event, 'Port2')">Port 2</button>
                             <button type="button" class="tab-link" onclick="openPortTab(event, 'Port3')">Port 3</button>
                         </div>
-                        <!-- Tab 1: Port 1 Agent Details (Displayed by default) -->
+                        
                             <div id="Port1" class="port-tab-content two-columns" style="display: flex;">
                                 <div class="form-group">
                                     <label for="port1-agent-company-name">Agent Company Name:</label>
@@ -1729,7 +1730,6 @@
                                 </div>
                             </div>
                         
-                            <!-- Tab 2: Port 2 Agent Details -->
                             <div id="Port2" class="port-tab-content two-columns" style="display: none;">
                                 <div class="form-group">
                                     <label for="port2-agent-company-name">Agent Company Name:</label>
@@ -1757,7 +1757,6 @@
                                 </div>
                             </div>
                         
-                            <!-- Tab 3: Port 3 Agent Details -->
                             <div id="Port3" class="port-tab-content two-columns" style="display: none;">
                                 <div class="form-group">
                                     <label for="port3-agent-company-name">Agent Company Name:</label>
@@ -1784,7 +1783,7 @@
                                     <input type="email" id="port3-agent-email" name="port3-agent-email">
                                 </div>
                             </div>
-                    </fieldset>
+                    </fieldset>  -->
 
                     <fieldset>
                             <legend>Remarks</legend>
@@ -5292,6 +5291,149 @@
                     <button type="submit" id="allfast-submit">Submit</button>
                 </form>
             </section>
+
+            <section id="WeeklySchedule" class="report-section">
+                <h1>Weekly Schedule</h1>
+
+                <div class="sub-container">
+                    <button type="button" class="save-draft" onclick="saveDraft('WeeklyReport')">Save Draft</button>
+                    <button type="button" class="save-draft" onclick="clearFields('WeeklyReport')">Clear Fields</button>
+                    <!-- <button type="button" class="export-data" onclick="">Fetch Saved Data</button> -->
+                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('WeeklyReport')">Export Data</button>
+                </div>
+
+                <form>
+                    <fieldset>
+                        <legend>Schedule Details</legend>
+                        <div class="four-columns">
+                            <div class="form-group common-select-container">
+                                <label for="weeklyreport-voyage-details-vessel-name">Vessel Name:</label>
+                                <select class="common-select" id="weeklyreport-voyage-details-vessel-name" name="weeklyreport-voyage-details-vessel-name" required>
+                                    <option value="">Select Vessel</option>
+                                    <option value="Kellet Island">Kellett Island</option>
+                                    <option value="Trident Star">Trident Star</option>
+                                    <option value="Weco Laura">Weco Laura</option>
+                                    <option value="CMB Permeke">CMB Permeke</option>
+                                    <option value="Cape Magnolia">Cape Magnolia</option>
+                                    <option value="Andalucia">Andalucia</option>
+                                    <option value="Brilliant Express">Brilliant Express</option>
+                                    <option value="Aquarius Ace">Aquarius Ace</option>
+                                    <option value="City of St Petersburg">City of St.Petersburg</option>
+                                    <option value="City of Rotterdam">City of Rotterdam</option>
+                                    <option value="World Spirit">World Spirit</option>
+                                    <option value="United Spirit">United Spirit</option>
+                                    <option value="Glengyle">Glengyle</option>
+                                    <option value="HSL Chicago">HSL Chicago</option>
+                                    <option value="ETG Southern Cross">ETG Southern Cross</option>
+                                    <option value="Dream Sky">Dream Sky</option>
+                                    <option value="Infinity Sky">Infnity Sky</option>
+                                    <option value="Cape Acacia">Cape Acacia</option>
+                                    <option value="Cape Jasmine">Cape Jasmine</option>
+                                    <option value="CL Tomo">CL Tomo</option>
+                                    <option value="Maple Harvest">Maple Harvest</option>
+                                    <option value="World Swan II">World Swan II</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="weeklyreport-voyage-details-voyage-no">Voyage No:</label>
+                                <input class="validate" type="text" id="weeklyreport-voyage-details-voyage-no" name="weeklyreport-voyage-details-voyage-no" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="berth-section" for="weeklyreport-voyage-details-date-time">Date:</label>
+                                <input class="common-date" type="datetime-local" id="weeklyreport-voyage-details-date-time" name="weeklyreport-voyage-details-date-time" required>
+                            </div>
+                        </div>
+
+                        </fieldset>
+                        <fieldset>
+                        <legend>Agent's Details</legend>
+                        <div class="weekly-schedule-container">
+                            <div class="w3-bar w3-theme">
+                                <button type="button" class="w3-bar-item w3-button" onclick="addRowWeeklyScheduleNewPort()">Add New Port</button>
+                            </div>
+                            <table id="weeklyScheduleTable">
+                                <thead id="weeklyScheduleTableHead">
+                                    <tr>
+                                        <th>PORT</th>
+                                        <th>ACTIVITY</th>
+                                        <th>ETA/ETB</th>
+                                        <th>ETCD</th>
+                                        <th>CARGO</th>
+                                        <th>CARGO QTY</th>
+                                        <th>REMARKS</th>
+                                        <!-- <th>ACTION</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody id="weeklySchedulePortTableBody">
+                                    <tr>
+                                        <td><input type="text" id="weeklyreport-schedule-details-port-1" name="weeklyreport-schedule-details-port-1"></td>
+                                        <td class="fuel-grade-select-cell">
+                                            <select class="fuel-grade-select" id="weeklyreport-schedule-details-activity-port-1" name="weeklyreport-schedule-details-activity-port-1">
+                                                <option value="">Select</option>
+                                                <option value="Loading">Loading</option>
+                                                <option value="Bunkering">Bunkering</option>
+                                                <option value="Discharging">Discharging</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="supply-date-cell" type="datetime-local" id="weeklyreport-eta-etb-port-1-date-time" name="weeklyreport-eta-etb-port-1-date-time"></td>
+                                        <td><input class="supply-date-cell" type="datetime-local" id="weeklyreport-etcd-port-1-date-time" name="weeklyreport-etcd-port-1-date-time"></td>
+                                        <td class="fuel-grade-select-cell">
+                                            <select class="fuel-grade-select" id="weeklyreport-schedule-details-cargo-port-1" name="weeklyreport-schedule-details-cargo-port-1">
+                                                <option value="">Select</option>
+                                                <option value="Coal">Coal</option>
+                                                <option value="Oil">Oil</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" id="weeklyreport-schedule-details-cargo-qty-port-1" name="weeklyreport-schedule-details-cargo-qty-port-1"></td>
+                                        <td><input type="text" id="weeklyreport-schedule-details-remarks-port-1" name="weeklyreport-schedule-details-remarks-port-1"></td>
+                                        <!-- <td><button type="button" class="add-row-button" onclick="addRowWeeklySchedule()">Add Row</button></td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br />
+
+                            <table id="weeklyScheduleTable">
+                                <thead id="weeklyScheduleTableHead">
+                                    <tr>
+                                        <th>Agent's Name</th>
+                                        <th>Address</th>
+                                        <th>PIC Name</th>
+                                        <th>Telephone</th>
+                                        <th>Mobile</th>
+                                        <th>Email</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="weeklyScheduleAgentTableBody">
+                                    <tr>
+                                        <td><input type="text" id="weeklyreport-schedule-details-agent-name-1" name="weeklyreport-schedule-details-agent-name-1"></td>
+                                        <td><input type="text" id="weeklyreport-schedule-details-agent-address-1" name="weeklyreport-schedule-details-agent-address-1"></td>
+                                        <td><input type="text" id="weeklyreport-schedule-details-agent-pic-name-1" name="weeklyreport-schedule-details-agent-pic-name-1"></td>
+                                        <td><input type="text" id="weeklyreport-schedule-details-agent-telephone-1" name="weeklyreport-schedule-details-agent-telephone-1"></td>
+                                        <td><input type="text" id="weeklyreport-schedule-details-agent-mobile-1" name="weeklyreport-schedule-details-agent-mobile-1"></td>
+                                        <td><input type="text" id="weeklyreport-schedule-details-agent-email-1" name="weeklyreport-schedule-details-agent-email-1"></td>
+                                        <td><button type="button" class="add-row-button" onclick="addRowWeeklyScheduleAgent(this)">Add Agent</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div id="newTableContainer"></div>
+
+                        </div>
+                    </fieldset>
+
+                    
+                    <!-- Master's Name -->
+                    <fieldset>
+                        <legend>Master's Name</legend>
+                        <input type="text" id="noon-master-name" name="noon-master-name">
+                        
+                </fieldset>
+                <button type="submit" id="noon-submit">Submit</button>
+                </form>
+            </section>
+
         </main>
     </div>
 
