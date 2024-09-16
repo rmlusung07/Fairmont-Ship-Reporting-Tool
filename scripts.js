@@ -77,6 +77,28 @@ document.addEventListener('DOMContentLoaded', function() {
     setupPortSearch('bunkering-details-bunkering-port', 'bunkering-details-bunkering-port-results');
     setupPortSearch('allfast-voyage-details-port', 'allfast-voyage-details-port-results');
 
+    // Add the port search functionality for Weekly Schedule Report fields
+    setupPortSearch('weekly-schedule-details-port-1', 'weekly-schedule-details-port-1-results');
+    setupPortSearch('weekly-schedule-details-port-2-1', 'weekly-schedule-details-port-2-1-results');
+    setupPortSearch('weekly-schedule-details-port-3-1', 'weekly-schedule-details-port-3-1-results');
+    setupPortSearch('weekly-schedule-details-port-4-1', 'weekly-schedule-details-port-4-1-results');
+    setupPortSearch('weekly-schedule-details-port-5-1', 'weekly-schedule-details-port-5-1-results');
+    setupPortSearch('weekly-schedule-details-port-6-1', 'weekly-schedule-details-port-6-1-results');
+    setupPortSearch('weekly-schedule-details-port-7-1', 'weekly-schedule-details-port-7-1-results');
+    setupPortSearch('weekly-schedule-details-port-8-1', 'weekly-schedule-details-port-8-1-results');
+    setupPortSearch('weekly-schedule-details-port-9-1', 'weekly-schedule-details-port-9-1-results');
+    setupPortSearch('weekly-schedule-details-port-10-1', 'weekly-schedule-details-port-10-1-results');
+    setupPortSearch('weekly-schedule-details-port-11-1', 'weekly-schedule-details-port-11-1-results');
+    setupPortSearch('weekly-schedule-details-port-12-1', 'weekly-schedule-details-port-12-1-results');
+    setupPortSearch('weekly-schedule-details-port-13-1', 'weekly-schedule-details-port-13-1-results');
+    setupPortSearch('weekly-schedule-details-port-14-1', 'weekly-schedule-details-port-14-1-results');
+    setupPortSearch('weekly-schedule-details-port-15-1', 'weekly-schedule-details-port-15-1-results');
+    setupPortSearch('weekly-schedule-details-port-16-1', 'weekly-schedule-details-port-16-1-results');
+    setupPortSearch('weekly-schedule-details-port-17-1', 'weekly-schedule-details-port-17-1-results');
+    setupPortSearch('weekly-schedule-details-port-18-1', 'weekly-schedule-details-port-18-1-results');
+    setupPortSearch('weekly-schedule-details-port-19-1', 'weekly-schedule-details-port-19-1-results');
+    setupPortSearch('weekly-schedule-details-port-20-1', 'weekly-schedule-details-port-20-1-results');
+
     // Attach validation for latitude and longitude fields
     const latitudeFields = [
         'noon-voyage-details-latitude',
@@ -1091,21 +1113,2147 @@ function exportToExcel(reportId) {
             'weekly-voyage-details-date-time': 'Weekly Schedule Date/Time:',
 
             // Port Details
+            // Port 1
             'weekly-schedule-details-port-1': 'Port 1 Name:',
-            'weekly-schedule-details-activity-port-1': 'Port 1 Activty:',
+            'weekly-schedule-details-activity-port-1': 'Port 1 Activity:',
             'weekly-eta-etb-port-1-date-time': 'Port 1 ETA:',
             'weekly-etcd-port-1-date-time': 'Port 1 ETCD:',
             'weekly-schedule-details-cargo-port-1': 'Port 1 Details:',
             'weekly-schedule-details-cargo-qty-port-1': 'Port 1 Quantity:',
             'weekly-schedule-details-remarks-port-1': 'Port 1 Remarks:',
 
-            // Agent Details
+            // Port 2
+            'weekly-schedule-details-port-2-1': 'Port 2 Name:',
+            'weekly-schedule-details-activity-port-2-1': 'Port 2 Activity:',
+            'weekly-eta-etb-port-2-1-date-time': 'Port 2 ETA:',
+            'weekly-etcd-port-2-1-date-time': 'Port 2 ETCD:',
+            'weekly-schedule-details-cargo-port-2-1': 'Port 2 Details:',
+            'weekly-schedule-details-cargo-qty-port-2-1': 'Port 2 Quantity:',
+            'weekly-schedule-details-remarks-port-2-1': 'Port 2 Remarks:',
+
+            // Port 3
+            'weekly-schedule-details-port-3-1': 'Port 3 Name:',
+            'weekly-schedule-details-activity-port-3-1': 'Port 3 Activity:',
+            'weekly-eta-etb-port-3-1-date-time': 'Port 3 ETA:',
+            'weekly-etcd-port-3-1-date-time': 'Port 3 ETCD:',
+            'weekly-schedule-details-cargo-port-3-1': 'Port 3 Details:',
+            'weekly-schedule-details-cargo-qty-port-3-1': 'Port 3 Quantity:',
+            'weekly-schedule-details-remarks-port-3-1': 'Port 3 Remarks:',
+            
+            // Port 4
+            'weekly-schedule-details-port-4-1': 'Port 4 Name:',
+            'weekly-schedule-details-activity-port-4-1': 'Port 4 Activity:',
+            'weekly-eta-etb-port-4-1-date-time': 'Port 4 ETA:',
+            'weekly-etcd-port-4-1-date-time': 'Port 4 ETCD:',
+            'weekly-schedule-details-cargo-port-4-1': 'Port 4 Details:',
+            'weekly-schedule-details-cargo-qty-port-4-1': 'Port 4 Quantity:',
+            'weekly-schedule-details-remarks-port-4-1': 'Port 4 Remarks:',
+
+            // Port 5
+            'weekly-schedule-details-port-5-1': 'Port 5 Name:',
+            'weekly-schedule-details-activity-port-5-1': 'Port 5 Activity:',
+            'weekly-eta-etb-port-5-1-date-time': 'Port 5 ETA:',
+            'weekly-etcd-port-5-1-date-time': 'Port 5 ETCD:',
+            'weekly-schedule-details-cargo-port-5-1': 'Port 5 Details:',
+            'weekly-schedule-details-cargo-qty-port-5-1': 'Port 5 Quantity:',
+            'weekly-schedule-details-remarks-port-5-1': 'Port 5 Remarks:',
+
+            // Port 6
+            'weekly-schedule-details-port-6-1': 'Port 6 Name:',
+            'weekly-schedule-details-activity-port-6-1': 'Port 6 Activity:',
+            'weekly-eta-etb-port-6-1-date-time': 'Port 6 ETA:',
+            'weekly-etcd-port-6-1-date-time': 'Port 6 ETCD:',
+            'weekly-schedule-details-cargo-port-6-1': 'Port 6 Details:',
+            'weekly-schedule-details-cargo-qty-port-6-1': 'Port 6 Quantity:',
+            'weekly-schedule-details-remarks-port-6-1': 'Port 6 Remarks:',
+
+            // Port 7
+            'weekly-schedule-details-port-7-1': 'Port 7 Name:',
+            'weekly-schedule-details-activity-port-7-1': 'Port 7 Activity:',
+            'weekly-eta-etb-port-7-1-date-time': 'Port 7 ETA:',
+            'weekly-etcd-port-7-1-date-time': 'Port 7 ETCD:',
+            'weekly-schedule-details-cargo-port-7-1': 'Port 7 Details:',
+            'weekly-schedule-details-cargo-qty-port-7-1': 'Port 7 Quantity:',
+            'weekly-schedule-details-remarks-port-7-1': 'Port 7 Remarks:',
+
+            // Port 8
+            'weekly-schedule-details-port-8-1': 'Port 8 Name:',
+            'weekly-schedule-details-activity-port-8-1': 'Port 8 Activity:',
+            'weekly-eta-etb-port-8-1-date-time': 'Port 8 ETA:',
+            'weekly-etcd-port-8-1-date-time': 'Port 8 ETCD:',
+            'weekly-schedule-details-cargo-port-8-1': 'Port 8 Details:',
+            'weekly-schedule-details-cargo-qty-port-8-1': 'Port 8 Quantity:',
+            'weekly-schedule-details-remarks-port-8-1': 'Port 8 Remarks:',
+
+            // Port 9
+            'weekly-schedule-details-port-9-1': 'Port 9 Name:',
+            'weekly-schedule-details-activity-port-9-1': 'Port 9 Activity:',
+            'weekly-eta-etb-port-9-1-date-time': 'Port 9 ETA:',
+            'weekly-etcd-port-9-1-date-time': 'Port 9 ETCD:',
+            'weekly-schedule-details-cargo-port-9-1': 'Port 9 Details:',
+            'weekly-schedule-details-cargo-qty-port-9-1': 'Port 9 Quantity:',
+            'weekly-schedule-details-remarks-port-9-1': 'Port 9 Remarks:',
+
+            // Port 10
+            'weekly-schedule-details-port-10-1': 'Port 10 Name:',
+            'weekly-schedule-details-activity-port-10-1': 'Port 10 Activity:',
+            'weekly-eta-etb-port-10-1-date-time': 'Port 10 ETA:',
+            'weekly-etcd-port-10-1-date-time': 'Port 10 ETCD:',
+            'weekly-schedule-details-cargo-port-10-1': 'Port 10 Details:',
+            'weekly-schedule-details-cargo-qty-port-10-1': 'Port 10 Quantity:',
+            'weekly-schedule-details-remarks-port-10-1': 'Port 10 Remarks:',
+
+            // Port 11
+            'weekly-schedule-details-port-11-1': 'Port 11 Name:',
+            'weekly-schedule-details-activity-port-11-1': 'Port 11 Activity:',
+            'weekly-eta-etb-port-11-1-date-time': 'Port 11 ETA:',
+            'weekly-etcd-port-11-1-date-time': 'Port 11 ETCD:',
+            'weekly-schedule-details-cargo-port-11-1': 'Port 11 Details:',
+            'weekly-schedule-details-cargo-qty-port-11-1': 'Port 11 Quantity:',
+            'weekly-schedule-details-remarks-port-11-1': 'Port 11 Remarks:',
+            
+            // Port 12
+            'weekly-schedule-details-port-12-1': 'Port 12 Name:',
+            'weekly-schedule-details-activity-port-12-1': 'Port 12 Activity:',
+            'weekly-eta-etb-port-12-1-date-time': 'Port 12 ETA:',
+            'weekly-etcd-port-12-1-date-time': 'Port 12 ETCD:',
+            'weekly-schedule-details-cargo-port-12-1': 'Port 12 Details:',
+            'weekly-schedule-details-cargo-qty-port-12-1': 'Port 12 Quantity:',
+            'weekly-schedule-details-remarks-port-12-1': 'Port 12 Remarks:',
+
+            // Port 13
+            'weekly-schedule-details-port-13-1': 'Port 13 Name:',
+            'weekly-schedule-details-activity-port-13-1': 'Port 13 Activity:',
+            'weekly-eta-etb-port-13-1-date-time': 'Port 13 ETA:',
+            'weekly-etcd-port-13-1-date-time': 'Port 13 ETCD:',
+            'weekly-schedule-details-cargo-port-13-1': 'Port 13 Details:',
+            'weekly-schedule-details-cargo-qty-port-13-1': 'Port 13 Quantity:',
+            'weekly-schedule-details-remarks-port-13-1': 'Port 13 Remarks:',
+
+            // Port 14
+            'weekly-schedule-details-port-14-1': 'Port 14 Name:',
+            'weekly-schedule-details-activity-port-14-1': 'Port 14 Activity:',
+            'weekly-eta-etb-port-14-1-date-time': 'Port 14 ETA:',
+            'weekly-etcd-port-14-1-date-time': 'Port 14 ETCD:',
+            'weekly-schedule-details-cargo-port-14-1': 'Port 14 Details:',
+            'weekly-schedule-details-cargo-qty-port-14-1': 'Port 14 Quantity:',
+            'weekly-schedule-details-remarks-port-14-1': 'Port 14 Remarks:',
+
+            // Port 15
+            'weekly-schedule-details-port-15-1': 'Port 15 Name:',
+            'weekly-schedule-details-activity-port-15-1': 'Port 15 Activity:',
+            'weekly-eta-etb-port-15-1-date-time': 'Port 15 ETA:',
+            'weekly-etcd-port-15-1-date-time': 'Port 15 ETCD:',
+            'weekly-schedule-details-cargo-port-15-1': 'Port 15 Details:',
+            'weekly-schedule-details-cargo-qty-port-15-1': 'Port 15 Quantity:',
+            'weekly-schedule-details-remarks-port-15-1': 'Port 15 Remarks:',
+
+            // Port 16
+            'weekly-schedule-details-port-16-1': 'Port 16 Name:',
+            'weekly-schedule-details-activity-port-16-1': 'Port 16 Activity:',
+            'weekly-eta-etb-port-16-1-date-time': 'Port 16 ETA:',
+            'weekly-etcd-port-16-1-date-time': 'Port 16 ETCD:',
+            'weekly-schedule-details-cargo-port-16-1': 'Port 16 Details:',
+            'weekly-schedule-details-cargo-qty-port-16-1': 'Port 16 Quantity:',
+            'weekly-schedule-details-remarks-port-16-1': 'Port 16 Remarks:',
+
+            // Port 17
+            'weekly-schedule-details-port-17-1': 'Port 17 Name:',
+            'weekly-schedule-details-activity-port-17-1': 'Port 17 Activity:',
+            'weekly-eta-etb-port-17-1-date-time': 'Port 17 ETA:',
+            'weekly-etcd-port-17-1-date-time': 'Port 17 ETCD:',
+            'weekly-schedule-details-cargo-port-17-1': 'Port 17 Details:',
+            'weekly-schedule-details-cargo-qty-port-17-1': 'Port 17 Quantity:',
+            'weekly-schedule-details-remarks-port-17-1': 'Port 17 Remarks:',
+
+            // Port 18
+            'weekly-schedule-details-port-18-1': 'Port 18 Name:',
+            'weekly-schedule-details-activity-port-18-1': 'Port 18 Activity:',
+            'weekly-eta-etb-port-18-1-date-time': 'Port 18 ETA:',
+            'weekly-etcd-port-18-1-date-time': 'Port 18 ETCD:',
+            'weekly-schedule-details-cargo-port-18-1': 'Port 18 Details:',
+            'weekly-schedule-details-cargo-qty-port-18-1': 'Port 18 Quantity:',
+            'weekly-schedule-details-remarks-port-18-1': 'Port 18 Remarks:',
+
+            // Port 19
+            'weekly-schedule-details-port-19-1': 'Port 19 Name:',
+            'weekly-schedule-details-activity-port-19-1': 'Port 19 Activity:',
+            'weekly-eta-etb-port-19-1-date-time': 'Port 19 ETA:',
+            'weekly-etcd-port-19-1-date-time': 'Port 19 ETCD:',
+            'weekly-schedule-details-cargo-port-19-1': 'Port 19 Details:',
+            'weekly-schedule-details-cargo-qty-port-19-1': 'Port 19 Quantity:',
+            'weekly-schedule-details-remarks-port-19-1': 'Port 19 Remarks:',
+
+            // Port 20
+            'weekly-schedule-details-port-20-1': 'Port 20 Name:',
+            'weekly-schedule-details-activity-port-20-1': 'Port 20 Activity:',
+            'weekly-eta-etb-port-20-1-date-time': 'Port 20 ETA:',
+            'weekly-etcd-port-20-1-date-time': 'Port 20 ETCD:',
+            'weekly-schedule-details-cargo-port-20-1': 'Port 20 Details:',
+            'weekly-schedule-details-cargo-qty-port-20-1': 'Port 20 Quantity:',
+            'weekly-schedule-details-remarks-port-20-1': 'Port 20 Remarks:',
+
+            // Agent Details for Port 1
+
+            // Port 1 Agent 1
             'weekly-schedule-details-agent-name-1': 'Agent 1 Name:',
             'weekly-schedule-details-agent-address-1': 'Agent 1 Address:',
             'weekly-schedule-details-agent-pic-name-1': 'Agent 1 PIC Name:',
             'weekly-schedule-details-agent-telephone-1': 'Agent 1 Telephone:',
             'weekly-schedule-details-agent-mobile-1': 'Agent 1 Mobile:',
             'weekly-schedule-details-agent-email-1': 'Agent 1 Email:',
+
+            // Port 1 Agent 2
+            'weekly-schedule-details-agent-name-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-2': 'Agent 2 Email:',
+
+            // Port 1 Agent 3
+            'weekly-schedule-details-agent-name-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-3': 'Agent 3 Email:',
+
+            // Port 1 Agent 4
+            'weekly-schedule-details-agent-name-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-4': 'Agent 4 Email:',
+
+            // Port 1 Agent 5
+            'weekly-schedule-details-agent-name-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-5': 'Agent 5 Email:',
+
+            // Port 1 Agent 6
+            'weekly-schedule-details-agent-name-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-6': 'Agent 6 Email:',
+
+            // Port 1 Agent 7
+            'weekly-schedule-details-agent-name-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-7': 'Agent 7 Email:',
+
+            // Port 1 Agent 8
+            'weekly-schedule-details-agent-name-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-8': 'Agent 8 Email:',
+
+            // Port 1 Agent 9
+            'weekly-schedule-details-agent-name-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-9': 'Agent 9 Email:',
+
+            // Port 1 Agent 10
+            'weekly-schedule-details-agent-name-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-10': 'Agent 10 Email:',
+
+            // Port 1 Agent 11
+            'weekly-schedule-details-agent-name-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-11': 'Agent 11 Email:',
+
+            // Port 1 Agent 12
+            'weekly-schedule-details-agent-name-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 2
+
+            // Port 2 Agent 1
+            'weekly-schedule-details-agent-name-2-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-2-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-2-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-2-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-2-1': 'Agent 1 Email:',
+
+            // Port 2 Agent 2
+            'weekly-schedule-details-agent-name-2-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-2-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-2-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-2-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-2-2': 'Agent 2 Email:',
+
+            // Port 2 Agent 3
+            'weekly-schedule-details-agent-name-2-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-2-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-2-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-2-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-2-3': 'Agent 3 Email:',
+
+            // Port 2 Agent 4
+            'weekly-schedule-details-agent-name-2-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-2-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-2-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-2-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-2-4': 'Agent 4 Email:',
+
+            // Port 2 Agent 5
+            'weekly-schedule-details-agent-name-2-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-2-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-2-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-2-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-2-5': 'Agent 5 Email:',
+
+            // Port 2 Agent 6
+            'weekly-schedule-details-agent-name-2-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-2-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-2-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-2-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-2-6': 'Agent 6 Email:',
+
+            // Port 2 Agent 7
+            'weekly-schedule-details-agent-name-2-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-2-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-2-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-2-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-2-7': 'Agent 7 Email:',
+
+            // Port 2 Agent 8
+            'weekly-schedule-details-agent-name-2-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-2-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-2-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-2-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-2-8': 'Agent 8 Email:',
+
+            // Port 2 Agent 9
+            'weekly-schedule-details-agent-name-2-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-2-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-2-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-2-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-2-9': 'Agent 9 Email:',
+
+            // Port 2 Agent 10
+            'weekly-schedule-details-agent-name-2-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-2-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-2-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-2-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-2-10': 'Agent 10 Email:',
+
+            // Port 2 Agent 11
+            'weekly-schedule-details-agent-name-2-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-2-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-2-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-2-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-2-11': 'Agent 11 Email:',
+
+            // Port 2 Agent 12
+            'weekly-schedule-details-agent-name-2-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-2-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-2-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-2-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-2-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-2-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 3
+
+            // Port 3 Agent 1
+            'weekly-schedule-details-agent-name-3-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-3-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-3-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-3-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-3-1': 'Agent 1 Email:',
+
+            // Port 3 Agent 2
+            'weekly-schedule-details-agent-name-3-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-3-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-3-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-3-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-3-2': 'Agent 2 Email:',
+
+            // Port 3 Agent 3
+            'weekly-schedule-details-agent-name-3-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-3-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-3-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-3-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-3-3': 'Agent 3 Email:',
+
+            // Port 3 Agent 4
+            'weekly-schedule-details-agent-name-3-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-3-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-3-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-3-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-3-4': 'Agent 4 Email:',
+
+            // Port 3 Agent 5
+            'weekly-schedule-details-agent-name-3-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-3-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-3-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-3-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-3-5': 'Agent 5 Email:',
+
+            // Port 3 Agent 6
+            'weekly-schedule-details-agent-name-3-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-3-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-3-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-3-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-3-6': 'Agent 6 Email:',
+
+            // Port 3 Agent 7
+            'weekly-schedule-details-agent-name-3-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-3-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-3-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-3-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-3-7': 'Agent 7 Email:',
+
+            // Port 3 Agent 8
+            'weekly-schedule-details-agent-name-3-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-3-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-3-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-3-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-3-8': 'Agent 8 Email:',
+
+            // Port 3 Agent 9
+            'weekly-schedule-details-agent-name-3-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-3-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-3-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-3-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-3-9': 'Agent 9 Email:',
+
+            // Port 3 Agent 10
+            'weekly-schedule-details-agent-name-3-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-3-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-3-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-3-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-3-10': 'Agent 10 Email:',
+
+            // Port 3 Agent 11
+            'weekly-schedule-details-agent-name-3-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-3-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-3-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-3-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-3-11': 'Agent 11 Email:',
+
+            // Port 3 Agent 12
+            'weekly-schedule-details-agent-name-3-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-3-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-3-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-3-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-3-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-3-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 4
+
+            // Port 4 Agent 1
+            'weekly-schedule-details-agent-name-4-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-4-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-4-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-4-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-4-1': 'Agent 1 Email:',
+
+            // Port 4 Agent 2
+            'weekly-schedule-details-agent-name-4-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-4-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-4-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-4-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-4-2': 'Agent 2 Email:',
+
+            // Port 4 Agent 3
+            'weekly-schedule-details-agent-name-4-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-4-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-4-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-4-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-4-3': 'Agent 3 Email:',
+
+            // Port 4 Agent 4
+            'weekly-schedule-details-agent-name-4-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-4-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-4-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-4-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-4-4': 'Agent 4 Email:',
+
+            // Port 4 Agent 5
+            'weekly-schedule-details-agent-name-4-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-4-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-4-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-4-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-4-5': 'Agent 5 Email:',
+
+            // Port 4 Agent 6
+            'weekly-schedule-details-agent-name-4-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-4-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-4-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-4-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-4-6': 'Agent 6 Email:',
+
+            // Port 4 Agent 7
+            'weekly-schedule-details-agent-name-4-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-4-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-4-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-4-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-4-7': 'Agent 7 Email:',
+
+            // Port 4 Agent 8
+            'weekly-schedule-details-agent-name-4-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-4-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-4-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-4-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-4-8': 'Agent 8 Email:',
+
+            // Port 4 Agent 9
+            'weekly-schedule-details-agent-name-4-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-4-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-4-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-4-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-4-9': 'Agent 9 Email:',
+
+            // Port 4 Agent 10
+            'weekly-schedule-details-agent-name-4-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-4-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-4-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-4-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-4-10': 'Agent 10 Email:',
+
+            // Port 4 Agent 11
+            'weekly-schedule-details-agent-name-4-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-4-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-4-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-4-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-4-11': 'Agent 11 Email:',
+
+            // Port 4 Agent 12
+            'weekly-schedule-details-agent-name-4-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-4-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-4-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-4-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-4-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-4-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 5
+
+            // Port 5 Agent 1
+            'weekly-schedule-details-agent-name-5-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-5-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-5-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-5-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-5-1': 'Agent 1 Email:',
+
+            // Port 5 Agent 2
+            'weekly-schedule-details-agent-name-5-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-5-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-5-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-5-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-5-2': 'Agent 2 Email:',
+
+            // Port 5 Agent 3
+            'weekly-schedule-details-agent-name-5-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-5-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-5-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-5-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-5-3': 'Agent 3 Email:',
+
+            // Port 5 Agent 4
+            'weekly-schedule-details-agent-name-5-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-5-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-5-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-5-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-5-4': 'Agent 4 Email:',
+
+            // Port 5 Agent 5
+            'weekly-schedule-details-agent-name-5-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-5-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-5-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-5-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-5-5': 'Agent 5 Email:',
+
+            // Port 5 Agent 6
+            'weekly-schedule-details-agent-name-5-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-5-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-5-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-5-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-5-6': 'Agent 6 Email:',
+
+            // Port 5 Agent 7
+            'weekly-schedule-details-agent-name-5-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-5-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-5-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-5-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-5-7': 'Agent 7 Email:',
+
+            // Port 5 Agent 8
+            'weekly-schedule-details-agent-name-5-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-5-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-5-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-5-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-5-8': 'Agent 8 Email:',
+
+            // Port 5 Agent 9
+            'weekly-schedule-details-agent-name-5-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-5-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-5-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-5-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-5-9': 'Agent 9 Email:',
+
+            // Port 5 Agent 10
+            'weekly-schedule-details-agent-name-5-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-5-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-5-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-5-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-5-10': 'Agent 10 Email:',
+
+            // Port 5 Agent 11
+            'weekly-schedule-details-agent-name-5-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-5-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-5-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-5-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-5-11': 'Agent 11 Email:',
+
+            // Port 5 Agent 12
+            'weekly-schedule-details-agent-name-5-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-5-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-5-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-5-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-5-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-5-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 6
+
+            // Port 6 Agent 1
+            'weekly-schedule-details-agent-name-6-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-6-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-6-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-6-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-6-1': 'Agent 1 Email:',
+
+            // Port 6 Agent 2
+            'weekly-schedule-details-agent-name-6-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-6-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-6-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-6-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-6-2': 'Agent 2 Email:',
+
+            // Port 6 Agent 3
+            'weekly-schedule-details-agent-name-6-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-6-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-6-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-6-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-6-3': 'Agent 3 Email:',
+
+            // Port 6 Agent 4
+            'weekly-schedule-details-agent-name-6-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-6-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-6-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-6-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-6-4': 'Agent 4 Email:',
+
+            // Port 6 Agent 5
+            'weekly-schedule-details-agent-name-6-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-6-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-6-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-6-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-6-5': 'Agent 5 Email:',
+
+            // Port 6 Agent 6
+            'weekly-schedule-details-agent-name-6-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-6-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-6-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-6-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-6-6': 'Agent 6 Email:',
+
+            // Port 6 Agent 7
+            'weekly-schedule-details-agent-name-6-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-6-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-6-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-6-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-6-7': 'Agent 7 Email:',
+
+            // Port 6 Agent 8
+            'weekly-schedule-details-agent-name-6-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-6-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-6-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-6-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-6-8': 'Agent 8 Email:',
+
+            // Port 6 Agent 9
+            'weekly-schedule-details-agent-name-6-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-6-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-6-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-6-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-6-9': 'Agent 9 Email:',
+
+            // Port 6 Agent 10
+            'weekly-schedule-details-agent-name-6-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-6-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-6-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-6-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-6-10': 'Agent 10 Email:',
+
+            // Port 6 Agent 11
+            'weekly-schedule-details-agent-name-6-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-6-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-6-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-6-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-6-11': 'Agent 11 Email:',
+
+            // Port 6 Agent 12
+            'weekly-schedule-details-agent-name-6-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-6-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-6-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-6-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-6-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-6-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 7
+
+            // Port 7 Agent 1
+            'weekly-schedule-details-agent-name-7-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-7-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-7-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-7-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-7-1': 'Agent 1 Email:',
+
+            // Port 7 Agent 2
+            'weekly-schedule-details-agent-name-7-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-7-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-7-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-7-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-7-2': 'Agent 2 Email:',
+
+            // Port 7 Agent 3
+            'weekly-schedule-details-agent-name-7-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-7-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-7-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-7-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-7-3': 'Agent 3 Email:',
+
+            // Port 7 Agent 4
+            'weekly-schedule-details-agent-name-7-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-7-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-7-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-7-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-7-4': 'Agent 4 Email:',
+
+            // Port 7 Agent 5
+            'weekly-schedule-details-agent-name-7-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-7-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-7-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-7-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-7-5': 'Agent 5 Email:',
+
+            // Port 7 Agent 6
+            'weekly-schedule-details-agent-name-7-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-7-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-7-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-7-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-7-6': 'Agent 6 Email:',
+
+            // Port 7 Agent 7
+            'weekly-schedule-details-agent-name-7-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-7-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-7-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-7-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-7-7': 'Agent 7 Email:',
+
+            // Port 7 Agent 8
+            'weekly-schedule-details-agent-name-7-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-7-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-7-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-7-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-7-8': 'Agent 8 Email:',
+
+            // Port 7 Agent 9
+            'weekly-schedule-details-agent-name-7-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-7-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-7-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-7-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-7-9': 'Agent 9 Email:',
+
+            // Port 7 Agent 10
+            'weekly-schedule-details-agent-name-7-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-7-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-7-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-7-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-7-10': 'Agent 10 Email:',
+
+            // Port 7 Agent 11
+            'weekly-schedule-details-agent-name-7-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-7-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-7-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-7-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-7-11': 'Agent 11 Email:',
+
+            // Port 7 Agent 12
+            'weekly-schedule-details-agent-name-7-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-7-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-7-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-7-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-7-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-7-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 8
+
+            // Port 8 Agent 1
+            'weekly-schedule-details-agent-name-8-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-8-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-8-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-8-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-8-1': 'Agent 1 Email:',
+
+            // Port 8 Agent 2
+            'weekly-schedule-details-agent-name-8-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-8-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-8-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-8-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-8-2': 'Agent 2 Email:',
+
+            // Port 8 Agent 3
+            'weekly-schedule-details-agent-name-8-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-8-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-8-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-8-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-8-3': 'Agent 3 Email:',
+
+            // Port 8 Agent 4
+            'weekly-schedule-details-agent-name-8-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-8-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-8-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-8-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-8-4': 'Agent 4 Email:',
+
+            // Port 8 Agent 5
+            'weekly-schedule-details-agent-name-8-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-8-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-8-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-8-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-8-5': 'Agent 5 Email:',
+
+            // Port 8 Agent 6
+            'weekly-schedule-details-agent-name-8-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-8-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-8-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-8-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-8-6': 'Agent 6 Email:',
+
+            // Port 8 Agent 7
+            'weekly-schedule-details-agent-name-8-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-8-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-8-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-8-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-8-7': 'Agent 7 Email:',
+
+            // Port 8 Agent 8
+            'weekly-schedule-details-agent-name-8-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-8-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-8-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-8-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-8-8': 'Agent 8 Email:',
+
+            // Port 8 Agent 9
+            'weekly-schedule-details-agent-name-8-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-8-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-8-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-8-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-8-9': 'Agent 9 Email:',
+
+            // Port 8 Agent 10
+            'weekly-schedule-details-agent-name-8-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-8-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-8-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-8-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-8-10': 'Agent 10 Email:',
+
+            // Port 8 Agent 11
+            'weekly-schedule-details-agent-name-8-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-8-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-8-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-8-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-8-11': 'Agent 11 Email:',
+
+            // Port 8 Agent 12
+            'weekly-schedule-details-agent-name-8-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-8-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-8-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-8-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-8-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-8-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 9
+
+            // Port 9 Agent 1
+            'weekly-schedule-details-agent-name-9-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-9-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-9-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-9-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-9-1': 'Agent 1 Email:',
+
+            // Port 9 Agent 2
+            'weekly-schedule-details-agent-name-9-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-9-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-9-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-9-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-9-2': 'Agent 2 Email:',
+
+            // Port 9 Agent 3
+            'weekly-schedule-details-agent-name-9-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-9-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-9-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-9-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-9-3': 'Agent 3 Email:',
+
+            // Port 9 Agent 4
+            'weekly-schedule-details-agent-name-9-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-9-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-9-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-9-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-9-4': 'Agent 4 Email:',
+
+            // Port 9 Agent 5
+            'weekly-schedule-details-agent-name-9-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-9-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-9-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-9-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-9-5': 'Agent 5 Email:',
+
+            // Port 9 Agent 6
+            'weekly-schedule-details-agent-name-9-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-9-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-9-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-9-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-9-6': 'Agent 6 Email:',
+
+            // Port 9 Agent 7
+            'weekly-schedule-details-agent-name-9-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-9-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-9-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-9-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-9-7': 'Agent 7 Email:',
+
+            // Port 9 Agent 8
+            'weekly-schedule-details-agent-name-9-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-9-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-9-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-9-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-9-8': 'Agent 8 Email:',
+
+            // Port 9 Agent 9
+            'weekly-schedule-details-agent-name-9-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-9-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-9-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-9-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-9-9': 'Agent 9 Email:',
+
+            // Port 9 Agent 10
+            'weekly-schedule-details-agent-name-9-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-9-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-9-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-9-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-9-10': 'Agent 10 Email:',
+
+            // Port 9 Agent 11
+            'weekly-schedule-details-agent-name-9-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-9-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-9-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-9-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-9-11': 'Agent 11 Email:',
+
+            // Port 9 Agent 12
+            'weekly-schedule-details-agent-name-9-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-9-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-9-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-9-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-9-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-9-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 10
+
+            // Port 10 Agent 1
+            'weekly-schedule-details-agent-name-10-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-10-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-10-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-10-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-10-1': 'Agent 1 Email:',
+
+            // Port 10 Agent 2
+            'weekly-schedule-details-agent-name-10-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-10-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-10-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-10-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-10-2': 'Agent 2 Email:',
+
+            // Port 10 Agent 3
+            'weekly-schedule-details-agent-name-10-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-10-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-10-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-10-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-10-3': 'Agent 3 Email:',
+
+            // Port 10 Agent 4
+            'weekly-schedule-details-agent-name-10-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-10-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-10-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-10-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-10-4': 'Agent 4 Email:',
+
+            // Port 10 Agent 5
+            'weekly-schedule-details-agent-name-10-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-10-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-10-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-10-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-10-5': 'Agent 5 Email:',
+
+            // Port 10 Agent 6
+            'weekly-schedule-details-agent-name-10-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-10-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-10-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-10-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-10-6': 'Agent 6 Email:',
+
+            // Port 10 Agent 7
+            'weekly-schedule-details-agent-name-10-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-10-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-10-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-10-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-10-7': 'Agent 7 Email:',
+
+            // Port 10 Agent 8
+            'weekly-schedule-details-agent-name-10-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-10-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-10-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-10-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-10-8': 'Agent 8 Email:',
+
+            // Port 10 Agent 9
+            'weekly-schedule-details-agent-name-10-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-10-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-10-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-10-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-10-9': 'Agent 9 Email:',
+
+            // Port 10 Agent 10
+            'weekly-schedule-details-agent-name-10-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-10-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-10-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-10-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-10-10': 'Agent 10 Email:',
+
+            // Port 10 Agent 11
+            'weekly-schedule-details-agent-name-10-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-10-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-10-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-10-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-10-11': 'Agent 11 Email:',
+
+            // Port 10 Agent 12
+            'weekly-schedule-details-agent-name-10-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-10-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-10-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-10-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-10-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-10-12': 'Agent 12 Email:',
+
+
+            // Agent Details for Port 11
+
+            // Port 11 Agent 1
+            'weekly-schedule-details-agent-name-11-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-11-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-11-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-11-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-11-1': 'Agent 1 Email:',
+
+            // Port 11 Agent 2
+            'weekly-schedule-details-agent-name-11-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-11-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-11-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-11-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-11-2': 'Agent 2 Email:',
+
+            // Port 11 Agent 3
+            'weekly-schedule-details-agent-name-11-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-11-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-11-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-11-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-11-3': 'Agent 3 Email:',
+
+            // Port 11 Agent 4
+            'weekly-schedule-details-agent-name-11-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-11-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-11-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-11-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-11-4': 'Agent 4 Email:',
+
+            // Port 11 Agent 5
+            'weekly-schedule-details-agent-name-11-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-11-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-11-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-11-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-11-5': 'Agent 5 Email:',
+
+            // Port 11 Agent 6
+            'weekly-schedule-details-agent-name-11-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-11-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-11-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-11-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-11-6': 'Agent 6 Email:',
+
+            // Port 11 Agent 7
+            'weekly-schedule-details-agent-name-11-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-11-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-11-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-11-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-11-7': 'Agent 7 Email:',
+
+            // Port 11 Agent 8
+            'weekly-schedule-details-agent-name-11-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-11-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-11-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-11-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-11-8': 'Agent 8 Email:',
+
+            // Port 11 Agent 9
+            'weekly-schedule-details-agent-name-11-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-11-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-11-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-11-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-11-9': 'Agent 9 Email:',
+
+            // Port 11 Agent 10
+            'weekly-schedule-details-agent-name-11-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-11-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-11-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-11-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-11-10': 'Agent 10 Email:',
+
+            // Port 11 Agent 11
+            'weekly-schedule-details-agent-name-11-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-11-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-11-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-11-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-11-11': 'Agent 11 Email:',
+
+            // Port 11 Agent 12
+            'weekly-schedule-details-agent-name-11-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-11-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-11-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-11-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-11-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-11-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 12
+
+            // Port 12 Agent 1
+            'weekly-schedule-details-agent-name-12-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-12-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-12-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-12-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-12-1': 'Agent 1 Email:',
+
+            // Port 12 Agent 2
+            'weekly-schedule-details-agent-name-12-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-12-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-12-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-12-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-12-2': 'Agent 2 Email:',
+
+            // Port 12 Agent 3
+            'weekly-schedule-details-agent-name-12-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-12-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-12-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-12-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-12-3': 'Agent 3 Email:',
+
+            // Port 12 Agent 4
+            'weekly-schedule-details-agent-name-12-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-12-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-12-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-12-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-12-4': 'Agent 4 Email:',
+
+            // Port 12 Agent 5
+            'weekly-schedule-details-agent-name-12-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-12-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-12-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-12-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-12-5': 'Agent 5 Email:',
+
+            // Port 12 Agent 6
+            'weekly-schedule-details-agent-name-12-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-12-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-12-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-12-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-12-6': 'Agent 6 Email:',
+
+            // Port 12 Agent 7
+            'weekly-schedule-details-agent-name-12-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-12-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-12-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-12-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-12-7': 'Agent 7 Email:',
+
+            // Port 12 Agent 8
+            'weekly-schedule-details-agent-name-12-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-12-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-12-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-12-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-12-8': 'Agent 8 Email:',
+
+            // Port 12 Agent 9
+            'weekly-schedule-details-agent-name-12-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-12-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-12-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-12-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-12-9': 'Agent 9 Email:',
+
+            // Port 12 Agent 10
+            'weekly-schedule-details-agent-name-12-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-12-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-12-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-12-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-12-10': 'Agent 10 Email:',
+
+            // Port 12 Agent 11
+            'weekly-schedule-details-agent-name-12-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-12-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-12-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-12-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-12-11': 'Agent 11 Email:',
+
+            // Port 12 Agent 12
+            'weekly-schedule-details-agent-name-12-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-12-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-12-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-12-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-12-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-12-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 13
+
+            // Port 13 Agent 1
+            'weekly-schedule-details-agent-name-13-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-13-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-13-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-13-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-13-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-13-1': 'Agent 1 Email:',
+
+            // Port 13 Agent 2
+            'weekly-schedule-details-agent-name-13-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-13-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-13-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-13-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-13-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-13-2': 'Agent 2 Email:',
+
+            // Port 13 Agent 3
+            'weekly-schedule-details-agent-name-13-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-13-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-13-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-13-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-13-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-13-3': 'Agent 3 Email:',
+
+            // Port 13 Agent 4
+            'weekly-schedule-details-agent-name-13-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-13-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-13-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-13-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-13-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-13-4': 'Agent 4 Email:',
+
+            // Port 13 Agent 5
+            'weekly-schedule-details-agent-name-13-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-13-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-13-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-13-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-13-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-13-5': 'Agent 5 Email:',
+
+            // Port 13 Agent 6
+            'weekly-schedule-details-agent-name-13-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-13-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-13-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-13-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-13-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-13-6': 'Agent 6 Email:',
+
+            // Port 13 Agent 7
+            'weekly-schedule-details-agent-name-13-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-13-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-13-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-13-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-13-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-13-7': 'Agent 7 Email:',
+
+            // Port 13 Agent 8
+            'weekly-schedule-details-agent-name-13-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-13-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-13-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-13-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-13-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-13-8': 'Agent 8 Email:',
+
+            // Port 13 Agent 9
+            'weekly-schedule-details-agent-name-13-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-13-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-13-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-13-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-13-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-13-9': 'Agent 9 Email:',
+
+            // Port 13 Agent 10
+            'weekly-schedule-details-agent-name-13-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-13-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-13-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-13-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-13-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-13-10': 'Agent 10 Email:',
+
+            // Port 13 Agent 11
+            'weekly-schedule-details-agent-name-13-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-13-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-13-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-13-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-13-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-13-11': 'Agent 11 Email:',
+
+            // Port 13 Agent 12
+            'weekly-schedule-details-agent-name-13-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-13-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-13-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-13-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-13-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-13-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 14
+
+            // Port 14 Agent 1
+            'weekly-schedule-details-agent-name-14-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-14-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-14-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-14-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-14-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-14-1': 'Agent 1 Email:',
+
+            // Port 14 Agent 2
+            'weekly-schedule-details-agent-name-14-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-14-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-14-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-14-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-14-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-14-2': 'Agent 2 Email:',
+
+            // Port 14 Agent 3
+            'weekly-schedule-details-agent-name-14-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-14-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-14-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-14-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-14-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-14-3': 'Agent 3 Email:',
+
+            // Port 14 Agent 4
+            'weekly-schedule-details-agent-name-14-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-14-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-14-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-14-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-14-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-14-4': 'Agent 4 Email:',
+
+            // Port 14 Agent 5
+            'weekly-schedule-details-agent-name-14-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-14-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-14-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-14-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-14-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-14-5': 'Agent 5 Email:',
+
+            // Port 14 Agent 6
+            'weekly-schedule-details-agent-name-14-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-14-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-14-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-14-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-14-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-14-6': 'Agent 6 Email:',
+
+            // Port 14 Agent 7
+            'weekly-schedule-details-agent-name-14-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-14-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-14-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-14-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-14-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-14-7': 'Agent 7 Email:',
+
+            // Port 14 Agent 8
+            'weekly-schedule-details-agent-name-14-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-14-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-14-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-14-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-14-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-14-8': 'Agent 8 Email:',
+
+            // Port 14 Agent 9
+            'weekly-schedule-details-agent-name-14-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-14-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-14-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-14-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-14-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-14-9': 'Agent 9 Email:',
+
+            // Port 14 Agent 10
+            'weekly-schedule-details-agent-name-14-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-14-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-14-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-14-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-14-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-14-10': 'Agent 10 Email:',
+
+            // Port 14 Agent 11
+            'weekly-schedule-details-agent-name-14-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-14-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-14-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-14-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-14-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-14-11': 'Agent 11 Email:',
+
+            // Port 14 Agent 12
+            'weekly-schedule-details-agent-name-14-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-14-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-14-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-14-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-14-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-14-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 15
+
+            // Port 15 Agent 1
+            'weekly-schedule-details-agent-name-15-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-15-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-15-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-15-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-15-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-15-1': 'Agent 1 Email:',
+
+            // Port 15 Agent 2
+            'weekly-schedule-details-agent-name-15-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-15-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-15-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-15-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-15-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-15-2': 'Agent 2 Email:',
+
+            // Port 15 Agent 3
+            'weekly-schedule-details-agent-name-15-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-15-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-15-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-15-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-15-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-15-3': 'Agent 3 Email:',
+
+            // Port 15 Agent 4
+            'weekly-schedule-details-agent-name-15-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-15-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-15-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-15-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-15-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-15-4': 'Agent 4 Email:',
+
+            // Port 15 Agent 5
+            'weekly-schedule-details-agent-name-15-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-15-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-15-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-15-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-15-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-15-5': 'Agent 5 Email:',
+
+            // Port 15 Agent 6
+            'weekly-schedule-details-agent-name-15-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-15-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-15-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-15-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-15-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-15-6': 'Agent 6 Email:',
+
+            // Port 15 Agent 7
+            'weekly-schedule-details-agent-name-15-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-15-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-15-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-15-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-15-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-15-7': 'Agent 7 Email:',
+
+            // Port 15 Agent 8
+            'weekly-schedule-details-agent-name-15-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-15-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-15-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-15-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-15-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-15-8': 'Agent 8 Email:',
+
+            // Port 15 Agent 9
+            'weekly-schedule-details-agent-name-15-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-15-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-15-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-15-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-15-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-15-9': 'Agent 9 Email:',
+
+            // Port 15 Agent 10
+            'weekly-schedule-details-agent-name-15-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-15-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-15-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-15-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-15-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-15-10': 'Agent 10 Email:',
+
+            // Port 15 Agent 11
+            'weekly-schedule-details-agent-name-15-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-15-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-15-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-15-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-15-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-15-11': 'Agent 11 Email:',
+
+            // Port 15 Agent 12
+            'weekly-schedule-details-agent-name-15-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-15-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-15-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-15-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-15-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-15-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 16
+
+            // Port 16 Agent 1
+            'weekly-schedule-details-agent-name-16-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-16-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-16-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-16-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-16-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-16-1': 'Agent 1 Email:',
+
+            // Port 16 Agent 2
+            'weekly-schedule-details-agent-name-16-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-16-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-16-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-16-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-16-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-16-2': 'Agent 2 Email:',
+
+            // Port 16 Agent 3
+            'weekly-schedule-details-agent-name-16-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-16-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-16-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-16-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-16-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-16-3': 'Agent 3 Email:',
+
+            // Port 16 Agent 4
+            'weekly-schedule-details-agent-name-16-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-16-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-16-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-16-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-16-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-16-4': 'Agent 4 Email:',
+
+            // Port 16 Agent 5
+            'weekly-schedule-details-agent-name-16-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-16-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-16-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-16-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-16-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-16-5': 'Agent 5 Email:',
+
+            // Port 16 Agent 6
+            'weekly-schedule-details-agent-name-16-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-16-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-16-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-16-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-16-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-16-6': 'Agent 6 Email:',
+
+            // Port 16 Agent 7
+            'weekly-schedule-details-agent-name-16-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-16-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-16-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-16-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-16-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-16-7': 'Agent 7 Email:',
+
+            // Port 16 Agent 8
+            'weekly-schedule-details-agent-name-16-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-16-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-16-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-16-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-16-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-16-8': 'Agent 8 Email:',
+
+            // Port 16 Agent 9
+            'weekly-schedule-details-agent-name-16-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-16-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-16-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-16-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-16-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-16-9': 'Agent 9 Email:',
+
+            // Port 16 Agent 10
+            'weekly-schedule-details-agent-name-16-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-16-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-16-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-16-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-16-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-16-10': 'Agent 10 Email:',
+
+            // Port 16 Agent 11
+            'weekly-schedule-details-agent-name-16-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-16-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-16-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-16-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-16-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-16-11': 'Agent 11 Email:',
+
+            // Port 16 Agent 12
+            'weekly-schedule-details-agent-name-16-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-16-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-16-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-16-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-16-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-16-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 17
+
+            // Port 17 Agent 1
+            'weekly-schedule-details-agent-name-17-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-17-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-17-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-17-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-17-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-17-1': 'Agent 1 Email:',
+
+            // Port 17 Agent 2
+            'weekly-schedule-details-agent-name-17-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-17-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-17-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-17-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-17-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-17-2': 'Agent 2 Email:',
+
+            // Port 17 Agent 3
+            'weekly-schedule-details-agent-name-17-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-17-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-17-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-17-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-17-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-17-3': 'Agent 3 Email:',
+
+            // Port 17 Agent 4
+            'weekly-schedule-details-agent-name-17-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-17-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-17-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-17-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-17-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-17-4': 'Agent 4 Email:',
+
+            // Port 17 Agent 5
+            'weekly-schedule-details-agent-name-17-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-17-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-17-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-17-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-17-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-17-5': 'Agent 5 Email:',
+
+            // Port 17 Agent 6
+            'weekly-schedule-details-agent-name-17-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-17-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-17-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-17-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-17-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-17-6': 'Agent 6 Email:',
+
+            // Port 17 Agent 7
+            'weekly-schedule-details-agent-name-17-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-17-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-17-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-17-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-17-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-17-7': 'Agent 7 Email:',
+
+            // Port 17 Agent 8
+            'weekly-schedule-details-agent-name-17-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-17-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-17-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-17-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-17-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-17-8': 'Agent 8 Email:',
+
+            // Port 17 Agent 9
+            'weekly-schedule-details-agent-name-17-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-17-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-17-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-17-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-17-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-17-9': 'Agent 9 Email:',
+
+            // Port 17 Agent 10
+            'weekly-schedule-details-agent-name-17-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-17-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-17-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-17-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-17-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-17-10': 'Agent 10 Email:',
+
+            // Port 17 Agent 11
+            'weekly-schedule-details-agent-name-17-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-17-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-17-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-17-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-17-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-17-11': 'Agent 11 Email:',
+
+            // Port 17 Agent 12
+            'weekly-schedule-details-agent-name-17-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-17-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-17-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-17-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-17-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-17-12': 'Agent 12 Email:',
+
+
+            // Agent Details for Port 18
+
+            // Port 18 Agent 1
+            'weekly-schedule-details-agent-name-18-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-18-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-18-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-18-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-18-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-18-1': 'Agent 1 Email:',
+
+            // Port 18 Agent 2
+            'weekly-schedule-details-agent-name-18-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-18-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-18-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-18-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-18-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-18-2': 'Agent 2 Email:',
+
+            // Port 18 Agent 3
+            'weekly-schedule-details-agent-name-18-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-18-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-18-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-18-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-18-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-18-3': 'Agent 3 Email:',
+
+            // Port 18 Agent 4
+            'weekly-schedule-details-agent-name-18-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-18-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-18-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-18-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-18-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-18-4': 'Agent 4 Email:',
+
+            // Port 18 Agent 5
+            'weekly-schedule-details-agent-name-18-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-18-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-18-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-18-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-18-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-18-5': 'Agent 5 Email:',
+
+            // Port 18 Agent 6
+            'weekly-schedule-details-agent-name-18-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-18-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-18-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-18-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-18-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-18-6': 'Agent 6 Email:',
+
+            // Port 18 Agent 7
+            'weekly-schedule-details-agent-name-18-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-18-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-18-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-18-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-18-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-18-7': 'Agent 7 Email:',
+
+            // Port 18 Agent 8
+            'weekly-schedule-details-agent-name-18-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-18-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-18-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-18-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-18-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-18-8': 'Agent 8 Email:',
+
+            // Port 18 Agent 9
+            'weekly-schedule-details-agent-name-18-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-18-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-18-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-18-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-18-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-18-9': 'Agent 9 Email:',
+
+            // Port 18 Agent 10
+            'weekly-schedule-details-agent-name-18-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-18-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-18-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-18-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-18-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-18-10': 'Agent 10 Email:',
+
+            // Port 18 Agent 11
+            'weekly-schedule-details-agent-name-18-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-18-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-18-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-18-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-18-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-18-11': 'Agent 11 Email:',
+
+            // Port 18 Agent 12
+            'weekly-schedule-details-agent-name-18-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-18-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-18-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-18-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-18-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-18-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 19
+
+            // Port 19 Agent 1
+            'weekly-schedule-details-agent-name-19-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-19-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-19-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-19-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-19-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-19-1': 'Agent 1 Email:',
+
+            // Port 19 Agent 2
+            'weekly-schedule-details-agent-name-19-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-19-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-19-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-19-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-19-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-19-2': 'Agent 2 Email:',
+
+            // Port 19 Agent 3
+            'weekly-schedule-details-agent-name-19-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-19-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-19-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-19-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-19-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-19-3': 'Agent 3 Email:',
+
+            // Port 19 Agent 4
+            'weekly-schedule-details-agent-name-19-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-19-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-19-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-19-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-19-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-19-4': 'Agent 4 Email:',
+
+            // Port 19 Agent 5
+            'weekly-schedule-details-agent-name-19-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-19-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-19-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-19-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-19-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-19-5': 'Agent 5 Email:',
+
+            // Port 19 Agent 6
+            'weekly-schedule-details-agent-name-19-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-19-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-19-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-19-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-19-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-19-6': 'Agent 6 Email:',
+
+            // Port 19 Agent 7
+            'weekly-schedule-details-agent-name-19-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-19-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-19-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-19-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-19-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-19-7': 'Agent 7 Email:',
+
+            // Port 19 Agent 8
+            'weekly-schedule-details-agent-name-19-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-19-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-19-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-19-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-19-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-19-8': 'Agent 8 Email:',
+
+            // Port 19 Agent 9
+            'weekly-schedule-details-agent-name-19-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-19-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-19-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-19-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-19-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-19-9': 'Agent 9 Email:',
+
+            // Port 19 Agent 10
+            'weekly-schedule-details-agent-name-19-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-19-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-19-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-19-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-19-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-19-10': 'Agent 10 Email:',
+
+            // Port 19 Agent 11
+            'weekly-schedule-details-agent-name-19-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-19-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-19-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-19-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-19-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-19-11': 'Agent 11 Email:',
+
+            // Port 19 Agent 12
+            'weekly-schedule-details-agent-name-19-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-19-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-19-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-19-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-19-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-19-12': 'Agent 12 Email:',
+
+            // Agent Details for Port 20
+
+            // Port 20 Agent 1
+            'weekly-schedule-details-agent-name-20-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-20-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-20-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-20-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-20-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-20-1': 'Agent 1 Email:',
+
+            // Port 20 Agent 2
+            'weekly-schedule-details-agent-name-20-2': 'Agent 2 Name:',
+            'weekly-schedule-details-agent-address-20-2': 'Agent 2 Address:',
+            'weekly-schedule-details-agent-pic-name-20-2': 'Agent 2 PIC Name:',
+            'weekly-schedule-details-agent-telephone-20-2': 'Agent 2 Telephone:',
+            'weekly-schedule-details-agent-mobile-20-2': 'Agent 2 Mobile:',
+            'weekly-schedule-details-agent-email-20-2': 'Agent 2 Email:',
+
+            // Port 20 Agent 3
+            'weekly-schedule-details-agent-name-20-3': 'Agent 3 Name:',
+            'weekly-schedule-details-agent-address-20-3': 'Agent 3 Address:',
+            'weekly-schedule-details-agent-pic-name-20-3': 'Agent 3 PIC Name:',
+            'weekly-schedule-details-agent-telephone-20-3': 'Agent 3 Telephone:',
+            'weekly-schedule-details-agent-mobile-20-3': 'Agent 3 Mobile:',
+            'weekly-schedule-details-agent-email-20-3': 'Agent 3 Email:',
+
+            // Port 20 Agent 4
+            'weekly-schedule-details-agent-name-20-4': 'Agent 4 Name:',
+            'weekly-schedule-details-agent-address-20-4': 'Agent 4 Address:',
+            'weekly-schedule-details-agent-pic-name-20-4': 'Agent 4 PIC Name:',
+            'weekly-schedule-details-agent-telephone-20-4': 'Agent 4 Telephone:',
+            'weekly-schedule-details-agent-mobile-20-4': 'Agent 4 Mobile:',
+            'weekly-schedule-details-agent-email-20-4': 'Agent 4 Email:',
+
+            // Port 20 Agent 5
+            'weekly-schedule-details-agent-name-20-5': 'Agent 5 Name:',
+            'weekly-schedule-details-agent-address-20-5': 'Agent 5 Address:',
+            'weekly-schedule-details-agent-pic-name-20-5': 'Agent 5 PIC Name:',
+            'weekly-schedule-details-agent-telephone-20-5': 'Agent 5 Telephone:',
+            'weekly-schedule-details-agent-mobile-20-5': 'Agent 5 Mobile:',
+            'weekly-schedule-details-agent-email-20-5': 'Agent 5 Email:',
+
+            // Port 20 Agent 6
+            'weekly-schedule-details-agent-name-20-6': 'Agent 6 Name:',
+            'weekly-schedule-details-agent-address-20-6': 'Agent 6 Address:',
+            'weekly-schedule-details-agent-pic-name-20-6': 'Agent 6 PIC Name:',
+            'weekly-schedule-details-agent-telephone-20-6': 'Agent 6 Telephone:',
+            'weekly-schedule-details-agent-mobile-20-6': 'Agent 6 Mobile:',
+            'weekly-schedule-details-agent-email-20-6': 'Agent 6 Email:',
+
+            // Port 20 Agent 7
+            'weekly-schedule-details-agent-name-20-7': 'Agent 7 Name:',
+            'weekly-schedule-details-agent-address-20-7': 'Agent 7 Address:',
+            'weekly-schedule-details-agent-pic-name-20-7': 'Agent 7 PIC Name:',
+            'weekly-schedule-details-agent-telephone-20-7': 'Agent 7 Telephone:',
+            'weekly-schedule-details-agent-mobile-20-7': 'Agent 7 Mobile:',
+            'weekly-schedule-details-agent-email-20-7': 'Agent 7 Email:',
+
+            // Port 20 Agent 8
+            'weekly-schedule-details-agent-name-20-8': 'Agent 8 Name:',
+            'weekly-schedule-details-agent-address-20-8': 'Agent 8 Address:',
+            'weekly-schedule-details-agent-pic-name-20-8': 'Agent 8 PIC Name:',
+            'weekly-schedule-details-agent-telephone-20-8': 'Agent 8 Telephone:',
+            'weekly-schedule-details-agent-mobile-20-8': 'Agent 8 Mobile:',
+            'weekly-schedule-details-agent-email-20-8': 'Agent 8 Email:',
+
+            // Port 20 Agent 9
+            'weekly-schedule-details-agent-name-20-9': 'Agent 9 Name:',
+            'weekly-schedule-details-agent-address-20-9': 'Agent 9 Address:',
+            'weekly-schedule-details-agent-pic-name-20-9': 'Agent 9 PIC Name:',
+            'weekly-schedule-details-agent-telephone-20-9': 'Agent 9 Telephone:',
+            'weekly-schedule-details-agent-mobile-20-9': 'Agent 9 Mobile:',
+            'weekly-schedule-details-agent-email-20-9': 'Agent 9 Email:',
+
+            // Port 20 Agent 10
+            'weekly-schedule-details-agent-name-20-10': 'Agent 10 Name:',
+            'weekly-schedule-details-agent-address-20-10': 'Agent 10 Address:',
+            'weekly-schedule-details-agent-pic-name-20-10': 'Agent 10 PIC Name:',
+            'weekly-schedule-details-agent-telephone-20-10': 'Agent 10 Telephone:',
+            'weekly-schedule-details-agent-mobile-20-10': 'Agent 10 Mobile:',
+            'weekly-schedule-details-agent-email-20-10': 'Agent 10 Email:',
+
+            // Port 20 Agent 11
+            'weekly-schedule-details-agent-name-20-11': 'Agent 11 Name:',
+            'weekly-schedule-details-agent-address-20-11': 'Agent 11 Address:',
+            'weekly-schedule-details-agent-pic-name-20-11': 'Agent 11 PIC Name:',
+            'weekly-schedule-details-agent-telephone-20-11': 'Agent 11 Telephone:',
+            'weekly-schedule-details-agent-mobile-20-11': 'Agent 11 Mobile:',
+            'weekly-schedule-details-agent-email-20-11': 'Agent 11 Email:',
+
+            // Port 20 Agent 12
+            'weekly-schedule-details-agent-name-20-12': 'Agent 12 Name:',
+            'weekly-schedule-details-agent-address-20-12': 'Agent 12 Address:',
+            'weekly-schedule-details-agent-pic-name-20-12': 'Agent 12 PIC Name:',
+            'weekly-schedule-details-agent-telephone-20-12': 'Agent 12 Telephone:',
+            'weekly-schedule-details-agent-mobile-20-12': 'Agent 12 Mobile:',
+            'weekly-schedule-details-agent-email-20-12': 'Agent 12 Email:',
 
             // Master Name
             'weekly-master-name': 'Master Name:'
@@ -1229,7 +3377,26 @@ function exportToExcel(reportId) {
             //Weekly Schedule Title
             'weekly-voyage-details-vessel-name': 'VOYAGE DETAILS',
             'weekly-schedule-details-port-1': 'Port Details',
-            'weekly-schedule-details-agent-name-1': 'Agent Details'
+            'weekly-schedule-details-agent-name-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-2-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-3-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-4-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-5-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-6-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-7-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-8-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-9-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-10-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-11-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-12-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-13-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-14-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-15-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-16-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-17-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-18-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-19-1': 'Agent Details',
+            'weekly-schedule-details-agent-name-20-1': 'Agent Details',
         }
 
     };
@@ -1355,8 +3522,291 @@ function exportToExcel(reportId) {
         'weeklyreport': [
             // Weekly Schedule Title
             'weekly-voyage-details-date-time',
+
+            // Port Details
             'weekly-schedule-details-remarks-port-1',
-            'weekly-schedule-details-agent-email-1'
+            'weekly-schedule-details-remarks-port-2-1',
+            'weekly-schedule-details-remarks-port-3-1',
+            'weekly-schedule-details-remarks-port-4-1',
+            'weekly-schedule-details-remarks-port-5-1',
+            'weekly-schedule-details-remarks-port-6-1',
+            'weekly-schedule-details-remarks-port-7-1',
+            'weekly-schedule-details-remarks-port-8-1',
+            'weekly-schedule-details-remarks-port-9-1',
+            'weekly-schedule-details-remarks-port-10-1',
+            'weekly-schedule-details-remarks-port-11-1',
+            'weekly-schedule-details-remarks-port-12-1',
+            'weekly-schedule-details-remarks-port-13-1',
+            'weekly-schedule-details-remarks-port-14-1',
+            'weekly-schedule-details-remarks-port-15-1',
+            'weekly-schedule-details-remarks-port-16-1',
+            'weekly-schedule-details-remarks-port-17-1',
+            'weekly-schedule-details-remarks-port-18-1',
+            'weekly-schedule-details-remarks-port-19-1',
+            'weekly-schedule-details-remarks-port-20-1',
+
+            // Agent Details
+
+            'weekly-schedule-details-agent-email-1',
+            'weekly-schedule-details-agent-email-2',
+            'weekly-schedule-details-agent-email-3',
+            'weekly-schedule-details-agent-email-4',
+            'weekly-schedule-details-agent-email-5',
+            'weekly-schedule-details-agent-email-6',
+            'weekly-schedule-details-agent-email-7',
+            'weekly-schedule-details-agent-email-8',
+            'weekly-schedule-details-agent-email-9',
+            'weekly-schedule-details-agent-email-10',
+            'weekly-schedule-details-agent-email-11',
+            'weekly-schedule-details-agent-email-12',
+
+            'weekly-schedule-details-agent-email-2-1',
+            'weekly-schedule-details-agent-email-2-2',
+            'weekly-schedule-details-agent-email-2-3',
+            'weekly-schedule-details-agent-email-2-4',
+            'weekly-schedule-details-agent-email-2-5',
+            'weekly-schedule-details-agent-email-2-6',
+            'weekly-schedule-details-agent-email-2-7',
+            'weekly-schedule-details-agent-email-2-8',
+            'weekly-schedule-details-agent-email-2-9',
+            'weekly-schedule-details-agent-email-2-10',
+            'weekly-schedule-details-agent-email-2-11',
+            'weekly-schedule-details-agent-email-2-12',
+
+            'weekly-schedule-details-agent-email-3-1',
+            'weekly-schedule-details-agent-email-3-2',
+            'weekly-schedule-details-agent-email-3-3',
+            'weekly-schedule-details-agent-email-3-4',
+            'weekly-schedule-details-agent-email-3-5',
+            'weekly-schedule-details-agent-email-3-6',
+            'weekly-schedule-details-agent-email-3-7',
+            'weekly-schedule-details-agent-email-3-8',
+            'weekly-schedule-details-agent-email-3-9',
+            'weekly-schedule-details-agent-email-3-10',
+            'weekly-schedule-details-agent-email-3-11',
+            'weekly-schedule-details-agent-email-3-12',
+
+            'weekly-schedule-details-agent-email-4-1',
+            'weekly-schedule-details-agent-email-4-2',
+            'weekly-schedule-details-agent-email-4-3',
+            'weekly-schedule-details-agent-email-4-4',
+            'weekly-schedule-details-agent-email-4-5',
+            'weekly-schedule-details-agent-email-4-6',
+            'weekly-schedule-details-agent-email-4-7',
+            'weekly-schedule-details-agent-email-4-8',
+            'weekly-schedule-details-agent-email-4-9',
+            'weekly-schedule-details-agent-email-4-10',
+            'weekly-schedule-details-agent-email-4-11',
+            'weekly-schedule-details-agent-email-4-12',
+
+            'weekly-schedule-details-agent-email-5-1',
+            'weekly-schedule-details-agent-email-5-2',
+            'weekly-schedule-details-agent-email-5-3',
+            'weekly-schedule-details-agent-email-5-4',
+            'weekly-schedule-details-agent-email-5-5',
+            'weekly-schedule-details-agent-email-5-6',
+            'weekly-schedule-details-agent-email-5-7',
+            'weekly-schedule-details-agent-email-5-8',
+            'weekly-schedule-details-agent-email-5-9',
+            'weekly-schedule-details-agent-email-5-10',
+            'weekly-schedule-details-agent-email-5-11',
+            'weekly-schedule-details-agent-email-5-12',
+
+            'weekly-schedule-details-agent-email-6-1',
+            'weekly-schedule-details-agent-email-6-2',
+            'weekly-schedule-details-agent-email-6-3',
+            'weekly-schedule-details-agent-email-6-4',
+            'weekly-schedule-details-agent-email-6-5',
+            'weekly-schedule-details-agent-email-6-6',
+            'weekly-schedule-details-agent-email-6-7',
+            'weekly-schedule-details-agent-email-6-8',
+            'weekly-schedule-details-agent-email-6-9',
+            'weekly-schedule-details-agent-email-6-10',
+            'weekly-schedule-details-agent-email-6-11',
+            'weekly-schedule-details-agent-email-6-12',
+
+            'weekly-schedule-details-agent-email-7-1',
+            'weekly-schedule-details-agent-email-7-2',
+            'weekly-schedule-details-agent-email-7-3',
+            'weekly-schedule-details-agent-email-7-4',
+            'weekly-schedule-details-agent-email-7-5',
+            'weekly-schedule-details-agent-email-7-6',
+            'weekly-schedule-details-agent-email-7-7',
+            'weekly-schedule-details-agent-email-7-8',
+            'weekly-schedule-details-agent-email-7-9',
+            'weekly-schedule-details-agent-email-7-10',
+            'weekly-schedule-details-agent-email-7-11',
+            'weekly-schedule-details-agent-email-7-12',
+
+            'weekly-schedule-details-agent-email-8-1',
+            'weekly-schedule-details-agent-email-8-2',
+            'weekly-schedule-details-agent-email-8-3',
+            'weekly-schedule-details-agent-email-8-4',
+            'weekly-schedule-details-agent-email-8-5',
+            'weekly-schedule-details-agent-email-8-6',
+            'weekly-schedule-details-agent-email-8-7',
+            'weekly-schedule-details-agent-email-8-8',
+            'weekly-schedule-details-agent-email-8-9',
+            'weekly-schedule-details-agent-email-8-10',
+            'weekly-schedule-details-agent-email-8-11',
+            'weekly-schedule-details-agent-email-8-12',
+
+            'weekly-schedule-details-agent-email-9-1',
+            'weekly-schedule-details-agent-email-9-2',
+            'weekly-schedule-details-agent-email-9-3',
+            'weekly-schedule-details-agent-email-9-4',
+            'weekly-schedule-details-agent-email-9-5',
+            'weekly-schedule-details-agent-email-9-6',
+            'weekly-schedule-details-agent-email-9-7',
+            'weekly-schedule-details-agent-email-9-8',
+            'weekly-schedule-details-agent-email-9-9',
+            'weekly-schedule-details-agent-email-9-10',
+            'weekly-schedule-details-agent-email-9-11',
+            'weekly-schedule-details-agent-email-9-12',
+
+            'weekly-schedule-details-agent-email-10-1',
+            'weekly-schedule-details-agent-email-10-2',
+            'weekly-schedule-details-agent-email-10-3',
+            'weekly-schedule-details-agent-email-10-4',
+            'weekly-schedule-details-agent-email-10-5',
+            'weekly-schedule-details-agent-email-10-6',
+            'weekly-schedule-details-agent-email-10-7',
+            'weekly-schedule-details-agent-email-10-8',
+            'weekly-schedule-details-agent-email-10-9',
+            'weekly-schedule-details-agent-email-10-10',
+            'weekly-schedule-details-agent-email-10-11',
+            'weekly-schedule-details-agent-email-10-12',
+
+            'weekly-schedule-details-agent-email-11-1',
+            'weekly-schedule-details-agent-email-11-2',
+            'weekly-schedule-details-agent-email-11-3',
+            'weekly-schedule-details-agent-email-11-4',
+            'weekly-schedule-details-agent-email-11-5',
+            'weekly-schedule-details-agent-email-11-6',
+            'weekly-schedule-details-agent-email-11-7',
+            'weekly-schedule-details-agent-email-11-8',
+            'weekly-schedule-details-agent-email-11-9',
+            'weekly-schedule-details-agent-email-11-10',
+            'weekly-schedule-details-agent-email-11-11',
+            'weekly-schedule-details-agent-email-11-12',
+
+            'weekly-schedule-details-agent-email-12-1',
+            'weekly-schedule-details-agent-email-12-2',
+            'weekly-schedule-details-agent-email-12-3',
+            'weekly-schedule-details-agent-email-12-4',
+            'weekly-schedule-details-agent-email-12-5',
+            'weekly-schedule-details-agent-email-12-6',
+            'weekly-schedule-details-agent-email-12-7',
+            'weekly-schedule-details-agent-email-12-8',
+            'weekly-schedule-details-agent-email-12-9',
+            'weekly-schedule-details-agent-email-12-10',
+            'weekly-schedule-details-agent-email-12-11',
+            'weekly-schedule-details-agent-email-12-12',
+
+            'weekly-schedule-details-agent-email-13-1',
+            'weekly-schedule-details-agent-email-13-2',
+            'weekly-schedule-details-agent-email-13-3',
+            'weekly-schedule-details-agent-email-13-4',
+            'weekly-schedule-details-agent-email-13-5',
+            'weekly-schedule-details-agent-email-13-6',
+            'weekly-schedule-details-agent-email-13-7',
+            'weekly-schedule-details-agent-email-13-8',
+            'weekly-schedule-details-agent-email-13-9',
+            'weekly-schedule-details-agent-email-13-10',
+            'weekly-schedule-details-agent-email-13-11',
+            'weekly-schedule-details-agent-email-13-12',
+
+            'weekly-schedule-details-agent-email-14-1',
+            'weekly-schedule-details-agent-email-14-2',
+            'weekly-schedule-details-agent-email-14-3',
+            'weekly-schedule-details-agent-email-14-4',
+            'weekly-schedule-details-agent-email-14-5',
+            'weekly-schedule-details-agent-email-14-6',
+            'weekly-schedule-details-agent-email-14-7',
+            'weekly-schedule-details-agent-email-14-8',
+            'weekly-schedule-details-agent-email-14-9',
+            'weekly-schedule-details-agent-email-14-10',
+            'weekly-schedule-details-agent-email-14-11',
+            'weekly-schedule-details-agent-email-14-12',
+
+            'weekly-schedule-details-agent-email-15-1',
+            'weekly-schedule-details-agent-email-15-2',
+            'weekly-schedule-details-agent-email-15-3',
+            'weekly-schedule-details-agent-email-15-4',
+            'weekly-schedule-details-agent-email-15-5',
+            'weekly-schedule-details-agent-email-15-6',
+            'weekly-schedule-details-agent-email-15-7',
+            'weekly-schedule-details-agent-email-15-8',
+            'weekly-schedule-details-agent-email-15-9',
+            'weekly-schedule-details-agent-email-15-10',
+            'weekly-schedule-details-agent-email-15-11',
+            'weekly-schedule-details-agent-email-15-12',
+
+            'weekly-schedule-details-agent-email-16-1',
+            'weekly-schedule-details-agent-email-16-2',
+            'weekly-schedule-details-agent-email-16-3',
+            'weekly-schedule-details-agent-email-16-4',
+            'weekly-schedule-details-agent-email-16-5',
+            'weekly-schedule-details-agent-email-16-6',
+            'weekly-schedule-details-agent-email-16-7',
+            'weekly-schedule-details-agent-email-16-8',
+            'weekly-schedule-details-agent-email-16-9',
+            'weekly-schedule-details-agent-email-16-10',
+            'weekly-schedule-details-agent-email-16-11',
+            'weekly-schedule-details-agent-email-16-12',
+
+            'weekly-schedule-details-agent-email-17-1',
+            'weekly-schedule-details-agent-email-17-2',
+            'weekly-schedule-details-agent-email-17-3',
+            'weekly-schedule-details-agent-email-17-4',
+            'weekly-schedule-details-agent-email-17-5',
+            'weekly-schedule-details-agent-email-17-6',
+            'weekly-schedule-details-agent-email-17-7',
+            'weekly-schedule-details-agent-email-17-8',
+            'weekly-schedule-details-agent-email-17-9',
+            'weekly-schedule-details-agent-email-17-10',
+            'weekly-schedule-details-agent-email-17-11',
+            'weekly-schedule-details-agent-email-17-12',
+
+            'weekly-schedule-details-agent-email-18-1',
+            'weekly-schedule-details-agent-email-18-2',
+            'weekly-schedule-details-agent-email-18-3',
+            'weekly-schedule-details-agent-email-18-4',
+            'weekly-schedule-details-agent-email-18-5',
+            'weekly-schedule-details-agent-email-18-6',
+            'weekly-schedule-details-agent-email-18-7',
+            'weekly-schedule-details-agent-email-18-8',
+            'weekly-schedule-details-agent-email-18-9',
+            'weekly-schedule-details-agent-email-18-10',
+            'weekly-schedule-details-agent-email-18-11',
+            'weekly-schedule-details-agent-email-18-12',
+
+            'weekly-schedule-details-agent-email-19-1',
+            'weekly-schedule-details-agent-email-19-2',
+            'weekly-schedule-details-agent-email-19-3',
+            'weekly-schedule-details-agent-email-19-4',
+            'weekly-schedule-details-agent-email-19-5',
+            'weekly-schedule-details-agent-email-19-6',
+            'weekly-schedule-details-agent-email-19-7',
+            'weekly-schedule-details-agent-email-19-8',
+            'weekly-schedule-details-agent-email-19-9',
+            'weekly-schedule-details-agent-email-19-10',
+            'weekly-schedule-details-agent-email-19-11',
+            'weekly-schedule-details-agent-email-19-12',
+
+            'weekly-schedule-details-agent-email-20-1',
+            'weekly-schedule-details-agent-email-20-2',
+            'weekly-schedule-details-agent-email-20-3',
+            'weekly-schedule-details-agent-email-20-4',
+            'weekly-schedule-details-agent-email-20-5',
+            'weekly-schedule-details-agent-email-20-6',
+            'weekly-schedule-details-agent-email-20-7',
+            'weekly-schedule-details-agent-email-20-8',
+            'weekly-schedule-details-agent-email-20-9',
+            'weekly-schedule-details-agent-email-20-10',
+            'weekly-schedule-details-agent-email-20-11',
+            'weekly-schedule-details-agent-email-20-12'
+
         ]
     };
 
@@ -1649,7 +4099,7 @@ function addRowRobDetail(button) {
     }
 }
 
-const maxAgentRows = 20;
+const maxAgentRows = 12;
 
 function addRowWeeklyReportAgent(button) {
     // Identify the closest table body where the button is clicked
@@ -1658,7 +4108,7 @@ function addRowWeeklyReportAgent(button) {
 
     // Check if the row count exceeds the limit
     if (rowCount >= maxAgentRows) {
-        alert('Maximum of 20 rows reached for agents!');
+        alert('Maximum of 12 rows reached for agents!');
         return;
     }
 
@@ -1666,12 +4116,12 @@ function addRowWeeklyReportAgent(button) {
     const newRowNumber = rowCount + 1;
 
     newRow.innerHTML = `
-        <td><input type="text" id="weeklyreport-schedule-details-agent-name-${newRowNumber}" name="weeklyreport-schedule-details-agent-name-${newRowNumber}"></td>
-        <td><input type="text" id="weeklyreport-schedule-details-agent-address-${newRowNumber}" name="weeklyreport-schedule-details-agent-address-${newRowNumber}"></td>
-        <td><input type="text" id="weeklyreport-schedule-details-agent-pic-name-${newRowNumber}" name="weeklyreport-schedule-details-agent-pic-name-${newRowNumber}"></td>
-        <td><input type="text" id="weeklyreport-schedule-details-agent-telephone-${newRowNumber}" name="weeklyreport-schedule-details-agent-telephone-${newRowNumber}"></td>
-        <td><input type="text" id="weeklyreport-schedule-details-agent-mobile-${newRowNumber}" name="weeklyreport-schedule-details-agent-mobile-${newRowNumber}"></td>
-        <td><input type="text" id="weeklyreport-schedule-details-agent-email-${newRowNumber}" name="weeklyreport-schedule-details-agent-email-${newRowNumber}"></td>
+        <td><input type="text" id="weekly-schedule-details-agent-name-${newRowNumber}" name="weekly-schedule-details-agent-name-${newRowNumber}"></td>
+        <td><input type="text" id="weekly-schedule-details-agent-address-${newRowNumber}" name="weekly-schedule-details-agent-address-${newRowNumber}"></td>
+        <td><input type="text" id="weekly-schedule-details-agent-pic-name-${newRowNumber}" name="weekly-schedule-details-agent-pic-name-${newRowNumber}"></td>
+        <td><input type="text" id="weekly-schedule-details-agent-telephone-${newRowNumber}" name="weekly-schedule-details-agent-telephone-${newRowNumber}"></td>
+        <td><input type="text" id="weekly-schedule-details-agent-mobile-${newRowNumber}" name="weekly-schedule-details-agent-mobile-${newRowNumber}"></td>
+        <td><input type="text" id="weekly-schedule-details-agent-email-${newRowNumber}" name="weekly-schedule-details-agent-email-${newRowNumber}"></td>
         <td><button type="button" class="remove-button" onclick="removeRow(this)">Remove</button></td>
     `;
 
@@ -1687,6 +4137,9 @@ let portSetNumber = 1;
 function addRowWeeklyReportNewPort() {
     // Increment the set number to ensure unique IDs for each new set of tables
     portSetNumber++;
+
+    const newPortFieldId = `weekly-schedule-details-port-${portSetNumber}-1`;  // Define the port input field ID
+    const newResultFieldId = `weekly-schedule-details-port-${portSetNumber}-1-results`;  // Define the results div ID
 
     const newPortTableHTML = `
         <br /><br />
@@ -1705,26 +4158,29 @@ function addRowWeeklyReportNewPort() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text" id="weeklyreport-schedule-details-port-${portSetNumber}-1" name="weeklyreport-schedule-details-port-${portSetNumber}-1"></td>
+                        <td>
+                            <input type="text" id="${newPortFieldId}" name="weekly-schedule-details-port-${portSetNumber}-1">
+                            <div id="${newResultFieldId}" class="port-search-results"></div>
+                        </td>
                         <td class="fuel-grade-select-cell">
-                            <select class="fuel-grade-select" id="weeklyreport-schedule-details-activity-port-${portSetNumber}-1" name="weeklyreport-schedule-details-activity-port-${portSetNumber}-1">
+                            <select class="fuel-grade-select" id="weekly-schedule-details-activity-port-${portSetNumber}-1" name="weekly-schedule-details-activity-port-${portSetNumber}-1">
                                 <option value="">Select</option>
                                 <option value="Loading">Loading</option>
                                 <option value="Bunkering">Bunkering</option>
                                 <option value="Discharging">Discharging</option>
                             </select>
                         </td>
-                        <td><input class="supply-date-cell" type="datetime-local" id="weeklyreport-eta-etb-port-${portSetNumber}-1-date-time" name="weeklyreport-eta-etb-port-${portSetNumber}-1-date-time"></td>
-                        <td><input class="supply-date-cell" type="datetime-local" id="weeklyreport-etcd-port-${portSetNumber}-1-date-time" name="weeklyreport-etcd-port-${portSetNumber}-1-date-time"></td>
+                        <td><input class="supply-date-cell" type="datetime-local" id="weekly-eta-etb-port-${portSetNumber}-1-date-time" name="weekly-eta-etb-port-${portSetNumber}-1-date-time"></td>
+                        <td><input class="supply-date-cell" type="datetime-local" id="weekly-etcd-port-${portSetNumber}-1-date-time" name="weekly-etcd-port-${portSetNumber}-1-date-time"></td>
                         <td class="fuel-grade-select-cell">
-                            <select class="fuel-grade-select" id="weeklyreport-schedule-details-cargo-port-${portSetNumber}-1" name="weeklyreport-schedule-details-cargo-port-${portSetNumber}-1">
+                            <select class="fuel-grade-select" id="weekly-schedule-details-cargo-port-${portSetNumber}-1" name="weekly-schedule-details-cargo-port-${portSetNumber}-1">
                                 <option value="">Select</option>
                                 <option value="Coal">Coal</option>
                                 <option value="Oil">Oil</option>
                             </select>
                         </td>
-                        <td><input type="text" id="weeklyreport-schedule-details-cargo-qty-port-${portSetNumber}-1" name="weeklyreport-schedule-details-cargo-qty-port-${portSetNumber}-1"></td>
-                        <td><input type="text" id="weeklyreport-schedule-details-remarks-port-${portSetNumber}-1" name="weeklyreport-schedule-details-remarks-port-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weekly-schedule-details-cargo-qty-port-${portSetNumber}-1" name="weekly-schedule-details-cargo-qty-port-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weekly-schedule-details-remarks-port-${portSetNumber}-1" name="weekly-schedule-details-remarks-port-${portSetNumber}-1"></td>
                     </tr>
                 </tbody>
             </table>
@@ -1743,23 +4199,25 @@ function addRowWeeklyReportNewPort() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text" id="weeklyreport-schedule-details-agent-name-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-name-${portSetNumber}-1"></td>
-                        <td><input type="text" id="weeklyreport-schedule-details-agent-address-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-address-${portSetNumber}-1"></td>
-                        <td><input type="text" id="weeklyreport-schedule-details-agent-pic-name-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-pic-name-${portSetNumber}-1"></td>
-                        <td><input type="text" id="weeklyreport-schedule-details-agent-telephone-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-telephone-${portSetNumber}-1"></td>
-                        <td><input type="text" id="weeklyreport-schedule-details-agent-mobile-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-mobile-${portSetNumber}-1"></td>
-                        <td><input type="text" id="weeklyreport-schedule-details-agent-email-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-email-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weekly-schedule-details-agent-name-${portSetNumber}-1" name="weekly-schedule-details-agent-name-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weekly-schedule-details-agent-address-${portSetNumber}-1" name="weekly-schedule-details-agent-address-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weekly-schedule-details-agent-pic-name-${portSetNumber}-1" name="weekly-schedule-details-agent-pic-name-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weekly-schedule-details-agent-telephone-${portSetNumber}-1" name="weekly-schedule-details-agent-telephone-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weekly-schedule-details-agent-mobile-${portSetNumber}-1" name="weekly-schedule-details-agent-mobile-${portSetNumber}-1"></td>
+                        <td><input type="text" id="weekly-schedule-details-agent-email-${portSetNumber}-1" name="weekly-schedule-details-agent-email-${portSetNumber}-1"></td>
                         <td><button type="button" class="add-row-button" onclick="addRowWeeklyReportAgent(this)">Add Agent</button></td>
                     </tr>
                 </tbody>
             </table>
             <br />
-            <!-- Add Remove Button -->
             <button type="button" class="remove-button right-remove-button" onclick="removeTableSet(${portSetNumber})">Remove Table Set</button> 
         </div>`;
 
     // Append the new set of tables to the document body or a specific container
     document.getElementById('newTableContainer').insertAdjacentHTML('beforeend', newPortTableHTML);
+
+    // Reapply the search function for the new port field after appending
+    setupPortSearch(newPortFieldId, newResultFieldId);
 }
 
 function removeTableSet(setNumber) {
