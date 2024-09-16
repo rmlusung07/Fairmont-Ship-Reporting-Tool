@@ -1082,6 +1082,33 @@ function exportToExcel(reportId) {
             'allfast-rob-biofuel': 'BIOFUEL (MT):',
             'allfast-rob-vlsfo': 'VLSFO (MT):',
             'allfast-rob-lsmgo': 'LSMGO (MT):',
+        },
+
+        'weeklyreport': {
+            // Voyage Details
+            'weekly-voyage-details-vessel-name': 'Vessel Name:',
+            'weekly-voyage-details-voyage-no': 'Voyage No:',
+            'weekly-voyage-details-date-time': 'Weekly Schedule Date/Time:',
+
+            // Port Details
+            'weekly-schedule-details-port-1': 'Port 1 Name:',
+            'weekly-schedule-details-activity-port-1': 'Port 1 Activty:',
+            'weekly-eta-etb-port-1-date-time': 'Port 1 ETA:',
+            'weekly-etcd-port-1-date-time': 'Port 1 ETCD:',
+            'weekly-schedule-details-cargo-port-1': 'Port 1 Details:',
+            'weekly-schedule-details-cargo-qty-port-1': 'Port 1 Quantity:',
+            'weekly-schedule-details-remarks-port-1': 'Port 1 Remarks:',
+
+            // Agent Details
+            'weekly-schedule-details-agent-name-1': 'Agent 1 Name:',
+            'weekly-schedule-details-agent-address-1': 'Agent 1 Address:',
+            'weekly-schedule-details-agent-pic-name-1': 'Agent 1 PIC Name:',
+            'weekly-schedule-details-agent-telephone-1': 'Agent 1 Telephone:',
+            'weekly-schedule-details-agent-mobile-1': 'Agent 1 Mobile:',
+            'weekly-schedule-details-agent-email-1': 'Agent 1 Email:',
+
+            // Master Name
+            'weekly-master-name': 'Master Name:'
         }
     };
 
@@ -1196,6 +1223,13 @@ function exportToExcel(reportId) {
             // All Fast Section Title
             'allfast-voyage-details-vessel-name': 'VOYAGE DETAILS',
             'allfast-rob-hsfo': 'ALL FAST ROBS'
+        },
+
+        'weeklyreport': {
+            //Weekly Schedule Title
+            'weekly-voyage-details-vessel-name': 'VOYAGE DETAILS',
+            'weekly-schedule-details-port-1': 'Port Details',
+            'weekly-schedule-details-agent-name-1': 'Agent Details'
         }
 
     };
@@ -1316,6 +1350,13 @@ function exportToExcel(reportId) {
             // All Fast Section Title
             'allfast-voyage-details-port',
             'allfast-rob-lsmgo'
+        ],
+        
+        'weeklyreport': [
+            // Weekly Schedule Title
+            'weekly-voyage-details-date-time',
+            'weekly-schedule-details-remarks-port-1',
+            'weekly-schedule-details-agent-email-1'
         ]
     };
 
@@ -1370,6 +1411,7 @@ function exportToExcel(reportId) {
             (filenameExportArrivalType.selectedIndex !== -1 ? filenameExportArrivalType.options[filenameExportArrivalType.selectedIndex].text : '') 
             : '';
     }
+    
 
     const filenameDate = new Date();
     const filenameFormattedDate = filenameDate.toISOString().slice(0, 10).replace(/-/g, '');
@@ -1609,7 +1651,7 @@ function addRowRobDetail(button) {
 
 const maxAgentRows = 20;
 
-function addRowWeeklyScheduleAgent(button) {
+function addRowWeeklyReportAgent(button) {
     // Identify the closest table body where the button is clicked
     const tableBody = button.closest('tbody');
     const rowCount = tableBody.querySelectorAll('tr').length;
@@ -1642,13 +1684,14 @@ function removeRow(button) {
 
 let portSetNumber = 1;
 
-function addRowWeeklyScheduleNewPort() {
+function addRowWeeklyReportNewPort() {
     // Increment the set number to ensure unique IDs for each new set of tables
     portSetNumber++;
 
     const newPortTableHTML = `
+        <br /><br />
         <div id="tableSet-${portSetNumber}">
-            <table id="weeklyScheduleTable-${portSetNumber}">
+            <table id="weeklyReportTable-${portSetNumber}">
                 <thead>
                     <tr>
                         <th>PORT</th>
@@ -1686,7 +1729,7 @@ function addRowWeeklyScheduleNewPort() {
                 </tbody>
             </table>
             <br />
-            <table id="weeklyScheduleTableAgents-${portSetNumber}">
+            <table id="weeklyReportTableAgents-${portSetNumber}">
                 <thead>
                     <tr>
                         <th>Agent's Name</th>
@@ -1706,7 +1749,7 @@ function addRowWeeklyScheduleNewPort() {
                         <td><input type="text" id="weeklyreport-schedule-details-agent-telephone-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-telephone-${portSetNumber}-1"></td>
                         <td><input type="text" id="weeklyreport-schedule-details-agent-mobile-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-mobile-${portSetNumber}-1"></td>
                         <td><input type="text" id="weeklyreport-schedule-details-agent-email-${portSetNumber}-1" name="weeklyreport-schedule-details-agent-email-${portSetNumber}-1"></td>
-                        <td><button type="button" class="add-row-button" onclick="addRowWeeklyScheduleAgent(this)">Add Agent</button></td>
+                        <td><button type="button" class="add-row-button" onclick="addRowWeeklyReportAgent(this)">Add Agent</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -1786,7 +1829,7 @@ function restoreDraft(reportId) {
 
 // Restore all drafts
 function restoreAllDrafts() {
-    const reportIds = ['NoonReport', 'DepartureReport', 'ArrivalReport', 'Bunkering', 'AllFast'];
+    const reportIds = ['NoonReport', 'DepartureReport', 'ArrivalReport', 'Bunkering', 'AllFast', 'WeeklyReport'];
     reportIds.forEach(reportId => restoreDraft(reportId));
 }
 

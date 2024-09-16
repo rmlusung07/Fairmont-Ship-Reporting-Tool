@@ -33,7 +33,7 @@
             <button onclick="openReport(event, 'ArrivalReport')">Arrival Report</button>
             <button onclick="openReport(event, 'Bunkering')">Bunkering</button>
             <button onclick="openReport(event, 'AllFast')">All Fast</button>
-            <button onclick="openReport(event, 'WeeklySchedule')">Weekly Schedule</button>
+            <button onclick="openReport(event, 'WeeklyReport')">Weekly Schedule</button>
         </nav>
 
         <!-- Main content starts here -->
@@ -5292,7 +5292,7 @@
                 </form>
             </section>
 
-            <section id="WeeklySchedule" class="report-section">
+            <section id="WeeklyReport" class="report-section">
                 <h1>Weekly Schedule</h1>
 
                 <div class="sub-container">
@@ -5307,8 +5307,8 @@
                         <legend>Schedule Details</legend>
                         <div class="four-columns">
                             <div class="form-group common-select-container">
-                                <label for="weeklyreport-voyage-details-vessel-name">Vessel Name:</label>
-                                <select class="common-select" id="weeklyreport-voyage-details-vessel-name" name="weeklyreport-voyage-details-vessel-name" required>
+                                <label for="weekly-voyage-details-vessel-name">Vessel Name:</label>
+                                <select class="common-select" id="weekly-voyage-details-vessel-name" name="weekly-voyage-details-vessel-name" required>
                                     <option value="">Select Vessel</option>
                                     <option value="Kellet Island">Kellett Island</option>
                                     <option value="Trident Star">Trident Star</option>
@@ -5335,12 +5335,12 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="weeklyreport-voyage-details-voyage-no">Voyage No:</label>
-                                <input class="validate" type="text" id="weeklyreport-voyage-details-voyage-no" name="weeklyreport-voyage-details-voyage-no" required>
+                                <label for="weekly-voyage-details-voyage-no">Voyage No:</label>
+                                <input class="validate" type="text" id="weekly-voyage-details-voyage-no" name="weekly-voyage-details-voyage-no" required>
                             </div>
                             <div class="form-group">
-                                <label class="berth-section" for="weeklyreport-voyage-details-date-time">Date:</label>
-                                <input class="common-date" type="datetime-local" id="weeklyreport-voyage-details-date-time" name="weeklyreport-voyage-details-date-time" required>
+                                <label class="berth-section" for="weekly-voyage-details-date-time">Date:</label>
+                                <input class="common-date" type="datetime-local" id="weekly-voyage-details-date-time" name="weekly-voyage-details-date-time" required>
                             </div>
                         </div>
 
@@ -5349,10 +5349,10 @@
                         <legend>Agent's Details</legend>
                         <div class="weekly-schedule-container">
                             <div class="w3-bar w3-theme">
-                                <button type="button" class="w3-bar-item w3-button" onclick="addRowWeeklyScheduleNewPort()">Add New Port</button>
+                                <button type="button" class="w3-bar-item w3-button" onclick="addRowWeeklyReportNewPort()">Add New Port</button>
                             </div>
-                            <table id="weeklyScheduleTable">
-                                <thead id="weeklyScheduleTableHead">
+                            <table id="weeklyReportTable">
+                                <thead id="weeklyReportTableHead">
                                     <tr>
                                         <th>PORT</th>
                                         <th>ACTIVITY</th>
@@ -5364,37 +5364,37 @@
                                         <!-- <th>ACTION</th> -->
                                     </tr>
                                 </thead>
-                                <tbody id="weeklySchedulePortTableBody">
+                                <tbody id="weeklyReportPortTableBody">
                                     <tr>
-                                        <td><input type="text" id="weeklyreport-schedule-details-port-1" name="weeklyreport-schedule-details-port-1"></td>
+                                        <td><input type="text" id="weekly-schedule-details-port-1" name="weekly-schedule-details-port-1"></td>
                                         <td class="fuel-grade-select-cell">
-                                            <select class="fuel-grade-select" id="weeklyreport-schedule-details-activity-port-1" name="weeklyreport-schedule-details-activity-port-1">
+                                            <select class="fuel-grade-select" id="weekly-schedule-details-activity-port-1" name="weekly-schedule-details-activity-port-1">
                                                 <option value="">Select</option>
                                                 <option value="Loading">Loading</option>
                                                 <option value="Bunkering">Bunkering</option>
                                                 <option value="Discharging">Discharging</option>
                                             </select>
                                         </td>
-                                        <td><input class="supply-date-cell" type="datetime-local" id="weeklyreport-eta-etb-port-1-date-time" name="weeklyreport-eta-etb-port-1-date-time"></td>
-                                        <td><input class="supply-date-cell" type="datetime-local" id="weeklyreport-etcd-port-1-date-time" name="weeklyreport-etcd-port-1-date-time"></td>
+                                        <td><input class="supply-date-cell" type="datetime-local" id="weekly-eta-etb-port-1-date-time" name="weekly-eta-etb-port-1-date-time"></td>
+                                        <td><input class="supply-date-cell" type="datetime-local" id="weekly-etcd-port-1-date-time" name="weekly-etcd-port-1-date-time"></td>
                                         <td class="fuel-grade-select-cell">
-                                            <select class="fuel-grade-select" id="weeklyreport-schedule-details-cargo-port-1" name="weeklyreport-schedule-details-cargo-port-1">
+                                            <select class="fuel-grade-select" id="weekly-schedule-details-cargo-port-1" name="weekly-schedule-details-cargo-port-1">
                                                 <option value="">Select</option>
                                                 <option value="Coal">Coal</option>
                                                 <option value="Oil">Oil</option>
                                             </select>
                                         </td>
-                                        <td><input type="text" id="weeklyreport-schedule-details-cargo-qty-port-1" name="weeklyreport-schedule-details-cargo-qty-port-1"></td>
-                                        <td><input type="text" id="weeklyreport-schedule-details-remarks-port-1" name="weeklyreport-schedule-details-remarks-port-1"></td>
-                                        <!-- <td><button type="button" class="add-row-button" onclick="addRowWeeklySchedule()">Add Row</button></td> -->
+                                        <td><input type="text" id="weekly-schedule-details-cargo-qty-port-1" name="weekly-schedule-details-cargo-qty-port-1"></td>
+                                        <td><input type="text" id="weekly-schedule-details-remarks-port-1" name="weekly-schedule-details-remarks-port-1"></td>
+                                        <!-- <td><button type="button" class="add-row-button" onclick="addRowWeeklyReport()">Add Row</button></td> -->
                                     </tr>
                                 </tbody>
                             </table>
 
                             <br />
 
-                            <table id="weeklyScheduleTable">
-                                <thead id="weeklyScheduleTableHead">
+                            <table id="weeklyReportTable">
+                                <thead id="weeklyReportTableHead">
                                     <tr>
                                         <th>Agent's Name</th>
                                         <th>Address</th>
@@ -5405,15 +5405,15 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody id="weeklyScheduleAgentTableBody">
+                                <tbody id="weeklyReportAgentTableBody">
                                     <tr>
-                                        <td><input type="text" id="weeklyreport-schedule-details-agent-name-1" name="weeklyreport-schedule-details-agent-name-1"></td>
-                                        <td><input type="text" id="weeklyreport-schedule-details-agent-address-1" name="weeklyreport-schedule-details-agent-address-1"></td>
-                                        <td><input type="text" id="weeklyreport-schedule-details-agent-pic-name-1" name="weeklyreport-schedule-details-agent-pic-name-1"></td>
-                                        <td><input type="text" id="weeklyreport-schedule-details-agent-telephone-1" name="weeklyreport-schedule-details-agent-telephone-1"></td>
-                                        <td><input type="text" id="weeklyreport-schedule-details-agent-mobile-1" name="weeklyreport-schedule-details-agent-mobile-1"></td>
-                                        <td><input type="text" id="weeklyreport-schedule-details-agent-email-1" name="weeklyreport-schedule-details-agent-email-1"></td>
-                                        <td><button type="button" class="add-row-button" onclick="addRowWeeklyScheduleAgent(this)">Add Agent</button></td>
+                                        <td><input type="text" id="weekly-schedule-details-agent-name-1" name="weekly-schedule-details-agent-name-1"></td>
+                                        <td><input type="text" id="weekly-schedule-details-agent-address-1" name="weekly-schedule-details-agent-address-1"></td>
+                                        <td><input type="text" id="weekly-schedule-details-agent-pic-name-1" name="weekly-schedule-details-agent-pic-name-1"></td>
+                                        <td><input type="text" id="weekly-schedule-details-agent-telephone-1" name="weekly-schedule-details-agent-telephone-1"></td>
+                                        <td><input type="text" id="weekly-schedule-details-agent-mobile-1" name="weekly-schedule-details-agent-mobile-1"></td>
+                                        <td><input type="text" id="weekly-schedule-details-agent-email-1" name="weekly-schedule-details-agent-email-1"></td>
+                                        <td><button type="button" class="add-row-button" onclick="addRowWeeklyReportAgent(this)">Add Agent</button></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -5427,10 +5427,10 @@
                     <!-- Master's Name -->
                     <fieldset>
                         <legend>Master's Name</legend>
-                        <input type="text" id="noon-master-name" name="noon-master-name">
+                        <input type="text" id="weekly-master-name" name="weekly-master-name">
                         
                 </fieldset>
-                <button type="submit" id="noon-submit">Submit</button>
+                <button type="submit" id="weekly-submit">Submit</button>
                 </form>
             </section>
 
