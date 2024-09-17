@@ -3872,7 +3872,6 @@ function exportToExcel(reportId) {
     XLSX.writeFile(workbook, filename);
 
     // Clear the form fields after exporting the data
-    
     clearFormFields(reportId);    
 
     // Clear saved local storage
@@ -3882,8 +3881,20 @@ function exportToExcel(reportId) {
         field.disabled = true;
     });
 
+    // After exporting the data, clear all table sets
+    clearAllTableSets(30);
+
+    removeNewRowsAllFast();
+
+    removeNewRowsWeeklyReportAgent();
+
 }
 
+function clearAllTableSets(totalSets) {
+    for (let i = 1; i <= totalSets; i++) {
+        removeTableSet(i);
+    }
+}
 
 // Function to clear form fields
 function clearFormFields(reportId) {
@@ -4044,13 +4055,26 @@ function addRowAllFast() {
     const tableBodyAllFast = document.getElementById('allFastRobTableBody');
     const newRowAllFast = document.createElement('tr');
     newRowAllFast.innerHTML = `
-        <td><input class="validate" type="text" name="allfast-rob-hsfo" required></td>
-        <td><input class="validate" type="text" name="allfast-rob-biofuel" required></td>
-        <td><input class="validate" type="text" name="allfast-rob-vlsfo" required></td>
-        <td><input class="validate" type="text" name="allfast-rob-lsmgo" required></td>
+        <td><input class="validate allfast-new-row" type="text" name="allfast-rob-hsfo" required></td>
+        <td><input class="validate allfast-new-row" type="text" name="allfast-rob-biofuel" required></td>
+        <td><input class="validate allfast-new-row" type="text" name="allfast-rob-vlsfo" required></td>
+        <td><input class="validate allfast-new-row" type="text" name="allfast-rob-lsmgo" required></td>
         <td><button type="button" class="remove-button" onclick="removeRow(this)">Remove</button></td>
     `;
     tableBodyAllFast.appendChild(newRowAllFast);
+}
+
+function removeNewRowsAllFast() {
+    const tableBodyAllFast = document.getElementById('allFastRobTableBody');
+    const newRows = tableBodyAllFast.querySelectorAll('tr');
+
+    // Iterate through all the rows and check if they contain any input fields with the 'allfast-new-row' class
+    newRows.forEach(row => {
+        const newRowInputs = row.querySelectorAll('.allfast-new-row');
+        if (newRowInputs.length > 0) {
+            row.remove();
+        }
+    });
 }
 
 let tankNumber = 1;
@@ -4116,16 +4140,29 @@ function addRowWeeklyReportAgent(button) {
     const newRowNumber = rowCount + 1;
 
     newRow.innerHTML = `
-        <td><input type="text" id="weekly-schedule-details-agent-name-${newRowNumber}" name="weekly-schedule-details-agent-name-${newRowNumber}"></td>
-        <td><input type="text" id="weekly-schedule-details-agent-address-${newRowNumber}" name="weekly-schedule-details-agent-address-${newRowNumber}"></td>
-        <td><input type="text" id="weekly-schedule-details-agent-pic-name-${newRowNumber}" name="weekly-schedule-details-agent-pic-name-${newRowNumber}"></td>
-        <td><input type="text" id="weekly-schedule-details-agent-telephone-${newRowNumber}" name="weekly-schedule-details-agent-telephone-${newRowNumber}"></td>
-        <td><input type="text" id="weekly-schedule-details-agent-mobile-${newRowNumber}" name="weekly-schedule-details-agent-mobile-${newRowNumber}"></td>
-        <td><input type="text" id="weekly-schedule-details-agent-email-${newRowNumber}" name="weekly-schedule-details-agent-email-${newRowNumber}"></td>
+        <td><input class="weekly-new-row" type="text" id="weekly-schedule-details-agent-name-${newRowNumber}" name="weekly-schedule-details-agent-name-${newRowNumber}"></td>
+        <td><input class="weekly-new-row" type="text" id="weekly-schedule-details-agent-address-${newRowNumber}" name="weekly-schedule-details-agent-address-${newRowNumber}"></td>
+        <td><input class="weekly-new-row" type="text" id="weekly-schedule-details-agent-pic-name-${newRowNumber}" name="weekly-schedule-details-agent-pic-name-${newRowNumber}"></td>
+        <td><input class="weekly-new-row" type="text" id="weekly-schedule-details-agent-telephone-${newRowNumber}" name="weekly-schedule-details-agent-telephone-${newRowNumber}"></td>
+        <td><input class="weekly-new-row" type="text" id="weekly-schedule-details-agent-mobile-${newRowNumber}" name="weekly-schedule-details-agent-mobile-${newRowNumber}"></td>
+        <td><input class="weekly-new-row" type="text" id="weekly-schedule-details-agent-email-${newRowNumber}" name="weekly-schedule-details-agent-email-${newRowNumber}"></td>
         <td><button type="button" class="remove-button" onclick="removeRow(this)">Remove</button></td>
     `;
 
     tableBody.appendChild(newRow);
+}
+
+function removeNewRowsWeeklyReportAgent() {
+    const tableBody = document.getElementById('weeklyReportAgentTableBody'); // Replace this with the correct ID if different
+    const newRows = tableBody.querySelectorAll('tr');
+
+    // Iterate through all the rows and check if they contain any input fields with the 'weekly-new-row' class
+    newRows.forEach(row => {
+        const newRowInputs = row.querySelectorAll('.weekly-new-row');
+        if (newRowInputs.length > 0) {
+            row.remove();
+        }
+    });
 }
 
 function removeRow(button) {
@@ -4135,6 +4172,18 @@ function removeRow(button) {
 let portSetNumber = 1;
 
 function addRowWeeklyReportNewPort() {
+    const tableBody = document.getElementById('weeklyReportPortTableBody');
+    const maxRows = 20;
+    
+    // Count all the port sets (i.e., how many sets of rows have been added)
+    const rowCount = document.querySelectorAll('[id^="tableSet-"]').length;
+
+    // Check if the row count exceeds or meets the limit
+    if (rowCount >= maxRows) {
+        alert('You can only add up to 20 ports.');
+        return; // Stop the function execution if the limit is reached
+    }
+
     // Increment the set number to ensure unique IDs for each new set of tables
     portSetNumber++;
 
@@ -4142,10 +4191,10 @@ function addRowWeeklyReportNewPort() {
     const newResultFieldId = `weekly-schedule-details-port-${portSetNumber}-1-results`;  // Define the results div ID
 
     const newPortTableHTML = `
-        <br /><br />
         <div id="tableSet-${portSetNumber}">
             <table id="weeklyReportTable-${portSetNumber}">
-                <thead>
+                <br />
+                <thead id="weeklyReportTableHead">
                     <tr>
                         <th>PORT</th>
                         <th>ACTIVITY</th>
@@ -4197,7 +4246,7 @@ function addRowWeeklyReportNewPort() {
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="weeklyReportPortTableBody">
                     <tr>
                         <td><input type="text" id="weekly-schedule-details-agent-name-${portSetNumber}-1" name="weekly-schedule-details-agent-name-${portSetNumber}-1"></td>
                         <td><input type="text" id="weekly-schedule-details-agent-address-${portSetNumber}-1" name="weekly-schedule-details-agent-address-${portSetNumber}-1"></td>
@@ -4208,9 +4257,10 @@ function addRowWeeklyReportNewPort() {
                         <td><button type="button" class="add-row-button" onclick="addRowWeeklyReportAgent(this)">Add Agent</button></td>
                     </tr>
                 </tbody>
+                <br />
             </table>
             <br />
-            <button type="button" class="remove-button right-remove-button" onclick="removeTableSet(${portSetNumber})">Remove Table Set</button> 
+            <button type="button" class="remove-button right-remove-button" onclick="removeTableSet(${portSetNumber})">Remove Port Set</button> 
         </div>`;
 
     // Append the new set of tables to the document body or a specific container

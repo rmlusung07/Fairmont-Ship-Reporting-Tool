@@ -391,6 +391,13 @@ input[type="text"] {
     background-color: #0056b3;
 }
 
+.w3-bar .add-new-port.active {
+    background-color: #007BFF;
+}
+
+.w3-bar .add-new-port:hover {
+    background-color: #0056b3;
+}
 
 .checkbox-container {
     display: flex;
