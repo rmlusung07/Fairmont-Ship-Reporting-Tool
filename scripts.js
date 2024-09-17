@@ -4209,7 +4209,7 @@ function addRowWeeklyReportNewPort() {
                     <tr>
                         <td>
                             <input type="text" id="${newPortFieldId}" name="weekly-schedule-details-port-${portSetNumber}-1">
-                            <div id="${newResultFieldId}" class="port-search-results"></div>
+                            <div id="${newResultFieldId}" class="weekly-port-search-results"></div>
                         </td>
                         <td class="fuel-grade-select-cell">
                             <select class="fuel-grade-select" id="weekly-schedule-details-activity-port-${portSetNumber}-1" name="weekly-schedule-details-activity-port-${portSetNumber}-1">
