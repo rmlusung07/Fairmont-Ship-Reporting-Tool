@@ -162,6 +162,7 @@ function handleReportTypeChange(reportSection) {
 
 // Function to export data to excel form
 function exportToExcel(reportId) {
+
     // Find all disabled input fields within the table
     const disabledFields = document.querySelectorAll('input[disabled]');
 
@@ -3826,6 +3827,43 @@ function exportToExcel(reportId) {
             data.push([""]);
         }
     });
+
+    let currentSection = null; // To track subtitles
+    let rowData = []; // To collect rows
+    let spacingRow = ['', '', '', '']; // To add a blank row between sections if needed
+
+    formData.forEach((value, key) => {
+        if (fieldLabels[reportId] && fieldLabels[reportId][key]) {
+            let label = fieldLabels[reportId][key];
+
+            // Check if a new section/subtitle needs to be inserted
+            if (currentFieldSubTitles[key] && currentSection !== currentFieldSubTitles[key]) {
+                currentSection = currentFieldSubTitles[key];
+                // Add subtitle as a full-width row (using all 4 columns for now)
+                data.push([currentSection, '', '', '']);
+                data.push(spacingRow); // Add a blank row for spacing
+            }
+
+            // Add the label and value in a row
+            rowData.push(`${label}: ${value}`);
+
+            // Add spacing if needed
+            if (currentFieldsWithBlanks[key]) {
+                rowData.push(''); // Insert blank space for the field
+            }
+
+            // After every 4 columns, push the row data to data array and reset
+            if (rowData.length === 4) {
+                data.push(rowData);
+                rowData = [];
+            }
+        }
+    });
+
+    // If there's leftover data in the row (less than 4 columns), push it
+    if (rowData.length > 0) {
+        data.push(rowData);
+    }
 
     const worksheet = XLSX.utils.aoa_to_sheet(data);
     const workbook = XLSX.utils.book_new();
