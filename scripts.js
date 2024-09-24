@@ -133,6 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+    
 });
 
 // Function to add custom validation for select elements
@@ -191,7 +192,7 @@ function exportToExcel(reportId) {
             'noon-voyage-details-gmt-offset': 'GMT Offset:',
             'noon-voyage-details-latitude': 'Latitude:',
             'noon-voyage-details-longitude': 'Longitude:',
-            'noon-voyage-details-port': 'Port:',
+            'noon-voyage-details-port': 'Port of Departure:',
 
             // Noon Details Since Last Report
             'noon-details-since-last-report-cp-ordered-speed': 'CP/Ordered Speed (Kts):',
@@ -219,7 +220,7 @@ function exportToExcel(reportId) {
             // Noon Conditions	
             'noon-conditions-condition': 'Condition:',
             'noon-conditions-displacement': 'Displacement (MT):',
-            'noon-conditions-deadweight': 'Deadweight (MT):',
+            'noon-conditions-deadweight': 'Cargo Name:',
             'noon-conditions-cargo-weight': 'Cargo Weight (MT):',
             'noon-conditions-ballast-weight': 'Ballast Weight (MT):',
             'noon-conditions-fresh-water': 'Fresh Water (MT):',
@@ -228,7 +229,7 @@ function exportToExcel(reportId) {
             'noon-conditions-gm': 'GM:',
 
             // Noon Voyage Itinerary	
-            'noon-voyage-itinerary-port': 'Port:',
+            'noon-voyage-itinerary-port': 'Next Port:',
             'noon-voyage-itinerary-via': 'Via:',
             'noon-voyage-itinerary-eta': 'ETA (LT):',
             'noon-voyage-itinerary-gmt-offset': 'GMT Offset:',
@@ -471,22 +472,15 @@ function exportToExcel(reportId) {
             'noon-hsfo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'noon-hsfo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'noon-hsfo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
-            'noon-hsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+
             'noon-hsfo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'noon-hsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'noon-hsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'noon-hsfo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
-            'noon-hsfo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
-            'noon-hsfo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
-            'noon-hsfo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
-            'noon-hsfo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
-            'noon-hsfo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
-            'noon-hsfo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
-            'noon-hsfo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
-            'noon-hsfo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
-            'noon-hsfo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
-            'noon-hsfo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
-            'noon-hsfo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+
+            'noon-hsfo-oil-ae-cc-oil-quantity': 'AE CC Oil Quantity:',
+            'noon-hsfo-oil-ae-cc-total-run-hrs': 'AE CC Total Running Hours:',
+            'noon-hsfo-oil-ae-cc-oil-cons': 'AE CC Oil Consumption:',
+
             
             // Noon BIOFUEL (MT)	
             'noon-biofuel-previous': 'BIOFUEL Previous:',
@@ -504,22 +498,14 @@ function exportToExcel(reportId) {
             'noon-biofuel-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'noon-biofuel-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'noon-biofuel-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
-            'noon-biofuel-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+
             'noon-biofuel-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'noon-biofuel-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'noon-biofuel-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'noon-biofuel-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
-            'noon-biofuel-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
-            'noon-biofuel-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
-            'noon-biofuel-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
-            'noon-biofuel-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
-            'noon-biofuel-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
-            'noon-biofuel-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
-            'noon-biofuel-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
-            'noon-biofuel-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
-            'noon-biofuel-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
-            'noon-biofuel-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
-            'noon-biofuel-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+
+            'noon-biofuel-oil-ae-cc-oil-quantity': 'AE CC Oil Quantity:',
+            'noon-biofuel-oil-ae-cc-total-run-hrs': 'AE CC Total Running Hours:',
+            'noon-biofuel-oil-ae-cc-oil-cons': 'AE CC Oil Consumption:',
 
             // Noon VLSFO (MT)	
             'noon-vlsfo-previous': 'VLSFO Previous:',
@@ -537,22 +523,14 @@ function exportToExcel(reportId) {
             'noon-vlsfo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'noon-vlsfo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'noon-vlsfo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
-            'noon-vlsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+
             'noon-vlsfo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'noon-vlsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'noon-vlsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'noon-vlsfo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
-            'noon-vlsfo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
-            'noon-vlsfo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
-            'noon-vlsfo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
-            'noon-vlsfo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
-            'noon-vlsfo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
-            'noon-vlsfo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
-            'noon-vlsfo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
-            'noon-vlsfo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
-            'noon-vlsfo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
-            'noon-vlsfo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
-            'noon-vlsfo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+
+            'noon-vlsfo-oil-ae-cc-oil-quantity': 'AE CC Oil Quantity:',
+            'noon-vlsfo-oil-ae-cc-total-run-hrs': 'AE CC Total Running Hours:',
+            'noon-vlsfo-oil-ae-cc-oil-cons': 'AE CC Oil Consumption:',
 
             // Noon LSMGO (MT)	
             'noon-lsmgo-previous': 'LSMGO Previous:',
@@ -570,46 +548,43 @@ function exportToExcel(reportId) {
             'noon-lsmgo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'noon-lsmgo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'noon-lsmgo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
-            'noon-lsmgo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+            
             'noon-lsmgo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'noon-lsmgo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'noon-lsmgo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'noon-lsmgo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
-            'noon-lsmgo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
-            'noon-lsmgo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
-            'noon-lsmgo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
-            'noon-lsmgo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
-            'noon-lsmgo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
-            'noon-lsmgo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
-            'noon-lsmgo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
-            'noon-lsmgo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
-            'noon-lsmgo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
-            'noon-lsmgo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
-            'noon-lsmgo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
 
-            //Arrival Known Next Port Agent Details Port 1
-            'port1-agent-company-name': 'port1-agent-company-name',
-            'port1-agent-address': 'port1-agent-address',
-            'port1-agent-pic-name': 'port1-agent-pic-name',
-            'port1-agent-telephone': 'port1-agent-telephone',
-            'port1-agent-mobile': 'port1-agent-mobile',
-            'port1-agent-email': 'port1-agent-email',
+            'noon-lsmgo-oil-ae-cc-oil-quantity': 'AE CC Oil Quantity:',
+            'noon-lsmgo-oil-ae-cc-total-run-hrs': 'AE CC Total Running Hours:',
+            'noon-lsmgo-oil-ae-cc-oil-cons': 'AE CC Oil Consumption:',
 
-            //Arrival Known Next Port Agent Details Port 2
-            'port2-agent-company-name': 'port2-agent-company-name',
-            'port2-agent-address': 'port2-agent-address',
-            'port2-agent-pic-name': 'port2-agent-pic-name',
-            'port2-agent-telephone': 'port2-agent-telephone',
-            'port2-agent-mobile': 'port2-agent-mobile',
-            'port2-agent-email': 'port2-agent-email',
+            // //Arrival Known Next Port Agent Details Port 1
+            // 'port1-agent-company-name': 'port1-agent-company-name',
+            // 'port1-agent-address': 'port1-agent-address',
+            // 'port1-agent-pic-name': 'port1-agent-pic-name',
+            // 'port1-agent-telephone': 'port1-agent-telephone',
+            // 'port1-agent-mobile': 'port1-agent-mobile',
+            // 'port1-agent-email': 'port1-agent-email',
 
-            //Arrival Known Next Port Agent Details Port 2
-            'port3-agent-company-name': 'port3-agent-company-name',
-            'port3-agent-address': 'port3-agent-address',
-            'port3-agent-pic-name': 'port3-agent-pic-name',
-            'port3-agent-telephone': 'port3-agent-telephone',
-            'port3-agent-mobile': 'port3-agent-mobile',
-            'port3-agent-email': 'port3-agent-email',
+            // //Arrival Known Next Port Agent Details Port 2
+            // 'port2-agent-company-name': 'port2-agent-company-name',
+            // 'port2-agent-address': 'port2-agent-address',
+            // 'port2-agent-pic-name': 'port2-agent-pic-name',
+            // 'port2-agent-telephone': 'port2-agent-telephone',
+            // 'port2-agent-mobile': 'port2-agent-mobile',
+            // 'port2-agent-email': 'port2-agent-email',
+
+            // //Arrival Known Next Port Agent Details Port 2
+            // 'port3-agent-company-name': 'port3-agent-company-name',
+            // 'port3-agent-address': 'port3-agent-address',
+            // 'port3-agent-pic-name': 'port3-agent-pic-name',
+            // 'port3-agent-telephone': 'port3-agent-telephone',
+            // 'port3-agent-mobile': 'port3-agent-mobile',
+            // 'port3-agent-email': 'port3-agent-email',
+
+            // Diesel Engine
+            'diesel-engine-dg1-run-hours': 'DG1 Run Hours:',
+            'diesel-engine-dg2-run-hours': 'DG2 Run Hours:',
+            'diesel-engine-dg3-run-hours': 'DG3 Run Hours:',
 
             // Noon Master Remarks	
             'noon-remarks': 'Remarks:',
@@ -664,42 +639,42 @@ function exportToExcel(reportId) {
             'departure-voyage-itinerary-distance-to-go': 'Distance to go:',
             'departure-voyage-itinerary-projected-speed': 'Projected Speed (kts):',
 
-            // Departure Wind Force/Dir for every six hours
-            // Departure 12:00 - 18:00
-            'departure-wind-force-dir-for-every-six-hours-12-18-wind-force': 'Wind Force (Bft.) (12:00 - 18:00):',
-            'departure-wind-force-dir-for-every-six-hours-12-18-wind-direction': 'Wind Direction (T) (12:00 - 18:00):',
-            'departure-wind-force-dir-for-every-six-hours-12-18-swell-height': 'Swell Height (m) (12:00 - 18:00):',
-            'departure-wind-force-dir-for-every-six-hours-12-18-swell-direction': 'Swell Direction (T) (12:00 - 18:00):',
-            'departure-wind-force-dir-for-every-six-hours-12-18-wind-sea-height': 'Wind Sea Height (m) (12:00 - 18:00):',
-            'departure-wind-force-dir-for-every-six-hours-12-18-sea-direction': 'Sea Direction (T) (12:00 - 18:00):',
-            'departure-wind-force-dir-for-every-six-hours-12-18-sea-ds': 'Sea DS (12:00 - 18:00):',
+            // // Departure Wind Force/Dir for every six hours
+            // // Departure 12:00 - 18:00
+            // 'departure-wind-force-dir-for-every-six-hours-12-18-wind-force': 'Wind Force (Bft.) (12:00 - 18:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-12-18-wind-direction': 'Wind Direction (T) (12:00 - 18:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-12-18-swell-height': 'Swell Height (m) (12:00 - 18:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-12-18-swell-direction': 'Swell Direction (T) (12:00 - 18:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-12-18-wind-sea-height': 'Wind Sea Height (m) (12:00 - 18:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-12-18-sea-direction': 'Sea Direction (T) (12:00 - 18:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-12-18-sea-ds': 'Sea DS (12:00 - 18:00):',
 
-            // Departure 18:00 - 00:00
-            'departure-wind-force-dir-for-every-six-hours-18-00-wind-force': 'Wind Force (Bft.) (18:00 - 00:00):',
-            'departure-wind-force-dir-for-every-six-hours-18-00-wind-direction': 'Wind Direction (T) (18:00 - 00:00):',
-            'departure-wind-force-dir-for-every-six-hours-18-00-swell-height': 'Swell Height (m) (18:00 - 00:00):',
-            'departure-wind-force-dir-for-every-six-hours-18-00-swell-direction': 'Swell Direction (T) (18:00 - 00:00):',
-            'departure-wind-force-dir-for-every-six-hours-18-00-wind-sea-height': 'Wind Sea Height (m) (18:00 - 00:00):',
-            'departure-wind-force-dir-for-every-six-hours-18-00-sea-direction': 'Sea Direction (T) (18:00 - 00:00):',
-            'departure-wind-force-dir-for-every-six-hours-18-00-sea-ds': 'Sea DS (18:00 - 00:00):',
+            // // Departure 18:00 - 00:00
+            // 'departure-wind-force-dir-for-every-six-hours-18-00-wind-force': 'Wind Force (Bft.) (18:00 - 00:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-18-00-wind-direction': 'Wind Direction (T) (18:00 - 00:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-18-00-swell-height': 'Swell Height (m) (18:00 - 00:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-18-00-swell-direction': 'Swell Direction (T) (18:00 - 00:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-18-00-wind-sea-height': 'Wind Sea Height (m) (18:00 - 00:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-18-00-sea-direction': 'Sea Direction (T) (18:00 - 00:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-18-00-sea-ds': 'Sea DS (18:00 - 00:00):',
 
-            // Departure 00:00 - 06:00	
-            'departure-wind-force-dir-for-every-six-hours-00-06-wind-force': 'Wind Force (Bft.) (00:00 - 06:00):',
-            'departure-wind-force-dir-for-every-six-hours-00-06-wind-direction': 'Wind Direction (T) (00:00 - 06:00):',
-            'departure-wind-force-dir-for-every-six-hours-00-06-swell-height': 'Swell Height (m) (00:00 - 06:00):',
-            'departure-wind-force-dir-for-every-six-hours-00-06-swell-direction': 'Swell Direction (T) (00:00 - 06:00):',
-            'departure-wind-force-dir-for-every-six-hours-00-06-wind-sea-height': 'Wind Sea Height (m) (00:00 - 06:00):',
-            'departure-wind-force-dir-for-every-six-hours-00-06-sea-direction': 'Sea Direction (T) (00:00 - 06:00):',
-            'departure-wind-force-dir-for-every-six-hours-00-06-sea-ds': 'Sea DS (00:00 - 06:00):',
+            // // Departure 00:00 - 06:00	
+            // 'departure-wind-force-dir-for-every-six-hours-00-06-wind-force': 'Wind Force (Bft.) (00:00 - 06:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-00-06-wind-direction': 'Wind Direction (T) (00:00 - 06:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-00-06-swell-height': 'Swell Height (m) (00:00 - 06:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-00-06-swell-direction': 'Swell Direction (T) (00:00 - 06:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-00-06-wind-sea-height': 'Wind Sea Height (m) (00:00 - 06:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-00-06-sea-direction': 'Sea Direction (T) (00:00 - 06:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-00-06-sea-ds': 'Sea DS (00:00 - 06:00):',
 
-            // Departure 06:00 - 12:00
-            'departure-wind-force-dir-for-every-six-hours-06-12-wind-force': 'Wind Force (Bft.) (06:00 - 12:00):',
-            'departure-wind-force-dir-for-every-six-hours-06-12-wind-direction': 'Wind Direction (T) (06:00 - 12:00):',
-            'departure-wind-force-dir-for-every-six-hours-06-12-swell-height': 'Swell Height (m) (06:00 - 12:00):',
-            'departure-wind-force-dir-for-every-six-hours-06-12-swell-direction': 'Swell Direction (T) (06:00 - 12:00):',
-            'departure-wind-force-dir-for-every-six-hours-06-12-wind-sea-height': 'Wind Sea Height (m) (06:00 - 12:00):',
-            'departure-wind-force-dir-for-every-six-hours-06-12-sea-direction': 'Sea Direction (T) (06:00 - 12:00):',
-            'departure-wind-force-dir-for-every-six-hours-06-12-sea-ds': 'Sea DS (06:00 - 12:00):',
+            // // Departure 06:00 - 12:00
+            // 'departure-wind-force-dir-for-every-six-hours-06-12-wind-force': 'Wind Force (Bft.) (06:00 - 12:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-06-12-wind-direction': 'Wind Direction (T) (06:00 - 12:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-06-12-swell-height': 'Swell Height (m) (06:00 - 12:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-06-12-swell-direction': 'Swell Direction (T) (06:00 - 12:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-06-12-wind-sea-height': 'Wind Sea Height (m) (06:00 - 12:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-06-12-sea-direction': 'Sea Direction (T) (06:00 - 12:00):',
+            // 'departure-wind-force-dir-for-every-six-hours-06-12-sea-ds': 'Sea DS (06:00 - 12:00):',
 
             // Departure HSFO (MT)	
             'departure-hsfo-previous': 'HSFO Previous:',
@@ -717,22 +692,14 @@ function exportToExcel(reportId) {
             'departure-hsfo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'departure-hsfo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'departure-hsfo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
-            'departure-hsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+
             'departure-hsfo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'departure-hsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'departure-hsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'departure-hsfo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
-            'departure-hsfo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
-            'departure-hsfo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
-            'departure-hsfo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
-            'departure-hsfo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
-            'departure-hsfo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
-            'departure-hsfo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
-            'departure-hsfo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
-            'departure-hsfo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
-            'departure-hsfo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
-            'departure-hsfo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
-            'departure-hsfo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+
+            'departure-hsfo-oil-ae-cc-oil-quantity': 'AE CC Oil Quantity:',
+            'departure-hsfo-oil-ae-cc-total-run-hrs': 'AE CC Total Running Hours:',
+            'departure-hsfo-oil-ae-cc-oil-cons': 'AE CC Oil Consumption:',
             
             // Departure BIOFUEL (MT)	
             'departure-biofuel-previous': 'BIOFUEL Previous:',
@@ -750,22 +717,14 @@ function exportToExcel(reportId) {
             'departure-biofuel-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'departure-biofuel-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'departure-biofuel-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
-            'departure-biofuel-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+
             'departure-biofuel-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'departure-biofuel-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'departure-biofuel-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'departure-biofuel-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
-            'departure-biofuel-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
-            'departure-biofuel-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
-            'departure-biofuel-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
-            'departure-biofuel-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
-            'departure-biofuel-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
-            'departure-biofuel-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
-            'departure-biofuel-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
-            'departure-biofuel-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
-            'departure-biofuel-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
-            'departure-biofuel-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
-            'departure-biofuel-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+            
+            'departure-biofuel-oil-ae-cc-oil-quantity': 'AE CC Oil Quantity:',
+            'departure-biofuel-oil-ae-cc-total-run-hrs': 'AE CC Total Running Hours:',
+            'departure-biofuel-oil-ae-cc-oil-cons': 'AE CC Oil Consumption:',
 
             // Departure VLSFO (MT)	
             'departure-vlsfo-previous': 'VLSFO Previous:',
@@ -783,22 +742,14 @@ function exportToExcel(reportId) {
             'departure-vlsfo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'departure-vlsfo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'departure-vlsfo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
-            'departure-vlsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+
             'departure-vlsfo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'departure-vlsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'departure-vlsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'departure-vlsfo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
-            'departure-vlsfo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
-            'departure-vlsfo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
-            'departure-vlsfo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
-            'departure-vlsfo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
-            'departure-vlsfo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
-            'departure-vlsfo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
-            'departure-vlsfo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
-            'departure-vlsfo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
-            'departure-vlsfo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
-            'departure-vlsfo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
-            'departure-vlsfo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+
+            'departure-vlsfo-oil-ae-cc-oil-quantity': 'AE CC Oil Quantity:',
+            'departure-vlsfo-oil-ae-cc-total-run-hrs': 'AE CC Total Running Hours:',
+            'departure-vlsfo-oil-ae-cc-oil-cons': 'AE CC Oil Consumption:',
 
             // Departure LSMGO (MT)	
             'departure-lsmgo-previous': 'LSMGO Previous:',
@@ -816,22 +767,14 @@ function exportToExcel(reportId) {
             'departure-lsmgo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'departure-lsmgo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'departure-lsmgo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
-            'departure-lsmgo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+
             'departure-lsmgo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'departure-lsmgo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'departure-lsmgo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'departure-lsmgo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
-            'departure-lsmgo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
-            'departure-lsmgo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
-            'departure-lsmgo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
-            'departure-lsmgo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
-            'departure-lsmgo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
-            'departure-lsmgo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
-            'departure-lsmgo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
-            'departure-lsmgo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
-            'departure-lsmgo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
-            'departure-lsmgo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
-            'departure-lsmgo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+
+            'departure-lsmgo-oil-ae-cc-oil-quantity': 'AE CC Oil Quantity:',
+            'departure-lsmgo-oil-ae-cc-total-run-hrs': 'AE CC Total Running Hours:',
+            'departure-lsmgo-oil-ae-cc-oil-cons': 'AE CC Oil Consumption:',
 
             // Departure Master Remarks
             'departure-remarks': 'Remarks:',
@@ -879,42 +822,42 @@ function exportToExcel(reportId) {
             'arrival-conditions-aft-draft': 'Aft Draft (m):',
             'arrival-conditions-gm': 'GM:',
 
-            // Arrival Wind Force/Dir for every six hours
-            // Arrival 12:00 - 18:00
-            'arrival-wind-force-dir-for-every-six-hours-12-18-wind-force': 'Wind Force (Bft.) (12:00 - 18:00):',
-            'arrival-wind-force-dir-for-every-six-hours-12-18-wind-direction': 'Wind Direction (T) (12:00 - 18:00):',
-            'arrival-wind-force-dir-for-every-six-hours-12-18-swell-height': 'Swell Height (m) (12:00 - 18:00):',
-            'arrival-wind-force-dir-for-every-six-hours-12-18-swell-direction': 'Swell Direction (T) (12:00 - 18:00):',
-            'arrival-wind-force-dir-for-every-six-hours-12-18-wind-sea-height': 'Wind Sea Height (m) (12:00 - 18:00):',
-            'arrival-wind-force-dir-for-every-six-hours-12-18-sea-direction': 'Sea Direction (T) (12:00 - 18:00):',
-            'arrival-wind-force-dir-for-every-six-hours-12-18-sea-ds': 'Sea DS (12:00 - 18:00):',
+            // // Arrival Wind Force/Dir for every six hours
+            // // Arrival 12:00 - 18:00
+            // 'arrival-wind-force-dir-for-every-six-hours-12-18-wind-force': 'Wind Force (Bft.) (12:00 - 18:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-12-18-wind-direction': 'Wind Direction (T) (12:00 - 18:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-12-18-swell-height': 'Swell Height (m) (12:00 - 18:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-12-18-swell-direction': 'Swell Direction (T) (12:00 - 18:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-12-18-wind-sea-height': 'Wind Sea Height (m) (12:00 - 18:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-12-18-sea-direction': 'Sea Direction (T) (12:00 - 18:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-12-18-sea-ds': 'Sea DS (12:00 - 18:00):',
 
-            // Arrival 18:00 - 00:00
-            'arrival-wind-force-dir-for-every-six-hours-18-00-wind-force': 'Wind Force (Bft.) (18:00 - 00:00):',
-            'arrival-wind-force-dir-for-every-six-hours-18-00-wind-direction': 'Wind Direction (T) (18:00 - 00:00):',
-            'arrival-wind-force-dir-for-every-six-hours-18-00-swell-height': 'Swell Height (m) (18:00 - 00:00):',
-            'arrival-wind-force-dir-for-every-six-hours-18-00-swell-direction': 'Swell Direction (T) (18:00 - 00:00):',
-            'arrival-wind-force-dir-for-every-six-hours-18-00-wind-sea-height': 'Wind Sea Height (m) (18:00 - 00:00):',
-            'arrival-wind-force-dir-for-every-six-hours-18-00-sea-direction': 'Sea Direction (T) (18:00 - 00:00):',
-            'arrival-wind-force-dir-for-every-six-hours-18-00-sea-ds': 'Sea DS (18:00 - 00:00):',
+            // // Arrival 18:00 - 00:00
+            // 'arrival-wind-force-dir-for-every-six-hours-18-00-wind-force': 'Wind Force (Bft.) (18:00 - 00:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-18-00-wind-direction': 'Wind Direction (T) (18:00 - 00:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-18-00-swell-height': 'Swell Height (m) (18:00 - 00:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-18-00-swell-direction': 'Swell Direction (T) (18:00 - 00:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-18-00-wind-sea-height': 'Wind Sea Height (m) (18:00 - 00:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-18-00-sea-direction': 'Sea Direction (T) (18:00 - 00:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-18-00-sea-ds': 'Sea DS (18:00 - 00:00):',
 
-            // Arrival 00:00 - 06:00	
-            'arrival-wind-force-dir-for-every-six-hours-00-06-wind-force': 'Wind Force (Bft.) (00:00 - 06:00):',
-            'arrival-wind-force-dir-for-every-six-hours-00-06-wind-direction': 'Wind Direction (T) (00:00 - 06:00):',
-            'arrival-wind-force-dir-for-every-six-hours-00-06-swell-height': 'Swell Height (m) (00:00 - 06:00):',
-            'arrival-wind-force-dir-for-every-six-hours-00-06-swell-direction': 'Swell Direction (T) (00:00 - 06:00):',
-            'arrival-wind-force-dir-for-every-six-hours-00-06-wind-sea-height': 'Wind Sea Height (m) (00:00 - 06:00):',
-            'arrival-wind-force-dir-for-every-six-hours-00-06-sea-direction': 'Sea Direction (T) (00:00 - 06:00):',
-            'arrival-wind-force-dir-for-every-six-hours-00-06-sea-ds': 'Sea DS (00:00 - 06:00):',
+            // // Arrival 00:00 - 06:00	
+            // 'arrival-wind-force-dir-for-every-six-hours-00-06-wind-force': 'Wind Force (Bft.) (00:00 - 06:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-00-06-wind-direction': 'Wind Direction (T) (00:00 - 06:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-00-06-swell-height': 'Swell Height (m) (00:00 - 06:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-00-06-swell-direction': 'Swell Direction (T) (00:00 - 06:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-00-06-wind-sea-height': 'Wind Sea Height (m) (00:00 - 06:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-00-06-sea-direction': 'Sea Direction (T) (00:00 - 06:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-00-06-sea-ds': 'Sea DS (00:00 - 06:00):',
 
-            // Arrival 06:00 - 12:00
-            'arrival-wind-force-dir-for-every-six-hours-06-12-wind-force': 'Wind Force (Bft.) (06:00 - 12:00):',
-            'arrival-wind-force-dir-for-every-six-hours-06-12-wind-direction': 'Wind Direction (T) (06:00 - 12:00):',
-            'arrival-wind-force-dir-for-every-six-hours-06-12-swell-height': 'Swell Height (m) (06:00 - 12:00):',
-            'arrival-wind-force-dir-for-every-six-hours-06-12-swell-direction': 'Swell Direction (T) (06:00 - 12:00):',
-            'arrival-wind-force-dir-for-every-six-hours-06-12-wind-sea-height': 'Wind Sea Height (m) (06:00 - 12:00):',
-            'arrival-wind-force-dir-for-every-six-hours-06-12-sea-direction': 'Sea Direction (T) (06:00 - 12:00):',
-            'arrival-wind-force-dir-for-every-six-hours-06-12-sea-ds': 'Sea DS (06:00 - 12:00):',
+            // // Arrival 06:00 - 12:00
+            // 'arrival-wind-force-dir-for-every-six-hours-06-12-wind-force': 'Wind Force (Bft.) (06:00 - 12:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-06-12-wind-direction': 'Wind Direction (T) (06:00 - 12:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-06-12-swell-height': 'Swell Height (m) (06:00 - 12:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-06-12-swell-direction': 'Swell Direction (T) (06:00 - 12:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-06-12-wind-sea-height': 'Wind Sea Height (m) (06:00 - 12:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-06-12-sea-direction': 'Sea Direction (T) (06:00 - 12:00):',
+            // 'arrival-wind-force-dir-for-every-six-hours-06-12-sea-ds': 'Sea DS (06:00 - 12:00):',
 
             // Arrival HSFO (MT)	
             'arrival-hsfo-previous': 'HSFO Previous:',
@@ -932,22 +875,14 @@ function exportToExcel(reportId) {
             'arrival-hsfo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'arrival-hsfo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'arrival-hsfo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
-            'arrival-hsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+
             'arrival-hsfo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'arrival-hsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'arrival-hsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'arrival-hsfo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
-            'arrival-hsfo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
-            'arrival-hsfo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
-            'arrival-hsfo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
-            'arrival-hsfo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
-            'arrival-hsfo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
-            'arrival-hsfo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
-            'arrival-hsfo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
-            'arrival-hsfo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
-            'arrival-hsfo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
-            'arrival-hsfo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
-            'arrival-hsfo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+
+            'arrival-hsfo-oil-ae-cc-oil-quantity': 'AE CC Oil Quantity:',
+            'arrival-hsfo-oil-ae-cc-total-run-hrs': 'AE CC Total Running Hours:',
+            'arrival-hsfo-oil-ae-cc-oil-cons': 'AE CC Oil Consumption:',
             
             // Arrival BIOFUEL (MT)	
             'arrival-biofuel-previous': 'BIOFUEL Previous:',
@@ -965,22 +900,14 @@ function exportToExcel(reportId) {
             'arrival-biofuel-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'arrival-biofuel-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'arrival-biofuel-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
-            'arrival-biofuel-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+
             'arrival-biofuel-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'arrival-biofuel-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'arrival-biofuel-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'arrival-biofuel-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
-            'arrival-biofuel-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
-            'arrival-biofuel-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
-            'arrival-biofuel-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
-            'arrival-biofuel-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
-            'arrival-biofuel-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
-            'arrival-biofuel-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
-            'arrival-biofuel-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
-            'arrival-biofuel-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
-            'arrival-biofuel-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
-            'arrival-biofuel-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
-            'arrival-biofuel-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+
+            'arrival-biofuel-oil-ae-cc-oil-quantity': 'AE CC Oil Quantity:',
+            'arrival-biofuel-oil-ae-cc-total-run-hrs': 'AE CC Total Running Hours:',
+            'arrival-biofuel-oil-ae-cc-oil-cons': 'AE CC Oil Consumption:',
 
             // Arrival VLSFO (MT)	
             'arrival-vlsfo-previous': 'VLSFO Previous:',
@@ -998,22 +925,14 @@ function exportToExcel(reportId) {
             'arrival-vlsfo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'arrival-vlsfo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'arrival-vlsfo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
-            'arrival-vlsfo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+
             'arrival-vlsfo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'arrival-vlsfo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'arrival-vlsfo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'arrival-vlsfo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
-            'arrival-vlsfo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
-            'arrival-vlsfo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
-            'arrival-vlsfo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
-            'arrival-vlsfo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
-            'arrival-vlsfo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
-            'arrival-vlsfo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
-            'arrival-vlsfo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
-            'arrival-vlsfo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
-            'arrival-vlsfo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
-            'arrival-vlsfo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
-            'arrival-vlsfo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+
+            'arrival-vlsfo-oil-ae-cc-oil-quantity': 'AE CC Oil Quantity:',
+            'arrival-vlsfo-oil-ae-cc-total-run-hrs': 'AE CC Total Running Hours:',
+            'arrival-vlsfo-oil-ae-cc-oil-cons': 'AE CC Oil Consumption:',
 
             // Arrival LSMGO (MT)	
             'arrival-lsmgo-previous': 'LSMGO Previous:',
@@ -1031,22 +950,14 @@ function exportToExcel(reportId) {
             'arrival-lsmgo-oil-me-cyl-oil-quantity': 'ME CYL Oil Quantity:',
             'arrival-lsmgo-oil-me-cyl-total-runn-hrs': 'ME CYL Total Running Hours:',
             'arrival-lsmgo-oil-me-cyl-oil-cons': 'ME CYL Oil Consumption:',
-            'arrival-lsmgo-oil-me-cc-oil-grade': 'ME CC Oil Grade:',
+
             'arrival-lsmgo-oil-me-cc-oil-quantity': 'ME CC Oil Quantity:',
             'arrival-lsmgo-oil-me-cc-total-run-hrs': 'ME CC Total Running Hours:',
             'arrival-lsmgo-oil-me-cc-oil-cons': 'ME CC Oil Consumption:',
-            'arrival-lsmgo-oil-ae1-cc-oil-grade': 'AE1 CC Oil Grade:',
-            'arrival-lsmgo-oil-ae1-cc-oil-quantity': 'AE1 CC Oil Quantity:',
-            'arrival-lsmgo-oil-ae1-cc-total-runn-hrs': 'AE1 CC Total Running Hours:',
-            'arrival-lsmgo-oil-ae1-cc-oil-cons': 'AE1 CC Oil Consumption:',
-            'arrival-lsmgo-oil-ae2-cc-oil-grade': 'AE2 CC Oil Grade:',
-            'arrival-lsmgo-oil-ae2-cc-oil-quantity': 'AE2 CC Oil Quantity:',
-            'arrival-lsmgo-oil-ae2-cc-total-runn-hrs': 'AE2 CC Total Running Hours:',
-            'arrival-lsmgo-oil-ae2-cc-oil-cons': 'AE2 CC Oil Consumption:',
-            'arrival-lsmgo-oil-ae3-cc-oil-grade': 'AE3 CC Oil Grade:',
-            'arrival-lsmgo-oil-ae3-cc-oil-quantity': 'AE3 CC Oil Quantity:',
-            'arrival-lsmgo-oil-ae3-cc-total-runn-hrs': 'AE3 CC Total Running Hours:',
-            'arrival-lsmgo-oil-ae3-cc-oil-cons': 'AE3 CC Oil Consumption:',
+
+            'arrival-lsmgo-oil-ae-cc-oil-quantity': 'AE CC Oil Quantity:',
+            'arrival-lsmgo-oil-ae-cc-total-run-hrs': 'AE CC Total Running Hours:',
+            'arrival-lsmgo-oil-ae-cc-oil-cons': 'AE CC Oil Consumption:',
 
             // Arrival Master Remarks
             'arrival-remarks': 'Remarks:',
@@ -3315,6 +3226,7 @@ function exportToExcel(reportId) {
             'port2-agent-company-name': 'ALL KNOWN NEXT PORT AGENT DETAILS (PORT 2)',
             'port3-agent-company-name': 'ALL KNOWN NEXT PORT AGENT DETAILS (PORT 3)',
             'noon-remarks': 'MASTER REMARKS',
+            'diesel-engine-dg1-run-hours': 'DIESEL ENGINE'
         },
 
 
@@ -3449,9 +3361,7 @@ function exportToExcel(reportId) {
             'noon-biofuel-oil-ae3-cc-oil-cons',
             'noon-vlsfo-oil-ae3-cc-oil-cons',
             'noon-lsmgo-oil-ae3-cc-oil-cons',
-            'port1-agent-email',
-            'port2-agent-email',
-            'port3-agent-email'
+            'diesel-engine-dg3-run-hours'
         ],
 
         'departurereport': [
@@ -4089,6 +3999,163 @@ function openTab(evt, tabName) {
     evt.target.blur();
 }
 
+let crewCounter = 1;
+
+function openTabCrew(evt, tabName) {
+    evt.preventDefault();
+    const form = evt.target.closest('form');
+    const elements = form.elements;
+
+    // Temporarily remove the 'required' attribute to avoid form validation issues
+    Array.from(elements).forEach(element => {
+        element.setAttribute('data-required', element.required);
+        element.required = false;
+    });
+
+    // Hide all tabs and remove the active class from all buttons
+    document.querySelectorAll(".crew-tab-content").forEach(content => {
+        content.style.display = "none";
+        content.removeAttribute('data-active'); // Remove the active status
+    });
+    document.querySelectorAll(".w3-bar-item").forEach(link => link.classList.remove("w3-theme"));
+
+    // Show the selected tab and add active class to the clicked button
+    const activeTab = document.getElementById(tabName);
+    activeTab.style.display = "block";
+    activeTab.setAttribute('data-active', 'true'); // Set the active status
+
+    evt.currentTarget.classList.add("w3-theme");
+
+    // Restore the 'required' attributes after a short delay
+    setTimeout(() => {
+        Array.from(elements).forEach(element => {
+            element.required = element.getAttribute('data-required') === 'true';
+        });
+    }, 0);
+
+    console.log("Switched to tab:", tabName); // Debugging
+}
+
+
+function addCrewFieldset() {
+    // Find the tab that has the data-active attribute set to "true"
+    const activeTab = document.querySelector('.crew-tab-content[data-active="true"]');
+    const activeTabId = activeTab.id; // Get the ID of the active tab
+    console.log("Active Tab ID:", activeTabId); // Debugging
+
+    let newFieldsetContent = '';
+
+    if (activeTabId === 'OnBoardCrew') {
+            newFieldsetContent = `
+                <fieldset>
+                    <legend>On Board Crew Data ${crewCounter}</legend>
+                    <div class="four-columns">
+                        <div class="form-group">
+                            <label for="crew-no-${crewCounter}">No</label>
+                            <input type="number" id="crew-no-${crewCounter}" name="crew-no-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="vessel-name-${crewCounter}">Vessel Name</label>
+                            <input type="text" id="vessel-name-${crewCounter}" name="vessel-name-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="crew-surname-${crewCounter}">Crew Surname</label>
+                            <input type="text" id="crew-surname-${crewCounter}" name="crew-surname-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="crew-first-name-${crewCounter}">Crew First Name</label>
+                            <input type="text" id="crew-first-name-${crewCounter}" name="crew-first-name-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="rank-${crewCounter}">Rank</label>
+                            <input type="text" id="rank-${crewCounter}" name="rank-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="crew-nationality-${crewCounter}">Crew Nationality</label>
+                            <input type="text" id="crew-nationality-${crewCounter}" name="crew-nationality-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="joining-date-${crewCounter}">Joining Date</label>
+                            <input type="date" id="joining-date-${crewCounter}" name="joining-date-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="contract-completion-date-${crewCounter}">Contract Completion Date</label>
+                            <input type="date" id="contract-completion-date-${crewCounter}" name="contract-completion-date-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="current-date-${crewCounter}">Current Date</label>
+                            <input type="date" id="current-date-${crewCounter}" name="current-date-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="days-to-completion-${crewCounter}">Days to Contract Completion</label>
+                            <input type="number" id="days-to-completion-${crewCounter}" name="days-to-completion-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="months-on-board-${crewCounter}">No of Months On Board</label>
+                            <input type="number" id="months-on-board-${crewCounter}" name="months-on-board-${crewCounter}">
+                        </div>
+                    </div>
+                </fieldset>`;
+        } else if (activeTabId === 'CrewChangeData') {
+            newFieldsetContent = `
+                <fieldset>
+                    <legend>Crew Change Data ${crewCounter}</legend>
+                    <div class="four-columns">
+                        <div class="form-group">
+                            <label for="vessel-${crewCounter}">Vessel</label>
+                            <input type="text" id="vessel-${crewCounter}" name="vessel-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="port-${crewCounter}">Port</label>
+                            <input type="text" id="port-${crewCounter}" name="port-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="country-${crewCounter}">Country</label>
+                            <input type="text" id="country-${crewCounter}" name="country-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="joiners-boarding-date-${crewCounter}">Date of Joiners Boarding</label>
+                            <input type="date" id="joiners-boarding-date-${crewCounter}" name="joiners-boarding-date-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="offsigners-signoff-date-${crewCounter}">Date of Off-signers Sign Off</label>
+                            <input type="date" id="offsigners-signoff-date-${crewCounter}" name="offsigners-signoff-date-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="joiners-rank-${crewCounter}">Joiners Ranks</label>
+                            <input type="text" id="joiners-rank-${crewCounter}" name="joiners-rank-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="offsigners-rank-${crewCounter}">Off-Signers Ranks</label>
+                            <input type="text" id="offsigners-rank-${crewCounter}" name="offsigners-rank-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="total-crew-change-${crewCounter}">Total Crew Change</label>
+                            <input type="number" id="total-crew-change-${crewCounter}" name="total-crew-change-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="reason-for-change-${crewCounter}">Reason for Change</label>
+                            <input type="text" id="reason-for-change-${crewCounter}" name="reason-for-change-${crewCounter}">
+                        </div>
+                        <div class="form-group">
+                            <label for="remarks-${crewCounter}">Remarks</label>
+                            <textarea id="remarks-${crewCounter}" name="remarks-${crewCounter}" rows="4" style="height: 15px; width: 97%;"></textarea>
+                        </div>
+                    </div>
+                </fieldset>`;
+        }
+
+        console.log("Fieldset Content:", newFieldsetContent); // Debugging
+
+        if (newFieldsetContent) {
+            document.getElementById(activeTabId).insertAdjacentHTML('beforeend', newFieldsetContent);
+            crewCounter++; // Increment counter for the next crew member
+        } else {
+            console.log("No fieldset content generated");
+        }
+    }
+
+
 function addRowAllFast() {
     const tableBodyAllFast = document.getElementById('allFastRobTableBody');
     const newRowAllFast = document.createElement('tr');
@@ -4413,6 +4480,17 @@ function handleReportTypeChange(reportSection) {
             element.style.display = 'flex';
          });
     } else if (reportSection === 'At Anchorage') {
+        document.querySelectorAll('.in-port-section').forEach(function(element) {
+            element.style.display = 'none';
+         });
+         document.querySelectorAll('.at-sea-section').forEach(function(element) {
+            element.style.display = 'none';
+         });
+         document.querySelectorAll('.at-sea-section-fieldset').forEach(function(element) {
+            element.style.display = 'none';
+         });
+    }
+    else if (reportSection === 'At Drifting') {
         document.querySelectorAll('.in-port-section').forEach(function(element) {
             element.style.display = 'none';
          });
@@ -5199,5 +5277,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
 
 

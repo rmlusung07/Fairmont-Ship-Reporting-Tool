@@ -34,6 +34,8 @@
             <button onclick="openReport(event, 'Bunkering')">Bunkering</button>
             <button onclick="openReport(event, 'AllFast')">All Fast</button>
             <button onclick="openReport(event, 'WeeklyReport')">Weekly Schedule</button>
+            <button onclick="openReport(event, 'CrewMonitoringPlan')">Crew Monitoring Plan</button>
+            <button onclick="openReport(event, 'VoyageReport')">Voyage Report</button>
         </nav>
 
         <!-- Main content starts here -->
@@ -93,6 +95,7 @@
                                     <option value="At Sea">At Sea</option>
                                     <option value="In Port">In Port</option>
                                     <option value="At Anchorage">At Anchorage</option>
+                                    <option value="At Drifting">At Drifting</option>
                                 </select>
                             </div>
                             <div class="form-group common-date-container">
@@ -155,7 +158,7 @@
                                 <input type="text" id="noon-voyage-details-longitude" name="noon-voyage-details-longitude" placeholder="DD&deg MM' SS&quot; E/W" required>
                             </div>
                             <div class="form-group in-port-section">
-                                <label for="noon-voyage-details-port">Port:</label>
+                                <label for="noon-voyage-details-port">Port of Departure:</label>
                                 <input type="text" id="noon-voyage-details-port" name="noon-voyage-details-port" required>
                                 <div id="noon-voyage-details-port-results"></div>
                             </div>
@@ -314,8 +317,8 @@
                                 <input class="validate" type="text" id="noon-conditions-displacement" name="noon-conditions-displacement" required>
                             </div>
                             <div class="form-group">
-                                <label for="noon-conditions-deadweight">Deadweight (MT)</label>
-                                <input class="validate" type="text" id="noon-conditions-deadweight" name="noon-conditions-deadweight" required>
+                                <label for="noon-conditions-deadweight">Cargo Name</label>
+                                <input type="text" id="noon-conditions-deadweight" name="noon-conditions-deadweight">
                             </div>
                             <div class="form-group">
                                 <label for="noon-conditions-cargo-weight">Cargo Weight (MT)</label>
@@ -349,7 +352,7 @@
                         <legend>Voyage Itinerary</legend>
                         <div class="four-columns">
                             <div class="form-group">
-                                <label for="noon-voyage-itinerary-port">Port</label>
+                                <label for="noon-voyage-itinerary-port">Next Port</label>
                                 <input type="text" id="noon-voyage-itinerary-port" name="noon-voyage-itinerary-port" required> 
                                 <div id="noon-voyage-itinerary-port-results"></div>
                             </div>
@@ -1107,17 +1110,20 @@
                                 <thead>
                                     <tr>
                                         <th colspan="4">ME CYL</th>
-                                        <th colspan="4">ME CC</th>
+                                        <th colspan="3">ME CC</th>
+                                        <th colspan="3">AE CC</th> 
                                     </tr>
                                     <tr>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Runn Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Run Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1133,22 +1139,17 @@
                                         <td><input class="validate" type="text" id="noon-hsfo-oil-me-cyl-oil-quantity" name="noon-hsfo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="noon-hsfo-oil-me-cyl-total-runn-hrs" name="noon-hsfo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" id="noon-hsfo-oil-me-cyl-oil-cons" name="noon-hsfo-oil-me-cyl-oil-cons" disabled></td>
-                                        <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="noon-hsfo-oil-me-cc-oil-grade" name="noon-hsfo-oil-me-cc-oil-grade">
-                                                <option value="">Select</option>
-                                                <option value="TBN 100">TBN 100</option>
-                                                <option value="TBN 70">TBN 70</option>
-                                                <option value="TBN 40">TBN 40</option>
-                                            </select>
-                                        </td>
                                         <td><input class="validate" type="text" id="noon-hsfo-oil-me-cc-oil-quantity" name="noon-hsfo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="noon-hsfo-oil-me-cc-total-run-hrs" name="noon-hsfo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" id="noon-hsfo-oil-me-cc-oil-cons" name="noon-hsfo-oil-me-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="noon-hsfo-oil-ae-cc-oil-quantity" name="noon-hsfo-oil-ae-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" id="noon-hsfo-oil-ae-cc-total-run-hrs" name="noon-hsfo-oil-ae-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" id="noon-hsfo-oil-ae-cc-oil-cons" name="noon-hsfo-oil-ae-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <!-- <br /><br />
 
                             <table>
                                 <thead>
@@ -1211,12 +1212,12 @@
                                         </td>
                                         <td><input class="validate" type="text" id="noon-hsfo-oil-ae3-cc-oil-quantity" name="noon-hsfo-oil-ae3-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="noon-hsfo-oil-ae3-cc-total-runn-hrs" name="noon-hsfo-oil-ae3-cc-total-runn-hrs"></td>
-                                        <td><input class="validate" type="text" id="noon-hsfo-oil-ae3-cc-oil-cons" name="noon-hsfo-oil-ae3-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="noo n-hsfo-oil-ae3-cc-oil-cons" name="noon-hsfo-oil-ae3-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br />
+                            <br /> -->
 
                         </div>
 
@@ -1264,17 +1265,20 @@
                                 <thead>
                                     <tr>
                                         <th colspan="4">ME CYL</th>
-                                        <th colspan="4">ME CC</th>
+                                        <th colspan="3">ME CC</th>
+                                        <th colspan="3">AE CC</th>
                                     </tr>
                                     <tr>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Runn Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Run Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1290,22 +1294,17 @@
                                         <td><input class="validate" type="text" id="noon-biofuel-oil-me-cyl-oil-quantity" name="noon-biofuel-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="noon-biofuel-oil-me-cyl-total-runn-hrs" name="noon-biofuel-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" id="noon-biofuel-oil-me-cyl-oil-cons" name="noon-biofuel-oil-me-cyl-oil-cons" disabled></td>
-                                        <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="noon-biofuel-oil-me-cc-oil-grade" name="noon-biofuel-oil-me-cc-oil-grade">
-                                                <option value="">Select</option>
-                                                <option value="TBN 100">TBN 100</option>
-                                                <option value="TBN 70">TBN 70</option>
-                                                <option value="TBN 40">TBN 40</option>
-                                            </select>
-                                        </td>
                                         <td><input class="validate" type="text" id="noon-biofuel-oil-me-cc-oil-quantity" name="noon-biofuel-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="noon-biofuel-oil-me-cc-total-run-hrs" name="noon-biofuel-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" id="noon-biofuel-oil-me-cc-oil-cons" name="noon-biofuel-oil-me-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="noon-biofuel-oil-ae-cc-oil-quantity" name="noon-biofuel-oil-ae-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" id="noon-biofuel-oil-ae-cc-total-run-hrs" name="noon-biofuel-oil-ae-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" id="noon-biofuel-oil-ae-cc-oil-cons" name="noon-biofuel-oil-ae-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <!-- <br /><br />
 
                             <table>
                                 <thead>
@@ -1373,7 +1372,7 @@
                                 </tbody>
                             </table>
 
-                            <br />   
+                            <br />    -->
 
                         </div>
 
@@ -1425,17 +1424,20 @@
                                 <thead>
                                     <tr>
                                         <th colspan="4">ME CYL</th>
-                                        <th colspan="4">ME CC</th>
+                                        <th colspan="3">ME CC</th>
+                                        <th colspan="3">AE CC</th>
                                     </tr>
                                     <tr>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Runn Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Run Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1451,22 +1453,17 @@
                                         <td><input class="validate" type="text" id="noon-vlsfo-oil-me-cyl-oil-quantity" name="noon-vlsfo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="noon-vlsfo-oil-me-cyl-total-runn-hrs" name="noon-vlsfo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" id="noon-vlsfo-oil-me-cyl-oil-cons" name="noon-vlsfo-oil-me-cyl-oil-cons" disabled></td>
-                                        <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="noon-vlsfo-oil-me-cc-oil-grade" name="noon-vlsfo-oil-me-cc-oil-grade">
-                                                <option value="">Select</option>
-                                                <option value="TBN 100">TBN 100</option>
-                                                <option value="TBN 70">TBN 70</option>
-                                                <option value="TBN 40">TBN 40</option>
-                                            </select>
-                                        </td>
                                         <td><input class="validate" type="text" id="noon-vlsfo-oil-me-cc-oil-quantity" name="noon-vlsfo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="noon-vlsfo-oil-me-cc-total-run-hrs" name="noon-vlsfo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" id="noon-vlsfo-oil-me-cc-oil-cons" name="noon-vlsfo-oil-me-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="noon-vlsfo-oil-ae-cc-oil-quantity" name="noon-vlsfo-oil-ae-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" id="noon-vlsfo-oil-ae-cc-total-run-hrs" name="noon-vlsfo-oil-ae-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" id="noon-vlsfo-oil-ae-cc-oil-cons" name="noon-vlsfo-oil-ae-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <!-- <br /><br /> 
 
                             <table>
                                 <thead>
@@ -1534,7 +1531,7 @@
                                 </tbody>
                             </table>
 
-                            <br />  
+                            <br />   -->
 
                         </div>
                         <!-- Noon LSMGO Content -->
@@ -1581,17 +1578,20 @@
                                 <thead>
                                     <tr>
                                         <th colspan="4">ME CYL</th>
-                                        <th colspan="4">ME CC</th>
+                                        <th colspan="3">ME CC</th>
+                                        <th colspan="3">AE CC</th>
                                     </tr>
                                     <tr>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Runn Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Run Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1607,22 +1607,17 @@
                                         <td><input class="validate" type="text" id="noon-lsmgo-oil-me-cyl-oil-quantity" name="noon-lsmgo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="noon-lsmgo-oil-me-cyl-total-runn-hrs" name="noon-lsmgo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" id="noon-lsmgo-oil-me-cyl-oil-cons" name="noon-lsmgo-oil-me-cyl-oil-cons" disabled></td>
-                                        <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="noon-lsmgo-oil-me-cc-oil-grade" name="noon-lsmgo-oil-me-cc-oil-grade">
-                                                <option value="">Select</option>
-                                                <option value="TBN 100">TBN 100</option>
-                                                <option value="TBN 70">TBN 70</option>
-                                                <option value="TBN 40">TBN 40</option>
-                                            </select>
-                                        </td>
                                         <td><input class="validate" type="text" id="noon-lsmgo-oil-me-cc-oil-quantity" name="noon-lsmgo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="noon-lsmgo-oil-me-cc-total-run-hrs" name="noon-lsmgo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" id="noon-lsmgo-oil-me-cc-oil-cons" name="noon-lsmgo-oil-me-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="noon-lsmgo-oil-ae-cc-oil-quantity" name="noon-lsmgo-oil-ae-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" id="noon-lsmgo-oil-ae-cc-total-run-hrs" name="noon-lsmgo-oil-ae-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" id="noon-lsmgo-oil-ae-cc-oil-cons" name="noon-lsmgo-oil-ae-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <!-- <br /><br /> 
 
                             <table>
                                 <thead>
@@ -1690,8 +1685,26 @@
                                 </tbody>
                             </table>
 
-                            <br />
+                            <br /> -->
 
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Diesel Engine</legend>
+                        <div class="four-columns">
+                            <div class="form-group">
+                                <label for="diesel-engine-dg1-run-hours">DG1 Run Hours</label>
+                                <input type="text" id="diesel-engine-dg1-run-hours" name="diesel-engine-dg1-run-hours">
+                            </div>
+                            <div class="form-group">
+                                <label for="diesel-engine-dg2-run-hours">DG2 Run Hours</label>
+                                <input type="text" id="diesel-engine-dg2-run-hours" name="diesel-engine-dg2-run-hours">
+                            </div>
+                            <div class="form-group">
+                                <label for="diesel-engine-dg3-run-hours">DG3 Run Hours</label>
+                                <input type="text" id="diesel-engine-dg3-run-hours" name="diesel-engine-dg3-run-hours">
+                            </div>
                         </div>
                     </fieldset>
                     
@@ -1781,13 +1794,26 @@
                                 <div class="form-group">
                                     <label for="port3-agent-email">Email:</label>
                                     <input type="email" id="port3-agent-email" name="port3-agent-email">
-                                </div>
+                                </div>  
                             </div>
                     </fieldset>  -->
 
                     <fieldset>
                             <legend>Remarks</legend>
-                            <textarea id="noon-remarks" name="noon-remarks"></textarea>
+                                <textarea id="noon-remarks" name="noon-remarks" rows="5">
+Total running hours for Main Engine: 
+CLO ACC factor in use: 
+Sulphur percentage in fuel in use: 
+Minimum CLO feed rate as per maker's circular:
+Present CLO feed rate: 
+Actual lubrication oil consumption:
+Scavenge pressure and Main Engine turbocharger RPM: 
+                                    
+Other remarks by the Master:
+- Clocks advanced or retarded by:
+- Vessel experiencing adverse current, speed affected by kts:
+- Any other remarks by the Master:
+                                </textarea>
                     </fieldset>
 
                     <!-- Master's Name -->
@@ -1913,6 +1939,8 @@
                                     <option value="">Select</option>
                                     <option value="Pilot Station">Pilot Station</option>
                                     <option value="At Berth">At Berth</option>
+                                    <option value="From Anchorage">From Anchorage</option>
+                                    <option value="From Drifting">From Drifting</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -2165,7 +2193,7 @@
                     </fieldset>
   
                     <!-- Average Weather  -->
-                    <fieldset>
+                    <!-- <fieldset>
                         <legend>Wind Force/Dir for every six hours</legend>
                         <table id="windForceDir">
                             <thead>
@@ -2587,7 +2615,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </fieldset>   
+                    </fieldset>    -->
 
                     <fieldset>
                         <legend>ROB Details</legend>
@@ -2641,23 +2669,26 @@
 
                             </table>
                                 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <br />
 
                             <table>
                                 <thead>
                                     <tr>
                                         <th colspan="4">ME CYL</th>
-                                        <th colspan="4">ME CC</th>
+                                        <th colspan="3">ME CC</th>
+                                        <th colspan="3">AE CC</th>
                                     </tr>
                                     <tr>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Runn Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Run Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -2673,22 +2704,17 @@
                                         <td><input class="validate" type="text" id="departure-hsfo-oil-me-cyl-oil-quantity" name="departure-hsfo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="departure-hsfo-oil-me-cyl-total-runn-hrs" name="departure-hsfo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" id="departure-hsfo-oil-me-cyl-oil-cons" name="departure-hsfo-oil-me-cyl-oil-cons" disabled></td>
-                                        <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="departure-hsfo-oil-me-cc-oil-grade" name="departure-hsfo-oil-me-cc-oil-grade">
-                                                <option value="">Select</option>
-                                                <option value="TBN 100">TBN 100</option>
-                                                <option value="TBN 70">TBN 70</option>
-                                                <option value="TBN 40">TBN 40</option>
-                                            </select>
-                                        </td>
                                         <td><input class="validate" type="text" id="departure-hsfo-oil-me-cc-oil-quantity" name="departure-hsfo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="departure-hsfo-oil-me-cc-total-run-hrs" name="departure-hsfo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" id="departure-hsfo-oil-me-cc-oil-cons" name="departure-hsfo-oil-me-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-hsfo-oil-ae-cc-oil-quantity" name="departure-hsfo-oil-ae-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" id="departure-hsfo-oil-ae-cc-total-run-hrs" name="departure-hsfo-oil-ae-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" id="departure-hsfo-oil-ae-cc-oil-cons" name="departure-hsfo-oil-ae-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <!-- <br /><br />
 
                             <table>
                                 <thead>
@@ -2756,7 +2782,7 @@
                                 </tbody>
                             </table>
 
-                            <br />
+                            <br /> -->
 
                         </div>
 
@@ -2804,17 +2830,20 @@
                                 <thead>
                                     <tr>
                                         <th colspan="4">ME CYL</th>
-                                        <th colspan="4">ME CC</th>
+                                        <th colspan="3">ME CC</th>
+                                        <th colspan="3">AE CC</th>
                                     </tr>
                                     <tr>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Runn Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Run Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -2830,22 +2859,17 @@
                                         <td><input class="validate" type="text" id="departure-biofuel-oil-me-cyl-oil-quantity" name="departure-biofuel-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="departure-biofuel-oil-me-cyl-total-runn-hrs" name="departure-biofuel-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" id="departure-biofuel-oil-me-cyl-oil-cons" name="departure-biofuel-oil-me-cyl-oil-cons" disabled></td>
-                                        <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="departure-biofuel-oil-me-cc-oil-grade" name="departure-biofuel-oil-me-cc-oil-grade">
-                                                <option value="">Select</option>
-                                                <option value="TBN 100">TBN 100</option>
-                                                <option value="TBN 70">TBN 70</option>
-                                                <option value="TBN 40">TBN 40</option>
-                                            </select>
-                                        </td>
                                         <td><input class="validate" type="text" id="departure-biofuel-oil-me-cc-oil-quantity" name="departure-biofuel-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="departure-biofuel-oil-me-cc-total-run-hrs" name="departure-biofuel-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" id="departure-biofuel-oil-me-cc-oil-cons" name="departure-biofuel-oil-me-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-biofuel-oil-ae-cc-oil-quantity" name="departure-biofuel-oil-ae-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" id="departure-biofuel-oil-ae-cc-total-run-hrs" name="departure-biofuel-oil-ae-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" id="departure-biofuel-oil-ae-cc-oil-cons" name="departure-biofuel-oil-ae-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <!-- <br /><br />  
 
                             <table>
                                 <thead>
@@ -2913,7 +2937,7 @@
                                 </tbody>
                             </table>
 
-                            <br />
+                            <br /> -->
 
                         </div>
 
@@ -2965,17 +2989,20 @@
                                 <thead>
                                     <tr>
                                         <th colspan="4">ME CYL</th>
-                                        <th colspan="4">ME CC</th>
+                                        <th colspan="3">ME CC</th>
+                                        <th colspan="3">AE CC</th>
                                     </tr>
                                     <tr>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Runn Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Run Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -2991,22 +3018,17 @@
                                         <td><input class="validate" type="text" id="departure-vlsfo-oil-me-cyl-oil-quantity" name="departure-vlsfo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="departure-vlsfo-oil-me-cyl-total-runn-hrs" name="departure-vlsfo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" id="departure-vlsfo-oil-me-cyl-oil-cons" name="departure-vlsfo-oil-me-cyl-oil-cons" disabled></td>
-                                        <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="departure-vlsfo-oil-me-cc-oil-grade" name="departure-vlsfo-oil-me-cc-oil-grade">
-                                                <option value="">Select</option>
-                                                <option value="TBN 100">TBN 100</option>
-                                                <option value="TBN 70">TBN 70</option>
-                                                <option value="TBN 40">TBN 40</option>
-                                            </select>
-                                        </td>
                                         <td><input class="validate" type="text" id="departure-vlsfo-oil-me-cc-oil-quantity" name="departure-vlsfo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="departure-vlsfo-oil-me-cc-total-run-hrs" name="departure-vlsfo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" id="departure-vlsfo-oil-me-cc-oil-cons" name="departure-vlsfo-oil-me-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-vlsfo-oil-ae-cc-oil-quantity" name="departure-vlsfo-oil-ae-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" id="departure-vlsfo-oil-ae-cc-total-run-hrs" name="departure-vlsfo-oil-ae-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" id="departure-vlsfo-oil-ae-cc-oil-cons" name="departure-vlsfo-oil-ae-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <!-- <br /><br /> 
 
                             <table>
                                 <thead>
@@ -3074,7 +3096,7 @@
                                 </tbody>
                             </table>
 
-                            <br />
+                            <br /> -->
 
                         </div>
 
@@ -3122,17 +3144,20 @@
                                 <thead>
                                     <tr>
                                         <th colspan="4">ME CYL</th>
-                                        <th colspan="4">ME CC</th>
+                                        <th colspan="3">ME CC</th>
+                                        <th colspan="3">AE CC</th>
                                     </tr>
                                     <tr>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Runn Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Run Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -3148,22 +3173,17 @@
                                         <td><input class="validate" type="text" id="departure-lsmgo-oil-me-cyl-oil-quantity" name="departure-lsmgo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="departure-lsmgo-oil-me-cyl-total-runn-hrs" name="departure-lsmgo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" id="departure-lsmgo-oil-me-cyl-oil-cons" name="departure-lsmgo-oil-me-cyl-oil-cons" disabled></td>
-                                        <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="departure-lsmgo-oil-me-cc-oil-grade" name="departure-lsmgo-oil-me-cc-oil-grade">
-                                                <option value="">Select</option>
-                                                <option value="TBN 100">TBN 100</option>
-                                                <option value="TBN 70">TBN 70</option>
-                                                <option value="TBN 40">TBN 40</option>
-                                            </select>
-                                        </td>
                                         <td><input class="validate" type="text" id="departure-lsmgo-oil-me-cc-oil-quantity" name="departure-lsmgo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="departure-lsmgo-oil-me-cc-total-run-hrs" name="departure-lsmgo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" id="departure-lsmgo-oil-me-cc-oil-cons" name="departure-lsmgo-oil-me-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-lsmgo-oil-ae-cc-oil-quantity" name="departure-lsmgo-oil-ae-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" id="departure-lsmgo-oil-ae-cc-total-run-hrs" name="departure-lsmgo-oil-ae-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" id="departure-lsmgo-oil-ae-cc-oil-cons" name="departure-lsmgo-oil-ae-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <!-- <br /><br />
 
                             <table>
                                 <thead>
@@ -3231,7 +3251,7 @@
                                 </tbody>
                             </table>
 
-                            <br />
+                            <br /> -->
 
                         </div>
                     </fieldset>
@@ -3363,6 +3383,7 @@
                                     <option value="">Select</option>
                                     <option value="Pilot Station">Pilot Station</option>
                                     <option value="At Berth">At Berth</option>
+                                    <option value="To Anchorage">To Anchorage</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -3496,7 +3517,7 @@
                     </fieldset>
                     
                     <!-- Average Weather  -->
-                    <fieldset>
+                    <!-- <fieldset>
                         <legend>Wind Force/Dir for every six hours</legend>
                         <table id="windForceDir">
                             <thead>
@@ -3920,7 +3941,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </fieldset>
+                    </fieldset> -->
 
                     <fieldset>
                         <legend>ROB Details</legend>
@@ -3970,23 +3991,26 @@
                                 </tbody>
                                 </table>
                                 
-                                <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                                <br /><br /> 
 
                             <table>
                                 <thead>
                                     <tr>
                                         <th colspan="4">ME CYL</th>
-                                        <th colspan="4">ME CC</th>
+                                        <th colspan="3">ME CC</th>
+                                        <th colspan="3">AE CC</th>
                                     </tr>
                                     <tr>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Runn Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Run Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -4002,22 +4026,17 @@
                                         <td><input class="validate" type="text" id="arrival-hsfo-oil-me-cyl-oil-quantity" name="arrival-hsfo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-oil-me-cyl-total-runn-hrs" name="arrival-hsfo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-oil-me-cyl-oil-cons" name="arrival-hsfo-oil-me-cyl-oil-cons" disabled></td>
-                                        <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="arrival-hsfo-oil-me-cc-oil-grade" name="arrival-hsfo-oil-me-cc-oil-grade">
-                                                <option value="">Select</option>
-                                                <option value="TBN 100">TBN 100</option>
-                                                <option value="TBN 70">TBN 70</option>
-                                                <option value="TBN 40">TBN 40</option>
-                                            </select>
-                                        </td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-oil-me-cc-oil-quantity" name="arrival-hsfo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-oil-me-cc-total-run-hrs" name="arrival-hsfo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-oil-me-cc-oil-cons" name="arrival-hsfo-oil-me-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-hsfo-oil-ae-cc-oil-quantity" name="arrival-hsfo-oil-ae-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" id="arrival-hsfo-oil-ae-cc-total-run-hrs" name="arrival-hsfo-oil-ae-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" id="arrival-hsfo-oil-ae-cc-oil-cons" name="arrival-hsfo-oil-ae-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <!-- <br /><br />
 
                             <table>
                                 <thead>
@@ -4085,7 +4104,7 @@
                                 </tbody>
                             </table>
 
-                            <br />
+                            <br /> -->
 
                         </div>
 
@@ -4133,17 +4152,20 @@
                                 <thead>
                                     <tr>
                                         <th colspan="4">ME CYL</th>
-                                        <th colspan="4">ME CC</th>
+                                        <th colspan="3">ME CC</th>
+                                        <th colspan="3">AE CC</th>
                                     </tr>
                                     <tr>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Runn Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Run Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -4159,22 +4181,17 @@
                                         <td><input class="validate" type="text" id="arrival-biofuel-oil-me-cyl-oil-quantity" name="arrival-biofuel-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="arrival-biofuel-oil-me-cyl-total-runn-hrs" name="arrival-biofuel-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" id="arrival-biofuel-oil-me-cyl-oil-cons" name="arrival-biofuel-oil-me-cyl-oil-cons" disabled></td>
-                                        <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="arrival-biofuel-oil-me-cc-oil-grade" name="arrival-biofuel-oil-me-cc-oil-grade">
-                                                <option value="">Select</option>
-                                                <option value="TBN 100">TBN 100</option>
-                                                <option value="TBN 70">TBN 70</option>
-                                                <option value="TBN 40">TBN 40</option>
-                                            </select>
-                                        </td>
                                         <td><input class="validate" type="text" id="arrival-biofuel-oil-me-cc-oil-quantity" name="arrival-biofuel-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="arrival-biofuel-oil-me-cc-total-run-hrs" name="arrival-biofuel-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" id="arrival-biofuel-oil-me-cc-oil-cons" name="arrival-biofuel-oil-me-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-biofuel-oil-ae-cc-oil-quantity" name="arrival-biofuel-oil-ae-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" id="arrival-biofuel-oil-ae-cc-total-run-hrs" name="arrival-biofuel-oil-ae-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" id="arrival-biofuel-oil-ae-cc-oil-cons" name="arrival-biofuel-oil-ae-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <!-- <br /><br />
 
                             <table>
                                 <thead>
@@ -4242,7 +4259,7 @@
                                 </tbody>
                             </table>
 
-                            <br />    
+                            <br />     -->
                         </div>
 
                         <!-- Arrival VLSFO Content -->
@@ -4293,17 +4310,20 @@
                                 <thead>
                                     <tr>
                                         <th colspan="4">ME CYL</th>
-                                        <th colspan="4">ME CC</th>
+                                        <th colspan="3">ME CC</th>
+                                        <th colspan="3">AE CC</th>
                                     </tr>
                                     <tr>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Runn Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Run Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -4319,22 +4339,17 @@
                                         <td><input class="validate" type="text" id="arrival-vlsfo-oil-me-cyl-oil-quantity" name="arrival-vlsfo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="arrival-vlsfo-oil-me-cyl-total-runn-hrs" name="arrival-vlsfo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" id="arrival-vlsfo-oil-me-cyl-oil-cons" name="arrival-vlsfo-oil-me-cyl-oil-cons" disabled></td>
-                                        <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="arrival-vlsfo-oil-me-cc-oil-grade" name="arrival-vlsfo-oil-me-cc-oil-grade">
-                                                <option value="">Select</option>
-                                                <option value="TBN 100">TBN 100</option>
-                                                <option value="TBN 70">TBN 70</option>
-                                                <option value="TBN 40">TBN 40</option>
-                                            </select>
-                                        </td>
                                         <td><input class="validate" type="text" id="arrival-vlsfo-oil-me-cc-oil-quantity" name="arrival-vlsfo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="arrival-vlsfo-oil-me-cc-total-run-hrs" name="arrival-vlsfo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" id="arrival-vlsfo-oil-me-cc-oil-cons" name="arrival-vlsfo-oil-me-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-vlsfo-oil-ae-cc-oil-quantity" name="arrival-vlsfo-oil-ae-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" id="arrival-vlsfo-oil-ae-cc-total-run-hrs" name="arrival-vlsfo-oil-ae-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" id="arrival-vlsfo-oil-ae-cc-oil-cons" name="arrival-vlsfo-oil-ae-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <!-- <br /><br /> 
 
                             <table>
                                 <thead>
@@ -4402,7 +4417,7 @@
                                 </tbody>
                             </table>
 
-                            <br /> 
+                            <br />  -->
 
                         </div>
 
@@ -4450,17 +4465,20 @@
                                 <thead>
                                     <tr>
                                         <th colspan="4">ME CYL</th>
-                                        <th colspan="4">ME CC</th>
+                                        <th colspan="3">ME CC</th>
+                                        <th colspan="3">AE CC</th>
                                     </tr>
                                     <tr>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Runn Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
-                                        <th rowspan="2">Oil Grade</th>
-                                        <th rowspan="2">Oil Quantity</th>
-                                        <th rowspan="2">Total Run Hrs.</th>
-                                        <th rowspan="2">Oil Cons.</th>
+                                        <th rowspan="1">Oil Grade</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Runn Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
+                                        <th rowspan="1">Oil Quantity</th>
+                                        <th rowspan="1">Total Run Hrs.</th>
+                                        <th rowspan="1">Oil Cons.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -4476,22 +4494,17 @@
                                         <td><input class="validate" type="text" id="arrival-lsmgo-oil-me-cyl-oil-quantity" name="arrival-lsmgo-oil-me-cyl-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="arrival-lsmgo-oil-me-cyl-total-runn-hrs" name="arrival-lsmgo-oil-me-cyl-total-runn-hrs"></td>
                                         <td><input class="validate" type="text" id="arrival-lsmgo-oil-me-cyl-oil-cons" name="arrival-lsmgo-oil-me-cyl-oil-cons" disabled></td>
-                                        <td class="oil-grade-select-cell">
-                                            <select class="oil-grade-select" id="arrival-lsmgo-oil-me-cc-oil-grade" name="arrival-lsmgo-oil-me-cc-oil-grade">
-                                                <option value="">Select</option>
-                                                <option value="TBN 100">TBN 100</option>
-                                                <option value="TBN 70">TBN 70</option>
-                                                <option value="TBN 40">TBN 40</option>
-                                            </select>
-                                        </td>
                                         <td><input class="validate" type="text" id="arrival-lsmgo-oil-me-cc-oil-quantity" name="arrival-lsmgo-oil-me-cc-oil-quantity"></td>
                                         <td><input class="validate" type="text" id="arrival-lsmgo-oil-me-cc-total-run-hrs" name="arrival-lsmgo-oil-me-cc-total-run-hrs"></td>
                                         <td><input class="validate" type="text" id="arrival-lsmgo-oil-me-cc-oil-cons" name="arrival-lsmgo-oil-me-cc-oil-cons" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-lsmgo-oil-ae-cc-oil-quantity" name="arrival-lsmgo-oil-ae-cc-oil-quantity"></td>
+                                        <td><input class="validate" type="text" id="arrival-lsmgo-oil-ae-cc-total-run-hrs" name="arrival-lsmgo-oil-ae-cc-total-run-hrs"></td>
+                                        <td><input class="validate" type="text" id="arrival-lsmgo-oil-ae-cc-oil-cons" name="arrival-lsmgo-oil-ae-cc-oil-cons" disabled></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <br /><br /> <!-- Inserting bread line to put enough space between 2 different tables -->  
+                            <!-- <br /><br />
 
                             <table>
                                 <thead>
@@ -4559,7 +4572,7 @@
                                 </tbody>
                             </table>
 
-                            <br /> 
+                            <br />  -->
                         </div>
                     </fieldset>
 
@@ -5426,17 +5439,352 @@
                         </div>
                     </fieldset>
 
-                    
                     <!-- Master's Name -->
                     <fieldset>
                         <legend>Master's Name</legend>
                         <input type="text" id="weekly-master-name" name="weekly-master-name">
+                    </fieldset>
+
+                <button type="submit" id="weekly-submit">Submit</button>
+                </form>
+            </section>
+       
+            <section id="CrewMonitoringPlan" class="report-section">
+                <h1>Crew Monitoring Plan</h1>
+                <div class="sub-container">
+                    <button type="button" class="save-draft" onclick="saveDraft('CrewMonitoringPlan')">Save Draft</button>
+                    <button type="button" class="save-draft" onclick="clearFields('CrewMonitoringPlan')">Clear Fields</button>
+                    <!-- <button type="button" class="export-data" onclick="">Fetch Saved Data</button> -->
+                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('CrewMonitoringPlan')">Export Data</button>
+                </div>
+                <form>
+                    <fieldset>
+                        <div class="w3-bar w3-theme" style="display: flex; justify-content: space-between;">
+                            <div>
+                                <button class="w3-bar-item w3-button active" onclick="openTabCrew(event, 'OnBoardCrew')">On Board Crew</button>
+                                <button class="w3-bar-item w3-button" onclick="openTabCrew(event, 'CrewChangeData')">Crew Change Data</button>
+                            </div>
+                            <!-- Add Crew Button aligned to the right -->
+                            <button type="button" class="w3-button w3-blue" style="margin-right: 20 px;" onclick="addCrewFieldset()">Add Crew</button>
+                        </div>
+
+                        <div id="OnBoardCrew" class="crew-tab-content" data-active="true" style="display: block;">
+                            <fieldset>
+                                <legend>On Board Crew Data</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="crew-no">No</label>
+                                        <input type="number" id="crew-no" name="crew-no">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vessel-name">Vessel Name</label>
+                                        <input type="text" id="vessel-name" name="vessel-name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="crew-surname">Crew Surname</label>
+                                        <input type="text" id="crew-surname" name="crew-surname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="crew-first-name">Crew First Name</label>
+                                        <input type="text" id="crew-first-name" name="crew-first-name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rank">Rank</label>
+                                        <input type="text" id="rank" name="rank">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="crew-nationality">Crew Nationality</label>
+                                        <input type="text" id="crew-nationality" name="crew-nationality">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="joining-date">Joining Date</label>
+                                        <input type="date" id="joining-date" name="joining-date">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contract-completion-date">Contract Completion Date</label>
+                                        <input type="date" id="contract-completion-date" name="contract-completion-date">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="current-date">Current Date</label>
+                                        <input type="date" id="current-date" name="current-date">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="days-to-completion">Days to Contract Completion</label>
+                                        <input type="number" id="days-to-completion" name="days-to-completion">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="months-on-board">No of Months On Board</label>
+                                        <input type="number" id="months-on-board" name="months-on-board">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div id="CrewChangeData" class="crew-tab-content" style="display: none;">
+                            <fieldset>
+                                <legend>Crew Change Data</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="vessel">Vessel</label>
+                                        <input type="text" id="vessel" name="vessel">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="port">Port</label>
+                                        <input type="text" id="port" name="port">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country">Country</label>
+                                        <input type="text" id="country" name="country">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="joiners-boarding-date">Date of Joiners Boarding</label>
+                                        <input type="date" id="joiners-boarding-date" name="joiners-boarding-date">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="offsigners-signoff-date">Date of Off-signers Sign Off</label>
+                                        <input type="date" id="offsigners-signoff-date" name="offsigners-signoff-date">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="joiners-rank">Joiners Ranks</label>
+                                        <input type="text" id="joiners-rank" name="joiners-rank">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="offsigners-rank">Off-Signers Ranks</label>
+                                        <input type="text" id="offsigners-rank" name="offsigners-rank">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="total-crew-change">Total Crew Change</label>
+                                        <input type="number" id="total-crew-change" name="total-crew-change">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reason-for-change">Reason for Change</label>
+                                        <input type="text" id="reason-for-change" name="reason-for-change">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="remarks">Remarks</label>
+                                        <textarea id="remarks" name="remarks" rows="4" style="height: 15px; width: 97%;" ></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
                         
-                </fieldset>
+
+                    </fieldset>
+                    <!-- Master's Name -->
+                    <fieldset>
+                        <legend>Master's Name</legend>
+                        <input type="text" id="weekly-master-name" name="weekly-master-name">
+                    </fieldset>
+
+
                 <button type="submit" id="weekly-submit">Submit</button>
                 </form>
             </section>
 
+            <section id="VoyageReport" class="report-section">
+
+                <h1>Voyage Report</h1>
+                <div class="sub-container">
+                    <button type="button" class="save-draft" onclick="saveDraft('VoyageReport')">Save Draft</button>
+                    <button type="button" class="save-draft" onclick="clearFields('VoyageReport')">Clear Fields</button>
+                    <!-- <button type="button" class="export-data" onclick="">Fetch Saved Data</button> -->
+                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('VoyageReport')">Export Data</button>
+                </div>
+
+                <form>
+                    
+                    <!-- Location DataGroup -->
+                    <fieldset>
+                        <legend>Location</legend>
+                        <div class="four-columns">
+                            <div class="form-group common-date-container">
+                                <label for="port-departure-cosp">Port of Departure COSP (Date and UTC):</label>
+                                <input class="common-date" type="datetime-local" id="port-departure-cosp" name="port-departure-cosp">
+                            </div>
+                            <div class="form-group common-date-container">
+                                <label for="port-arrival-eosp">Port of Arrival EOSP (Date and UTC):</label>
+                                <input class="common-date" type="datetime-local" id="port-arrival-eosp" name="port-arrival-eosp">
+                            </div>
+                        </div>
+                    </fieldset>
+            
+                    <!-- Off Hire DataGroup -->
+                    <fieldset>
+                        <legend>Off Hire</legend>
+                        <div class="four-columns">
+                            <div class="form-group">
+                                <label for="voyage-offhire-hrs">Off Hire Hours (Hrs):</label>
+                                <input type="number" id="voyage-offhire-hrs" name="voyage-offhire-hrs">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-offhire-reason">Off Hire Reason:</label>
+                                <input type="text" id="voyage-offhire-reason" name="voyage-offhire-reason">
+                            </div>
+                        </div>
+                    </fieldset>
+            
+                    <!-- Engine DataGroup -->
+                    <fieldset>
+                        <legend>Engine</legend>
+                        <div class="four-columns">
+                            <div class="form-group">
+                                <label for="voyage-avg-merpm">Avg ME RPM:</label>
+                                <input type="number" id="voyage-avg-merpm" name="voyage-avg-merpm">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-avg-mekw">Avg ME kW:</label>
+                                <input type="number" id="voyage-avg-mekw" name="voyage-avg-mekw">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-tdr">TDR (Nm):</label>
+                                <input type="number" id="voyage-tdr" name="voyage-tdr">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-tst">TST (Hrs):</label>
+                                <input type="number" id="voyage-tst" name="voyage-tst">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-slip">Slip (pct):</label>
+                                <input type="number" id="voyage-slip" name="voyage-slip">
+                            </div>
+                        </div>
+                    </fieldset>
+            
+                    <!-- ROB DataGroup -->
+                    <fieldset>
+                        <legend>ROB</legend>
+                        <div class="four-columns">
+                            <div class="form-group">
+                                <label for="voyage-hsfo">HSFO (MT):</label>
+                                <input type="number" id="voyage-hsfo" name="voyage-hsfo">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-vlsfo">VLSFO (MT):</label>
+                                <input type="number" id="voyage-vlsfo" name="voyage-vlsfo">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-biofuel">BIO FUEL (MT):</label>
+                                <input type="number" id="voyage-biofuel" name="voyage-biofuel">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-lsmgo">LSMGO (MT):</label>
+                                <input type="number" id="voyage-lsmgo" name="voyage-lsmgo">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-me-cc-oil">ME CC Oil (Litres):</label>
+                                <input type="number" id="voyage-me-cc-oil" name="voyage-me-cc-oil">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-me-cyl-oil">ME CYL Oil (Litres):</label>
+                                <input type="number" id="voyage-me-cyl-oil" name="voyage-me-cyl-oil">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-ge-cc-oil">GE CC Oil (Litres):</label>
+                                <input type="number" id="voyage-ge-cc-oil" name="voyage-ge-cc-oil">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-fw">FW (MT):</label>
+                                <input type="number" id="voyage-fw" name="voyage-fw">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-fw-produced">FW Produced (Litres):</label>
+                                <input type="number" id="voyage-fw-produced" name="voyage-fw-produced">
+                            </div>
+                        </div>
+                    </fieldset>
+            
+                    <!-- Received DataGroup -->
+                    <fieldset>
+                        <legend>Received</legend>
+                        <div class="four-columns">
+                            <div class="form-group">
+                                <label for="voyage-received-hsfo">HSFO (MT):</label>
+                                <input type="number" id="voyage-received-hsfo" name="voyage-received-hsfo">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-received-vlsfo">VLSFO (MT):</label>
+                                <input type="number" id="voyage-received-vlsfo" name="voyage-received-vlsfo">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-received-biofuel">BIO FUEL (MT):</label>
+                                <input type="number" id="voyage-received-biofuel" name="voyage-received-biofuel">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-received-lsmgo">LSMGO (MT):</label>
+                                <input type="number" id="voyage-received-lsmgo" name="voyage-received-lsmgo">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-received-me-cc">ME CC Oil (Litres):</label>
+                                <input type="number" id="voyage-received-me-cc" name="voyage-received-me-cc">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-received-me-cyl-oil">ME CYL Oil (Litres):</label>
+                                <input type="number" id="voyage-received-me-cyl-oil" name="voyage-received-me-cyl-oil">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-received-ge-cc-oil">GE CC Oil (Litres):</label>
+                                <input type="number" id="voyage-received-ge-cc-oil" name="voyage-received-ge-cc-oil">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-received-fw">FW (MT):</label>
+                                <input type="number" id="voyage-received-fw" name="voyage-received-fw">
+                            </div>
+                        </div>
+                    </fieldset>
+            
+                    <!-- Consumption DataGroup -->
+                    <fieldset>
+                        <legend>Consumption</legend>
+                        <div class="four-columns">
+                            <div class="form-group">
+                                <label for="voyage-consumption-hsfo">HSFO (MT):</label>
+                                <input type="number" id="voyage-consumption-hsfo" name="voyage-consumption-hsfo">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-consumption-vlsfo">VLSFO (MT):</label>
+                                <input type="number" id="voyage-consumption-vlsfo" name="voyage-consumption-vlsfo">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-consumption-biofuel">BIO FUEL (MT):</label>
+                                <input type="number" id="voyage-consumption-biofuel" name="voyage-consumption-biofuel">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-consumption-lsmgo">LSMGO (MT):</label>
+                                <input type="number" id="voyage-consumption-lsmgo" name="voyage-consumption-lsmgo">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-consumption-me-cc">ME CC Oil (Litres):</label>
+                                <input type="number" id="voyage-consumption-me-cc" name="voyage-consumption-me-cc">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-consumption-me-cyl-oil">ME CYL Oil (Litres):</label>
+                                <input type="number" id="voyage-consumption-me-cyl-oil" name="voyage-consumption-me-cyl-oil">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-consumption-ge-cc-oil">GE CC Oil (Litres):</label>
+                                <input type="number" id="voyage-consumption-ge-cc-oil" name="voyage-consumption-ge-cc-oil">
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-consumption-fw">FW (MT):</label>
+                                <input type="number" id="voyage-consumption-fw" name="voyage-consumption-fw">
+                            </div>
+                        </div>
+                    </fieldset>
+            
+                    <!-- Remarks DataGroup -->
+                    <fieldset>
+                        <legend>Remarks</legend>
+                        <textarea id="voyage-remarks" name="voyage-remarks"></textarea>
+                    </fieldset>
+
+                    <!-- Master's Name -->
+                    <fieldset>
+                        <legend>Master's Name</legend>
+                        <input type="text" id="voyage-master-name" name="voyage-master-name">
+                    </fieldset>
+                </form>
+            </section>
+        
         </main>
     </div>
 
