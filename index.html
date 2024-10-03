@@ -36,6 +36,7 @@
             <button onclick="openReport(event, 'WeeklyReport')">Weekly Schedule</button>
             <button onclick="openReport(event, 'CrewMonitoringPlan')">Crew Monitoring Plan</button>
             <button onclick="openReport(event, 'VoyageReport')">Voyage Report</button>
+            <button onclick="openReport(event, 'KPI')">KPI</button>
         </nav>
 
         <!-- Main content starts here -->
@@ -5783,6 +5784,275 @@ Other remarks by the Master:
                         <legend>Master's Name</legend>
                         <input type="text" id="voyage-master-name" name="voyage-master-name">
                     </fieldset>
+
+                    <button type="submit" id="kpi-submit">Submit</button>
+                </form>
+            </section>
+
+            <section id="KPI" class="report-section">
+                <h2>KPI</h2>
+                <div class="sub-container">
+                    <button type="button" class="save-draft" onclick="saveDraft('KPI')">Save Draft</button>
+                    <button type="button" class="save-draft" onclick="clearFields('KPI')">Clear Fields</button>
+                    <!-- <button type="button" class="export-data" onclick="">Fetch Saved Data</button> -->
+                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('KPI')">Export Data</button>
+                </div>
+                <form>
+                    <div class="tab-container">
+                        <!-- Tab Navigation -->
+                        <div class="w3-bar w3-theme">
+                            <button class="w3-bar-item w3-button active" onclick="kpiOpenTab(event, 'VesselInformation')">Vessel Information</button>
+                            <button class="w3-bar-item w3-button" onclick="kpiOpenTab(event, 'WasteManagement')">Waste Management</button>
+                            <button class="w3-bar-item w3-button" onclick="kpiOpenTab(event, 'Voyage')">Voyage</button>
+                            <button class="w3-bar-item w3-button" onclick="kpiOpenTab(event, 'Crew')">Crew</button>
+                            <button class="w3-bar-item w3-button" onclick="kpiOpenTab(event, 'MACN')">MACN</button>
+                            <button class="w3-bar-item w3-button" onclick="kpiOpenTab(event, 'Inspection')">Inspection</button>
+                        </div>
+                        
+                    
+                        <!-- Tab Content -->
+                        <div id="VesselInformation" class="kpi-tab-content">
+                            <h2>Vessel Information</h2>
+                            <div id="vessel-information-form">
+                                <p>Vessel Name: 
+                                    <select class="common-select" id="kpi-vessel-name" name="kpi-vessel-name" required>
+                                        <option value="">Select Vessel</option>
+                                        <option value="Kellet Island">Kellett Island</option>
+                                        <option value="Trident Star">Trident Star</option>
+                                        <option value="Weco Laura">Weco Laura</option>
+                                        <option value="CMB Permeke">CMB Permeke</option>
+                                        <option value="Cape Magnolia">Cape Magnolia</option>
+                                        <option value="Andalucia">Andalucia</option>
+                                        <option value="Brilliant Express">Brilliant Express</option>
+                                        <option value="Aquarius Ace">Aquarius Ace</option>
+                                        <option value="City of St Petersburg">City of St.Petersburg</option>
+                                        <option value="City of Rotterdam">City of Rotterdam</option>
+                                        <option value="World Spirit">World Spirit</option>
+                                        <option value="United Spirit">United Spirit</option>
+                                        <option value="Glengyle">Glengyle</option>
+                                        <option value="HSL Chicago">HSL Chicago</option>
+                                        <option value="ETG Southern Cross">ETG Southern Cross</option>
+                                        <option value="Dream Sky">Dream Sky</option>
+                                        <option value="Infinity Sky">Infnity Sky</option>
+                                        <option value="Cape Acacia">Cape Acacia</option>
+                                        <option value="Cape Jasmine">Cape Jasmine</option>
+                                        <option value="CL Tomo">CL Tomo</option>
+                                        <option value="Maple Harvest">Maple Harvest</option>
+                                        <option value="World Swan II">World Swan II</option>
+                                    </select>
+                                </p>
+                                <p>Fleet: 
+                                    <select class="common-select" id="kpi-fleet" name="kpi-fleet" required>
+                                        <option value="">Select Fleet</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="FSOA">FSOA</option>
+                                    </select>
+                                </p>
+                                <p>Vessel Type: 
+                                    <select class="common-select" id="kpi-vessel-type" name="kpi-vessel-type" required>
+                                        <option value="">Select Vessel Type</option>
+                                        <option value="Bulk">Bulk</option>
+                                        <option value="Container">Container</option>
+                                        <option value="Reefer">Reefer</option>
+                                        <option value="Tanker">Tanker</option>
+                                        <option value="Gas">Gas</option>
+                                        <option value="PCC">PCC</option>
+                                        <option value="PCTC">PCTC</option>
+                                    </select>
+                                </p>
+                                <p>Reporting Period: <input class="common-date" type="datetime-local" id="kpi-reporting-period" name="kpi-reporting-period"></p>
+                            </div>
+                        </div>                        
+
+                        <div id="WasteManagement" class="kpi-tab-content">
+                            <h2>Waste Management</h2>
+                        
+                            <!-- Category A - Plastics -->
+                            <button class="accordion">Category A - Plastics</button>
+                            <div class="accordion-panel">
+                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-plastics-ashore" name="kpi-plastics-ashore"></p>
+                                <p>Total Incinerated (m3): <input type="text" id="kpi-plastics-incinerated" name="kpi-plastics-incinerated"></p>
+                            </div>
+                        
+                            <!-- Category B - Food Waste -->
+                            <button class="accordion">Category B - Food Waste</button>
+                            <div class="accordion-panel">
+                                <p>Total Disposed at Sea (m3): <input type="text" id="kpi-food-sea" name="kpi-food-sea"></p>
+                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-food-ashore" name="kpi-food-ashore"></p>
+                            </div>
+                        
+                            <!-- Category C - Domestic Waste -->
+                            <button class="accordion">Category C - Domestic Waste</button>
+                            <div class="accordion-panel">
+                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-domestic-ashore" name="kpi-domestic-ashore"></p>
+                                <p>Total Incinerated (m3): <input type="text" id="kpi-domestic-incinerated" name="kpi-domestic-incinerated"></p>
+                            </div>
+                        
+                            <!-- Category D - Cooking Oil -->
+                            <button class="accordion">Category D - Cooking Oil</button>
+                            <div class="accordion-panel">
+                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-oil-ashore" name="kpi-oil-ashore"></p>
+                                <p>Total Incinerated (m3): <input type="text" id="kpi-oil-incinerated" name="kpi-oil-incinerated"></p>
+                            </div>
+                        
+                            <!-- Category E - Incinerator Ash -->
+                            <button class="accordion">Category E - Incinerator Ash</button>
+                            <div class="accordion-panel">
+                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-ash-ashore" name="kpi-ash-ashore"></p>
+                                <p>Total Incinerated (m3): <input type="text" id="kpi-ash-incinerated" name="kpi-ash-incinerated"></p>
+                            </div>
+                        
+                            <!-- Category F - Operational Wastes -->
+                            <button class="accordion">Category F - Operational Wastes</button>
+                            <div class="accordion-panel">
+                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-operational-ashore" name="kpi-operational-ashore"></p>
+                                <p>Total Incinerated (m3): <input type="text" id="kpi-operational-incinerated" name="kpi-operational-incinerated"></p>
+                            </div>
+                        
+                            <!-- Category I - E-Waste -->
+                            <button class="accordion">Category I - E-Waste</button>
+                            <div class="accordion-panel">
+                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-ewaste-ashore" name="kpi-ewaste-ashore"></p>
+                            </div>
+                        
+                            <!-- Cargo Residues J/K -->
+                            <button class="accordion">Cargo Residues J/K</button>
+                            <div class="accordion-panel">
+                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-cargo-ashore" name="kpi-cargo-ashore"></p>
+                            </div>
+                        
+                            <!-- Total Garbage -->
+                            <button class="accordion">Total Garbage</button>
+                            <div class="accordion-panel">
+                                <p>Total Disposed at Sea (m3): <input type="text" id="kpi-garbage-sea" name="kpi-garbage-sea"></p>
+                                <p>Total Garbage Landed Ashore (m3): <input type="text" id="kpi-garbage-ashore" name="kpi-garbage-ashore"></p>
+                            </div>
+                        
+                            <!-- Sludge & Bunker -->
+                            <button class="accordion">Sludge & Bunker</button>
+                            <div class="accordion-panel">
+                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-sludge-ashore" name="kpi-sludge-ashore"></p>
+                                <p>Total Incinerated (m3): <input type="text" id="kpi-sludge-incinerated" name="kpi-sludge-incinerated"></p>
+                                <p>Total Quantity of Sludge Generated (m3): <input type="text" id="kpi-sludge-generated" name="kpi-sludge-generated"></p>
+                                <p>Total Fuel Consumed (MT): <input type="text" id="kpi-fuel-consumed" name="kpi-fuel-consumed"></p>
+                                <p>Ratio of Sludge Generated to Bunkers Consumed: <input type="text" id="kpi-sludge-ratio" name="kpi-sludge-ratio"></p>
+                                <p>Remarks (if target exceeded): <textarea id="kpi-sludge-remarks" name="kpi-sludge-remarks"></textarea></p>
+                            </div>
+                        
+                            <!-- Bilge Water -->
+                            <button class="accordion">Bilge Water</button>
+                            <div class="accordion-panel">
+                                <p>Total Bilge Water Discharged Through OWS (m3): <input type="text" id="kpi-bilge-ows" name="kpi-bilge-ows"></p>
+                                <p>Total Bilge Water Landed to Shore (m3): <input type="text" id="kpi-bilge-ashore" name="kpi-bilge-ashore"></p>
+                                <p>Total Bilge Water Generated (m3): <input type="text" id="kpi-bilge-generated" name="kpi-bilge-generated"></p>
+                            </div>
+                        
+                            <!-- Consumption -->
+                            <button class="accordion">Consumption</button>
+                            <div class="accordion-panel">
+                                <p>Paper Consumption (reams): <input type="text" id="kpi-paper-consumption" name="kpi-paper-consumption"></p>
+                                <p>Printer Cartridges (units): <input type="text" id="kpi-cartridges-consumed" name="kpi-cartridges-consumed"></p>
+                                <p>Remarks (if target exceeded): <textarea id="kpi-consumption-remarks" name="kpi-consumption-remarks"></textarea></p>
+                            </div>
+                        
+                            <!-- Fresh Water -->
+                            <button class="accordion">Fresh Water</button>
+                            <div class="accordion-panel">
+                                <p>Fresh Water Generated (m3): <input type="text" id="kpi-fresh-generated" name="kpi-fresh-generated"></p>
+                                <p>Fresh Water Consumed (m3): <input type="text" id="kpi-fresh-consumed" name="kpi-fresh-consumed"></p>
+                            </div>
+                        
+                            <!-- Ballast Water -->
+                            <button class="accordion">Ballast Water</button>
+                            <div class="accordion-panel">
+                                <p>Number of Ballast Water Exchanges Performed: <input type="text" id="kpi-ballast-exchanges" name="kpi-ballast-exchanges"></p>
+                                <p>Number of Ballast Operations: <input type="text" id="kpi-ballast-operations" name="kpi-ballast-operations"></p>
+                                <p>Number of De-Ballast Operations: <input type="text" id="kpi-deballast-operations" name="kpi-deballast-operations"></p>
+                                <p>Total Water Intake During Ballasting (m3): <input type="text" id="kpi-ballast-intake" name="kpi-ballast-intake"></p>
+                                <p>Total Water Out During De-Ballasting (m3): <input type="text" id="kpi-deballast-out" name="kpi-deballast-out"></p>
+                                <p>Total Ballast Water Exchange Amount (m3): <input type="text" id="kpi-ballast-exchange-amount" name="kpi-ballast-exchange-amount"></p>
+                            </div>
+                        
+                            <!-- Hull Management -->
+                            <button class="accordion">Hull Management</button>
+                            <div class="accordion-panel">
+                                <p>Total Number of Propeller Cleanings: <input type="text" id="kpi-propeller-cleanings" name="kpi-propeller-cleanings"></p>
+                                <p>Total Number of Hull Cleanings: <input type="text" id="kpi-hull-cleanings" name="kpi-hull-cleanings"></p>
+                            </div>
+                        </div>
+                        
+
+                        <!-- Tab Content -->
+                        <div id="Voyage" class="kpi-tab-content">
+                            <h2>Voyage</h2>
+                            <p>Total Sailing Days: <input type="text" id="kpi-sailing-days-total" name="kpi-sailing-days-total"></p>
+                            <p>Eco Speed Sailing Days: <input type="text" id="kpi-sailing-days-eco" name="kpi-sailing-days-eco"></p>
+                            <p>Full Speed Sailing Days: <input type="text" id="kpi-sailing-days-full" name="kpi-sailing-days-full"></p>
+                        </div>
+
+                        <div id="Crew" class="kpi-tab-content">
+                            <h2>Crew</h2>
+                            
+                            <p>No. of Fatalities: <input type="text" id="kpi-crew-fatalities" name="kpi-crew-fatalities"></p>
+                            <p>LTI (Lost Time Injuries): <input type="text" id="kpi-crew-lti" name="kpi-crew-lti"></p>
+                            <p>No. of Recordable Injuries: <input type="text" id="kpi-crew-injuries" name="kpi-crew-injuries"></p>
+                        </div>
+                    
+                        <div id="MACN" class="kpi-tab-content">
+                            <h2>MACN</h2>
+                            
+                            <p>No. of Corruption/Bribery/Entertainment for Port Officials: <input type="text" id="kpi-macn-corruption" name="kpi-macn-corruption"></p>
+                        </div>
+                        
+                    
+                        <div id="Inspection" class="kpi-tab-content">
+                            <h2>Inspection</h2>
+                        
+                            <!-- PSC Inspections -->
+                            <button class="accordion">PSC Inspections</button>
+                            <div class="accordion-panel">
+                                <p>Number of PSC Inspections: <input type="text" id="kpi-psc-inspections" name="kpi-psc-inspections"></p>
+                                <p>PSC No. of Deficiencies: <input type="text" id="kpi-psc-deficiencies" name="kpi-psc-deficiencies"></p>
+                                <p>PSC Detentions (if any): <input type="text" id="kpi-psc-detentions" name="kpi-psc-detentions"></p>
+                            </div>
+                        
+                            <!-- Flag State Inspections -->
+                            <button class="accordion">Flag State Inspections</button>
+                            <div class="accordion-panel">
+                                <p>Number of Flag State Inspections: <input type="text" id="kpi-flag-inspections" name="kpi-flag-inspections"></p>
+                                <p>Flag No. of Deficiencies: <input type="text" id="kpi-flag-deficiencies" name="kpi-flag-deficiencies"></p>
+                            </div>
+                        
+                            <!-- Third Party Inspections -->
+                            <button class="accordion">Third Party Inspections</button>
+                            <div class="accordion-panel">
+                                <p>Third Party Inspections (Charterers, Owners, RISQ, Others): <input type="text" id="kpi-third-party-inspections" name="kpi-third-party-inspections"></p>
+                                <p>Third Party No. of Deficiencies: <input type="text" id="kpi-third-party-deficiencies" name="kpi-third-party-deficiencies"></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <br />
+
+                    <!-- Remarks Waste Management -->
+                    <fieldset>
+                        <legend>Overall Remarks</legend>
+                            <textarea id="voyage-overall-remarks" name="voyage-overall-remarks"></textarea>
+                        </fieldset>
+
+                    <!-- Master's Name -->
+                    <fieldset>
+                        <legend>Master's Name</legend>
+                        <input type="text" id="kpi-master-name" name="kpi-master-name">
+                    </fieldset>
+
+                    <button type="submit" id="kpi-submit">Submit</button>
                 </form>
             </section>
         

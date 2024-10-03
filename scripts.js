@@ -5278,5 +5278,44 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Function to handle tab switching
+function kpiOpenTab(event, tabName) {
+    event.preventDefault(); // Prevent form submission or link redirection
+
+    const tabContent = document.getElementsByClassName('kpi-tab-content');
+    for (let i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = 'none'; // Hide all tabs
+    }
+
+    const tabButtons = document.getElementsByClassName('tab-button');
+    for (let i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].className = tabButtons[i].className.replace(' active', '');
+    }
+
+    document.getElementById(tabName).style.display = 'block'; // Show the clicked tab
+    event.currentTarget.className += ' active'; // Mark the clicked tab as active
+}
+
+// Initialize first tab to be visible by default
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('VesselInformation').style.display = 'block'; // Ensure the first tab is shown by default
+});
+
+// Accordion functionality
+const accordions = document.getElementsByClassName('accordion');
+for (let i = 0; i < accordions.length; i++) {
+    accordions[i].addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent any default action like form submission or redirection
+
+        this.classList.toggle('active'); // Toggle the 'active' class to change the style
+        const panel = this.nextElementSibling; // Get the next sibling element (the accordion panel)
+
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null; // Collapse the panel if it's already expanded
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + 'px'; // Expand the panel
+        }
+    });
+}
 
 
