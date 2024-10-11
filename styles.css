@@ -607,7 +607,8 @@ body.dark-mode form .form-group textarea[required] {
 #departure-voyage-itinerary-port-results,
 #arrival-voyage-details-port-results,
 #bunkering-details-bunkering-port-results,
-#allfast-voyage-details-port-results {
+#allfast-voyage-details-port-results,
+#crew-monitoring-plan-port-results {
     position: absolute;
     background-color: white;
     border: 1px solid #ccc;
@@ -616,6 +617,11 @@ body.dark-mode form .form-group textarea[required] {
     overflow-y: hidden;
     z-index: 1000; 
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    top: 100%;
+}
+
+.form-group.port-style{
+    position: relative;
 }
 
 /* Highlight result item on hover */
@@ -627,55 +633,10 @@ body.dark-mode form .form-group textarea[required] {
 #departure-voyage-itinerary-port:hover,
 #arrival-voyage-details-port:hover,
 #bunkering-details-bunkering-port:hover,
-#allfast-voyage-details-port:hover {
+#allfast-voyage-details-port:hover,
+#crew-monitoring-plan-port:hover {
     cursor: pointer;
     border-color: #007bff;
-}
-
-/* Specific styles for all report results */
-#noon-voyage-details-port-results {
-    width: 17%;
-    top: 422px; 
-}
-
-#noon-details-since-last-report-next-port-results {
-    width: 16.5%; 
-    top: 709px; 
-}
-
-#noon-voyage-itinerary-port-results {
-    width: 16.5%; 
-    top: 1171px; 
-}
-
-#departure-voyage-details-departure-port-results {
-    width: 17%; 
-    top: 423px; 
-}
-
-#departure-details-since-last-report-next-port-results {
-    width: 167%; 
-    top: 709px; 
-}
-
-#departure-voyage-itinerary-port-results {
-    width: 16.5%; 
-    top: 1057px; 
-}
-
-#arrival-voyage-details-port-results {
-    width: 16.8%; 
-    top: 423px; 
-}
-
-#bunkering-details-bunkering-port-results {
-    width: 16.5%; 
-    top: 363px; 
-}
-
-#allfast-voyage-details-port-results {
-    width: 69%; 
-    top: 422px; 
 }
 
 /* Styling for each result item */
@@ -688,7 +649,8 @@ body.dark-mode form .form-group textarea[required] {
 #arrival-voyage-details-port-results .result-item,
 #bunkering-details-bunkering-port-results .result-item,
 #allfast-voyage-details-port-results .result-item,
-.weekly-port-search-results .result-item {
+.weekly-port-search-results .result-item,
+#crew-monitoring-plan-port-results .result-item {
     padding: 8px 12px; /* Slightly smaller padding */
     cursor: pointer;
     border-bottom: 1px solid #ddd;
@@ -706,7 +668,8 @@ body.dark-mode form .form-group textarea[required] {
 #arrival-voyage-details-port-results .result-item:hover,
 #bunkering-details-bunkering-port-results .result-item:hover,
 #allfast-voyage-details-port-results .result-item:hover,
-.weekly-port-search-results .result-item:hover {
+.weekly-port-search-results .result-item:hover,
+#crew-monitoring-plan-port-results .result-item:hover {
     background-color: #f1f1f1;
 }
 
@@ -720,7 +683,8 @@ body.dark-mode #departure-voyage-itinerary-port-results,
 body.dark-mode #arrival-voyage-details-port-results,
 body.dark-mode #bunkering-details-bunkering-port-results,
 body.dark-mode #allfast-voyage-details-port-results,
-body.dark-mode .weekly-port-search-results {
+body.dark-mode .weekly-port-search-results,
+body.dark-mode #crew-monitoring-plan-port-results {
     background-color: #444;
     color: #f4f4f4;
     border: 1px solid #666;
@@ -735,7 +699,8 @@ body.dark-mode #departure-voyage-itinerary-port-results .result-item:hover,
 body.dark-mode #arrival-voyage-details-port-results .result-item:hover,
 body.dark-mode #bunkering-details-bunkering-port-results .result-item:hover,
 body.dark-mode #allfast-voyage-details-port-results .result-item:hover,
-body.dark-mode .weekly-port-search-results .result-item:hover {
+body.dark-mode .weekly-port-search-results .result-item:hover,
+body.dark-mode #crew-monitoring-plan-port-results .result-item:hover {
     background-color: #555;
 }
 
@@ -749,7 +714,8 @@ body.dark-mode .weekly-port-search-results .result-item:hover {
 #arrival-voyage-details-port:focus,
 #bunkering-details-bunkering-port:focus,
 #allfast-voyage-details-port:focus,
-.weekly-schedule-details-port-1-results:focus {
+.weekly-schedule-details-port-1-results:focus,
+#crew-monitoring-plan-port-results:focus {
     border-color: #007BFF;
     outline: none;
 }
@@ -1034,17 +1000,14 @@ select.common-select:focus {
     margin-top: 10px;
 }
 
-
-/* Display the first tab by default */
 .kpi-tab-content:first-child {
     display: block;
 }
 
-/* Accordion Styling - Softer, Lighter Design */
 .accordion {
-    background-color: #f1f1f1; /* Light background for a softer look */
-    color: #333; /* Darker text for contrast */
-    border: 1px solid #ddd; /* Light border for separation */
+    background-color: #f1f1f1; 
+    color: #333; 
+    border: 1px solid #ddd; 
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
@@ -1052,35 +1015,151 @@ select.common-select:focus {
     text-align: left;
     outline: none;
     transition: background-color 0.3s ease, border-color 0.3s ease;
-    margin: 10px 0 20px 5px; /* Consistent margin with buttons */
+    margin: 10px 0 20px 5px; 
 }
 
 .accordion:hover,
 .accordion.active {
-    background-color: #e2e2e2; /* Lighter hover effect */
-    border-color: #bbb; /* Slightly darker border on hover */
+    background-color: #e2e2e2; 
+    border-color: #bbb; 
 }
 
-/* Accordion Panel (Collapsible Content) */
 .accordion-panel {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     padding: 0 20px;
-    background-color: #fff; /* White background for the panel content */
+    background-color: #fff; 
     margin-bottom: 10px;
-    border: 1px solid #ddd; /* Light border around panel content */
+    border: 1px solid #ddd; 
     border-radius: 5px;
 }
 
 .kpi-tab-content p {
-    font-family: 'Arial', sans-serif; /* Change to your preferred font-family */
-    /* font-style: italic; Optional: Adjust this as per your design */
-    font-size: 14px; /* Adjust the size based on your requirements */
+    font-family: 'Arial', sans-serif; 
+    font-size: 14px;
     margin-bottom: 10px;
 }
 
 #vessel-information-form .common-select {
     margin-top: 10px;
+}
+
+.stepper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.step .step-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.step:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ddd;
+    z-index: -1;
+}
+
+.step:last-child:before {
+    width: 50%; 
+}
+
+.step:first-child:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    width: 50%; 
+    height: 2px;
+    background-color: #ddd;
+    z-index: -1;
+}
+
+.step.active:before {
+    background-color: #007BFF;
+}
+
+.stepper .step.active {
+    filter: drop-shadow(0 0 0.75rem rgb(127, 135, 207)); /* Apply the drop-shadow effect */
+    transition: filter 0.3s ease;
+}
+
+.step.completed .step-number {
+    background-color: #28a745;
+}
+
+.step.completed .step-label {
+    color: #28a745;
+}
+
+.step.completed .step-number:after {
+    content: "✔";
+    font-size: 18px;
+}
+
+.step:hover .step-number {
+    background-color: #0056b3;
+}
+
+
+/* Dark Mode for Stepper */
+body.dark-mode .stepper {
+    background-color: #444;
+}
+
+body.dark-mode .step-number {
+    background-color: #555;
+}
+
+body.dark-mode .step.active .step-number {
+    background-color: #2196F3;
+}
+
+body.dark-mode .step.completed .step-number {
+    background-color: #28a745;
+}
+
+.prev-step, .next-step {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.prev-step:hover, .next-step:hover {
+    background-color: #0056b3;
+}
+
+.stepper-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
+}
+
+.stepper-navigation button {
+    margin: 0 10px; 
+}
+
+.step img {
+    width: 48px;  
+    height: 48px; 
 }
 

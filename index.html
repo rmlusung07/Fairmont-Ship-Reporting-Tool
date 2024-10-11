@@ -158,7 +158,7 @@
                                 <label for="noon-voyage-details-longitude">Longitude:</label>
                                 <input type="text" id="noon-voyage-details-longitude" name="noon-voyage-details-longitude" placeholder="DD&deg MM' SS&quot; E/W" required>
                             </div>
-                            <div class="form-group in-port-section">
+                            <div class="form-group in-port-section port-style">
                                 <label for="noon-voyage-details-port">Port of Departure:</label>
                                 <input type="text" id="noon-voyage-details-port" name="noon-voyage-details-port" required>
                                 <div id="noon-voyage-details-port-results"></div>
@@ -230,7 +230,7 @@
                                 <label for="noon-details-since-last-report-speed-through-water">Speed Through Water (Kts):</label>
                                 <input class="validate" type="text" id="noon-details-since-last-report-speed-through-water" name="noon-details-since-last-report-speed-through-water" required >
                             </div>
-                            <div class="form-group at-sea-section">
+                            <div class="form-group at-sea-section port-style">
                                 <label for="noon-details-since-last-report-next-port">Next Port:</label>
                                 <input type="text" id="noon-details-since-last-report-next-port" name="noon-details-since-last-report-next-port" required>
                                 <div id="noon-details-since-last-report-next-port-results"></div>
@@ -353,7 +353,7 @@
                         <legend>Voyage Itinerary</legend>
                         <div class="four-columns">
                             <div class="form-group">
-                                <label for="noon-voyage-itinerary-port">Next Port</label>
+                                <label for="noon-voyage-itinerary-port port-style">Next Port</label>
                                 <input type="text" id="noon-voyage-itinerary-port" name="noon-voyage-itinerary-port" required> 
                                 <div id="noon-voyage-itinerary-port-results"></div>
                             </div>
@@ -1944,7 +1944,7 @@ Other remarks by the Master:
                                     <option value="From Drifting">From Drifting</option>
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group port-style">
                                 <label for="departure-voyage-details-departure-port">Departure Port:</label>
                                 <input type="text" id="departure-voyage-details-departure-port" name="departure-voyage-details-departure-port" required>
                                 <div id="departure-voyage-details-departure-port-results"></div>
@@ -2004,7 +2004,7 @@ Other remarks by the Master:
                                 <label for="departure-details-since-last-report-speed-through-water">Speed Through Water (Kts):</label>
                                 <input class="validate" type="text" id="departure-details-since-last-report-speed-through-water" name="departure-details-since-last-report-speed-through-water" required >
                             </div>
-                            <div class="form-group at-sea-section">
+                            <div class="form-group at-sea-section port-style">
                                 <label for="departure-details-since-last-report-next-port">Next Port:</label>
                                 <input type="text" id="departure-details-since-last-report-next-port" name="departure-details-since-last-report-next-port" required>
                                 <div id="departure-details-since-last-report-next-port-results"></div>
@@ -2114,7 +2114,7 @@ Other remarks by the Master:
                     <fieldset>
                         <legend>Voyage Itinerary</legend>
                         <div class="four-columns">
-                            <div class="form-group">
+                            <div class="form-group port-style">
                                 <label for="departure-voyage-itinerary-port">Port</label>
                                 <input type="text" id="departure-voyage-itinerary-port" name="departure-voyage-itinerary-port" required> 
                                 <div id="departure-voyage-itinerary-port-results"></div>
@@ -3388,7 +3388,7 @@ Other remarks by the Master:
                                     <option value="At Drifting">At Drifting</option>
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group port-style">
                                 <label for="arrival-voyage-details-port">Arrival Port:</label>
                                 <input type="text" id="arrival-voyage-details-port" name="arrival-voyage-details-port" required>
                                 <div id="arrival-voyage-details-port-results"></div>
@@ -4640,7 +4640,7 @@ Other remarks by the Master:
                                 <label for="bunkering-details-voyage-no">Voyage No:</label>
                                 <input class="validate" type="text" id="bunkering-details-voyage-no" name="bunkering-details-voyage-no" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group port-style">
                                 <label for="bunkering-details-bunkering-port">Bunkering Port:</label>
                                 <input type="text" id="bunkering-details-bunkering-port" name="bunkering-details-bunkering-port" required>
                                 <div id="bunkering-details-bunkering-port-results"></div>
@@ -5267,7 +5267,7 @@ Other remarks by the Master:
                                     <option value="GMT+14:00">GMT+14:00</option>
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group port-style">
                                 <label for="allfast-voyage-details-port">Port:</label>
                                 <input type="text" id="allfast-voyage-details-port" name="allfast-voyage-details-port" required>
                                 <div id="allfast-voyage-details-port-results"></div>
@@ -5472,51 +5472,76 @@ Other remarks by the Master:
 
                         <div id="OnBoardCrew" class="crew-tab-content" data-active="true" style="display: block;">
                             <fieldset>
-                                <legend>On Board Crew Data</legend>
+                                <legend>On Board Crew Data 1</legend>
+                                <!-- <button onclick="addCrewFieldset('OnBoardCrew')">Add Crew to On Board Crew</button> -->
                                 <div class="four-columns">
                                     <div class="form-group">
-                                        <label for="crew-no">No</label>
-                                        <input type="number" id="crew-no" name="crew-no">
+                                        <label for="crew-monitoring-plan-crew-no-1">No</label>
+                                        <input type="number" id="crew-monitoring-plan-crew-no-1" name="crew-monitoring-plan-crew-no-1">
+                                    </div>
+                                    <div class="form-group common-select-container">
+                                        <label for="crew-monitoring-plan-vessel-name-1">Vessel Name</label>
+                                        <select class="common-select" id="crew-monitoring-plan-vessel-name-1" name="crew-monitoring-plan-vessel-name-1" required>
+                                            <option value="">Select Vessel</option>
+                                            <option value="Kellet Island">Kellett Island</option>
+                                            <option value="Trident Star">Trident Star</option>
+                                            <option value="Weco Laura">Weco Laura</option>
+                                            <option value="CMB Permeke">CMB Permeke</option>
+                                            <option value="Cape Magnolia">Cape Magnolia</option>
+                                            <option value="Andalucia">Andalucia</option>
+                                            <option value="Brilliant Express">Brilliant Express</option>
+                                            <option value="Aquarius Ace">Aquarius Ace</option>
+                                            <option value="City of St Petersburg">City of St.Petersburg</option>
+                                            <option value="City of Rotterdam">City of Rotterdam</option>
+                                            <option value="World Spirit">World Spirit</option>
+                                            <option value="United Spirit">United Spirit</option>
+                                            <option value="Glengyle">Glengyle</option>
+                                            <option value="HSL Chicago">HSL Chicago</option>
+                                            <option value="ETG Southern Cross">ETG Southern Cross</option>
+                                            <option value="Dream Sky">Dream Sky</option>
+                                            <option value="Infinity Sky">Infnity Sky</option>
+                                            <option value="Cape Acacia">Cape Acacia</option>
+                                            <option value="Cape Jasmine">Cape Jasmine</option>
+                                            <option value="CL Tomo">CL Tomo</option>
+                                            <option value="Maple Harvest">Maple Harvest</option>
+                                            <option value="World Swan II">World Swan II</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="vessel-name">Vessel Name</label>
-                                        <input type="text" id="vessel-name" name="vessel-name">
+                                        <label for="crew-monitoring-plan-crew-surname-1">Crew Surname</label>
+                                        <input type="text" id="crew-monitoring-plan-crew-surname-1" name="crew-monitoring-plan-crew-surname-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="crew-surname">Crew Surname</label>
-                                        <input type="text" id="crew-surname" name="crew-surname">
+                                        <label for="crew-monitoring-plan-crew-first-name-1">Crew First Name</label>
+                                        <input type="text" id="crew-monitoring-plan-crew-first-name-1" name="crew-monitoring-plan-crew-first-name-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="crew-first-name">Crew First Name</label>
-                                        <input type="text" id="crew-first-name" name="crew-first-name">
+                                        <label for="crew-monitoring-plan-rank-1">Rank</label>
+                                        <input type="text" id="crew-monitoring-plan-rank-1" name="crew-monitoring-plan-rank-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="rank">Rank</label>
-                                        <input type="text" id="rank" name="rank">
+                                        <label for="crew-monitoring-plan-crew-nationality-1">Crew Nationality</label>
+                                        <input type="text" id="crew-monitoring-plan-crew-nationality-1" name="crew-monitoring-plan-crew-nationality-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="crew-nationality">Crew Nationality</label>
-                                        <input type="text" id="crew-nationality" name="crew-nationality">
+                                        <label for="crew-monitoring-plan-joining-date-1">Joining Date</label>
+                                        <input type="date" id="crew-monitoring-plan-joining-date-1" name="crew-monitoring-plan-joining-date-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="joining-date">Joining Date</label>
-                                        <input type="date" id="joining-date" name="joining-date">
+                                        <label for="crew-monitoring-plan-contract-completion-date-1">Contract Completion Date</label>
+                                        <input type="date" id="crew-monitoring-plan-contract-completion-date-1" name="crew-monitoring-plan-contract-completion-date-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="contract-completion-date">Contract Completion Date</label>
-                                        <input type="date" id="contract-completion-date" name="contract-completion-date">
+                                        <label for="crew-monitoring-plan-current-date-1">Current Date</label>
+                                        <input type="date" id="crew-monitoring-plan-current-date-1" name="crew-monitoring-plan-current-date-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="current-date">Current Date</label>
-                                        <input type="date" id="current-date" name="current-date">
+                                        <label for="crew-monitoring-plan-days-to-completion-1">Days to Contract Completion</label>
+                                        <input type="number" id="crew-monitoring-plan-days-to-completion-1" name="crew-monitoring-plan-days-to-completion-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="days-to-completion">Days to Contract Completion</label>
-                                        <input type="number" id="days-to-completion" name="days-to-completion">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="months-on-board">No of Months On Board</label>
-                                        <input type="number" id="months-on-board" name="months-on-board">
+                                        <label for="crew-monitoring-plan-months-on-board-1">No of Months On Board</label>
+                                        <input type="number" id="crew-monitoring-plan-months-on-board-1" name="crew-monitoring-plan-months-on-board-1">
                                     </div>
                                 </div>
                             </fieldset>
@@ -5524,47 +5549,73 @@ Other remarks by the Master:
 
                         <div id="CrewChangeData" class="crew-tab-content" style="display: none;">
                             <fieldset>
-                                <legend>Crew Change Data</legend>
+                                <legend>Crew Change Data 1</legend>
+                                <!-- <button onclick="addCrewFieldset('CrewChangeData')">Add Crew to Crew Change Data</button> -->
                                 <div class="four-columns">
-                                    <div class="form-group">
-                                        <label for="vessel">Vessel</label>
-                                        <input type="text" id="vessel" name="vessel">
+                                    <div class="form-group common-select-container">
+                                        <label for="crew-monitoring-plan-vessel-1">Vessel Name</label>
+                                        <select class="common-select" id="crew-monitoring-plan-vessel-1" name="crew-monitoring-plan-vessel-1" required>
+                                            <option value="">Select Vessel</option>
+                                            <option value="Kellet Island">Kellett Island</option>
+                                            <option value="Trident Star">Trident Star</option>
+                                            <option value="Weco Laura">Weco Laura</option>
+                                            <option value="CMB Permeke">CMB Permeke</option>
+                                            <option value="Cape Magnolia">Cape Magnolia</option>
+                                            <option value="Andalucia">Andalucia</option>
+                                            <option value="Brilliant Express">Brilliant Express</option>
+                                            <option value="Aquarius Ace">Aquarius Ace</option>
+                                            <option value="City of St Petersburg">City of St.Petersburg</option>
+                                            <option value="City of Rotterdam">City of Rotterdam</option>
+                                            <option value="World Spirit">World Spirit</option>
+                                            <option value="United Spirit">United Spirit</option>
+                                            <option value="Glengyle">Glengyle</option>
+                                            <option value="HSL Chicago">HSL Chicago</option>
+                                            <option value="ETG Southern Cross">ETG Southern Cross</option>
+                                            <option value="Dream Sky">Dream Sky</option>
+                                            <option value="Infinity Sky">Infnity Sky</option>
+                                            <option value="Cape Acacia">Cape Acacia</option>
+                                            <option value="Cape Jasmine">Cape Jasmine</option>
+                                            <option value="CL Tomo">CL Tomo</option>
+                                            <option value="Maple Harvest">Maple Harvest</option>
+                                            <option value="World Swan II">World Swan II</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group port-style">
+                                        <label for="crew-monitoring-plan-port-1">Port:</label>
+                                        <input type="text" id="crew-monitoring-plan-port-1" name="crew-monitoring-plan-port-1" required>
+                                        <div id="crew-monitoring-plan-port-results"></div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="port">Port</label>
-                                        <input type="text" id="port" name="port">
+                                        <label for="crew-monitoring-plan-country-1">Country</label>
+                                        <input type="text" id="crew-monitoring-plan-country-1" name="crew-monitoring-plan-country-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="country">Country</label>
-                                        <input type="text" id="country" name="country">
+                                        <label for="crew-monitoring-plan-joiners-boarding-date-1">Date of Joiners Boarding</label>
+                                        <input type="date" id="crew-monitoring-plan-joiners-boarding-date-1" name="crew-monitoring-plan-joiners-boarding-date-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="joiners-boarding-date">Date of Joiners Boarding</label>
-                                        <input type="date" id="joiners-boarding-date" name="joiners-boarding-date">
+                                        <label for="crew-monitoring-plan-offsigners-signoff-date-1">Date of Off-signers Sign Off</label>
+                                        <input type="date" id="crew-monitoring-plan-offsigners-signoff-date-1" name="crew-monitoring-plan-offsigners-signoff-date-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="offsigners-signoff-date">Date of Off-signers Sign Off</label>
-                                        <input type="date" id="offsigners-signoff-date" name="offsigners-signoff-date">
+                                        <label for="crew-monitoring-plan-joiners-rank-1">Joiners Ranks</label>
+                                        <input type="text" id="crew-monitoring-plan-joiners-rank-1" name="crew-monitoring-plan-joiners-rank-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="joiners-rank">Joiners Ranks</label>
-                                        <input type="text" id="joiners-rank" name="joiners-rank">
+                                        <label for="crew-monitoring-plan-offsigners-rank-1">Off-Signers Ranks</label>
+                                        <input type="text" id="crew-monitoring-plan-offsigners-rank-1" name="crew-monitoring-plan-offsigners-rank-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="offsigners-rank">Off-Signers Ranks</label>
-                                        <input type="text" id="offsigners-rank" name="offsigners-rank">
+                                        <label for="crew-monitoring-plan-total-crew-change-1">Total Crew Change</label>
+                                        <input type="number" id="crew-monitoring-plan-total-crew-change-1" name="crew-monitoring-plan-total-crew-change-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="total-crew-change">Total Crew Change</label>
-                                        <input type="number" id="total-crew-change" name="total-crew-change">
+                                        <label for="crew-monitoring-plan-reason-for-change-1">Reason for Change</label>
+                                        <input type="text" id="crew-monitoring-plan-reason-for-change" name="crew-monitoring-plan-reason-for-change-1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="reason-for-change">Reason for Change</label>
-                                        <input type="text" id="reason-for-change" name="reason-for-change">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="remarks">Remarks</label>
-                                        <textarea id="remarks" name="remarks" rows="4" style="height: 15px; width: 97%;" ></textarea>
+                                        <label for="crew-monitoring-plan-remarks-1">Remarks</label>
+                                        <textarea id="crew-monitoring-plan-remarks-1" name="crew-monitoring-plan-remarks-1" rows="4" style="height: 15px; width: 97%;" ></textarea>
                                     </div>
                                 </div>
                             </fieldset>
@@ -5575,11 +5626,11 @@ Other remarks by the Master:
                     <!-- Master's Name -->
                     <fieldset>
                         <legend>Master's Name</legend>
-                        <input type="text" id="weekly-master-name" name="weekly-master-name">
+                        <input type="text" id="crew-monitoring-plan-master-name" name="crew-monitoring-plan-master-name">
                     </fieldset>
 
 
-                <button type="submit" id="weekly-submit">Submit</button>
+                <button type="submit" id="crew-monitoring-plan-submit">Submit</button>
                 </form>
             </section>
 
@@ -5594,18 +5645,60 @@ Other remarks by the Master:
                 </div>
 
                 <form>
-                    
+                    <!-- Voyage Details DataGroup -->
+                    <fieldset>
+                        <legend>Voyage Details</legend>
+                        <div class="four-columns">
+                            <div class="form-group common-select-container">
+                                <label for="voyage-report-vessel-name">Vessel Name:</label>
+                                <select class="common-select" id="voyage-report-vessel-name" name="voyage-report-vessel-name" required>
+                                    <option value="">Select Vessel</option>
+                                    <option value="Kellet Island">Kellett Island</option>
+                                    <option value="Trident Star">Trident Star</option>
+                                    <option value="Weco Laura">Weco Laura</option>
+                                    <option value="CMB Permeke">CMB Permeke</option>
+                                    <option value="Cape Magnolia">Cape Magnolia</option>
+                                    <option value="Andalucia">Andalucia</option>
+                                    <option value="Brilliant Express">Brilliant Express</option>
+                                    <option value="Aquarius Ace">Aquarius Ace</option>
+                                    <option value="City of St Petersburg">City of St.Petersburg</option>
+                                    <option value="City of Rotterdam">City of Rotterdam</option>
+                                    <option value="World Spirit">World Spirit</option>
+                                    <option value="United Spirit">United Spirit</option>
+                                    <option value="Glengyle">Glengyle</option>
+                                    <option value="HSL Chicago">HSL Chicago</option>
+                                    <option value="ETG Southern Cross">ETG Southern Cross</option>
+                                    <option value="Dream Sky">Dream Sky</option>
+                                    <option value="Infinity Sky">Infnity Sky</option>
+                                    <option value="Cape Acacia">Cape Acacia</option>
+                                    <option value="Cape Jasmine">Cape Jasmine</option>
+                                    <option value="CL Tomo">CL Tomo</option>
+                                    <option value="Maple Harvest">Maple Harvest</option>
+                                    <option value="World Swan II">World Swan II</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="voyage-report-vessel-no">Voyage No:</label>
+                                <input type="text" id="voyage-report-vessel-no" name="voyage-report-vessel-no">
+                            </div>
+                            <div class="form-group common-date-container">
+                                <label for="voyage-report-date">Date:</label>
+                                <input class="common-date" type="datetime-local" id="voyage-report-date" name="voyage-report-date">
+                            </div>
+                        </div>
+                    </fieldset>
+
                     <!-- Location DataGroup -->
                     <fieldset>
                         <legend>Location</legend>
                         <div class="four-columns">
                             <div class="form-group common-date-container">
-                                <label for="port-departure-cosp">Port of Departure COSP (Date and UTC):</label>
-                                <input class="common-date" type="datetime-local" id="port-departure-cosp" name="port-departure-cosp">
+                                <label for="voyage-report-port-departure-cosp">Port of Departure COSP (Date and UTC):</label>
+                                <input class="common-date" type="datetime-local" id="voyage-report-port-departure-cosp" name="voyage-report-port-departure-cosp">
                             </div>
                             <div class="form-group common-date-container">
-                                <label for="port-arrival-eosp">Port of Arrival EOSP (Date and UTC):</label>
-                                <input class="common-date" type="datetime-local" id="port-arrival-eosp" name="port-arrival-eosp">
+                                <label for="voyage-report-port-arrival-eosp">Port of Arrival EOSP (Date and UTC):</label>
+                                <input class="common-date" type="datetime-local" id="voyage-report-port-arrival-eosp" name="voyage-report-port-arrival-eosp">
                             </div>
                         </div>
                     </fieldset>
@@ -5615,12 +5708,12 @@ Other remarks by the Master:
                         <legend>Off Hire</legend>
                         <div class="four-columns">
                             <div class="form-group">
-                                <label for="voyage-offhire-hrs">Off Hire Hours (Hrs):</label>
-                                <input type="number" id="voyage-offhire-hrs" name="voyage-offhire-hrs">
+                                <label for="voyage-report-offhire-hrs">Off Hire Hours (Hrs):</label>
+                                <input type="number" id="voyage-report-offhire-hrs" name="voyage-report-offhire-hrs">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-offhire-reason">Off Hire Reason:</label>
-                                <input type="text" id="voyage-offhire-reason" name="voyage-offhire-reason">
+                                <label for="voyage-report-offhire-reason">Off Hire Reason:</label>
+                                <input type="text" id="voyage-report-offhire-reason" name="voyage-report-offhire-reason">
                             </div>
                         </div>
                     </fieldset>
@@ -5630,24 +5723,24 @@ Other remarks by the Master:
                         <legend>Engine</legend>
                         <div class="four-columns">
                             <div class="form-group">
-                                <label for="voyage-avg-merpm">Avg ME RPM:</label>
-                                <input type="number" id="voyage-avg-merpm" name="voyage-avg-merpm">
+                                <label for="voyage-report-avg-merpm">Avg ME RPM:</label>
+                                <input type="number" id="voyage-report-avg-merpm" name="voyage-report-avg-merpm">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-avg-mekw">Avg ME kW:</label>
-                                <input type="number" id="voyage-avg-mekw" name="voyage-avg-mekw">
+                                <label for="voyage-report-avg-mekw">Avg ME kW:</label>
+                                <input type="number" id="voyage-report-avg-mekw" name="voyage-report-avg-mekw">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-tdr">TDR (Nm):</label>
-                                <input type="number" id="voyage-tdr" name="voyage-tdr">
+                                <label for="voyage-report-tdr">TDR (Nm):</label>
+                                <input type="number" id="voyage-report-tdr" name="voyage-report-tdr">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-tst">TST (Hrs):</label>
-                                <input type="number" id="voyage-tst" name="voyage-tst">
+                                <label for="voyage-report-tst">TST (Hrs):</label>
+                                <input type="number" id="voyage-report-tst" name="voyage-report-tst">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-slip">Slip (pct):</label>
-                                <input type="number" id="voyage-slip" name="voyage-slip">
+                                <label for="voyage-report-slip">Slip (pct):</label>
+                                <input type="number" id="voyage-report-slip" name="voyage-report-slip">
                             </div>
                         </div>
                     </fieldset>
@@ -5657,40 +5750,40 @@ Other remarks by the Master:
                         <legend>ROB</legend>
                         <div class="four-columns">
                             <div class="form-group">
-                                <label for="voyage-hsfo">HSFO (MT):</label>
-                                <input type="number" id="voyage-hsfo" name="voyage-hsfo">
+                                <label for="voyage-report-hsfo">HSFO (MT):</label>
+                                <input type="number" id="voyage-report-hsfo" name="voyage-report-hsfo">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-vlsfo">VLSFO (MT):</label>
-                                <input type="number" id="voyage-vlsfo" name="voyage-vlsfo">
+                                <label for="voyage-report-vlsfo">VLSFO (MT):</label>
+                                <input type="number" id="voyage-report-vlsfo" name="voyage-report-vlsfo">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-biofuel">BIO FUEL (MT):</label>
-                                <input type="number" id="voyage-biofuel" name="voyage-biofuel">
+                                <label for="voyage-report-biofuel">BIO FUEL (MT):</label>
+                                <input type="number" id="voyage-report-biofuel" name="voyage-report-biofuel">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-lsmgo">LSMGO (MT):</label>
-                                <input type="number" id="voyage-lsmgo" name="voyage-lsmgo">
+                                <label for="voyage-report-lsmgo">LSMGO (MT):</label>
+                                <input type="number" id="voyage-report-lsmgo" name="voyage-report-lsmgo">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-me-cc-oil">ME CC Oil (Litres):</label>
-                                <input type="number" id="voyage-me-cc-oil" name="voyage-me-cc-oil">
+                                <label for="voyage-report-me-cc-oil">ME CC Oil (Litres):</label>
+                                <input type="number" id="voyage-report-me-cc-oil" name="voyage-report-me-cc-oil">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-me-cyl-oil">ME CYL Oil (Litres):</label>
-                                <input type="number" id="voyage-me-cyl-oil" name="voyage-me-cyl-oil">
+                                <label for="voyage-report-me-cyl-oil">ME CYL Oil (Litres):</label>
+                                <input type="number" id="voyage-report-me-cyl-oil" name="voyage-report-me-cyl-oil">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-ge-cc-oil">GE CC Oil (Litres):</label>
-                                <input type="number" id="voyage-ge-cc-oil" name="voyage-ge-cc-oil">
+                                <label for="voyage-report-ge-cc-oil">GE CC Oil (Litres):</label>
+                                <input type="number" id="voyage-report-ge-cc-oil" name="voyage-report-ge-cc-oil">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-fw">FW (MT):</label>
-                                <input type="number" id="voyage-fw" name="voyage-fw">
+                                <label for="voyage-report-fw">FW (MT):</label>
+                                <input type="number" id="voyage-report-fw" name="voyage-report-fw">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-fw-produced">FW Produced (Litres):</label>
-                                <input type="number" id="voyage-fw-produced" name="voyage-fw-produced">
+                                <label for="voyage-report-fw-produced">FW Produced (Litres):</label>
+                                <input type="number" id="voyage-report-fw-produced" name="voyage-report-fw-produced">
                             </div>
                         </div>
                     </fieldset>
@@ -5700,36 +5793,36 @@ Other remarks by the Master:
                         <legend>Received</legend>
                         <div class="four-columns">
                             <div class="form-group">
-                                <label for="voyage-received-hsfo">HSFO (MT):</label>
-                                <input type="number" id="voyage-received-hsfo" name="voyage-received-hsfo">
+                                <label for="voyage-report-received-hsfo">HSFO (MT):</label>
+                                <input type="number" id="voyage-report-received-hsfo" name="voyage-report-received-hsfo">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-received-vlsfo">VLSFO (MT):</label>
-                                <input type="number" id="voyage-received-vlsfo" name="voyage-received-vlsfo">
+                                <label for="voyage-report-received-vlsfo">VLSFO (MT):</label>
+                                <input type="number" id="voyage-report-received-vlsfo" name="voyage-report-received-vlsfo">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-received-biofuel">BIO FUEL (MT):</label>
-                                <input type="number" id="voyage-received-biofuel" name="voyage-received-biofuel">
+                                <label for="voyage-report-received-biofuel">BIO FUEL (MT):</label>
+                                <input type="number" id="voyage-report-received-biofuel" name="voyage-report-received-biofuel">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-received-lsmgo">LSMGO (MT):</label>
-                                <input type="number" id="voyage-received-lsmgo" name="voyage-received-lsmgo">
+                                <label for="voyage-report-received-lsmgo">LSMGO (MT):</label>
+                                <input type="number" id="voyage-report-received-lsmgo" name="voyage-report-received-lsmgo">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-received-me-cc">ME CC Oil (Litres):</label>
-                                <input type="number" id="voyage-received-me-cc" name="voyage-received-me-cc">
+                                <label for="voyage-report-received-me-cc">ME CC Oil (Litres):</label>
+                                <input type="number" id="voyage-report-received-me-cc" name="voyage-report-received-me-cc">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-received-me-cyl-oil">ME CYL Oil (Litres):</label>
-                                <input type="number" id="voyage-received-me-cyl-oil" name="voyage-received-me-cyl-oil">
+                                <label for="voyage-report-received-me-cyl-oil">ME CYL Oil (Litres):</label>
+                                <input type="number" id="voyage-report-received-me-cyl-oil" name="voyage-report-received-me-cyl-oil">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-received-ge-cc-oil">GE CC Oil (Litres):</label>
-                                <input type="number" id="voyage-received-ge-cc-oil" name="voyage-received-ge-cc-oil">
+                                <label for="voyage-report-received-ge-cc-oil">GE CC Oil (Litres):</label>
+                                <input type="number" id="voyage-report-received-ge-cc-oil" name="voyage-report-received-ge-cc-oil">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-received-fw">FW (MT):</label>
-                                <input type="number" id="voyage-received-fw" name="voyage-received-fw">
+                                <label for="voyage-report-received-fw">FW (MT):</label>
+                                <input type="number" id="voyage-report-received-fw" name="voyage-report-received-fw">
                             </div>
                         </div>
                     </fieldset>
@@ -5739,36 +5832,36 @@ Other remarks by the Master:
                         <legend>Consumption</legend>
                         <div class="four-columns">
                             <div class="form-group">
-                                <label for="voyage-consumption-hsfo">HSFO (MT):</label>
-                                <input type="number" id="voyage-consumption-hsfo" name="voyage-consumption-hsfo">
+                                <label for="voyage-report-consumption-hsfo">HSFO (MT):</label>
+                                <input type="number" id="voyage-report-consumption-hsfo" name="voyage-report-consumption-hsfo">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-consumption-vlsfo">VLSFO (MT):</label>
-                                <input type="number" id="voyage-consumption-vlsfo" name="voyage-consumption-vlsfo">
+                                <label for="voyage-report-consumption-vlsfo">VLSFO (MT):</label>
+                                <input type="number" id="voyage-report-consumption-vlsfo" name="voyage-report-consumption-vlsfo">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-consumption-biofuel">BIO FUEL (MT):</label>
-                                <input type="number" id="voyage-consumption-biofuel" name="voyage-consumption-biofuel">
+                                <label for="voyage-report-consumption-biofuel">BIO FUEL (MT):</label>
+                                <input type="number" id="voyage-report-consumption-biofuel" name="voyage-report-consumption-biofuel">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-consumption-lsmgo">LSMGO (MT):</label>
-                                <input type="number" id="voyage-consumption-lsmgo" name="voyage-consumption-lsmgo">
+                                <label for="voyage-report-consumption-lsmgo">LSMGO (MT):</label>
+                                <input type="number" id="voyage-report-consumption-lsmgo" name="voyage-report-consumption-lsmgo">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-consumption-me-cc">ME CC Oil (Litres):</label>
-                                <input type="number" id="voyage-consumption-me-cc" name="voyage-consumption-me-cc">
+                                <label for="voyage-report-consumption-me-cc">ME CC Oil (Litres):</label>
+                                <input type="number" id="voyage-report-consumption-me-cc" name="voyage-report-consumption-me-cc">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-consumption-me-cyl-oil">ME CYL Oil (Litres):</label>
-                                <input type="number" id="voyage-consumption-me-cyl-oil" name="voyage-consumption-me-cyl-oil">
+                                <label for="voyage-report-consumption-me-cyl-oil">ME CYL Oil (Litres):</label>
+                                <input type="number" id="voyage-report-consumption-me-cyl-oil" name="voyage-report-consumption-me-cyl-oil">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-consumption-ge-cc-oil">GE CC Oil (Litres):</label>
-                                <input type="number" id="voyage-consumption-ge-cc-oil" name="voyage-consumption-ge-cc-oil">
+                                <label for="voyage-report-consumption-ge-cc-oil">GE CC Oil (Litres):</label>
+                                <input type="number" id="voyage-report-consumption-ge-cc-oil" name="voyage-report-consumption-ge-cc-oil">
                             </div>
                             <div class="form-group">
-                                <label for="voyage-consumption-fw">FW (MT):</label>
-                                <input type="number" id="voyage-consumption-fw" name="voyage-consumption-fw">
+                                <label for="voyage-report-consumption-fw">FW (MT):</label>
+                                <input type="number" id="voyage-report-consumption-fw" name="voyage-report-consumption-fw">
                             </div>
                         </div>
                     </fieldset>
@@ -5776,16 +5869,16 @@ Other remarks by the Master:
                     <!-- Remarks DataGroup -->
                     <fieldset>
                         <legend>Remarks</legend>
-                        <textarea id="voyage-remarks" name="voyage-remarks"></textarea>
+                        <textarea id="voyage-report-remarks" name="voyage-report-remarks"></textarea>
                     </fieldset>
 
                     <!-- Master's Name -->
                     <fieldset>
                         <legend>Master's Name</legend>
-                        <input type="text" id="voyage-master-name" name="voyage-master-name">
+                        <input type="text" id="voyage-report-master-name" name="voyage-report-master-name">
                     </fieldset>
 
-                    <button type="submit" id="kpi-submit">Submit</button>
+                    <button type="submit" id="voyage-report-submit">Submit</button>
                 </form>
             </section>
 
@@ -5794,27 +5887,58 @@ Other remarks by the Master:
                 <div class="sub-container">
                     <button type="button" class="save-draft" onclick="saveDraft('KPI')">Save Draft</button>
                     <button type="button" class="save-draft" onclick="clearFields('KPI')">Clear Fields</button>
-                    <!-- <button type="button" class="export-data" onclick="">Fetch Saved Data</button> -->
                     <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('KPI')">Export Data</button>
                 </div>
-                <form>
-                    <div class="tab-container">
-                        <!-- Tab Navigation -->
-                        <div class="w3-bar w3-theme">
-                            <button class="w3-bar-item w3-button active" onclick="kpiOpenTab(event, 'VesselInformation')">Vessel Information</button>
-                            <button class="w3-bar-item w3-button" onclick="kpiOpenTab(event, 'WasteManagement')">Waste Management</button>
-                            <button class="w3-bar-item w3-button" onclick="kpiOpenTab(event, 'Voyage')">Voyage</button>
-                            <button class="w3-bar-item w3-button" onclick="kpiOpenTab(event, 'Crew')">Crew</button>
-                            <button class="w3-bar-item w3-button" onclick="kpiOpenTab(event, 'MACN')">MACN</button>
-                            <button class="w3-bar-item w3-button" onclick="kpiOpenTab(event, 'Inspection')">Inspection</button>
+            
+                <div class="stepper">
+                    <div class="step active">
+                        <div class="step-icon">
+                            <img src="./Icons/cruise.png" alt="Voyage Information">
                         </div>
-                        
-                    
-                        <!-- Tab Content -->
-                        <div id="VesselInformation" class="kpi-tab-content">
+                        <span class="step-label">Voyage Information</span>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <img src="./Icons/waste.png" alt="Waste Management">
+                        </div>
+                        <span class="step-label">Waste Management</span>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <img src="./Icons/report.png" alt="Voyage Report">
+                        </div>
+                        <span class="step-label">Voyage Report</span>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <img src="./Icons/workers.png" alt="Crew">
+                        </div>
+                        <span class="step-label">Crew</span>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <img src="./Icons/bribe.png" alt="MACN">
+                        </div>
+                        <span class="step-label">MACN</span>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <img src="./Icons/inspection.png" alt="Inspection">
+                        </div>
+                        <span class="step-label">Inspection</span>
+                    </div>
+                </div>
+                
+            
+                <form>
+                    <!-- Stepper Content -->
+                    <div class="stepper-content">
+                        <!-- Step 1: Vessel Information -->
+                        <div class="step-content active" id="step-1">
                             <h2>Vessel Information</h2>
-                            <div id="vessel-information-form">
-                                <p>Vessel Name: 
+                            <div class="four-columns">
+                                <div class="form-group common-select-container">
+                                    <label for="kpi-vessel-name">Vessel Name</label>
                                     <select class="common-select" id="kpi-vessel-name" name="kpi-vessel-name" required>
                                         <option value="">Select Vessel</option>
                                         <option value="Kellet Island">Kellett Island</option>
@@ -5840,8 +5964,10 @@ Other remarks by the Master:
                                         <option value="Maple Harvest">Maple Harvest</option>
                                         <option value="World Swan II">World Swan II</option>
                                     </select>
-                                </p>
-                                <p>Fleet: 
+                                    </select>
+                                </div>
+                                <div class="form-group common-select-container">
+                                    <label for="kpi-fleet">Fleet</label>
                                     <select class="common-select" id="kpi-fleet" name="kpi-fleet" required>
                                         <option value="">Select Fleet</option>
                                         <option value="1">1</option>
@@ -5852,8 +5978,9 @@ Other remarks by the Master:
                                         <option value="6">6</option>
                                         <option value="FSOA">FSOA</option>
                                     </select>
-                                </p>
-                                <p>Vessel Type: 
+                                </div>
+                                <div class="form-group common-select-container">
+                                    <label for="kpi-vessel-type">Vessel Type</label>
                                     <select class="common-select" id="kpi-vessel-type" name="kpi-vessel-type" required>
                                         <option value="">Select Vessel Type</option>
                                         <option value="Bulk">Bulk</option>
@@ -5864,195 +5991,392 @@ Other remarks by the Master:
                                         <option value="PCC">PCC</option>
                                         <option value="PCTC">PCTC</option>
                                     </select>
-                                </p>
-                                <p>Reporting Period: <input class="common-date" type="datetime-local" id="kpi-reporting-period" name="kpi-reporting-period"></p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="kpi-reporting-period">Reporting Period</label>
+                                    <input class="common-date" type="datetime-local" id="kpi-reporting-period" name="kpi-reporting-period">
+                                </div>
                             </div>
                         </div>                        
 
-                        <div id="WasteManagement" class="kpi-tab-content">
+                        <!-- Step 2: Waste Management -->
+                        <div id="WasteManagement" class="step-content" style="display: none;">
                             <h2>Waste Management</h2>
-                        
+                            
                             <!-- Category A - Plastics -->
-                            <button class="accordion">Category A - Plastics</button>
-                            <div class="accordion-panel">
-                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-plastics-ashore" name="kpi-plastics-ashore"></p>
-                                <p>Total Incinerated (m3): <input type="text" id="kpi-plastics-incinerated" name="kpi-plastics-incinerated"></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Plastics</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-plastics-ashore">Total Landed Ashore (m3)</label>
+                                        <input type="text" id="kpi-plastics-ashore" name="kpi-plastics-ashore">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-plastics-incinerated">Total Incinerated (m3)</label>
+                                        <input type="text" id="kpi-plastics-incinerated" name="kpi-plastics-incinerated">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Category B - Food Waste -->
-                            <button class="accordion">Category B - Food Waste</button>
-                            <div class="accordion-panel">
-                                <p>Total Disposed at Sea (m3): <input type="text" id="kpi-food-sea" name="kpi-food-sea"></p>
-                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-food-ashore" name="kpi-food-ashore"></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Food Waste</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-food-sea">Total Disposed at Sea (m3)</label>
+                                        <input type="text" id="kpi-food-sea" name="kpi-food-sea">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-food-ashore">Total Landed Ashore (m3)</label>
+                                        <input type="text" id="kpi-food-ashore" name="kpi-food-ashore">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Category C - Domestic Waste -->
-                            <button class="accordion">Category C - Domestic Waste</button>
-                            <div class="accordion-panel">
-                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-domestic-ashore" name="kpi-domestic-ashore"></p>
-                                <p>Total Incinerated (m3): <input type="text" id="kpi-domestic-incinerated" name="kpi-domestic-incinerated"></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Domestic Waste</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-domestic-ashore">Total Landed Ashore (m3)</label>
+                                        <input type="text" id="kpi-domestic-ashore" name="kpi-domestic-ashore">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-domestic-incinerated">Total Incinerated (m3)</label>
+                                        <input type="text" id="kpi-domestic-incinerated" name="kpi-domestic-incinerated">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Category D - Cooking Oil -->
-                            <button class="accordion">Category D - Cooking Oil</button>
-                            <div class="accordion-panel">
-                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-oil-ashore" name="kpi-oil-ashore"></p>
-                                <p>Total Incinerated (m3): <input type="text" id="kpi-oil-incinerated" name="kpi-oil-incinerated"></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Cooking Oil</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-oil-ashore">Total Landed Ashore (m3)</label>
+                                        <input type="text" id="kpi-oil-ashore" name="kpi-oil-ashore">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-oil-incinerated">Total Incinerated (m3)</label>
+                                        <input type="text" id="kpi-oil-incinerated" name="kpi-oil-incinerated">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Category E - Incinerator Ash -->
-                            <button class="accordion">Category E - Incinerator Ash</button>
-                            <div class="accordion-panel">
-                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-ash-ashore" name="kpi-ash-ashore"></p>
-                                <p>Total Incinerated (m3): <input type="text" id="kpi-ash-incinerated" name="kpi-ash-incinerated"></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Incinerator Ash</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-ash-ashore">Total Landed Ashore (m3)</label>
+                                        <input type="text" id="kpi-ash-ashore" name="kpi-ash-ashore">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-ash-incinerated">Total Incinerated (m3)</label>
+                                        <input type="text" id="kpi-ash-incinerated" name="kpi-ash-incinerated">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Category F - Operational Wastes -->
-                            <button class="accordion">Category F - Operational Wastes</button>
-                            <div class="accordion-panel">
-                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-operational-ashore" name="kpi-operational-ashore"></p>
-                                <p>Total Incinerated (m3): <input type="text" id="kpi-operational-incinerated" name="kpi-operational-incinerated"></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Operational Waste</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-operational-ashore">Total Landed Ashore (m3)</label>
+                                        <input type="text" id="kpi-operational-ashore" name="kpi-operational-ashore">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-operational-incinerated">Total Incinerated (m3)</label>
+                                        <input type="text" id="kpi-operational-incinerated" name="kpi-operational-incinerated">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Category I - E-Waste -->
-                            <button class="accordion">Category I - E-Waste</button>
-                            <div class="accordion-panel">
-                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-ewaste-ashore" name="kpi-ewaste-ashore"></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>E-Waste</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-ewaste-ashore">Total Landed Ashore (m3)</label>
+                                        <input type="text" id="kpi-ewaste-ashore" name="kpi-ewaste-ashore">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Cargo Residues J/K -->
-                            <button class="accordion">Cargo Residues J/K</button>
-                            <div class="accordion-panel">
-                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-cargo-ashore" name="kpi-cargo-ashore"></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Cargo Residues J/K</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-cargo-ashore">Total Landed Ashore (m3)</label>
+                                        <input type="text" id="kpi-cargo-ashore" name="kpi-cargo-ashore">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Total Garbage -->
-                            <button class="accordion">Total Garbage</button>
-                            <div class="accordion-panel">
-                                <p>Total Disposed at Sea (m3): <input type="text" id="kpi-garbage-sea" name="kpi-garbage-sea"></p>
-                                <p>Total Garbage Landed Ashore (m3): <input type="text" id="kpi-garbage-ashore" name="kpi-garbage-ashore"></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Total Garbage</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-garbage-sea">Total Disposed at Sea (m3)</label>
+                                        <input type="text" id="kpi-garbage-sea" name="kpi-garbage-sea">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-garbage-ashore">Total Garbage Landed Ashore (m3)</label>
+                                        <input type="text" id="kpi-garbage-ashore" name="kpi-garbage-ashore">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Sludge & Bunker -->
-                            <button class="accordion">Sludge & Bunker</button>
-                            <div class="accordion-panel">
-                                <p>Total Landed Ashore (m3): <input type="text" id="kpi-sludge-ashore" name="kpi-sludge-ashore"></p>
-                                <p>Total Incinerated (m3): <input type="text" id="kpi-sludge-incinerated" name="kpi-sludge-incinerated"></p>
-                                <p>Total Quantity of Sludge Generated (m3): <input type="text" id="kpi-sludge-generated" name="kpi-sludge-generated"></p>
-                                <p>Total Fuel Consumed (MT): <input type="text" id="kpi-fuel-consumed" name="kpi-fuel-consumed"></p>
-                                <p>Ratio of Sludge Generated to Bunkers Consumed: <input type="text" id="kpi-sludge-ratio" name="kpi-sludge-ratio"></p>
-                                <p>Remarks (if target exceeded): <textarea id="kpi-sludge-remarks" name="kpi-sludge-remarks"></textarea></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Sludge & Bunker</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-sludge-ashore">Total Landed Ashore (m3)</label>
+                                        <input type="text" id="kpi-sludge-ashore" name="kpi-sludge-ashore">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-sludge-incinerated">Total Incinerated (m3)</label>
+                                        <input type="text" id="kpi-sludge-incinerated" name="kpi-sludge-incinerated">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-sludge-generated">Total Quantity of Sludge Generated (m3)</label>
+                                        <input type="text" id="kpi-sludge-generated" name="kpi-sludge-generated">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-fuel-consumed">Total Fuel Consumed (MT)</label>
+                                        <input type="text" id="kpi-fuel-consumed" name="kpi-fuel-consumed">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-sludge-ratio">Ratio of Sludge Generated to Bunkers Consumed</label>
+                                        <input type="text" id="kpi-sludge-ratio" name="kpi-sludge-ratio">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-sludge-remarks">Remarks (if target exceeded)</label>
+                                        <input type="text" id="kpi-sludge-remarks" name="kpi-sludge-remarks">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Bilge Water -->
-                            <button class="accordion">Bilge Water</button>
-                            <div class="accordion-panel">
-                                <p>Total Bilge Water Discharged Through OWS (m3): <input type="text" id="kpi-bilge-ows" name="kpi-bilge-ows"></p>
-                                <p>Total Bilge Water Landed to Shore (m3): <input type="text" id="kpi-bilge-ashore" name="kpi-bilge-ashore"></p>
-                                <p>Total Bilge Water Generated (m3): <input type="text" id="kpi-bilge-generated" name="kpi-bilge-generated"></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Bilge Water</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-bilge-ows">Total Bilge Water Discharged Through OWS (m3)</label>
+                                        <input type="text" id="kpi-bilge-ows" name="kpi-bilge-ows">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-bilge-ashore">Total Bilge Water Landed to Shore (m3)</label>
+                                        <input type="text" id="kpi-bilge-ashore" name="kpi-bilge-ashore">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-bilge-generated">Total Bilge Water Generated (m3)</label>
+                                        <input type="text" id="kpi-bilge-generated" name="kpi-bilge-generated">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Consumption -->
-                            <button class="accordion">Consumption</button>
-                            <div class="accordion-panel">
-                                <p>Paper Consumption (reams): <input type="text" id="kpi-paper-consumption" name="kpi-paper-consumption"></p>
-                                <p>Printer Cartridges (units): <input type="text" id="kpi-cartridges-consumed" name="kpi-cartridges-consumed"></p>
-                                <p>Remarks (if target exceeded): <textarea id="kpi-consumption-remarks" name="kpi-consumption-remarks"></textarea></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Consumption</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-paper-consumption">Paper Consumption (reams)</label>
+                                        <input type="text" id="kpi-paper-consumption" name="kpi-paper-consumption">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-cartridges-consumed">Printer Cartridges (units)</label>
+                                        <input type="text" id="kpi-cartridges-consumed" name="kpi-cartridges-consumed">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-consumption-remarks">Remarks (if target exceeded)</label>
+                                        <input type="text" id="kpi-consumption-remarks" name="kpi-consumption-remarks">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Fresh Water -->
-                            <button class="accordion">Fresh Water</button>
-                            <div class="accordion-panel">
-                                <p>Fresh Water Generated (m3): <input type="text" id="kpi-fresh-generated" name="kpi-fresh-generated"></p>
-                                <p>Fresh Water Consumed (m3): <input type="text" id="kpi-fresh-consumed" name="kpi-fresh-consumed"></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Fresh Water</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-fresh-generated">Fresh Water Generated (m3)</label>
+                                        <input type="text" id="kpi-fresh-generated" name="kpi-fresh-generated">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-fresh-consumed">Fresh Water Consumed (m3)</label>
+                                        <input type="text" id="kpi-fresh-consumed" name="kpi-fresh-consumed">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Ballast Water -->
-                            <button class="accordion">Ballast Water</button>
-                            <div class="accordion-panel">
-                                <p>Number of Ballast Water Exchanges Performed: <input type="text" id="kpi-ballast-exchanges" name="kpi-ballast-exchanges"></p>
-                                <p>Number of Ballast Operations: <input type="text" id="kpi-ballast-operations" name="kpi-ballast-operations"></p>
-                                <p>Number of De-Ballast Operations: <input type="text" id="kpi-deballast-operations" name="kpi-deballast-operations"></p>
-                                <p>Total Water Intake During Ballasting (m3): <input type="text" id="kpi-ballast-intake" name="kpi-ballast-intake"></p>
-                                <p>Total Water Out During De-Ballasting (m3): <input type="text" id="kpi-deballast-out" name="kpi-deballast-out"></p>
-                                <p>Total Ballast Water Exchange Amount (m3): <input type="text" id="kpi-ballast-exchange-amount" name="kpi-ballast-exchange-amount"></p>
-                            </div>
-                        
+                            <fieldset>
+                                <legend>Ballast Water</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-ballast-exchanges">Number of Ballast Water Exchanges Performed</label>
+                                        <input type="text" id="kpi-ballast-exchanges" name="kpi-ballast-exchanges">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-ballast-operations">Number of Ballast Operations</label>
+                                        <input type="text" id="kpi-ballast-operations" name="kpi-ballast-operations">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-deballast-operations">Number of De-Ballast Operations</label>
+                                        <input type="text" id="kpi-deballast-operations" name="kpi-deballast-operations">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-ballast-intake">Total Water Intake During Ballasting (m3)</label>
+                                        <input type="text" id="kpi-ballast-intake" name="kpi-ballast-intake">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-deballast-out">Total Water Out During De-Ballasting (m3)</label>
+                                        <input type="text" id="kpi-deballast-out" name="kpi-deballast-out">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-ballast-exchange-amount">Total Ballast Water Exchange Amount (m3)</label>
+                                        <input type="text" id="kpi-ballast-exchange-amount" name="kpi-ballast-exchange-amount">
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <!-- Hull Management -->
-                            <button class="accordion">Hull Management</button>
-                            <div class="accordion-panel">
-                                <p>Total Number of Propeller Cleanings: <input type="text" id="kpi-propeller-cleanings" name="kpi-propeller-cleanings"></p>
-                                <p>Total Number of Hull Cleanings: <input type="text" id="kpi-hull-cleanings" name="kpi-hull-cleanings"></p>
+                            <fieldset>
+                                <legend>Ballast Water</legend>
+                                <div class="four-columns">
+                                    <div class="form-group">
+                                        <label for="kpi-propeller-cleanings">Total Number of Propeller Cleanings</label>
+                                        <input type="text" id="kpi-propeller-cleanings" name="kpi-propeller-cleanings">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kpi-hull-cleanings">Total Number of Hull Cleanings</label>
+                                        <input type="text" id="kpi-hull-cleanings" name="kpi-hull-cleanings">
+                                    </div>
+                                </div>
+                            </fieldset>
                             </div>
                         </div>
-                        
 
-                        <!-- Tab Content -->
-                        <div id="Voyage" class="kpi-tab-content">
+                        <!-- Step 3: Voyage -->
+                        <div class="step-content" id="step-3" style="display: none;">
                             <h2>Voyage</h2>
-                            <p>Total Sailing Days: <input type="text" id="kpi-sailing-days-total" name="kpi-sailing-days-total"></p>
-                            <p>Eco Speed Sailing Days: <input type="text" id="kpi-sailing-days-eco" name="kpi-sailing-days-eco"></p>
-                            <p>Full Speed Sailing Days: <input type="text" id="kpi-sailing-days-full" name="kpi-sailing-days-full"></p>
+                            <div class="four-columns">
+                                <div class="form-group">
+                                    <label for="kpi-sailing-days-total">Total Sailing Days</label>
+                                    <input type="text" id="kpi-sailing-days-total" name="kpi-sailing-days-total">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kpi-sailing-days-eco">Eco Speed Sailing Days</label>
+                                    <input type="text" id="kpi-sailing-days-eco" name="kpi-sailing-days-eco">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kpi-sailing-days-full">Full Speed Sailing Days</label>
+                                    <input type="text" id="kpi-sailing-days-full" name="kpi-sailing-days-full">
+                                </div>
+                            </div>
                         </div>
 
-                        <div id="Crew" class="kpi-tab-content">
+                        <!-- Step 4: Crew -->
+                        <div class="step-content" id="step-4" style="display: none;">
                             <h2>Crew</h2>
-                            
-                            <p>No. of Fatalities: <input type="text" id="kpi-crew-fatalities" name="kpi-crew-fatalities"></p>
-                            <p>LTI (Lost Time Injuries): <input type="text" id="kpi-crew-lti" name="kpi-crew-lti"></p>
-                            <p>No. of Recordable Injuries: <input type="text" id="kpi-crew-injuries" name="kpi-crew-injuries"></p>
+                            <div class="four-columns">
+                                <div class="form-group">
+                                    <label for="kpi-crew-fatalities">No. of Fatalities</label>
+                                    <input type="text" id="kpi-crew-fatalities" name="kpi-crew-fatalities">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kpi-crew-lti">LTI (Lost Time Injuries)</label>
+                                    <input type="text" id="kpi-crew-lti" name="kpi-crew-lti">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kpi-crew-injuries">No. of Recordable Injuries</label>
+                                    <input type="text" id="kpi-crew-injuries" name="kpi-crew-injuries">
+                                </div>
+                            </div>
                         </div>
-                    
-                        <div id="MACN" class="kpi-tab-content">
+
+                        <!-- Step 5: MACN -->
+                        <div class="step-content" id="step-5" style="display: none;">
                             <h2>MACN</h2>
-                            
-                            <p>No. of Corruption/Bribery/Entertainment for Port Officials: <input type="text" id="kpi-macn-corruption" name="kpi-macn-corruption"></p>
+                            <div class="four-columns">
+                                <div class="form-group">
+                                    <label for="kpi-macn-corruption">No. of Corruption/Bribery/Entertainment for Port Officials</label>
+                                    <input type="text" id="kpi-macn-corruption" name="kpi-macn-corruption">
+                                </div>
+                            </div>
                         </div>
-                        
-                    
-                        <div id="Inspection" class="kpi-tab-content">
+
+                        <!-- Step 6: Inspection -->
+                        <div class="step-content" id="step-6" style="display: none;">
                             <h2>Inspection</h2>
-                        
-                            <!-- PSC Inspections -->
-                            <button class="accordion">PSC Inspections</button>
-                            <div class="accordion-panel">
-                                <p>Number of PSC Inspections: <input type="text" id="kpi-psc-inspections" name="kpi-psc-inspections"></p>
-                                <p>PSC No. of Deficiencies: <input type="text" id="kpi-psc-deficiencies" name="kpi-psc-deficiencies"></p>
-                                <p>PSC Detentions (if any): <input type="text" id="kpi-psc-detentions" name="kpi-psc-detentions"></p>
+                            <div class="four-columns">
+                                <!-- Number of PSC Inspections -->
+                                <div class="form-group">
+                                    <label for="kpi-psc-inspections">Number of PSC Inspections</label>
+                                    <input type="text" id="kpi-psc-inspections" name="kpi-psc-inspections">
+                                </div>
+                                <!-- PSC No. of Deficiencies -->
+                                <div class="form-group">
+                                    <label for="kpi-psc-deficiencies">PSC No. of Deficiencies</label>
+                                    <input type="text" id="kpi-psc-deficiencies" name="kpi-psc-deficiencies">
+                                </div>
+                                <!-- PSC Detentions -->
+                                <div class="form-group">
+                                    <label for="kpi-psc-detentions">PSC Detentions (if any)</label>
+                                    <input type="text" id="kpi-psc-detentions" name="kpi-psc-detentions">
+                                </div>
+                                <!-- Number of Flag State Inspections -->
+                                <div class="form-group">
+                                    <label for="kpi-flag-inspections">Number of Flag State Inspections</label>
+                                    <input type="text" id="kpi-flag-inspections" name="kpi-flag-inspections">
+                                </div>
+                                <!-- Flag No. of Deficiencies -->
+                                <div class="form-group">
+                                    <label for="kpi-flag-deficiencies">Flag No. of Deficiencies</label>
+                                    <input type="text" id="kpi-flag-deficiencies" name="kpi-flag-deficiencies">
+                                </div>
+                                <!-- Third Party Inspections -->
+                                <div class="form-group">
+                                    <label for="kpi-third-party-inspections">Third Party Inspections (Charterers, Owners, RISQ, Others)</label>
+                                    <input type="text" id="kpi-third-party-inspections" name="kpi-third-party-inspections">
+                                </div>
+                                <!-- Third Party No. of Deficiencies -->
+                                <div class="form-group">
+                                    <label for="kpi-third-party-deficiencies">Third Party No. of Deficiencies</label>
+                                    <input type="text" id="kpi-third-party-deficiencies" name="kpi-third-party-deficiencies">
+                                </div>
                             </div>
-                        
-                            <!-- Flag State Inspections -->
-                            <button class="accordion">Flag State Inspections</button>
-                            <div class="accordion-panel">
-                                <p>Number of Flag State Inspections: <input type="text" id="kpi-flag-inspections" name="kpi-flag-inspections"></p>
-                                <p>Flag No. of Deficiencies: <input type="text" id="kpi-flag-deficiencies" name="kpi-flag-deficiencies"></p>
-                            </div>
-                        
-                            <!-- Third Party Inspections -->
-                            <button class="accordion">Third Party Inspections</button>
-                            <div class="accordion-panel">
-                                <p>Third Party Inspections (Charterers, Owners, RISQ, Others): <input type="text" id="kpi-third-party-inspections" name="kpi-third-party-inspections"></p>
-                                <p>Third Party No. of Deficiencies: <input type="text" id="kpi-third-party-deficiencies" name="kpi-third-party-deficiencies"></p>
-                            </div>
+
+                            <br />
+
+                            <!-- Remarks Waste Management -->
+                            <fieldset>
+                                <legend>Overall Remarks</legend>
+                                <textarea id="voyage-overall-remarks" name="voyage-overall-remarks"></textarea>
+                            </fieldset>
+
+                            <!-- Master's Name -->
+                            <fieldset>
+                                <legend>Master's Name</legend>
+                                <input type="text" id="kpi-master-name" name="kpi-master-name">
+                            </fieldset>
                         </div>
-                        
+
+                        <!-- Navigation Buttons -->
+                        <div class="stepper-navigation">
+                            <button type="button" class="prev-step" onclick="navigateStep(-1)">Previous</button>
+                            <button type="button" class="next-step" id="finish-button" onclick="navigateStep(1)">Next</button>
+                            <!-- Submit Button, visible only on the last step -->
+                            <button type="submit" id="kpi-submit" style="display: none;">Submit</button>
+                        </div>
                     </div>
 
-                    <br />
-
-                    <!-- Remarks Waste Management -->
-                    <fieldset>
-                        <legend>Overall Remarks</legend>
-                            <textarea id="voyage-overall-remarks" name="voyage-overall-remarks"></textarea>
-                        </fieldset>
-
-                    <!-- Master's Name -->
-                    <fieldset>
-                        <legend>Master's Name</legend>
-                        <input type="text" id="kpi-master-name" name="kpi-master-name">
-                    </fieldset>
-
-                    <button type="submit" id="kpi-submit">Submit</button>
+                    
                 </form>
             </section>
         

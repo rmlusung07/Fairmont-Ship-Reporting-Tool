@@ -99,6 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
     setupPortSearch('weekly-schedule-details-port-19-1', 'weekly-schedule-details-port-19-1-results');
     setupPortSearch('weekly-schedule-details-port-20-1', 'weekly-schedule-details-port-20-1-results');
 
+    // Add the port search functionality for Crew Monitoring Plan Report fields
+    setupPortSearch('crew-monitoring-plan-port', 'crew-monitoring-plan-port-results');
+
     // Attach validation for latitude and longitude fields
     const latitudeFields = [
         'noon-voyage-details-latitude',
@@ -3169,7 +3172,1650 @@ function exportToExcel(reportId) {
 
             // Master Name
             'weekly-master-name': 'Master Name:'
+        },
+
+        'crewmonitoringplan': {
+        // On Board Crew Data 1
+        'crew-monitoring-plan-crew-no-1': 'No:',
+        'crew-monitoring-plan-vessel-name-1': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-1': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-1': 'Crew First Name:',
+        'crew-monitoring-plan-rank-1': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-1': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-1': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-1': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-1': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-1': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-1': 'No of Months On Board:',
+
+        // Crew Change Data 1
+        'crew-monitoring-plan-vessel-1': 'Vessel Name:',
+        'crew-monitoring-plan-port-1': 'Port:',
+        'crew-monitoring-plan-country-1': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-1': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-1': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-1': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-1': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-1': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-1': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-1': 'Remarks:',
+
+        // On Board Crew Data 2 
+        'crew-monitoring-plan-crew-no-2': 'No:',
+        'crew-monitoring-plan-vessel-name-2': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-2': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-2': 'Crew First Name:',
+        'crew-monitoring-plan-rank-2': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-2': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-2': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-2': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-2': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-2': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-2': 'No of Months On Board:',
+        
+        // Crew Change Data 2 
+        'crew-monitoring-plan-vessel-2': 'Vessel:',
+        'crew-monitoring-plan-port-2': 'Port:',
+        'crew-monitoring-plan-country-2': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-2': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-2': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-2': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-2': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-2': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-2': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-2': 'Remarks:',
+
+        // On Board Crew Data 3
+        'crew-monitoring-plan-crew-no-3': 'No:',
+        'crew-monitoring-plan-vessel-name-3': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-3': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-3': 'Crew First Name:',
+        'crew-monitoring-plan-rank-3': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-3': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-3': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-3': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-3': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-3': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-3': 'No of Months On Board:',
+
+        // Crew Change Data 3
+        'crew-monitoring-plan-vessel-3': 'Vessel:',
+        'crew-monitoring-plan-port-3': 'Port:',
+        'crew-monitoring-plan-country-3': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-3': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-3': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-3': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-3': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-3': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-3': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-3': 'Remarks:',
+
+        // On Board Crew Data 4
+        'crew-monitoring-plan-crew-no-4': 'No:',
+        'crew-monitoring-plan-vessel-name-4': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-4': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-4': 'Crew First Name:',
+        'crew-monitoring-plan-rank-4': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-4': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-4': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-4': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-4': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-4': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-4': 'No of Months On Board:',
+
+        // Crew Change Data 4
+        'crew-monitoring-plan-vessel-4': 'Vessel:',
+        'crew-monitoring-plan-port-4': 'Port:',
+        'crew-monitoring-plan-country-4': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-4': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-4': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-4': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-4': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-4': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-4': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-4': 'Remarks:',
+
+        // On Board Crew Data 5
+        'crew-monitoring-plan-crew-no-5': 'No:',
+        'crew-monitoring-plan-vessel-name-5': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-5': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-5': 'Crew First Name:',
+        'crew-monitoring-plan-rank-5': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-5': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-5': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-5': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-5': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-5': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-5': 'No of Months On Board:',
+
+        // Crew Change Data 5
+        'crew-monitoring-plan-vessel-5': 'Vessel:',
+        'crew-monitoring-plan-port-5': 'Port:',
+        'crew-monitoring-plan-country-5': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-5': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-5': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-5': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-5': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-5': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-5': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-5': 'Remarks:',
+
+        // On Board Crew Data 6
+        'crew-monitoring-plan-crew-no-6': 'No:',
+        'crew-monitoring-plan-vessel-name-6': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-6': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-6': 'Crew First Name:',
+        'crew-monitoring-plan-rank-6': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-6': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-6': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-6': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-6': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-6': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-6': 'No of Months On Board:',
+
+        // Crew Change Data 6
+        'crew-monitoring-plan-vessel-6': 'Vessel:',
+        'crew-monitoring-plan-port-6': 'Port:',
+        'crew-monitoring-plan-country-6': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-6': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-6': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-6': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-6': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-6': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-6': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-6': 'Remarks:',
+
+        // On Board Crew Data 7
+        'crew-monitoring-plan-crew-no-7': 'No:',
+        'crew-monitoring-plan-vessel-name-7': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-7': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-7': 'Crew First Name:',
+        'crew-monitoring-plan-rank-7': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-7': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-7': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-7': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-7': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-7': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-7': 'No of Months On Board:',
+
+        // Crew Change Data 7
+        'crew-monitoring-plan-vessel-7': 'Vessel:',
+        'crew-monitoring-plan-port-7': 'Port:',
+        'crew-monitoring-plan-country-7': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-7': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-7': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-7': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-7': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-7': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-7': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-7': 'Remarks:',
+
+        // On Board Crew Data 8
+        'crew-monitoring-plan-crew-no-8': 'No:',
+        'crew-monitoring-plan-vessel-name-8': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-8': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-8': 'Crew First Name:',
+        'crew-monitoring-plan-rank-8': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-8': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-8': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-8': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-8': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-8': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-8': 'No of Months On Board:',
+
+        // Crew Change Data 8
+        'crew-monitoring-plan-vessel-8': 'Vessel:',
+        'crew-monitoring-plan-port-8': 'Port:',
+        'crew-monitoring-plan-country-8': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-8': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-8': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-8': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-8': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-8': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-8': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-8': 'Remarks:',
+
+        // On Board Crew Data 9
+        'crew-monitoring-plan-crew-no-9': 'No:',
+        'crew-monitoring-plan-vessel-name-9': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-9': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-9': 'Crew First Name:',
+        'crew-monitoring-plan-rank-9': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-9': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-9': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-9': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-9': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-9': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-9': 'No of Months On Board:',
+
+        // Crew Change Data 9
+        'crew-monitoring-plan-vessel-9': 'Vessel:',
+        'crew-monitoring-plan-port-9': 'Port:',
+        'crew-monitoring-plan-country-9': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-9': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-9': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-9': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-9': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-9': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-9': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-9': 'Remarks:',
+
+        // On Board Crew Data 10
+        'crew-monitoring-plan-crew-no-10': 'No:',
+        'crew-monitoring-plan-vessel-name-10': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-10': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-10': 'Crew First Name:',
+        'crew-monitoring-plan-rank-10': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-10': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-10': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-10': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-10': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-10': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-10': 'No of Months On Board:',
+
+        // Crew Change Data 10
+        'crew-monitoring-plan-vessel-10': 'Vessel:',
+        'crew-monitoring-plan-port-10': 'Port:',
+        'crew-monitoring-plan-country-10': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-10': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-10': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-10': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-10': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-10': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-10': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-10': 'Remarks:',
+
+        // On Board Crew Data 11
+        'crew-monitoring-plan-crew-no-11': 'No:',
+        'crew-monitoring-plan-vessel-name-11': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-11': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-11': 'Crew First Name:',
+        'crew-monitoring-plan-rank-11': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-11': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-11': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-11': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-11': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-11': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-11': 'No of Months On Board:',
+
+        // Crew Change Data 11
+        'crew-monitoring-plan-vessel-11': 'Vessel:',
+        'crew-monitoring-plan-port-11': 'Port:',
+        'crew-monitoring-plan-country-11': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-11': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-11': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-11': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-11': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-11': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-11': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-11': 'Remarks:',
+
+        // On Board Crew Data 12
+        'crew-monitoring-plan-crew-no-12': 'No:',
+        'crew-monitoring-plan-vessel-name-12': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-12': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-12': 'Crew First Name:',
+        'crew-monitoring-plan-rank-12': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-12': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-12': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-12': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-12': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-12': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-12': 'No of Months On Board:',
+
+        // Crew Change Data 12
+        'crew-monitoring-plan-vessel-12': 'Vessel:',
+        'crew-monitoring-plan-port-12': 'Port:',
+        'crew-monitoring-plan-country-12': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-12': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-12': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-12': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-12': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-12': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-12': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-12': 'Remarks:',
+
+        // On Board Crew Data 13
+        'crew-monitoring-plan-crew-no-13': 'No:',
+        'crew-monitoring-plan-vessel-name-13': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-13': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-13': 'Crew First Name:',
+        'crew-monitoring-plan-rank-13': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-13': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-13': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-13': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-13': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-13': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-13': 'No of Months On Board:',
+
+        // Crew Change Data 13
+        'crew-monitoring-plan-vessel-13': 'Vessel:',
+        'crew-monitoring-plan-port-13': 'Port:',
+        'crew-monitoring-plan-country-13': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-13': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-13': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-13': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-13': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-13': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-13': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-13': 'Remarks:',
+
+        // On Board Crew Data 14
+        'crew-monitoring-plan-crew-no-14': 'No:',
+        'crew-monitoring-plan-vessel-name-14': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-14': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-14': 'Crew First Name:',
+        'crew-monitoring-plan-rank-14': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-14': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-14': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-14': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-14': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-14': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-14': 'No of Months On Board:',
+
+        // Crew Change Data 14
+        'crew-monitoring-plan-vessel-14': 'Vessel:',
+        'crew-monitoring-plan-port-14': 'Port:',
+        'crew-monitoring-plan-country-14': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-14': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-14': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-14': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-14': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-14': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-14': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-14': 'Remarks:',
+
+        // On Board Crew Data 15
+        'crew-monitoring-plan-crew-no-15': 'No:',
+        'crew-monitoring-plan-vessel-name-15': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-15': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-15': 'Crew First Name:',
+        'crew-monitoring-plan-rank-15': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-15': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-15': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-15': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-15': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-15': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-15': 'No of Months On Board:',
+
+        // Crew Change Data 15
+        'crew-monitoring-plan-vessel-15': 'Vessel:',
+        'crew-monitoring-plan-port-15': 'Port:',
+        'crew-monitoring-plan-country-15': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-15': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-15': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-15': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-15': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-15': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-15': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-15': 'Remarks:',
+
+        // On Board Crew Data 16
+        'crew-monitoring-plan-crew-no-16': 'No:',
+        'crew-monitoring-plan-vessel-name-16': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-16': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-16': 'Crew First Name:',
+        'crew-monitoring-plan-rank-16': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-16': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-16': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-16': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-16': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-16': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-16': 'No of Months On Board:',
+
+        // Crew Change Data 16
+        'crew-monitoring-plan-vessel-16': 'Vessel:',
+        'crew-monitoring-plan-port-16': 'Port:',
+        'crew-monitoring-plan-country-16': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-16': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-16': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-16': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-16': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-16': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-16': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-16': 'Remarks:',
+
+        // On Board Crew Data 17
+        'crew-monitoring-plan-crew-no-17': 'No:',
+        'crew-monitoring-plan-vessel-name-17': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-17': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-17': 'Crew First Name:',
+        'crew-monitoring-plan-rank-17': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-17': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-17': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-17': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-17': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-17': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-17': 'No of Months On Board:',
+
+        // Crew Change Data 17
+        'crew-monitoring-plan-vessel-17': 'Vessel:',
+        'crew-monitoring-plan-port-17': 'Port:',
+        'crew-monitoring-plan-country-17': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-17': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-17': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-17': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-17': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-17': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-17': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-17': 'Remarks:',
+
+        // On Board Crew Data 18
+        'crew-monitoring-plan-crew-no-18': 'No:',
+        'crew-monitoring-plan-vessel-name-18': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-18': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-18': 'Crew First Name:',
+        'crew-monitoring-plan-rank-18': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-18': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-18': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-18': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-18': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-18': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-18': 'No of Months On Board:',
+
+        // Crew Change Data 18
+        'crew-monitoring-plan-vessel-18': 'Vessel:',
+        'crew-monitoring-plan-port-18': 'Port:',
+        'crew-monitoring-plan-country-18': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-18': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-18': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-18': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-18': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-18': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-18': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-18': 'Remarks:',
+
+        // On Board Crew Data 19
+        'crew-monitoring-plan-crew-no-19': 'No:',
+        'crew-monitoring-plan-vessel-name-19': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-19': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-19': 'Crew First Name:',
+        'crew-monitoring-plan-rank-19': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-19': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-19': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-19': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-19': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-19': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-19': 'No of Months On Board:',
+
+        // Crew Change Data 19
+        'crew-monitoring-plan-vessel-19': 'Vessel:',
+        'crew-monitoring-plan-port-19': 'Port:',
+        'crew-monitoring-plan-country-19': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-19': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-19': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-19': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-19': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-19': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-19': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-19': 'Remarks:',
+
+        // On Board Crew Data 20
+        'crew-monitoring-plan-crew-no-20': 'No:',
+        'crew-monitoring-plan-vessel-name-20': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-20': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-20': 'Crew First Name:',
+        'crew-monitoring-plan-rank-20': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-20': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-20': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-20': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-20': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-20': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-20': 'No of Months On Board:',
+
+        // Crew Change Data 20
+        'crew-monitoring-plan-vessel-20': 'Vessel:',
+        'crew-monitoring-plan-port-20': 'Port:',
+        'crew-monitoring-plan-country-20': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-20': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-20': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-20': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-20': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-20': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-20': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-20': 'Remarks:',
+
+        // On Board Crew Data 21
+        'crew-monitoring-plan-crew-no-21': 'No:',
+        'crew-monitoring-plan-vessel-name-21': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-21': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-21': 'Crew First Name:',
+        'crew-monitoring-plan-rank-21': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-21': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-21': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-21': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-21': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-21': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-21': 'No of Months On Board:',
+
+        // Crew Change Data 21
+        'crew-monitoring-plan-vessel-21': 'Vessel:',
+        'crew-monitoring-plan-port-21': 'Port:',
+        'crew-monitoring-plan-country-21': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-21': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-21': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-21': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-21': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-21': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-21': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-21': 'Remarks:',
+
+        // On Board Crew Data 22
+        'crew-monitoring-plan-crew-no-22': 'No:',
+        'crew-monitoring-plan-vessel-name-22': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-22': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-22': 'Crew First Name:',
+        'crew-monitoring-plan-rank-22': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-22': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-22': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-22': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-22': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-22': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-22': 'No of Months On Board:',
+
+        // Crew Change Data 22
+        'crew-monitoring-plan-vessel-22': 'Vessel:',
+        'crew-monitoring-plan-port-22': 'Port:',
+        'crew-monitoring-plan-country-22': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-22': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-22': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-22': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-22': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-22': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-22': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-22': 'Remarks:',
+
+        // On Board Crew Data 23
+        'crew-monitoring-plan-crew-no-23': 'No:',
+        'crew-monitoring-plan-vessel-name-23': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-23': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-23': 'Crew First Name:',
+        'crew-monitoring-plan-rank-23': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-23': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-23': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-23': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-23': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-23': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-23': 'No of Months On Board:',
+
+        // Crew Change Data 23
+        'crew-monitoring-plan-vessel-23': 'Vessel:',
+        'crew-monitoring-plan-port-23': 'Port:',
+        'crew-monitoring-plan-country-23': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-23': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-23': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-23': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-23': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-23': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-23': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-23': 'Remarks:',
+
+        // On Board Crew Data 24
+        'crew-monitoring-plan-crew-no-24': 'No:',
+        'crew-monitoring-plan-vessel-name-24': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-24': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-24': 'Crew First Name:',
+        'crew-monitoring-plan-rank-24': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-24': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-24': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-24': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-24': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-24': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-24': 'No of Months On Board:',
+
+        // Crew Change Data 24
+        'crew-monitoring-plan-vessel-24': 'Vessel:',
+        'crew-monitoring-plan-port-24': 'Port:',
+        'crew-monitoring-plan-country-24': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-24': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-24': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-24': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-24': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-24': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-24': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-24': 'Remarks:',
+
+        // On Board Crew Data 25
+        'crew-monitoring-plan-crew-no-25': 'No:',
+        'crew-monitoring-plan-vessel-name-25': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-25': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-25': 'Crew First Name:',
+        'crew-monitoring-plan-rank-25': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-25': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-25': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-25': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-25': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-25': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-25': 'No of Months On Board:',
+
+        // Crew Change Data 25
+        'crew-monitoring-plan-vessel-25': 'Vessel:',
+        'crew-monitoring-plan-port-25': 'Port:',
+        'crew-monitoring-plan-country-25': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-25': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-25': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-25': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-25': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-25': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-25': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-25': 'Remarks:',
+
+        // On Board Crew Data 26
+        'crew-monitoring-plan-crew-no-26': 'No:',
+        'crew-monitoring-plan-vessel-name-26': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-26': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-26': 'Crew First Name:',
+        'crew-monitoring-plan-rank-26': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-26': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-26': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-26': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-26': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-26': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-26': 'No of Months On Board:',
+
+        // Crew Change Data 26
+        'crew-monitoring-plan-vessel-26': 'Vessel:',
+        'crew-monitoring-plan-port-26': 'Port:',
+        'crew-monitoring-plan-country-26': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-26': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-26': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-26': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-26': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-26': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-26': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-26': 'Remarks:',
+
+        // On Board Crew Data 27
+        'crew-monitoring-plan-crew-no-27': 'No:',
+        'crew-monitoring-plan-vessel-name-27': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-27': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-27': 'Crew First Name:',
+        'crew-monitoring-plan-rank-27': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-27': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-27': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-27': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-27': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-27': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-27': 'No of Months On Board:',
+
+        // Crew Change Data 27
+        'crew-monitoring-plan-vessel-27': 'Vessel:',
+        'crew-monitoring-plan-port-27': 'Port:',
+        'crew-monitoring-plan-country-27': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-27': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-27': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-27': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-27': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-27': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-27': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-27': 'Remarks:',
+
+        // On Board Crew Data 28
+        'crew-monitoring-plan-crew-no-28': 'No:',
+        'crew-monitoring-plan-vessel-name-28': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-28': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-28': 'Crew First Name:',
+        'crew-monitoring-plan-rank-28': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-28': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-28': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-28': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-28': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-28': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-28': 'No of Months On Board:',
+
+        // Crew Change Data 28
+        'crew-monitoring-plan-vessel-28': 'Vessel:',
+        'crew-monitoring-plan-port-28': 'Port:',
+        'crew-monitoring-plan-country-28': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-28': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-28': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-28': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-28': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-28': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-28': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-28': 'Remarks:',
+
+        // On Board Crew Data 29
+        'crew-monitoring-plan-crew-no-29': 'No:',
+        'crew-monitoring-plan-vessel-name-29': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-29': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-29': 'Crew First Name:',
+        'crew-monitoring-plan-rank-29': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-29': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-29': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-29': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-29': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-29': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-29': 'No of Months On Board:',
+
+        // Crew Change Data 29
+        'crew-monitoring-plan-vessel-29': 'Vessel:',
+        'crew-monitoring-plan-port-29': 'Port:',
+        'crew-monitoring-plan-country-29': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-29': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-29': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-29': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-29': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-29': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-29': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-29': 'Remarks:',
+
+        // On Board Crew Data 30
+        'crew-monitoring-plan-crew-no-30': 'No:',
+        'crew-monitoring-plan-vessel-name-30': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-30': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-30': 'Crew First Name:',
+        'crew-monitoring-plan-rank-30': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-30': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-30': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-30': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-30': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-30': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-30': 'No of Months On Board:',
+
+        // Crew Change Data 30
+        'crew-monitoring-plan-vessel-30': 'Vessel:',
+        'crew-monitoring-plan-port-30': 'Port:',
+        'crew-monitoring-plan-country-30': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-30': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-30': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-30': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-30': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-30': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-30': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-30': 'Remarks:',
+
+        // On Board Crew Data 31
+        'crew-monitoring-plan-crew-no-31': 'No:',
+        'crew-monitoring-plan-vessel-name-31': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-31': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-31': 'Crew First Name:',
+        'crew-monitoring-plan-rank-31': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-31': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-31': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-31': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-31': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-31': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-31': 'No of Months On Board:',
+
+        // Crew Change Data 31
+        'crew-monitoring-plan-vessel-31': 'Vessel:',
+        'crew-monitoring-plan-port-31': 'Port:',
+        'crew-monitoring-plan-country-31': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-31': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-31': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-31': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-31': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-31': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-31': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-31': 'Remarks:',
+
+        // On Board Crew Data 32
+        'crew-monitoring-plan-crew-no-32': 'No:',
+        'crew-monitoring-plan-vessel-name-32': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-32': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-32': 'Crew First Name:',
+        'crew-monitoring-plan-rank-32': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-32': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-32': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-32': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-32': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-32': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-32': 'No of Months On Board:',
+
+        // Crew Change Data 32
+        'crew-monitoring-plan-vessel-32': 'Vessel:',
+        'crew-monitoring-plan-port-32': 'Port:',
+        'crew-monitoring-plan-country-32': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-32': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-32': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-32': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-32': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-32': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-32': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-32': 'Remarks:',
+
+        // On Board Crew Data 33
+        'crew-monitoring-plan-crew-no-33': 'No:',
+        'crew-monitoring-plan-vessel-name-33': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-33': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-33': 'Crew First Name:',
+        'crew-monitoring-plan-rank-33': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-33': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-33': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-33': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-33': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-33': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-33': 'No of Months On Board:',
+
+        // Crew Change Data 33
+        'crew-monitoring-plan-vessel-33': 'Vessel:',
+        'crew-monitoring-plan-port-33': 'Port:',
+        'crew-monitoring-plan-country-33': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-33': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-33': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-33': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-33': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-33': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-33': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-33': 'Remarks:',
+
+        // On Board Crew Data 34
+        'crew-monitoring-plan-crew-no-34': 'No:',
+        'crew-monitoring-plan-vessel-name-34': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-34': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-34': 'Crew First Name:',
+        'crew-monitoring-plan-rank-34': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-34': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-34': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-34': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-34': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-34': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-34': 'No of Months On Board:',
+
+        // Crew Change Data 34
+        'crew-monitoring-plan-vessel-34': 'Vessel:',
+        'crew-monitoring-plan-port-34': 'Port:',
+        'crew-monitoring-plan-country-34': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-34': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-34': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-34': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-34': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-34': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-34': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-34': 'Remarks:',
+
+        // On Board Crew Data 35
+        'crew-monitoring-plan-crew-no-35': 'No:',
+        'crew-monitoring-plan-vessel-name-35': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-35': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-35': 'Crew First Name:',
+        'crew-monitoring-plan-rank-35': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-35': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-35': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-35': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-35': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-35': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-35': 'No of Months On Board:',
+
+        // Crew Change Data 35
+        'crew-monitoring-plan-vessel-35': 'Vessel:',
+        'crew-monitoring-plan-port-35': 'Port:',
+        'crew-monitoring-plan-country-35': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-35': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-35': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-35': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-35': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-35': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-35': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-35': 'Remarks:',
+
+        // On Board Crew Data 36
+        'crew-monitoring-plan-crew-no-36': 'No:',
+        'crew-monitoring-plan-vessel-name-36': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-36': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-36': 'Crew First Name:',
+        'crew-monitoring-plan-rank-36': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-36': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-36': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-36': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-36': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-36': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-36': 'No of Months On Board:',
+
+        // Crew Change Data 36
+        'crew-monitoring-plan-vessel-36': 'Vessel:',
+        'crew-monitoring-plan-port-36': 'Port:',
+        'crew-monitoring-plan-country-36': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-36': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-36': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-36': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-36': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-36': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-36': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-36': 'Remarks:',
+
+        // On Board Crew Data 37
+        'crew-monitoring-plan-crew-no-37': 'No:',
+        'crew-monitoring-plan-vessel-name-37': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-37': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-37': 'Crew First Name:',
+        'crew-monitoring-plan-rank-37': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-37': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-37': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-37': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-37': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-37': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-37': 'No of Months On Board:',
+
+        // Crew Change Data 37
+        'crew-monitoring-plan-vessel-37': 'Vessel:',
+        'crew-monitoring-plan-port-37': 'Port:',
+        'crew-monitoring-plan-country-37': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-37': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-37': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-37': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-37': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-37': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-37': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-37': 'Remarks:',
+
+        // On Board Crew Data 38
+        'crew-monitoring-plan-crew-no-38': 'No:',
+        'crew-monitoring-plan-vessel-name-38': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-38': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-38': 'Crew First Name:',
+        'crew-monitoring-plan-rank-38': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-38': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-38': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-38': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-38': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-38': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-38': 'No of Months On Board:',
+
+        // Crew Change Data 38
+        'crew-monitoring-plan-vessel-38': 'Vessel:',
+        'crew-monitoring-plan-port-38': 'Port:',
+        'crew-monitoring-plan-country-38': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-38': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-38': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-38': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-38': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-38': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-38': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-38': 'Remarks:',
+
+        // On Board Crew Data 39
+        'crew-monitoring-plan-crew-no-39': 'No:',
+        'crew-monitoring-plan-vessel-name-39': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-39': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-39': 'Crew First Name:',
+        'crew-monitoring-plan-rank-39': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-39': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-39': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-39': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-39': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-39': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-39': 'No of Months On Board:',
+
+        // Crew Change Data 39
+        'crew-monitoring-plan-vessel-39': 'Vessel:',
+        'crew-monitoring-plan-port-39': 'Port:',
+        'crew-monitoring-plan-country-39': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-39': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-39': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-39': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-39': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-39': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-39': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-39': 'Remarks:',
+
+        // On Board Crew Data 40
+        'crew-monitoring-plan-crew-no-40': 'No:',
+        'crew-monitoring-plan-vessel-name-40': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-40': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-40': 'Crew First Name:',
+        'crew-monitoring-plan-rank-40': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-40': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-40': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-40': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-40': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-40': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-40': 'No of Months On Board:',
+
+        // Crew Change Data 40
+        'crew-monitoring-plan-vessel-40': 'Vessel:',
+        'crew-monitoring-plan-port-40': 'Port:',
+        'crew-monitoring-plan-country-40': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-40': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-40': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-40': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-40': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-40': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-40': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-40': 'Remarks:',
+    
+        // On Board Crew Data 41
+        'crew-monitoring-plan-crew-no-41': 'No:',
+        'crew-monitoring-plan-vessel-name-41': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-41': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-41': 'Crew First Name:',
+        'crew-monitoring-plan-rank-41': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-41': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-41': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-41': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-41': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-41': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-41': 'No of Months On Board:',
+
+        // Crew Change Data 41
+        'crew-monitoring-plan-vessel-41': 'Vessel:',
+        'crew-monitoring-plan-port-41': 'Port:',
+        'crew-monitoring-plan-country-41': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-41': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-41': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-41': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-41': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-41': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-41': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-41': 'Remarks:',
+
+        // On Board Crew Data 42
+        'crew-monitoring-plan-crew-no-42': 'No:',
+        'crew-monitoring-plan-vessel-name-42': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-42': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-42': 'Crew First Name:',
+        'crew-monitoring-plan-rank-42': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-42': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-42': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-42': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-42': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-42': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-42': 'No of Months On Board:',
+
+        // Crew Change Data 42
+        'crew-monitoring-plan-vessel-42': 'Vessel:',
+        'crew-monitoring-plan-port-42': 'Port:',
+        'crew-monitoring-plan-country-42': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-42': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-42': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-42': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-42': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-42': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-42': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-42': 'Remarks:',
+
+        // On Board Crew Data 43
+        'crew-monitoring-plan-crew-no-43': 'No:',
+        'crew-monitoring-plan-vessel-name-43': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-43': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-43': 'Crew First Name:',
+        'crew-monitoring-plan-rank-43': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-43': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-43': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-43': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-43': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-43': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-43': 'No of Months On Board:',
+
+        // Crew Change Data 43
+        'crew-monitoring-plan-vessel-43': 'Vessel:',
+        'crew-monitoring-plan-port-43': 'Port:',
+        'crew-monitoring-plan-country-43': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-43': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-43': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-43': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-43': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-43': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-43': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-43': 'Remarks:',
+
+        // On Board Crew Data 44
+        'crew-monitoring-plan-crew-no-44': 'No:',
+        'crew-monitoring-plan-vessel-name-44': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-44': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-44': 'Crew First Name:',
+        'crew-monitoring-plan-rank-44': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-44': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-44': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-44': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-44': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-44': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-44': 'No of Months On Board:',
+
+        // Crew Change Data 44
+        'crew-monitoring-plan-vessel-44': 'Vessel:',
+        'crew-monitoring-plan-port-44': 'Port:',
+        'crew-monitoring-plan-country-44': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-44': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-44': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-44': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-44': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-44': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-44': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-44': 'Remarks:',
+
+        // On Board Crew Data 45
+        'crew-monitoring-plan-crew-no-45': 'No:',
+        'crew-monitoring-plan-vessel-name-45': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-45': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-45': 'Crew First Name:',
+        'crew-monitoring-plan-rank-45': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-45': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-45': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-45': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-45': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-45': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-45': 'No of Months On Board:',
+
+        // Crew Change Data 45
+        'crew-monitoring-plan-vessel-45': 'Vessel:',
+        'crew-monitoring-plan-port-45': 'Port:',
+        'crew-monitoring-plan-country-45': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-45': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-45': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-45': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-45': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-45': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-45': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-45': 'Remarks:',
+
+        // On Board Crew Data 46
+        'crew-monitoring-plan-crew-no-46': 'No:',
+        'crew-monitoring-plan-vessel-name-46': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-46': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-46': 'Crew First Name:',
+        'crew-monitoring-plan-rank-46': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-46': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-46': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-46': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-46': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-46': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-46': 'No of Months On Board:',
+
+        // Crew Change Data 46
+        'crew-monitoring-plan-vessel-46': 'Vessel:',
+        'crew-monitoring-plan-port-46': 'Port:',
+        'crew-monitoring-plan-country-46': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-46': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-46': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-46': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-46': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-46': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-46': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-46': 'Remarks:',
+
+        // On Board Crew Data 47
+        'crew-monitoring-plan-crew-no-47': 'No:',
+        'crew-monitoring-plan-vessel-name-47': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-47': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-47': 'Crew First Name:',
+        'crew-monitoring-plan-rank-47': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-47': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-47': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-47': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-47': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-47': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-47': 'No of Months On Board:',
+
+        // Crew Change Data 47
+        'crew-monitoring-plan-vessel-47': 'Vessel:',
+        'crew-monitoring-plan-port-47': 'Port:',
+        'crew-monitoring-plan-country-47': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-47': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-47': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-47': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-47': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-47': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-47': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-47': 'Remarks:',
+
+        // On Board Crew Data 48
+        'crew-monitoring-plan-crew-no-48': 'No:',
+        'crew-monitoring-plan-vessel-name-48': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-48': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-48': 'Crew First Name:',
+        'crew-monitoring-plan-rank-48': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-48': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-48': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-48': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-48': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-48': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-48': 'No of Months On Board:',
+
+        // Crew Change Data 48
+        'crew-monitoring-plan-vessel-48': 'Vessel:',
+        'crew-monitoring-plan-port-48': 'Port:',
+        'crew-monitoring-plan-country-48': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-48': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-48': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-48': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-48': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-48': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-48': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-48': 'Remarks:',
+
+        // On Board Crew Data 49
+        'crew-monitoring-plan-crew-no-49': 'No:',
+        'crew-monitoring-plan-vessel-name-49': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-49': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-49': 'Crew First Name:',
+        'crew-monitoring-plan-rank-49': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-49': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-49': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-49': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-49': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-49': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-49': 'No of Months On Board:',
+
+        // Crew Change Data 49
+        'crew-monitoring-plan-vessel-49': 'Vessel:',
+        'crew-monitoring-plan-port-49': 'Port:',
+        'crew-monitoring-plan-country-49': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-49': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-49': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-49': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-49': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-49': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-49': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-49': 'Remarks:',
+
+        // On Board Crew Data 50
+        'crew-monitoring-plan-crew-no-50': 'No:',
+        'crew-monitoring-plan-vessel-name-50': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-50': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-50': 'Crew First Name:',
+        'crew-monitoring-plan-rank-50': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-50': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-50': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-50': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-50': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-50': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-50': 'No of Months On Board:',
+
+        // Crew Change Data 50
+        'crew-monitoring-plan-vessel-50': 'Vessel:',
+        'crew-monitoring-plan-port-50': 'Port:',
+        'crew-monitoring-plan-country-50': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-50': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-50': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-50': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-50': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-50': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-50': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-50': 'Remarks:',
+
+        // On Board Crew Data 51
+        'crew-monitoring-plan-crew-no-51': 'No:',
+        'crew-monitoring-plan-vessel-name-51': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-51': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-51': 'Crew First Name:',
+        'crew-monitoring-plan-rank-51': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-51': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-51': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-51': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-51': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-51': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-51': 'No of Months On Board:',
+
+        // Crew Change Data 51
+        'crew-monitoring-plan-vessel-51': 'Vessel:',
+        'crew-monitoring-plan-port-51': 'Port:',
+        'crew-monitoring-plan-country-51': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-51': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-51': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-51': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-51': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-51': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-51': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-51': 'Remarks:',
+
+        // On Board Crew Data 52
+        'crew-monitoring-plan-crew-no-52': 'No:',
+        'crew-monitoring-plan-vessel-name-52': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-52': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-52': 'Crew First Name:',
+        'crew-monitoring-plan-rank-52': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-52': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-52': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-52': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-52': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-52': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-52': 'No of Months On Board:',
+
+        // Crew Change Data 52
+        'crew-monitoring-plan-vessel-52': 'Vessel:',
+        'crew-monitoring-plan-port-52': 'Port:',
+        'crew-monitoring-plan-country-52': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-52': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-52': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-52': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-52': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-52': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-52': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-52': 'Remarks:',
+
+        // On Board Crew Data 53
+        'crew-monitoring-plan-crew-no-53': 'No:',
+        'crew-monitoring-plan-vessel-name-53': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-53': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-53': 'Crew First Name:',
+        'crew-monitoring-plan-rank-53': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-53': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-53': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-53': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-53': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-53': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-53': 'No of Months On Board:',
+
+        // Crew Change Data 53
+        'crew-monitoring-plan-vessel-53': 'Vessel:',
+        'crew-monitoring-plan-port-53': 'Port:',
+        'crew-monitoring-plan-country-53': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-53': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-53': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-53': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-53': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-53': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-53': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-53': 'Remarks:',
+
+        // On Board Crew Data 54
+        'crew-monitoring-plan-crew-no-54': 'No:',
+        'crew-monitoring-plan-vessel-name-54': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-54': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-54': 'Crew First Name:',
+        'crew-monitoring-plan-rank-54': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-54': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-54': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-54': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-54': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-54': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-54': 'No of Months On Board:',
+
+        // Crew Change Data 54
+        'crew-monitoring-plan-vessel-54': 'Vessel:',
+        'crew-monitoring-plan-port-54': 'Port:',
+        'crew-monitoring-plan-country-54': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-54': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-54': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-54': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-54': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-54': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-54': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-54': 'Remarks:',
+
+        // On Board Crew Data 55
+        'crew-monitoring-plan-crew-no-55': 'No:',
+        'crew-monitoring-plan-vessel-name-55': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-55': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-55': 'Crew First Name:',
+        'crew-monitoring-plan-rank-55': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-55': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-55': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-55': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-55': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-55': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-55': 'No of Months On Board:',
+
+        // Crew Change Data 55
+        'crew-monitoring-plan-vessel-55': 'Vessel:',
+        'crew-monitoring-plan-port-55': 'Port:',
+        'crew-monitoring-plan-country-55': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-55': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-55': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-55': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-55': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-55': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-55': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-55': 'Remarks:',
+
+        // On Board Crew Data 56
+        'crew-monitoring-plan-crew-no-56': 'No:',
+        'crew-monitoring-plan-vessel-name-56': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-56': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-56': 'Crew First Name:',
+        'crew-monitoring-plan-rank-56': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-56': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-56': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-56': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-56': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-56': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-56': 'No of Months On Board:',
+
+        // Crew Change Data 56
+        'crew-monitoring-plan-vessel-56': 'Vessel:',
+        'crew-monitoring-plan-port-56': 'Port:',
+        'crew-monitoring-plan-country-56': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-56': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-56': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-56': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-56': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-56': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-56': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-56': 'Remarks:',
+
+        // On Board Crew Data 57
+        'crew-monitoring-plan-crew-no-57': 'No:',
+        'crew-monitoring-plan-vessel-name-57': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-57': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-57': 'Crew First Name:',
+        'crew-monitoring-plan-rank-57': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-57': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-57': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-57': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-57': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-57': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-57': 'No of Months On Board:',
+
+        // Crew Change Data 57
+        'crew-monitoring-plan-vessel-57': 'Vessel:',
+        'crew-monitoring-plan-port-57': 'Port:',
+        'crew-monitoring-plan-country-57': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-57': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-57': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-57': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-57': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-57': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-57': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-57': 'Remarks:',
+
+        // On Board Crew Data 58
+        'crew-monitoring-plan-crew-no-58': 'No:',
+        'crew-monitoring-plan-vessel-name-58': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-58': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-58': 'Crew First Name:',
+        'crew-monitoring-plan-rank-58': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-58': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-58': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-58': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-58': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-58': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-58': 'No of Months On Board:',
+
+        // Crew Change Data 58
+        'crew-monitoring-plan-vessel-58': 'Vessel:',
+        'crew-monitoring-plan-port-58': 'Port:',
+        'crew-monitoring-plan-country-58': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-58': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-58': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-58': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-58': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-58': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-58': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-58': 'Remarks:',
+
+        // On Board Crew Data 59
+        'crew-monitoring-plan-crew-no-59': 'No:',
+        'crew-monitoring-plan-vessel-name-59': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-59': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-59': 'Crew First Name:',
+        'crew-monitoring-plan-rank-59': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-59': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-59': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-59': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-59': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-59': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-59': 'No of Months On Board:',
+
+        // Crew Change Data 59
+        'crew-monitoring-plan-vessel-59': 'Vessel:',
+        'crew-monitoring-plan-port-59': 'Port:',
+        'crew-monitoring-plan-country-59': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-59': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-59': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-59': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-59': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-59': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-59': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-59': 'Remarks:',
+
+        // On Board Crew Data 60
+        'crew-monitoring-plan-crew-no-60': 'No:',
+        'crew-monitoring-plan-vessel-name-60': 'Vessel Name:',
+        'crew-monitoring-plan-crew-surname-60': 'Crew Surname:',
+        'crew-monitoring-plan-crew-first-name-60': 'Crew First Name:',
+        'crew-monitoring-plan-rank-60': 'Rank:',
+        'crew-monitoring-plan-crew-nationality-60': 'Crew Nationality:',
+        'crew-monitoring-plan-joining-date-60': 'Joining Date:',
+        'crew-monitoring-plan-contract-completion-date-60': 'Contract Completion Date:',
+        'crew-monitoring-plan-current-date-60': 'Current Date:',
+        'crew-monitoring-plan-days-to-completion-60': 'Days to Contract Completion:',
+        'crew-monitoring-plan-months-on-board-60': 'No of Months On Board:',
+
+        // Crew Change Data 60
+        'crew-monitoring-plan-vessel-60': 'Vessel:',
+        'crew-monitoring-plan-port-60': 'Port:',
+        'crew-monitoring-plan-country-60': 'Country:',
+        'crew-monitoring-plan-joiners-boarding-date-60': 'Date of Joiners Boarding:',
+        'crew-monitoring-plan-offsigners-signoff-date-60': 'Date of Off-signers Sign Off:',
+        'crew-monitoring-plan-joiners-rank-60': 'Joiners Ranks:',
+        'crew-monitoring-plan-offsigners-rank-60': 'Off-Signers Ranks:',
+        'crew-monitoring-plan-total-crew-change-60': 'Total Crew Change:',
+        'crew-monitoring-plan-reason-for-change-60': 'Reason for Change:',
+        'crew-monitoring-plan-remarks-60': 'Remarks:',
+
+        // Crew Monitoring Plan Master
+        'crew-monitoring-plan-master-name': 'Master:'
+        },
+
+        'voyagereport': {
+
+        // Voyage Details DataGroup
+        'voyage-report-vessel-name': 'Vessel Name:',
+        'voyage-report-vessel-no': 'Voyage No:',
+        'voyage-report-date': 'Date:',
+        
+        // Location DataGroup
+        'voyage-report-port-departure-cosp': 'Port of Departure COSP (Date and UTC):',
+        'voyage-report-port-arrival-eosp': 'Port of Arrival EOSP (Date and UTC):',
+        
+        // Off Hire DataGroup
+        'voyage-report-offhire-hrs': 'Off Hire Hours (Hrs):',
+        'voyage-report-offhire-reason': 'Off Hire Reason:',
+        
+        // Engine DataGroup
+        'voyage-report-avg-merpm': 'Avg ME RPM:',
+        'voyage-report-avg-mekw': 'Avg ME kW:',
+        'voyage-report-tdr': 'TDR (Nm):',
+        'voyage-report-tst': 'TST (Hrs):',
+        'voyage-report-slip': 'Slip (pct):',
+        
+        // ROB DataGroup
+        'voyage-report-hsfo': 'HSFO (MT):',
+        'voyage-report-vlsfo': 'VLSFO (MT):',
+        'voyage-report-biofuel': 'BIO FUEL (MT):',
+        'voyage-report-lsmgo': 'LSMGO (MT):',
+        'voyage-report-me-cc-oil': 'ME CC Oil (Litres):',
+        'voyage-report-me-cyl-oil': 'ME CYL Oil (Litres):',
+        'voyage-report-ge-cc-oil': 'GE CC Oil (Litres):',
+        'voyage-report-fw': 'FW (MT):',
+        'voyage-report-fw-produced': 'FW Produced (Litres):',
+        
+        // Received DataGroup
+        'voyage-report-received-hsfo': 'Received HSFO (MT):',
+        'voyage-report-received-vlsfo': 'Received VLSFO (MT):',
+        'voyage-report-received-biofuel': 'Received BIO FUEL (MT):',
+        'voyage-report-received-lsmgo': 'Received LSMGO (MT):',
+        'voyage-report-received-me-cc': 'Received ME CC Oil (Litres):',
+        'voyage-report-received-me-cyl-oil': 'Received ME CYL Oil (Litres):',
+        'voyage-report-received-ge-cc-oil': 'Received GE CC Oil (Litres):',
+        'voyage-report-received-fw': 'Received FW (MT):',
+        
+        // Consumption DataGroup
+        'voyage-report-consumption-hsfo': 'Consumption HSFO (MT):',
+        'voyage-report-consumption-vlsfo': 'Consumption VLSFO (MT):',
+        'voyage-report-consumption-biofuel': 'Consumption BIO FUEL (MT):',
+        'voyage-report-consumption-lsmgo': 'Consumption LSMGO (MT):',
+        'voyage-report-consumption-me-cc': 'Consumption ME CC Oil (Litres):',
+        'voyage-report-consumption-me-cyl-oil': 'Consumption ME CYL Oil (Litres):',
+        'voyage-report-consumption-ge-cc-oil': 'Consumption GE CC Oil (Litres):',
+        'voyage-report-consumption-fw': 'Consumption FW (MT):',
+        
+        // Remarks DataGroup
+        'voyage-report-remarks': 'Remarks:',
+        
+        // Master's Name DataGroup
+        'voyage-report-master-name': 'Masters Name:'
+        },
+
+        'kpi': {
+
+        // Vessel Information
+        'kpi-vessel-name': 'Vessel Name:',
+        'kpi-fleet': 'Fleet:',
+        'kpi-vessel-type': 'Vessel Type:',
+        'kpi-reporting-period': 'Reporting Period:',
+        
+        // Waste Management
+        'kpi-plastics-ashore': 'Plastics - Total Landed Ashore (m3):',
+        'kpi-plastics-incinerated': 'Plastics - Total Incinerated (m3):',
+        'kpi-food-sea': 'Food Waste - Total Disposed at Sea (m3):',
+        'kpi-food-ashore': 'Food Waste - Total Landed Ashore (m3):',
+        'kpi-domestic-ashore': 'Domestic Waste - Total Landed Ashore (m3):',
+        'kpi-domestic-incinerated': 'Domestic Waste - Total Incinerated (m3):',
+        'kpi-oil-ashore': 'Cooking Oil - Total Landed Ashore (m3):',
+        'kpi-oil-incinerated': 'Cooking Oil - Total Incinerated (m3):',
+        'kpi-ash-ashore': 'Incinerator Ash - Total Landed Ashore (m3):',
+        'kpi-ash-incinerated': 'Incinerator Ash - Total Incinerated (m3):',
+        'kpi-operational-ashore': 'Operational Wastes - Total Landed Ashore (m3):',
+        'kpi-operational-incinerated': 'Operational Wastes - Total Incinerated (m3):',
+        'kpi-ewaste-ashore': 'E-Waste - Total Landed Ashore (m3):',
+        'kpi-cargo-ashore': 'Cargo Residues - Total Landed Ashore (m3):',
+        'kpi-garbage-sea': 'Total Garbage Disposed at Sea (m3):',
+        'kpi-garbage-ashore': 'Total Garbage Landed Ashore (m3):',
+        'kpi-sludge-ashore': 'Sludge - Total Landed Ashore (m3):',
+        'kpi-sludge-incinerated': 'Sludge - Total Incinerated (m3):',
+        'kpi-sludge-generated': 'Sludge - Total Quantity Generated (m3):',
+        'kpi-fuel-consumed': 'Total Fuel Consumed (MT):',
+        'kpi-sludge-ratio': 'Ratio of Sludge Generated to Bunkers Consumed:',
+        'kpi-sludge-remarks': 'Sludge Remarks (if target exceeded):',
+        'kpi-bilge-ows': 'Total Bilge Water Discharged Through OWS (m3):',
+        'kpi-bilge-ashore': 'Total Bilge Water Landed to Shore (m3):',
+        'kpi-bilge-generated': 'Total Bilge Water Generated (m3):',
+        'kpi-paper-consumption': 'Paper Consumption (reams):',
+        'kpi-cartridges-consumed': 'Printer Cartridges (units):',
+        'kpi-consumption-remarks': 'Consumption Remarks (if target exceeded):',
+        'kpi-fresh-generated': 'Fresh Water Generated (m3):',
+        'kpi-fresh-consumed': 'Fresh Water Consumed (m3):',
+        'kpi-ballast-exchanges': 'Number of Ballast Water Exchanges Performed:',
+        'kpi-ballast-operations': 'Number of Ballast Operations:',
+        'kpi-deballast-operations': 'Number of De-Ballast Operations:',
+        'kpi-ballast-intake': 'Total Water Intake During Ballasting (m3):',
+        'kpi-deballast-out': 'Total Water Out During De-Ballasting (m3):',
+        'kpi-ballast-exchange-amount': 'Total Ballast Water Exchange Amount (m3):',
+        'kpi-propeller-cleanings': 'Total Number of Propeller Cleanings:',
+        'kpi-hull-cleanings': 'Total Number of Hull Cleanings:',
+        
+        // Voyage
+        'kpi-sailing-days-total': 'Total Sailing Days:',
+        'kpi-sailing-days-eco': 'Eco Speed Sailing Days:',
+        'kpi-sailing-days-full': 'Full Speed Sailing Days:',
+        
+        // Crew
+        'kpi-crew-fatalities': 'No. of Fatalities:',
+        'kpi-crew-lti': 'LTI (Lost Time Injuries):',
+        'kpi-crew-injuries': 'No. of Recordable Injuries:',
+        
+        // MACN
+        'kpi-macn-corruption': 'No. of Corruption/Bribery/Entertainment for Port Officials:',
+        
+        // Inspection
+        'kpi-psc-inspections': 'Number of PSC Inspections:',
+        'kpi-psc-deficiencies': 'PSC No. of Deficiencies:',
+        'kpi-psc-detentions': 'PSC Detentions (if any):',
+        'kpi-flag-inspections': 'Number of Flag State Inspections:',
+        'kpi-flag-deficiencies': 'Flag No. of Deficiencies:',
+        'kpi-third-party-inspections': 'Third Party Inspections (Charterers, Owners, RISQ, Others):',
+        'kpi-third-party-deficiencies': 'Third Party No. of Deficiencies:',
+        
+        // Overall Remarks
+        'voyage-overall-remarks': 'Overall Remarks:',
+        
+        // Master's Name
+        'kpi-master-name': 'Masters Name:'
         }
+
     };
 
         const currentFieldLabels = fieldLabels[reportSection];
@@ -3310,6 +4956,151 @@ function exportToExcel(reportId) {
             'weekly-schedule-details-agent-name-18-1': 'Agent Details',
             'weekly-schedule-details-agent-name-19-1': 'Agent Details',
             'weekly-schedule-details-agent-name-20-1': 'Agent Details',
+        },
+
+        'crewmonitoringplan': {
+        // Crew Monitoring Plan Title
+        'crew-monitoring-plan-crew-no-1': 'Crew No 1',
+        'crew-monitoring-plan-vessel-1': 'Vessel No 1',
+        'crew-monitoring-plan-crew-no-2': 'Crew No 2',
+        'crew-monitoring-plan-vessel-2': 'Vessel No 2',
+        'crew-monitoring-plan-crew-no-3': 'Crew No 3',
+        'crew-monitoring-plan-vessel-3': 'Vessel No 3',
+        'crew-monitoring-plan-crew-no-4': 'Crew No 4',
+        'crew-monitoring-plan-vessel-4': 'Vessel No 4',
+        'crew-monitoring-plan-crew-no-5': 'Crew No 5',
+        'crew-monitoring-plan-vessel-5': 'Vessel No 5',
+        'crew-monitoring-plan-crew-no-6': 'Crew No 6',
+        'crew-monitoring-plan-vessel-6': 'Vessel No 6',
+        'crew-monitoring-plan-crew-no-7': 'Crew No 7',
+        'crew-monitoring-plan-vessel-7': 'Vessel No 7',
+        'crew-monitoring-plan-crew-no-8': 'Crew No 8',
+        'crew-monitoring-plan-vessel-8': 'Vessel No 8',
+        'crew-monitoring-plan-crew-no-9': 'Crew No 9',
+        'crew-monitoring-plan-vessel-9': 'Vessel No 9',
+        'crew-monitoring-plan-crew-no-10': 'Crew No 10',
+        'crew-monitoring-plan-vessel-10': 'Vessel No 10',
+        'crew-monitoring-plan-crew-no-11': 'Crew No 11',
+        'crew-monitoring-plan-vessel-11': 'Vessel No 11',
+        'crew-monitoring-plan-crew-no-12': 'Crew No 12',
+        'crew-monitoring-plan-vessel-12': 'Vessel No 12',
+        'crew-monitoring-plan-crew-no-13': 'Crew No 13',
+        'crew-monitoring-plan-vessel-13': 'Vessel No 13',
+        'crew-monitoring-plan-crew-no-14': 'Crew No 14',
+        'crew-monitoring-plan-vessel-14': 'Vessel No 14',
+        'crew-monitoring-plan-crew-no-15': 'Crew No 15',
+        'crew-monitoring-plan-vessel-15': 'Vessel No 15',
+        'crew-monitoring-plan-crew-no-16': 'Crew No 16',
+        'crew-monitoring-plan-vessel-16': 'Vessel No 16',
+        'crew-monitoring-plan-crew-no-17': 'Crew No 17',
+        'crew-monitoring-plan-vessel-17': 'Vessel No 17',
+        'crew-monitoring-plan-crew-no-18': 'Crew No 18',
+        'crew-monitoring-plan-vessel-18': 'Vessel No 18',
+        'crew-monitoring-plan-crew-no-19': 'Crew No 19',
+        'crew-monitoring-plan-vessel-19': 'Vessel No 19',
+        'crew-monitoring-plan-crew-no-20': 'Crew No 20',
+        'crew-monitoring-plan-vessel-20': 'Vessel No 20',
+        'crew-monitoring-plan-crew-no-21': 'Crew No 21',
+        'crew-monitoring-plan-vessel-21': 'Vessel No 21',
+        'crew-monitoring-plan-crew-no-22': 'Crew No 22',
+        'crew-monitoring-plan-vessel-22': 'Vessel No 22',
+        'crew-monitoring-plan-crew-no-23': 'Crew No 23',
+        'crew-monitoring-plan-vessel-23': 'Vessel No 23',
+        'crew-monitoring-plan-crew-no-24': 'Crew No 24',
+        'crew-monitoring-plan-vessel-24': 'Vessel No 24',
+        'crew-monitoring-plan-crew-no-25': 'Crew No 25',
+        'crew-monitoring-plan-vessel-25': 'Vessel No 25',
+        'crew-monitoring-plan-crew-no-26': 'Crew No 26',
+        'crew-monitoring-plan-vessel-26': 'Vessel No 26',
+        'crew-monitoring-plan-crew-no-27': 'Crew No 27',
+        'crew-monitoring-plan-vessel-27': 'Vessel No 27',
+        'crew-monitoring-plan-crew-no-28': 'Crew No 28',
+        'crew-monitoring-plan-vessel-28': 'Vessel No 28',
+        'crew-monitoring-plan-crew-no-29': 'Crew No 29',
+        'crew-monitoring-plan-vessel-29': 'Vessel No 29',
+        'crew-monitoring-plan-crew-no-30': 'Crew No 30',
+        'crew-monitoring-plan-vessel-30': 'Vessel No 30',
+        'crew-monitoring-plan-crew-no-31': 'Crew No 31',
+        'crew-monitoring-plan-vessel-31': 'Vessel No 31',
+        'crew-monitoring-plan-crew-no-32': 'Crew No 32',
+        'crew-monitoring-plan-vessel-32': 'Vessel No 32',
+        'crew-monitoring-plan-crew-no-33': 'Crew No 33',
+        'crew-monitoring-plan-vessel-33': 'Vessel No 33',
+        'crew-monitoring-plan-crew-no-34': 'Crew No 34',
+        'crew-monitoring-plan-vessel-34': 'Vessel No 34',
+        'crew-monitoring-plan-crew-no-35': 'Crew No 35',
+        'crew-monitoring-plan-vessel-35': 'Vessel No 35',
+        'crew-monitoring-plan-crew-no-36': 'Crew No 36',
+        'crew-monitoring-plan-vessel-36': 'Vessel No 36',
+        'crew-monitoring-plan-crew-no-37': 'Crew No 37',
+        'crew-monitoring-plan-vessel-37': 'Vessel No 37',
+        'crew-monitoring-plan-crew-no-38': 'Crew No 38',
+        'crew-monitoring-plan-vessel-38': 'Vessel No 38',
+        'crew-monitoring-plan-crew-no-39': 'Crew No 39',
+        'crew-monitoring-plan-vessel-39': 'Vessel No 39',
+        'crew-monitoring-plan-crew-no-40': 'Crew No 40',
+        'crew-monitoring-plan-vessel-40': 'Vessel No 40',
+        'crew-monitoring-plan-crew-no-41': 'Crew No 41',
+        'crew-monitoring-plan-vessel-41': 'Vessel No 41',
+        'crew-monitoring-plan-crew-no-42': 'Crew No 42',
+        'crew-monitoring-plan-vessel-42': 'Vessel No 42',
+        'crew-monitoring-plan-crew-no-43': 'Crew No 43',
+        'crew-monitoring-plan-vessel-43': 'Vessel No 43',
+        'crew-monitoring-plan-crew-no-44': 'Crew No 44',
+        'crew-monitoring-plan-vessel-44': 'Vessel No 44',
+        'crew-monitoring-plan-crew-no-45': 'Crew No 45',
+        'crew-monitoring-plan-vessel-45': 'Vessel No 45',
+        'crew-monitoring-plan-crew-no-46': 'Crew No 46',
+        'crew-monitoring-plan-vessel-46': 'Vessel No 46',
+        'crew-monitoring-plan-crew-no-47': 'Crew No 47',
+        'crew-monitoring-plan-vessel-47': 'Vessel No 47',
+        'crew-monitoring-plan-crew-no-48': 'Crew No 48',
+        'crew-monitoring-plan-vessel-48': 'Vessel No 48',
+        'crew-monitoring-plan-crew-no-49': 'Crew No 49',
+        'crew-monitoring-plan-vessel-49': 'Vessel No 49',
+        'crew-monitoring-plan-crew-no-50': 'Crew No 50',
+        'crew-monitoring-plan-vessel-50': 'Vessel No 50',
+        'crew-monitoring-plan-crew-no-51': 'Crew No 51',
+        'crew-monitoring-plan-vessel-51': 'Vessel No 51',
+        'crew-monitoring-plan-crew-no-52': 'Crew No 52',
+        'crew-monitoring-plan-vessel-52': 'Vessel No 52',
+        'crew-monitoring-plan-crew-no-53': 'Crew No 53',
+        'crew-monitoring-plan-vessel-53': 'Vessel No 53',
+        'crew-monitoring-plan-crew-no-54': 'Crew No 54',
+        'crew-monitoring-plan-vessel-54': 'Vessel No 54',
+        'crew-monitoring-plan-crew-no-55': 'Crew No 55',
+        'crew-monitoring-plan-vessel-55': 'Vessel No 55',
+        'crew-monitoring-plan-crew-no-56': 'Crew No 56',
+        'crew-monitoring-plan-vessel-56': 'Vessel No 56',
+        'crew-monitoring-plan-crew-no-57': 'Crew No 57',
+        'crew-monitoring-plan-vessel-57': 'Vessel No 57',
+        'crew-monitoring-plan-crew-no-58': 'Crew No 58',
+        'crew-monitoring-plan-vessel-58': 'Vessel No 58',
+        'crew-monitoring-plan-crew-no-59': 'Crew No 59',
+        'crew-monitoring-plan-vessel-59': 'Vessel No 59',
+        'crew-monitoring-plan-crew-no-60': 'Crew No 60',
+        'crew-monitoring-plan-vessel-60': 'Vessel No 60'
+        },
+
+        'voyagereport': {
+            'voyage-report-vessel-name': 'VOYAGE DETAILS',
+            'voyage-report-port-departure-cosp': 'LOCATION',
+            'voyage-report-offhire-hrs': 'OFF HIRE',
+            'voyage-report-avg-merpm': 'ENGINE',
+            'voyage-report-hsfo': 'ROB',
+            'voyage-report-received-hsfo': 'RECEIVED',
+            'voyage-report-consumption-hsfo': 'CONSUMPTION',
+            'voyage-report-remarks': 'MASTER REMARKS',
+        },
+
+        'kpi': {
+            'kpi-vessel-name': 'VESSEL INFORMATION',
+            'kpi-plastics-ashore': 'WASTE MANAGEMENT',
+            'kpi-sailing-days-total': 'VOYAGE',    
+            'kpi-crew-fatalities': 'CREW',
+            'kpi-macn-corruption': 'MACN',
+            'kpi-psc-inspections': 'INSPECTION',
+            'voyage-overall-remarks': 'OVERALL REMARKS',
         }
 
     };
@@ -3718,7 +5509,151 @@ function exportToExcel(reportId) {
             'weekly-schedule-details-agent-email-20-11',
             'weekly-schedule-details-agent-email-20-12'
 
+        ],
+
+        'crewmonitoringplan': [
+        // Crew No 1 to 60 Months on Board and Remarks
+        'crew-monitoring-plan-months-on-board-1',
+        'crew-monitoring-plan-remarks-1',
+        'crew-monitoring-plan-months-on-board-2',
+        'crew-monitoring-plan-remarks-2',
+        'crew-monitoring-plan-months-on-board-3',
+        'crew-monitoring-plan-remarks-3',
+        'crew-monitoring-plan-months-on-board-4',
+        'crew-monitoring-plan-remarks-4',
+        'crew-monitoring-plan-months-on-board-5',
+        'crew-monitoring-plan-remarks-5',
+        'crew-monitoring-plan-months-on-board-6',
+        'crew-monitoring-plan-remarks-6',
+        'crew-monitoring-plan-months-on-board-7',
+        'crew-monitoring-plan-remarks-7',
+        'crew-monitoring-plan-months-on-board-8',
+        'crew-monitoring-plan-remarks-8',
+        'crew-monitoring-plan-months-on-board-9',
+        'crew-monitoring-plan-remarks-9',
+        'crew-monitoring-plan-months-on-board-10',
+        'crew-monitoring-plan-remarks-10',
+        'crew-monitoring-plan-months-on-board-11',
+        'crew-monitoring-plan-remarks-11',
+        'crew-monitoring-plan-months-on-board-12',
+        'crew-monitoring-plan-remarks-12',
+        'crew-monitoring-plan-months-on-board-13',
+        'crew-monitoring-plan-remarks-13',
+        'crew-monitoring-plan-months-on-board-14',
+        'crew-monitoring-plan-remarks-14',
+        'crew-monitoring-plan-months-on-board-15',
+        'crew-monitoring-plan-remarks-15',
+        'crew-monitoring-plan-months-on-board-16',
+        'crew-monitoring-plan-remarks-16',
+        'crew-monitoring-plan-months-on-board-17',
+        'crew-monitoring-plan-remarks-17',
+        'crew-monitoring-plan-months-on-board-18',
+        'crew-monitoring-plan-remarks-18',
+        'crew-monitoring-plan-months-on-board-19',
+        'crew-monitoring-plan-remarks-19',
+        'crew-monitoring-plan-months-on-board-20',
+        'crew-monitoring-plan-remarks-20',
+        'crew-monitoring-plan-months-on-board-21',
+        'crew-monitoring-plan-remarks-21',
+        'crew-monitoring-plan-months-on-board-22',
+        'crew-monitoring-plan-remarks-22',
+        'crew-monitoring-plan-months-on-board-23',
+        'crew-monitoring-plan-remarks-23',
+        'crew-monitoring-plan-months-on-board-24',
+        'crew-monitoring-plan-remarks-24',
+        'crew-monitoring-plan-months-on-board-25',
+        'crew-monitoring-plan-remarks-25',
+        'crew-monitoring-plan-months-on-board-26',
+        'crew-monitoring-plan-remarks-26',
+        'crew-monitoring-plan-months-on-board-27',
+        'crew-monitoring-plan-remarks-27',
+        'crew-monitoring-plan-months-on-board-28',
+        'crew-monitoring-plan-remarks-28',
+        'crew-monitoring-plan-months-on-board-29',
+        'crew-monitoring-plan-remarks-29',
+        'crew-monitoring-plan-months-on-board-30',
+        'crew-monitoring-plan-remarks-30',
+        'crew-monitoring-plan-months-on-board-31',
+        'crew-monitoring-plan-remarks-31',
+        'crew-monitoring-plan-months-on-board-32',
+        'crew-monitoring-plan-remarks-32',
+        'crew-monitoring-plan-months-on-board-33',
+        'crew-monitoring-plan-remarks-33',
+        'crew-monitoring-plan-months-on-board-34',
+        'crew-monitoring-plan-remarks-34',
+        'crew-monitoring-plan-months-on-board-35',
+        'crew-monitoring-plan-remarks-35',
+        'crew-monitoring-plan-months-on-board-36',
+        'crew-monitoring-plan-remarks-36',
+        'crew-monitoring-plan-months-on-board-37',
+        'crew-monitoring-plan-remarks-37',
+        'crew-monitoring-plan-months-on-board-38',
+        'crew-monitoring-plan-remarks-38',
+        'crew-monitoring-plan-months-on-board-39',
+        'crew-monitoring-plan-remarks-39',
+        'crew-monitoring-plan-months-on-board-40',
+        'crew-monitoring-plan-remarks-40',
+        'crew-monitoring-plan-months-on-board-41',
+        'crew-monitoring-plan-remarks-41',
+        'crew-monitoring-plan-months-on-board-42',
+        'crew-monitoring-plan-remarks-42',
+        'crew-monitoring-plan-months-on-board-43',
+        'crew-monitoring-plan-remarks-43',
+        'crew-monitoring-plan-months-on-board-44',
+        'crew-monitoring-plan-remarks-44',
+        'crew-monitoring-plan-months-on-board-45',
+        'crew-monitoring-plan-remarks-45',
+        'crew-monitoring-plan-months-on-board-46',
+        'crew-monitoring-plan-remarks-46',
+        'crew-monitoring-plan-months-on-board-47',
+        'crew-monitoring-plan-remarks-47',
+        'crew-monitoring-plan-months-on-board-48',
+        'crew-monitoring-plan-remarks-48',
+        'crew-monitoring-plan-months-on-board-49',
+        'crew-monitoring-plan-remarks-49',
+        'crew-monitoring-plan-months-on-board-50',
+        'crew-monitoring-plan-remarks-50',
+        'crew-monitoring-plan-months-on-board-51',
+        'crew-monitoring-plan-remarks-51',
+        'crew-monitoring-plan-months-on-board-52',
+        'crew-monitoring-plan-remarks-52',
+        'crew-monitoring-plan-months-on-board-53',
+        'crew-monitoring-plan-remarks-53',
+        'crew-monitoring-plan-months-on-board-54',
+        'crew-monitoring-plan-remarks-54',
+        'crew-monitoring-plan-months-on-board-55',
+        'crew-monitoring-plan-remarks-55',
+        'crew-monitoring-plan-months-on-board-56',
+        'crew-monitoring-plan-remarks-56',
+        'crew-monitoring-plan-months-on-board-57',
+        'crew-monitoring-plan-remarks-57',
+        'crew-monitoring-plan-months-on-board-58',
+        'crew-monitoring-plan-remarks-58',
+        'crew-monitoring-plan-months-on-board-59',
+        'crew-monitoring-plan-remarks-59',
+        'crew-monitoring-plan-months-on-board-60',
+        'crew-monitoring-plan-remarks-60'
+        ],
+
+        'voyagereport': [
+            'voyage-report-date',
+            'voyage-report-port-arrival-eosp',
+            'voyage-report-offhire-reason',
+            'voyage-report-slip',
+            'voyage-report-fw-produced',
+            'voyage-report-received-fw',
+            'voyage-report-consumption-fw'
+        ],
+
+        'kpi': [
+            'kpi-reporting-period',
+            'kpi-hull-cleanings',
+            'kpi-sailing-days-full',
+            'kpi-crew-injuries',
+            'kpi-macn-corruption',
+            'kpi-third-party-deficiencies'
         ]
+
     };
 
     const currentFieldSubTitles = fieldsWithSubTitles[reportSection];
@@ -3999,7 +5934,7 @@ function openTab(evt, tabName) {
     evt.target.blur();
 }
 
-let crewCounter = 1;
+let crewCounter = 2;
 
 function openTabCrew(evt, tabName) {
     evt.preventDefault();
@@ -4037,6 +5972,10 @@ function openTabCrew(evt, tabName) {
 }
 
 
+// Declare separate counters for each tab
+let onboardCrewCounter = 2;   // Counter for "On Board Crew"
+let crewChangeDataCounter = 2; // Counter for "Crew Change Data"
+
 function addCrewFieldset() {
     // Find the tab that has the data-active attribute set to "true"
     const activeTab = document.querySelector('.crew-tab-content[data-active="true"]');
@@ -4044,117 +5983,208 @@ function addCrewFieldset() {
     console.log("Active Tab ID:", activeTabId); // Debugging
 
     let newFieldsetContent = '';
+    let crewCounter;
 
+    // Use the appropriate counter for each tab
     if (activeTabId === 'OnBoardCrew') {
-            newFieldsetContent = `
-                <fieldset>
-                    <legend>On Board Crew Data ${crewCounter}</legend>
-                    <div class="four-columns">
-                        <div class="form-group">
-                            <label for="crew-no-${crewCounter}">No</label>
-                            <input type="number" id="crew-no-${crewCounter}" name="crew-no-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="vessel-name-${crewCounter}">Vessel Name</label>
-                            <input type="text" id="vessel-name-${crewCounter}" name="vessel-name-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="crew-surname-${crewCounter}">Crew Surname</label>
-                            <input type="text" id="crew-surname-${crewCounter}" name="crew-surname-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="crew-first-name-${crewCounter}">Crew First Name</label>
-                            <input type="text" id="crew-first-name-${crewCounter}" name="crew-first-name-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="rank-${crewCounter}">Rank</label>
-                            <input type="text" id="rank-${crewCounter}" name="rank-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="crew-nationality-${crewCounter}">Crew Nationality</label>
-                            <input type="text" id="crew-nationality-${crewCounter}" name="crew-nationality-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="joining-date-${crewCounter}">Joining Date</label>
-                            <input type="date" id="joining-date-${crewCounter}" name="joining-date-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="contract-completion-date-${crewCounter}">Contract Completion Date</label>
-                            <input type="date" id="contract-completion-date-${crewCounter}" name="contract-completion-date-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="current-date-${crewCounter}">Current Date</label>
-                            <input type="date" id="current-date-${crewCounter}" name="current-date-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="days-to-completion-${crewCounter}">Days to Contract Completion</label>
-                            <input type="number" id="days-to-completion-${crewCounter}" name="days-to-completion-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="months-on-board-${crewCounter}">No of Months On Board</label>
-                            <input type="number" id="months-on-board-${crewCounter}" name="months-on-board-${crewCounter}">
-                        </div>
+        crewCounter = onboardCrewCounter; // Use On Board Crew counter
+        newFieldsetContent = `
+            <fieldset>
+                <legend>On Board Crew Data ${crewCounter}</legend>
+                <div class="four-columns">
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-crew-no-${crewCounter}">No</label>
+                        <input type="number" id="crew-monitoring-plan-crew-no-${crewCounter}" name="crew-monitoring-plan-crew-no-${crewCounter}">
                     </div>
-                </fieldset>`;
-        } else if (activeTabId === 'CrewChangeData') {
-            newFieldsetContent = `
-                <fieldset>
-                    <legend>Crew Change Data ${crewCounter}</legend>
-                    <div class="four-columns">
-                        <div class="form-group">
-                            <label for="vessel-${crewCounter}">Vessel</label>
-                            <input type="text" id="vessel-${crewCounter}" name="vessel-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="port-${crewCounter}">Port</label>
-                            <input type="text" id="port-${crewCounter}" name="port-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="country-${crewCounter}">Country</label>
-                            <input type="text" id="country-${crewCounter}" name="country-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="joiners-boarding-date-${crewCounter}">Date of Joiners Boarding</label>
-                            <input type="date" id="joiners-boarding-date-${crewCounter}" name="joiners-boarding-date-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="offsigners-signoff-date-${crewCounter}">Date of Off-signers Sign Off</label>
-                            <input type="date" id="offsigners-signoff-date-${crewCounter}" name="offsigners-signoff-date-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="joiners-rank-${crewCounter}">Joiners Ranks</label>
-                            <input type="text" id="joiners-rank-${crewCounter}" name="joiners-rank-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="offsigners-rank-${crewCounter}">Off-Signers Ranks</label>
-                            <input type="text" id="offsigners-rank-${crewCounter}" name="offsigners-rank-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="total-crew-change-${crewCounter}">Total Crew Change</label>
-                            <input type="number" id="total-crew-change-${crewCounter}" name="total-crew-change-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="reason-for-change-${crewCounter}">Reason for Change</label>
-                            <input type="text" id="reason-for-change-${crewCounter}" name="reason-for-change-${crewCounter}">
-                        </div>
-                        <div class="form-group">
-                            <label for="remarks-${crewCounter}">Remarks</label>
-                            <textarea id="remarks-${crewCounter}" name="remarks-${crewCounter}" rows="4" style="height: 15px; width: 97%;"></textarea>
-                        </div>
+                    <div class="form-group common-select-container">
+                        <label for="crew-monitoring-plan-vessel-name-${crewCounter}">Vessel Name</label>
+                        <select class="common-select" id="crew-monitoring-plan-vessel-name-${crewCounter}" name="crew-monitoring-plan-vessel-name-${crewCounter}" required>
+                            <option value="">Select Vessel</option>
+                            <option value="Kellet Island">Kellett Island</option>
+                            <option value="Trident Star">Trident Star</option>
+                            <option value="Weco Laura">Weco Laura</option>
+                            <option value="CMB Permeke">CMB Permeke</option>
+                            <option value="Cape Magnolia">Cape Magnolia</option>
+                            <option value="Andalucia">Andalucia</option>
+                            <option value="Brilliant Express">Brilliant Express</option>
+                            <option value="Aquarius Ace">Aquarius Ace</option>
+                            <option value="City of St Petersburg">City of St.Petersburg</option>
+                            <option value="City of Rotterdam">City of Rotterdam</option>
+                            <option value="World Spirit">World Spirit</option>
+                            <option value="United Spirit">United Spirit</option>
+                            <option value="Glengyle">Glengyle</option>
+                            <option value="HSL Chicago">HSL Chicago</option>
+                            <option value="ETG Southern Cross">ETG Southern Cross</option>
+                            <option value="Dream Sky">Dream Sky</option>
+                            <option value="Infinity Sky">Infnity Sky</option>
+                            <option value="Cape Acacia">Cape Acacia</option>
+                            <option value="Cape Jasmine">Cape Jasmine</option>
+                            <option value="CL Tomo">CL Tomo</option>
+                            <option value="Maple Harvest">Maple Harvest</option>
+                            <option value="World Swan II">World Swan II</option>
+                        </select>
                     </div>
-                </fieldset>`;
-        }
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-crew-surname-${crewCounter}">Crew Surname</label>
+                        <input type="text" id="crew-monitoring-plan-crew-surname-${crewCounter}" name="crew-monitoring-plan-crew-surname-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-crew-first-name-${crewCounter}">Crew First Name</label>
+                        <input type="text" id="crew-monitoring-plan-crew-first-name-${crewCounter}" name="crew-monitoring-plan-crew-first-name-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-rank-${crewCounter}">Rank</label>
+                        <input type="text" id="crew-monitoring-plan-rank-${crewCounter}" name="crew-monitoring-plan-rank-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-crew-nationality-${crewCounter}">Crew Nationality</label>
+                        <input type="text" id="crew-monitoring-plan-crew-nationality-${crewCounter}" name="crew-monitoring-plan-crew-nationality-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-joining-date-${crewCounter}">Joining Date</label>
+                        <input type="date" id="crew-monitoring-plan-joining-date-${crewCounter}" name="crew-monitoring-plan-joining-date-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-contract-completion-date-${crewCounter}">Contract Completion Date</label>
+                        <input type="date" id="crew-monitoring-plan-contract-completion-date-${crewCounter}" name="crew-monitoring-plan-contract-completion-date-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-current-date-${crewCounter}">Current Date</label>
+                        <input type="date" id="crew-monitoring-plan-current-date-${crewCounter}" name="crew-monitoring-plan-current-date-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-days-to-completion-${crewCounter}">Days to Contract Completion</label>
+                        <input type="number" id="crew-monitoring-plan-days-to-completion-${crewCounter}" name="crew-monitoring-plan-days-to-completion-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-months-on-board-${crewCounter}">No of Months On Board</label>
+                        <input type="number" id="crew-monitoring-plan-months-on-board-${crewCounter}" name="crew-monitoring-plan-months-on-board-${crewCounter}">
+                    </div>
+                </div>
+            </fieldset>`;
 
-        console.log("Fieldset Content:", newFieldsetContent); // Debugging
+        onboardCrewCounter++; // Increment the On Board Crew counter for the next crew member
 
-        if (newFieldsetContent) {
-            document.getElementById(activeTabId).insertAdjacentHTML('beforeend', newFieldsetContent);
-            crewCounter++; // Increment counter for the next crew member
-        } else {
-            console.log("No fieldset content generated");
-        }
+    } else if (activeTabId === 'CrewChangeData') {
+        crewCounter = crewChangeDataCounter; // Use Crew Change Data counter
+        newFieldsetContent = `
+            <fieldset>
+                <legend>Crew Change Data ${crewCounter}</legend>
+                <div class="four-columns">
+                    <div class="form-group common-select-container">
+                        <label for="crew-monitoring-plan-vessel-${crewCounter}">Vessel</label>
+                        <select class="common-select" id="crew-monitoring-plan-vessel-${crewCounter}" name="crew-monitoring-plan-vessel-${crewCounter}" required>
+                            <option value="">Select Vessel</option>
+                            <option value="Kellet Island">Kellett Island</option>
+                            <option value="Trident Star">Trident Star</option>
+                            <option value="Weco Laura">Weco Laura</option>
+                            <option value="CMB Permeke">CMB Permeke</option>
+                            <option value="Cape Magnolia">Cape Magnolia</option>
+                            <option value="Andalucia">Andalucia</option>
+                            <option value="Brilliant Express">Brilliant Express</option>
+                            <option value="Aquarius Ace">Aquarius Ace</option>
+                            <option value="City of St Petersburg">City of St.Petersburg</option>
+                            <option value="City of Rotterdam">City of Rotterdam</option>
+                            <option value="World Spirit">World Spirit</option>
+                            <option value="United Spirit">United Spirit</option>
+                            <option value="Glengyle">Glengyle</option>
+                            <option value="HSL Chicago">HSL Chicago</option>
+                            <option value="ETG Southern Cross">ETG Southern Cross</option>
+                            <option value="Dream Sky">Dream Sky</option>
+                            <option value="Infinity Sky">Infnity Sky</option>
+                            <option value="Cape Acacia">Cape Acacia</option>
+                            <option value="Cape Jasmine">Cape Jasmine</option>
+                            <option value="CL Tomo">CL Tomo</option>
+                            <option value="Maple Harvest">Maple Harvest</option>
+                            <option value="World Swan II">World Swan II</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-port-${crewCounter}">Port</label>
+                        <input type="text" id="crew-monitoring-plan-port-${crewCounter}" name="crew-monitoring-plan-port-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-country-${crewCounter}">Country</label>
+                        <input type="text" id="crew-monitoring-plan-country-${crewCounter}" name="crew-monitoring-plan-country-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-joiners-boarding-date-${crewCounter}">Date of Joiners Boarding</label>
+                        <input type="date" id="crew-monitoring-plan-joiners-boarding-date-${crewCounter}" name="crew-monitoring-plan-joiners-boarding-date-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-offsigners-signoff-date-${crewCounter}">Date of Off-signers Sign Off</label>
+                        <input type="date" id="crew-monitoring-plan-offsigners-signoff-date-${crewCounter}" name="crew-monitoring-plan-offsigners-signoff-date-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-joiners-rank-${crewCounter}">Joiners Ranks</label>
+                        <input type="text" id="crew-monitoring-plan-joiners-rank-${crewCounter}" name="crew-monitoring-plan-joiners-rank-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-offsigners-rank-${crewCounter}">Off-Signers Ranks</label>
+                        <input type="text" id="crew-monitoring-plan-offsigners-rank-${crewCounter}" name="crew-monitoring-plan-offsigners-rank-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-total-crew-change-${crewCounter}">Total Crew Change</label>
+                        <input type="number" id="crew-monitoring-plan-total-crew-change-${crewCounter}" name="crew-monitoring-plan-total-crew-change-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-reason-for-change-${crewCounter}">Reason for Change</label>
+                        <input type="text" id="crew-monitoring-plan-reason-for-change-${crewCounter}" name="crew-monitoring-plan-reason-for-change-${crewCounter}">
+                    </div>
+                    <div class="form-group">
+                        <label for="crew-monitoring-plan-remarks-${crewCounter}">Remarks</label>
+                        <textarea id="crew-monitoring-plan-remarks-${crewCounter}" name="crew-monitoring-plan-remarks-${crewCounter}" rows="4" style="height: 15px; width: 97%;"></textarea>
+                    </div>
+                </div>
+            </fieldset>`;
+
+        crewChangeDataCounter++; // Increment the Crew Change Data counter for the next crew member
     }
 
+    if (newFieldsetContent) {
+        // Insert the new fieldset content into the active tab
+        document.getElementById(activeTabId).insertAdjacentHTML('beforeend', newFieldsetContent);
+    } else {
+        console.log("No fieldset content generated");
+    }
+}
+
+let currentStep = 1;
+
+function navigateStep(step) {
+    const steps = document.querySelectorAll('.step-content');
+    const stepIndicators = document.querySelectorAll('.step'); // Assuming you have step indicators for each step
+    let currentStep = document.querySelector('.step-content.active');
+    let currentIndex = Array.from(steps).indexOf(currentStep);
+
+    // Hide the current step
+    currentStep.classList.remove('active');
+    currentStep.style.display = 'none';
+    stepIndicators[currentIndex].classList.remove('active'); // Remove active class from step indicator
+
+    // Calculate the next step index
+    let nextIndex = currentIndex + step;
+
+    // Show the next step
+    steps[nextIndex].classList.add('active');
+    steps[nextIndex].style.display = 'block';
+    stepIndicators[nextIndex].classList.add('active'); // Add active class to the next step indicator
+
+    // Handle the navigation buttons
+    if (nextIndex === steps.length - 1) {
+        document.getElementById('finish-button').style.display = 'none'; // Hide Finish button on the last step
+        document.getElementById('kpi-submit').style.display = 'inline-block'; // Show Submit button
+    } else {
+        document.getElementById('finish-button').style.display = 'inline-block'; // Show Finish button
+        document.getElementById('kpi-submit').style.display = 'none'; // Hide Submit button
+    }
+
+    // Disable the "Previous" button on the first step
+    document.querySelector('.prev-step').disabled = (nextIndex === 0);
+
+    // Optional: If needed, adjust the stepper line logic here (e.g., changing the connector line color)
+    updateStepperLines(nextIndex); // Assuming you have a function that handles line updates
+}
 
 function addRowAllFast() {
     const tableBodyAllFast = document.getElementById('allFastRobTableBody');
@@ -4436,13 +6466,13 @@ function restoreDraft(reportId) {
                 formElement.value = draft[key];
             }
         });
-        //alert(`Draft for ${reportId} restored!`);
+        alert(`Draft for ${reportId} restored!`);
     }
 }
 
 // Restore all drafts
 function restoreAllDrafts() {
-    const reportIds = ['NoonReport', 'DepartureReport', 'ArrivalReport', 'Bunkering', 'AllFast', 'WeeklyReport'];
+    const reportIds = ['NoonReport', 'DepartureReport', 'ArrivalReport', 'Bunkering', 'AllFast', 'WeeklyReport', 'CrewMonitoringPlan', 'VoyageReport', 'KPI'];
     reportIds.forEach(reportId => restoreDraft(reportId));
 }
 
@@ -4506,7 +6536,7 @@ function handleReportTypeChange(reportSection) {
 // Function to set up port search functionality
 function setupPortSearch(inputId, resultsId) {
     let portList = [];
-
+    console.log("Hello " +inputId);
     // Fetch the port names from the text file
     fetch('portName.txt')
         .then(response => response.text())
@@ -5277,45 +7307,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-// Function to handle tab switching
-function kpiOpenTab(event, tabName) {
-    event.preventDefault(); // Prevent form submission or link redirection
-
-    const tabContent = document.getElementsByClassName('kpi-tab-content');
-    for (let i = 0; i < tabContent.length; i++) {
-        tabContent[i].style.display = 'none'; // Hide all tabs
-    }
-
-    const tabButtons = document.getElementsByClassName('tab-button');
-    for (let i = 0; i < tabButtons.length; i++) {
-        tabButtons[i].className = tabButtons[i].className.replace(' active', '');
-    }
-
-    document.getElementById(tabName).style.display = 'block'; // Show the clicked tab
-    event.currentTarget.className += ' active'; // Mark the clicked tab as active
-}
-
-// Initialize first tab to be visible by default
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('VesselInformation').style.display = 'block'; // Ensure the first tab is shown by default
-});
-
-// Accordion functionality
-const accordions = document.getElementsByClassName('accordion');
-for (let i = 0; i < accordions.length; i++) {
-    accordions[i].addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent any default action like form submission or redirection
-
-        this.classList.toggle('active'); // Toggle the 'active' class to change the style
-        const panel = this.nextElementSibling; // Get the next sibling element (the accordion panel)
-
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null; // Collapse the panel if it's already expanded
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + 'px'; // Expand the panel
-        }
-    });
-}
 
 
