@@ -62,6 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Add the port search functionality for Crew Monitoring Plan Report fields
+    setupPortSearch('crew-monitoring-plan-port-1', 'crew-monitoring-plan-port-results-1');
+
     // Add the port search functionality for Noon Report fields
     setupPortSearch('noon-voyage-details-port', 'noon-voyage-details-port-results');
     setupPortSearch('noon-voyage-itinerary-port', 'noon-voyage-itinerary-port-results');
@@ -79,28 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add the port search functionality for Weekly Schedule Report fields
     setupPortSearch('weekly-schedule-details-port-1', 'weekly-schedule-details-port-1-results');
-    setupPortSearch('weekly-schedule-details-port-2-1', 'weekly-schedule-details-port-2-1-results');
-    setupPortSearch('weekly-schedule-details-port-3-1', 'weekly-schedule-details-port-3-1-results');
-    setupPortSearch('weekly-schedule-details-port-4-1', 'weekly-schedule-details-port-4-1-results');
-    setupPortSearch('weekly-schedule-details-port-5-1', 'weekly-schedule-details-port-5-1-results');
-    setupPortSearch('weekly-schedule-details-port-6-1', 'weekly-schedule-details-port-6-1-results');
-    setupPortSearch('weekly-schedule-details-port-7-1', 'weekly-schedule-details-port-7-1-results');
-    setupPortSearch('weekly-schedule-details-port-8-1', 'weekly-schedule-details-port-8-1-results');
-    setupPortSearch('weekly-schedule-details-port-9-1', 'weekly-schedule-details-port-9-1-results');
-    setupPortSearch('weekly-schedule-details-port-10-1', 'weekly-schedule-details-port-10-1-results');
-    setupPortSearch('weekly-schedule-details-port-11-1', 'weekly-schedule-details-port-11-1-results');
-    setupPortSearch('weekly-schedule-details-port-12-1', 'weekly-schedule-details-port-12-1-results');
-    setupPortSearch('weekly-schedule-details-port-13-1', 'weekly-schedule-details-port-13-1-results');
-    setupPortSearch('weekly-schedule-details-port-14-1', 'weekly-schedule-details-port-14-1-results');
-    setupPortSearch('weekly-schedule-details-port-15-1', 'weekly-schedule-details-port-15-1-results');
-    setupPortSearch('weekly-schedule-details-port-16-1', 'weekly-schedule-details-port-16-1-results');
-    setupPortSearch('weekly-schedule-details-port-17-1', 'weekly-schedule-details-port-17-1-results');
-    setupPortSearch('weekly-schedule-details-port-18-1', 'weekly-schedule-details-port-18-1-results');
-    setupPortSearch('weekly-schedule-details-port-19-1', 'weekly-schedule-details-port-19-1-results');
-    setupPortSearch('weekly-schedule-details-port-20-1', 'weekly-schedule-details-port-20-1-results');
-
-    // Add the port search functionality for Crew Monitoring Plan Report fields
-    setupPortSearch('crew-monitoring-plan-port', 'crew-monitoring-plan-port-results');
 
     // Attach validation for latitude and longitude fields
     const latitudeFields = [
@@ -6099,9 +6080,10 @@ function addCrewFieldset() {
                             <option value="World Swan II">World Swan II</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group port-style">
                         <label for="crew-monitoring-plan-port-${crewCounter}">Port</label>
-                        <input type="text" id="crew-monitoring-plan-port-${crewCounter}" name="crew-monitoring-plan-port-${crewCounter}">
+                        <input type="text" class="crew-monitoring-plan-port" id="crew-monitoring-plan-port-${crewCounter}" name="crew-monitoring-plan-port-${crewCounter}">
+                        <div id="crew-monitoring-plan-port-results-${crewCounter}" class="crew-monitoring-plan-port-results"></div>
                     </div>
                     <div class="form-group">
                         <label for="crew-monitoring-plan-country-${crewCounter}">Country</label>
@@ -6137,13 +6119,17 @@ function addCrewFieldset() {
                     </div>
                 </div>
             </fieldset>`;
-
+          
         crewChangeDataCounter++; // Increment the Crew Change Data counter for the next crew member
+        
     }
 
     if (newFieldsetContent) {
         // Insert the new fieldset content into the active tab
         document.getElementById(activeTabId).insertAdjacentHTML('beforeend', newFieldsetContent);
+
+        // Add the port search functionality for Crew Monitoring Plan Report fields
+        setupPortSearch('crew-monitoring-plan-port-' + crewCounter, 'crew-monitoring-plan-port-results-' + crewCounter);
     } else {
         console.log("No fieldset content generated");
     }
@@ -6403,6 +6389,9 @@ function addRowWeeklyReportNewPort() {
 
     // Reapply the search function for the new port field after appending
     setupPortSearch(newPortFieldId, newResultFieldId);
+
+    // Add the port search functionality for Weekly Schedule Report fields
+    setupPortSearch('weekly-schedule-details-port-' + portSetNumber, 'weekly-schedule-details-port-' + portSetNumber + '-results');
 }
 
 function removeTableSet(setNumber) {

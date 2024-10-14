@@ -608,7 +608,7 @@ body.dark-mode form .form-group textarea[required] {
 #arrival-voyage-details-port-results,
 #bunkering-details-bunkering-port-results,
 #allfast-voyage-details-port-results,
-#crew-monitoring-plan-port-results {
+.crew-monitoring-plan-port-results {
     position: absolute;
     background-color: white;
     border: 1px solid #ccc;
@@ -634,7 +634,7 @@ body.dark-mode form .form-group textarea[required] {
 #arrival-voyage-details-port:hover,
 #bunkering-details-bunkering-port:hover,
 #allfast-voyage-details-port:hover,
-#crew-monitoring-plan-port:hover {
+.crew-monitoring-plan-port:hover {
     cursor: pointer;
     border-color: #007bff;
 }
@@ -650,7 +650,7 @@ body.dark-mode form .form-group textarea[required] {
 #bunkering-details-bunkering-port-results .result-item,
 #allfast-voyage-details-port-results .result-item,
 .weekly-port-search-results .result-item,
-#crew-monitoring-plan-port-results .result-item {
+.crew-monitoring-plan-port-results .result-item {
     padding: 8px 12px; /* Slightly smaller padding */
     cursor: pointer;
     border-bottom: 1px solid #ddd;
@@ -669,7 +669,7 @@ body.dark-mode form .form-group textarea[required] {
 #bunkering-details-bunkering-port-results .result-item:hover,
 #allfast-voyage-details-port-results .result-item:hover,
 .weekly-port-search-results .result-item:hover,
-#crew-monitoring-plan-port-results .result-item:hover {
+.crew-monitoring-plan-port-results .result-item:hover {
     background-color: #f1f1f1;
 }
 
@@ -715,7 +715,7 @@ body.dark-mode #crew-monitoring-plan-port-results .result-item:hover {
 #bunkering-details-bunkering-port:focus,
 #allfast-voyage-details-port:focus,
 .weekly-schedule-details-port-1-results:focus,
-#crew-monitoring-plan-port-results:focus {
+.crew-monitoring-plan-port-results:focus {
     border-color: #007BFF;
     outline: none;
 }
