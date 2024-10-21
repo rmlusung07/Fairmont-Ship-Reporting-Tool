@@ -37,6 +37,7 @@
             <button onclick="openReport(event, 'CrewMonitoringPlan')">Crew Monitoring Plan</button>
             <button onclick="openReport(event, 'VoyageReport')">Voyage Report</button>
             <button onclick="openReport(event, 'KPI')">KPI</button>
+            <button onclick="openReport(event, 'PortOfCall')">Port Of Call</button>
         </nav>
 
         <!-- Main content starts here -->
@@ -161,7 +162,7 @@
                             <div class="form-group in-port-section port-style">
                                 <label for="noon-voyage-details-port">Port of Departure:</label>
                                 <input type="text" id="noon-voyage-details-port" name="noon-voyage-details-port" required>
-                                <div id="noon-voyage-details-port-results"></div>
+                                <!-- <div id="noon-voyage-details-port-results"></div> -->
                             </div>
                         </div>
                     </fieldset>
@@ -233,7 +234,7 @@
                             <div class="form-group at-sea-section port-style">
                                 <label for="noon-details-since-last-report-next-port">Next Port:</label>
                                 <input type="text" id="noon-details-since-last-report-next-port" name="noon-details-since-last-report-next-port" required>
-                                <div id="noon-details-since-last-report-next-port-results"></div>
+                                <!-- <div id="noon-details-since-last-report-next-port-results"></div> -->
                             </div>
                             <div class="form-group at-sea-section common-date-container">
                                 <label for="noon-details-since-last-report-eta-next-port">ETA Next Port (LT):</label>
@@ -355,7 +356,7 @@
                             <div class="form-group">
                                 <label for="noon-voyage-itinerary-port port-style">Next Port</label>
                                 <input type="text" id="noon-voyage-itinerary-port" name="noon-voyage-itinerary-port" required> 
-                                <div id="noon-voyage-itinerary-port-results"></div>
+                                <!-- <div id="noon-voyage-itinerary-port-results"></div> -->
                             </div>
                             <div class="form-group common-select-container">
                                 <label for="noon-voyage-itinerary-via">Via</label>
@@ -1947,7 +1948,7 @@ Other remarks by the Master:
                             <div class="form-group port-style">
                                 <label for="departure-voyage-details-departure-port">Departure Port:</label>
                                 <input type="text" id="departure-voyage-details-departure-port" name="departure-voyage-details-departure-port" required>
-                                <div id="departure-voyage-details-departure-port-results"></div>
+                                <!-- <div id="departure-voyage-details-departure-port-results"></div> -->
                             </div>
                         <div>
                     </fieldset>
@@ -2007,7 +2008,7 @@ Other remarks by the Master:
                             <div class="form-group at-sea-section port-style">
                                 <label for="departure-details-since-last-report-next-port">Next Port:</label>
                                 <input type="text" id="departure-details-since-last-report-next-port" name="departure-details-since-last-report-next-port" required>
-                                <div id="departure-details-since-last-report-next-port-results"></div>
+                                <!-- <div id="departure-details-since-last-report-next-port-results"></div> -->
                             </div>
                             <div class="form-group">
                                 <label for="departure-details-since-last-report-eta-next-port">ETA Next Port (LT):</label>
@@ -2117,7 +2118,7 @@ Other remarks by the Master:
                             <div class="form-group port-style">
                                 <label for="departure-voyage-itinerary-port">Port</label>
                                 <input type="text" id="departure-voyage-itinerary-port" name="departure-voyage-itinerary-port" required> 
-                                <div id="departure-voyage-itinerary-port-results"></div>
+                                <!-- <div id="departure-voyage-itinerary-port-results"></div> -->
                             </div>
                             <div class="form-group common-select-container">
                                 <label for="departure-voyage-itinerary-via">Via</label>
@@ -3391,7 +3392,7 @@ Other remarks by the Master:
                             <div class="form-group port-style">
                                 <label for="arrival-voyage-details-port">Arrival Port:</label>
                                 <input type="text" id="arrival-voyage-details-port" name="arrival-voyage-details-port" required>
-                                <div id="arrival-voyage-details-port-results"></div>
+                                <!-- <div id="arrival-voyage-details-port-results"></div> -->
                             </div>
                             <div class="form-group berth-section">
                                 <label for="arrival-voyage-details-anchored-hours">Anchored Hours:</label>
@@ -4643,7 +4644,7 @@ Other remarks by the Master:
                             <div class="form-group port-style">
                                 <label for="bunkering-details-bunkering-port">Bunkering Port:</label>
                                 <input type="text" id="bunkering-details-bunkering-port" name="bunkering-details-bunkering-port" required>
-                                <div id="bunkering-details-bunkering-port-results"></div>
+                                <!-- <div id="bunkering-details-bunkering-port-results"></div> -->
                             </div>
                             <div class="form-group common-select-container">
                                 <label for="bunkering-details-supplier">Supplier:</label>
@@ -5270,7 +5271,7 @@ Other remarks by the Master:
                             <div class="form-group port-style">
                                 <label for="allfast-voyage-details-port">Port:</label>
                                 <input type="text" id="allfast-voyage-details-port" name="allfast-voyage-details-port" required>
-                                <div id="allfast-voyage-details-port-results"></div>
+                                <!-- <div id="allfast-voyage-details-port-results"></div> -->
                             </div>
                         </div>
                     </fieldset>
@@ -5358,8 +5359,8 @@ Other remarks by the Master:
                                 <input class="common-date" type="datetime-local" id="weekly-voyage-details-date-time" name="weekly-voyage-details-date-time" required>
                             </div>
                         </div>
+                    </fieldset>
 
-                        </fieldset>
                         <fieldset>
                         <legend>Agent's Details</legend>
                         <div class="weekly-schedule-container">
@@ -5383,7 +5384,7 @@ Other remarks by the Master:
                                     <tr>
                                         <td>
                                             <input type="text" id="weekly-schedule-details-port-1" name="weekly-schedule-details-port-1">
-                                            <div id="weekly-schedule-details-port-1-results" class="weekly-port-search-results"></div>
+                                            <!-- <div id="weekly-schedule-details-port-1-results" class="weekly-port-search-results"></div> -->
                                         </td>
                                         <td class="fuel-grade-select-cell">
                                             <select class="fuel-grade-select" id="weekly-schedule-details-activity-port-1" name="weekly-schedule-details-activity-port-1">
@@ -5447,7 +5448,8 @@ Other remarks by the Master:
                         <input type="text" id="weekly-master-name" name="weekly-master-name">
                     </fieldset>
 
-                <button type="submit" id="weekly-submit">Submit</button>
+                    <button type="submit" id="weekly-submit">Submit</button>
+
                 </form>
             </section>
        
@@ -5583,7 +5585,7 @@ Other remarks by the Master:
                                     <div class="form-group port-style">
                                         <label for="crew-monitoring-plan-port-1">Port:</label>
                                         <input type="text" class="crew-monitoring-plan-port" id="crew-monitoring-plan-port-1" name="crew-monitoring-plan-port-1" required>
-                                        <div id="crew-monitoring-plan-port-results-1" class="crew-monitoring-plan-port-results"></div>
+                                        <!-- <div id="crew-monitoring-plan-port-results-1" class="crew-monitoring-plan-port-results"></div> -->
                                     </div>
                                     <div class="form-group">
                                         <label for="crew-monitoring-plan-country-1">Country</label>
@@ -6259,7 +6261,6 @@ Other remarks by the Master:
                                     </div>
                                 </div>
                             </fieldset>
-                            </div>
                         </div>
 
                         <!-- Step 3: Voyage -->
@@ -6375,11 +6376,210 @@ Other remarks by the Master:
                             <button type="submit" id="kpi-submit" style="display: none;">Submit</button>
                         </div>
                     </div>
-
-                    
                 </form>
             </section>
-        
+
+            <section id="PortOfCall" class="report-section">
+                <h1>Port of Call</h1>
+                <div class="sub-container">
+                    <button type="button" class="save-draft" onclick="saveDraft('PortOfCall')">Save Draft</button>
+                    <button type="button" class="save-draft" onclick="clearFields('PortOfCall')">Clear Fields</button>
+                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('PortOfCall')">Export Data</button>
+                </div>
+                
+                <form>
+                    <fieldset>
+                        <legend>Vessel Details</legend>
+                        <div class="four-columns">
+                            <div class="form-group">
+                                <label for="port-of-call-vessel-name">Vessel Name:</label>
+                                <select class="common-select" id="port-of-call-vessel-name" name="port-of-call-vessel-name" required>
+                                    <option value="">Select Vessel</option>
+                                    <option value="Kellet Island">Kellett Island</option>
+                                    <option value="Trident Star">Trident Star</option>
+                                    <option value="Weco Laura">Weco Laura</option>
+                                    <option value="CMB Permeke">CMB Permeke</option>
+                                    <option value="Cape Magnolia">Cape Magnolia</option>
+                                    <option value="Andalucia">Andalucia</option>
+                                    <option value="Brilliant Express">Brilliant Express</option>
+                                    <option value="Aquarius Ace">Aquarius Ace</option>
+                                    <option value="City of St Petersburg">City of St.Petersburg</option>
+                                    <option value="City of Rotterdam">City of Rotterdam</option>
+                                    <option value="World Spirit">World Spirit</option>
+                                    <option value="United Spirit">United Spirit</option>
+                                    <option value="Glengyle">Glengyle</option>
+                                    <option value="HSL Chicago">HSL Chicago</option>
+                                    <option value="ETG Southern Cross">ETG Southern Cross</option>
+                                    <option value="Dream Sky">Dream Sky</option>
+                                    <option value="Infinity Sky">Infnity Sky</option>
+                                    <option value="Cape Acacia">Cape Acacia</option>
+                                    <option value="Cape Jasmine">Cape Jasmine</option>
+                                    <option value="CL Tomo">CL Tomo</option>
+                                    <option value="Maple Harvest">Maple Harvest</option>
+                                    <option value="World Swan II">World Swan II</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-call-sign">Call Sign:</label>
+                                <input type="text" id="port-of-call-call-sign" name="port-of-call-call-sign" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-flag">Flag:</label>
+                                <input type="text" id="port-of-call-flag" name="port-of-call-flag" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-port-registry">Port of Registry:</label>
+                                <input type="text" id="port-of-call-port-registry" name="port-of-call-port-registry" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-official-number">Official Number:</label>
+                                <input type="text" id="port-of-call-official-number" name="port-of-call-official-number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-imo-number">IMO Number:</label>
+                                <input type="text" id="port-of-call-imo-number" name="port-of-call-imo-number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-class-society">Class Society:</label>
+                                <input type="text" id="port-of-call-class-society" name="port-of-call-class-society" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-class-no">Class No:</label>
+                                <input type="text" id="port-of-call-class-no" name="port-of-call-class-no" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-p-i-club">P&I Club:</label>
+                                <input type="text" id="port-of-call-p-i-club" name="port-of-call-p-i-club" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-loa">LOA (Length Overall):</label>
+                                <input type="text" id="port-of-call-loa" name="port-of-call-loa" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-lbp">LBP (Length Between Perpendiculars):</label>
+                                <input type="text" id="port-of-call-lbp" name="port-of-call-lbp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-breadth">Breadth (extreme):</label>
+                                <input type="text" id="port-of-call-breadth" name="port-of-call-breadth" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-depth">Depth (molded):</label>
+                                <input type="text" id="dport-of-call-epth" name="port-of-call-depth" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-height">Height (maximum):</label>
+                                <input type="text" id="port-of-call-height" name="port-of-call-height" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-bridge-bow">Bridge Front - Bow:</label>
+                                <input type="text" id="port-of-call-bridge-bow" name="port-of-call-bridge-bow" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-bridge-stern">Bridge Front - Stern:</label>
+                                <input type="text" id="port-of-call-bridge-stern" name="port-of-call-bridge-stern" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-light-ship-displacement">Light Ship Displacement:</label>
+                                <input type="text" id="port-of-call-light-ship-displacement" name="port-of-call-light-ship-displacement" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-keel-laid">Keel Laid:</label>
+                                <input type="date" id="port-of-call-keel-laid" name="port-of-call-keel-laid" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-launched">Launched:</label>
+                                <input type="date" id="port-of-call-launched" name="port-of-call-launched" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-delivered">Delivered:</label>
+                                <input type="date" id="port-of-call-delivered" name="port-of-call-delivered" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-shipyard">Shipyard:</label>
+                                <input type="text" id="port-of-call-shipyard" name="port-of-call-shipyard" required>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+
+                        <div class="w3-bar w3-theme">
+                            <button type="button" class="w3-bar-item w3-button add-new-port" onclick="addRowPortOfCallNewPort()">Add New Port</button>
+                        </div>
+
+                        <legend>Deliverables</legend>
+                        <div class="four-columns">
+                            <div class="form-group">
+                                <label for="port-of-call-voyage-no">Voyage No:</label>
+                                <input type="text" id="port-of-call-voyage-no" name="port-of-call-voyage-no" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="port-of-call-charterers">Charterers</label>
+                                <input class="validate" type="text" id="port-of-call-charterers" name="port-of-call-charterers" required>
+                            </div>  
+                            <div class="form-group">
+                                <label class="port-of-call-cargo" for="port-of-call-cargo">Cargo:</label>
+                                <input type="text" id="port-of-call-cargo" name="port-of-call-cargo" required>
+                            </div>
+                        </div>
+
+                            <br />
+                    
+                            <table id="portOfCallTable">
+                                <thead id="portOfCallTableHead">
+
+                                    <tr>
+                                        <th rowspan="2">Port of calling</th>
+                                        <th rowspan="2">Country</th>
+                                        <th rowspan="2">Purpose</th>
+                                        <th colspan="2">ATA/ETA</th>
+                                        <th colspan="2">Ship's Information</th>
+                                        <th rowspan="2">GMT</th>
+                                        <th rowspan="1">Duration</th>
+                                        <th rowspan="1">Total</th>
+                                        <th rowspan="2">Action</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>(DAYS)</th>
+                                        <th>(DAYS)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="portOfCallAgentTableBody">
+                                    <tr>
+                                        <td><input type="text" id="port-of-calls-port-of-calling-1" name="port-of-calls-port-of-calling-1"></td>
+                                        <td><input type="text" id="port-of-calls-country-1" name="port-of-calls-country-1"></td>
+                                        <td><input type="text" id="port-of-calls-purpose-1" name="port-of-calls-purpose-1"></td>
+                                        <td><input type="text" id="port-of-calls-ata-eta-date-1" name="port-of-calls-ata-eta-date-1"></td>
+                                        <td><input type="text" id="port-of-calls-ata-eta-time-1" name="port-of-calls-ata-eta-time-1"></td>
+                                        <td><input type="text" id="port-of-calls-ship-information-date-1" name="port-of-calls-ship-information-date-1"></td>
+                                        <td><input type="text" id="port-of-calls-ship-information-time-1" name="port-of-calls-ship-information-time-1"></td>
+                                        <td><input type="text" id="port-of-calls-gmt-1" name="port-of-calls-gmt-1"></td>
+                                        <td><input type="text" id="port-of-calls-duration-1" name="port-of-calls-duration-1"></td>
+                                        <td><input type="text" id="port-of-calls-total-1" name="port-of-calls-total-1"></td>
+                                        <td><button type="button" class="add-row-button" onclick="addRowPortOfCallAgent(this)">Add Agent</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    
+                            <br />
+                            <div id="portOfCallNewTableContainer"></div>
+                        
+                    </fieldset>                    
+
+                    <!-- Master's Name -->
+                    <fieldset>
+                        <legend>Master's Name</legend>
+                        <input type="text" id="port-of-call-master-name" name="port-of-call-master-name">
+                    </fieldset>
+
+                    <button type="submit" id="weekly-submit">Submit</button>
+                </form>
+            </section>
         </main>
     </div>
 

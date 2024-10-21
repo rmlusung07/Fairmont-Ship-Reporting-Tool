@@ -62,26 +62,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add the port search functionality for Crew Monitoring Plan Report fields
-    setupPortSearch('crew-monitoring-plan-port-1', 'crew-monitoring-plan-port-results-1');
+    // // Add the port search functionality for Crew Monitoring Plan Report fields
+    // setupPortSearch('crew-monitoring-plan-port-1', 'crew-monitoring-plan-port-results-1');
 
-    // Add the port search functionality for Noon Report fields
-    setupPortSearch('noon-voyage-details-port', 'noon-voyage-details-port-results');
-    setupPortSearch('noon-voyage-itinerary-port', 'noon-voyage-itinerary-port-results');
-    setupPortSearch('noon-details-since-last-report-next-port', 'noon-details-since-last-report-next-port-results');
+    // // Add the port search functionality for Noon Report fields
+    // setupPortSearch('noon-voyage-details-port', 'noon-voyage-details-port-results');
+    // setupPortSearch('noon-voyage-itinerary-port', 'noon-voyage-itinerary-port-results');
+    // setupPortSearch('noon-details-since-last-report-next-port', 'noon-details-since-last-report-next-port-results');
 
-    // Add the port search functionality for Departure Report fields
-    setupPortSearch('departure-voyage-details-departure-port', 'departure-voyage-details-departure-port-results');
-    setupPortSearch('departure-details-since-last-report-next-port', 'departure-details-since-last-report-next-port-results');
-    setupPortSearch('departure-voyage-itinerary-port', 'departure-voyage-itinerary-port-results');
+    // // Add the port search functionality for Departure Report fields
+    // setupPortSearch('departure-voyage-details-departure-port', 'departure-voyage-details-departure-port-results');
+    // setupPortSearch('departure-details-since-last-report-next-port', 'departure-details-since-last-report-next-port-results');
+    // setupPortSearch('departure-voyage-itinerary-port', 'departure-voyage-itinerary-port-results');
 
-    // Add the port search functionality for Arrival, Bunkering and All fast Report fields
-    setupPortSearch('arrival-voyage-details-port', 'arrival-voyage-details-port-results');
-    setupPortSearch('bunkering-details-bunkering-port', 'bunkering-details-bunkering-port-results');
-    setupPortSearch('allfast-voyage-details-port', 'allfast-voyage-details-port-results');
+    // // Add the port search functionality for Arrival, Bunkering and All fast Report fields
+    // setupPortSearch('arrival-voyage-details-port', 'arrival-voyage-details-port-results');
+    // setupPortSearch('bunkering-details-bunkering-port', 'bunkering-details-bunkering-port-results');
+    // setupPortSearch('allfast-voyage-details-port', 'allfast-voyage-details-port-results');
 
-    // Add the port search functionality for Weekly Schedule Report fields
-    setupPortSearch('weekly-schedule-details-port-1', 'weekly-schedule-details-port-1-results');
+    // // Add the port search functionality for Weekly Schedule Report fields
+    // setupPortSearch('weekly-schedule-details-port-1', 'weekly-schedule-details-port-1-results');
 
     // Attach validation for latitude and longitude fields
     const latitudeFields = [
@@ -4795,6 +4795,641 @@ function exportToExcel(reportId) {
         
         // Master's Name
         'kpi-master-name': 'Masters Name:'
+        },
+
+        'portofcall': {
+
+            // Port of Call Report Fields
+            'port-of-call-vessel-name': 'Vessel Name:',
+            'port-of-call-call-sign': 'Call Sign:',
+            'port-of-call-flag': 'Flag:',
+            'port-of-call-port-registry': 'Port of Registry:',
+            'port-of-call-official-number': 'Official Number:',
+            'port-of-call-imo-number': 'IMO Number:',
+            'port-of-call-class-society': 'Class Society:',
+            'port-of-call-class-no': 'Class No:',
+            'port-of-call-p-i-club': 'P&I Club:',
+            'port-of-call-loa': 'LOA (Length Overall):',
+            'port-of-call-lbp': 'LBP (Length Between Perpendiculars):',
+            'port-of-call-breadth': 'Breadth (extreme):',
+            'port-of-call-depth': 'Depth (molded):',
+            'port-of-call-height': 'Height (maximum):',
+            'port-of-call-bridge-bow': 'Bridge Front - Bow:',
+            'port-of-call-bridge-stern': 'Bridge Front - Stern:',
+            'port-of-call-light-ship-displacement': 'Light Ship Displacement:',
+            'port-of-call-keel-laid': 'Keel Laid:',
+            'port-of-call-launched': 'Launched:',
+            'port-of-call-delivered': 'Delivered:',
+            'port-of-call-shipyard': 'Shipyard:',
+
+            // Deliverables Section
+            'port-of-call-voyage-no': 'Voyage No:',
+            'port-of-call-charterers': 'Charterers:',
+            'port-of-call-cargo': 'Cargo:',
+
+            // Port of Call Table
+            'port-of-calls-port-of-calling-1': 'Port of Calling:',
+            'port-of-calls-country-1': 'Country:',
+            'port-of-calls-purpose-1': 'Purpose:',
+            'port-of-calls-ata-eta-date-1': 'ATA/ETA Date:',
+            'port-of-calls-ata-eta-time-1': 'ATA/ETA Time:',
+            'port-of-calls-ship-information-date-1': 'Ships Information Date:',
+            'port-of-calls-ship-information-time-1': 'Ships Information Time:',
+            'port-of-calls-gmt-1': 'GMT:',
+            'port-of-calls-duration-1': 'Duration (Days):',
+            'port-of-calls-total-1': 'Total (Days):',
+
+            // Port of Call 2
+            'port-of-calls-port-of-calling-2': 'Port of Calling:',
+            'port-of-calls-country-2': 'Country:',
+            'port-of-calls-purpose-2': 'Purpose:',
+            'port-of-calls-ata-eta-date-2': 'ATA/ETA Date:',
+            'port-of-calls-ata-eta-time-2': 'ATA/ETA Time:',
+            'port-of-calls-ship-information-date-2': 'Ships Information Date:',
+            'port-of-calls-ship-information-time-2': 'Ships Information Time:',
+            'port-of-calls-gmt-2': 'GMT:',
+            'port-of-calls-duration-2': 'Duration (Days):',
+            'port-of-calls-total-2': 'Total (Days):',
+
+            // Port of Call 3
+            'port-of-calls-port-of-calling-3': 'Port of Calling:',
+            'port-of-calls-country-3': 'Country:',
+            'port-of-calls-purpose-3': 'Purpose:',
+            'port-of-calls-ata-eta-date-3': 'ATA/ETA Date:',
+            'port-of-calls-ata-eta-time-3': 'ATA/ETA Time:',
+            'port-of-calls-ship-information-date-3': 'Ships Information Date:',
+            'port-of-calls-ship-information-time-3': 'Ships Information Time:',
+            'port-of-calls-gmt-3': 'GMT:',
+            'port-of-calls-duration-3': 'Duration (Days):',
+            'port-of-calls-total-3': 'Total (Days):',
+
+            // Port of Call 4
+            'port-of-calls-port-of-calling-4': 'Port of Calling',
+            'port-of-calls-country-4': 'Country',
+            'port-of-calls-purpose-4': 'Purpose',
+            'port-of-calls-ata-eta-date-4': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-4': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-4': 'Ships Information Date',
+            'port-of-calls-ship-information-time-4': 'Ships Information Time',
+            'port-of-calls-gmt-4': 'GMT',
+            'port-of-calls-duration-4': 'Duration (Days):',
+            'port-of-calls-total-4': 'Total (Days):',
+
+            // Port of Call 5
+            'port-of-calls-port-of-calling-5': 'Port of Calling',
+            'port-of-calls-country-5': 'Country',
+            'port-of-calls-purpose-5': 'Purpose',
+            'port-of-calls-ata-eta-date-5': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-5': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-5': 'Ships Information Date',
+            'port-of-calls-ship-information-time-5': 'Ships Information Time',
+            'port-of-calls-gmt-5': 'GMT',
+            'port-of-calls-duration-5': 'Duration (Days):',
+            'port-of-calls-total-5': 'Total (Days):',
+
+            // Port of Call 6
+            'port-of-calls-port-of-calling-6': 'Port of Calling',
+            'port-of-calls-country-6': 'Country',
+            'port-of-calls-purpose-6': 'Purpose',
+            'port-of-calls-ata-eta-date-6': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-6': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-6': 'Ships Information Date',
+            'port-of-calls-ship-information-time-6': 'Ships Information Time',
+            'port-of-calls-gmt-6': 'GMT',
+            'port-of-calls-duration-6': 'Duration (Days):',
+            'port-of-calls-total-6': 'Total (Days):',
+
+            // Port of Call 7
+            'port-of-calls-port-of-calling-7': 'Port of Calling',
+            'port-of-calls-country-7': 'Country',
+            'port-of-calls-purpose-7': 'Purpose',
+            'port-of-calls-ata-eta-date-7': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-7': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-7': 'Ships Information Date',
+            'port-of-calls-ship-information-time-7': 'Ships Information Time',
+            'port-of-calls-gmt-7': 'GMT',
+            'port-of-calls-duration-7': 'Duration (Days):',
+            'port-of-calls-total-7': 'Total (Days):',
+
+            // Port of Call 8
+            'port-of-calls-port-of-calling-8': 'Port of Calling',
+            'port-of-calls-country-8': 'Country',
+            'port-of-calls-purpose-8': 'Purpose',
+            'port-of-calls-ata-eta-date-8': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-8': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-8': 'Ships Information Date',
+            'port-of-calls-ship-information-time-8': 'Ships Information Time',
+            'port-of-calls-gmt-8': 'GMT',
+            'port-of-calls-duration-8': 'Duration (Days):',
+            'port-of-calls-total-8': 'Total (Days):',
+
+            // Port of Call 9
+            'port-of-calls-port-of-calling-9': 'Port of Calling',
+            'port-of-calls-country-9': 'Country',
+            'port-of-calls-purpose-9': 'Purpose',
+            'port-of-calls-ata-eta-date-9': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-9': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-9': 'Ships Information Date',
+            'port-of-calls-ship-information-time-9': 'Ships Information Time',
+            'port-of-calls-gmt-9': 'GMT',
+            'port-of-calls-duration-9': 'Duration (Days):',
+            'port-of-calls-total-9': 'Total (Days):',
+
+            // Port of Call 10
+            'port-of-calls-port-of-calling-10': 'Port of Calling',
+            'port-of-calls-country-10': 'Country',
+            'port-of-calls-purpose-10': 'Purpose',
+            'port-of-calls-ata-eta-date-10': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-10': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-10': 'Ships Information Date',
+            'port-of-calls-ship-information-time-10': 'Ships Information Time',
+            'port-of-calls-gmt-10': 'GMT',
+            'port-of-calls-duration-10': 'Duration (Days):',
+            'port-of-calls-total-10': 'Total (Days):',
+
+            // Port of Call 11
+            'port-of-calls-port-of-calling-11': 'Port of Calling',
+            'port-of-calls-country-11': 'Country',
+            'port-of-calls-purpose-11': 'Purpose',
+            'port-of-calls-ata-eta-date-11': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-11': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-11': 'Ships Information Date',
+            'port-of-calls-ship-information-time-11': 'Ships Information Time',
+            'port-of-calls-gmt-11': 'GMT',
+            'port-of-calls-duration-11': 'Duration (Days):',
+            'port-of-calls-total-11': 'Total (Days):',
+
+            // Port of Call 12
+            'port-of-calls-port-of-calling-12': 'Port of Calling',
+            'port-of-calls-country-12': 'Country',
+            'port-of-calls-purpose-12': 'Purpose',
+            'port-of-calls-ata-eta-date-12': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-12': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-12': 'Ships Information Date',
+            'port-of-calls-ship-information-time-12': 'Ships Information Time',
+            'port-of-calls-gmt-12': 'GMT',
+            'port-of-calls-duration-12': 'Duration (Days):',
+            'port-of-calls-total-12': 'Total (Days):',
+
+            // Port of Call 13
+            'port-of-calls-port-of-calling-13': 'Port of Calling',
+            'port-of-calls-country-13': 'Country',
+            'port-of-calls-purpose-13': 'Purpose',
+            'port-of-calls-ata-eta-date-13': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-13': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-13': 'Ships Information Date',
+            'port-of-calls-ship-information-time-13': 'Ships Information Time',
+            'port-of-calls-gmt-13': 'GMT',
+            'port-of-calls-duration-13': 'Duration (Days):',
+            'port-of-calls-total-13': 'Total (Days):',
+
+            // Port of Call 14
+            'port-of-calls-port-of-calling-14': 'Port of Calling',
+            'port-of-calls-country-14': 'Country',
+            'port-of-calls-purpose-14': 'Purpose',
+            'port-of-calls-ata-eta-date-14': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-14': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-14': 'Ships Information Date',
+            'port-of-calls-ship-information-time-14': 'Ships Information Time',
+            'port-of-calls-gmt-14': 'GMT',
+            'port-of-calls-duration-14': 'Duration (Days):',
+            'port-of-calls-total-14': 'Total (Days):',
+
+            // Port of Call 15
+            'port-of-calls-port-of-calling-15': 'Port of Calling',
+            'port-of-calls-country-15': 'Country',
+            'port-of-calls-purpose-15': 'Purpose',
+            'port-of-calls-ata-eta-date-15': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-15': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-15': 'Ships Information Date',
+            'port-of-calls-ship-information-time-15': 'Ships Information Time',
+            'port-of-calls-gmt-15': 'GMT',
+            'port-of-calls-duration-15': 'Duration (Days):',
+            'port-of-calls-total-15': 'Total (Days):',
+
+            // Port of Call 16
+            'port-of-calls-port-of-calling-16': 'Port of Calling',
+            'port-of-calls-country-16': 'Country',
+            'port-of-calls-purpose-16': 'Purpose',
+            'port-of-calls-ata-eta-date-16': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-16': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-16': 'Ships Information Date',
+            'port-of-calls-ship-information-time-16': 'Ships Information Time',
+            'port-of-calls-gmt-16': 'GMT',
+            'port-of-calls-duration-16': 'Duration (Days):',
+            'port-of-calls-total-16': 'Total (Days):',
+
+            // Port of Call 17
+            'port-of-calls-port-of-calling-17': 'Port of Calling',
+            'port-of-calls-country-17': 'Country',
+            'port-of-calls-purpose-17': 'Purpose',
+            'port-of-calls-ata-eta-date-17': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-17': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-17': 'Ships Information Date',
+            'port-of-calls-ship-information-time-17': 'Ships Information Time',
+            'port-of-calls-gmt-17': 'GMT',
+            'port-of-calls-duration-17': 'Duration (Days):',
+            'port-of-calls-total-17': 'Total (Days):',
+
+            // Port of Call 18
+            'port-of-calls-port-of-calling-18': 'Port of Calling',
+            'port-of-calls-country-18': 'Country',
+            'port-of-calls-purpose-18': 'Purpose',
+            'port-of-calls-ata-eta-date-18': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-18': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-18': 'Ships Information Date',
+            'port-of-calls-ship-information-time-18': 'Ships Information Time',
+            'port-of-calls-gmt-18': 'GMT',
+            'port-of-calls-duration-18': 'Duration (Days):',
+            'port-of-calls-total-18': 'Total (Days):',
+
+            // Port of Call 19
+            'port-of-calls-port-of-calling-19': 'Port of Calling',
+            'port-of-calls-country-19': 'Country',
+            'port-of-calls-purpose-19': 'Purpose',
+            'port-of-calls-ata-eta-date-19': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-19': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-19': 'Ships Information Date',
+            'port-of-calls-ship-information-time-19': 'Ships Information Time',
+            'port-of-calls-gmt-19': 'GMT',
+            'port-of-calls-duration-19': 'Duration (Days):',
+            'port-of-calls-total-19': 'Total (Days):',
+
+            // Port of Call 20
+            'port-of-calls-port-of-calling-20': 'Port of Calling',
+            'port-of-calls-country-20': 'Country',
+            'port-of-calls-purpose-20': 'Purpose',
+            'port-of-calls-ata-eta-date-20': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-20': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-20': 'Ships Information Date',
+            'port-of-calls-ship-information-time-20': 'Ships Information Time',
+            'port-of-calls-gmt-20': 'GMT',
+            'port-of-calls-duration-20': 'Duration (Days):',
+            'port-of-calls-total-20': 'Total (Days):',
+
+            // Port of Call 21
+            'port-of-calls-port-of-calling-21': 'Port of Calling',
+            'port-of-calls-country-21': 'Country',
+            'port-of-calls-purpose-21': 'Purpose',
+            'port-of-calls-ata-eta-date-21': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-21': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-21': 'Ships Information Date',
+            'port-of-calls-ship-information-time-21': 'Ships Information Time',
+            'port-of-calls-gmt-21': 'GMT',
+            'port-of-calls-duration-21': 'Duration (Days):',
+            'port-of-calls-total-21': 'Total (Days):',
+
+            // Port of Call 22
+            'port-of-calls-port-of-calling-22': 'Port of Calling',
+            'port-of-calls-country-22': 'Country',
+            'port-of-calls-purpose-22': 'Purpose',
+            'port-of-calls-ata-eta-date-22': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-22': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-22': 'Ships Information Date',
+            'port-of-calls-ship-information-time-22': 'Ships Information Time',
+            'port-of-calls-gmt-22': 'GMT',
+            'port-of-calls-duration-22': 'Duration (Days):',
+            'port-of-calls-total-22': 'Total (Days):',
+
+            // Port of Call 23
+            'port-of-calls-port-of-calling-23': 'Port of Calling',
+            'port-of-calls-country-23': 'Country',
+            'port-of-calls-purpose-23': 'Purpose',
+            'port-of-calls-ata-eta-date-23': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-23': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-23': 'Ships Information Date',
+            'port-of-calls-ship-information-time-23': 'Ships Information Time',
+            'port-of-calls-gmt-23': 'GMT',
+            'port-of-calls-duration-23': 'Duration (Days):',
+            'port-of-calls-total-23': 'Total (Days):',
+
+            // Port of Call 24
+            'port-of-calls-port-of-calling-24': 'Port of Calling',
+            'port-of-calls-country-24': 'Country',
+            'port-of-calls-purpose-24': 'Purpose',
+            'port-of-calls-ata-eta-date-24': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-24': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-24': 'Ships Information Date',
+            'port-of-calls-ship-information-time-24': 'Ships Information Time',
+            'port-of-calls-gmt-24': 'GMT',
+            'port-of-calls-duration-24': 'Duration (Days):',
+            'port-of-calls-total-24': 'Total (Days):',
+
+            // Port of Call 25
+            'port-of-calls-port-of-calling-25': 'Port of Calling',
+            'port-of-calls-country-25': 'Country',
+            'port-of-calls-purpose-25': 'Purpose',
+            'port-of-calls-ata-eta-date-25': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-25': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-25': 'Ships Information Date',
+            'port-of-calls-ship-information-time-25': 'Ships Information Time',
+            'port-of-calls-gmt-25': 'GMT',
+            'port-of-calls-duration-25': 'Duration (Days):',
+            'port-of-calls-total-25': 'Total (Days):',
+
+            // Port of Call 26
+            'port-of-calls-port-of-calling-26': 'Port of Calling',
+            'port-of-calls-country-26': 'Country',
+            'port-of-calls-purpose-26': 'Purpose',
+            'port-of-calls-ata-eta-date-26': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-26': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-26': 'Ships Information Date',
+            'port-of-calls-ship-information-time-26': 'Ships Information Time',
+            'port-of-calls-gmt-26': 'GMT',
+            'port-of-calls-duration-26': 'Duration (Days):',
+            'port-of-calls-total-26': 'Total (Days):',
+
+            // Port of Call 27
+            'port-of-calls-port-of-calling-27': 'Port of Calling',
+            'port-of-calls-country-27': 'Country',
+            'port-of-calls-purpose-27': 'Purpose',
+            'port-of-calls-ata-eta-date-27': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-27': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-27': 'Ships Information Date',
+            'port-of-calls-ship-information-time-27': 'Ships Information Time',
+            'port-of-calls-gmt-27': 'GMT',
+            'port-of-calls-duration-27': 'Duration (Days):',
+            'port-of-calls-total-27': 'Total (Days):',
+
+            // Port of Call 28
+            'port-of-calls-port-of-calling-28': 'Port of Calling',
+            'port-of-calls-country-28': 'Country',
+            'port-of-calls-purpose-28': 'Purpose',
+            'port-of-calls-ata-eta-date-28': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-28': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-28': 'Ships Information Date',
+            'port-of-calls-ship-information-time-28': 'Ships Information Time',
+            'port-of-calls-gmt-28': 'GMT',
+            'port-of-calls-duration-28': 'Duration (Days):',
+            'port-of-calls-total-28': 'Total (Days):',
+
+            // Port of Call 29
+            'port-of-calls-port-of-calling-29': 'Port of Calling',
+            'port-of-calls-country-29': 'Country',
+            'port-of-calls-purpose-29': 'Purpose',
+            'port-of-calls-ata-eta-date-29': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-29': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-29': 'Ships Information Date',
+            'port-of-calls-ship-information-time-29': 'Ships Information Time',
+            'port-of-calls-gmt-29': 'GMT',
+            'port-of-calls-duration-29': 'Duration (Days):',
+            'port-of-calls-total-29': 'Total (Days):',
+
+            // Port of Call 30
+            'port-of-calls-port-of-calling-30': 'Port of Calling',
+            'port-of-calls-country-30': 'Country',
+            'port-of-calls-purpose-30': 'Purpose',
+            'port-of-calls-ata-eta-date-30': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-30': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-30': 'Ships Information Date',
+            'port-of-calls-ship-information-time-30': 'Ships Information Time',
+            'port-of-calls-gmt-30': 'GMT',
+            'port-of-calls-duration-30': 'Duration (Days):',
+            'port-of-calls-total-30': 'Total (Days):',
+
+            // Port of Call 31
+            'port-of-calls-port-of-calling-31': 'Port of Calling',
+            'port-of-calls-country-31': 'Country',
+            'port-of-calls-purpose-31': 'Purpose',
+            'port-of-calls-ata-eta-date-31': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-31': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-31': 'Ships Information Date',
+            'port-of-calls-ship-information-time-31': 'Ships Information Time',
+            'port-of-calls-gmt-31': 'GMT',
+            'port-of-calls-duration-31': 'Duration (Days):',
+            'port-of-calls-total-31': 'Total (Days):',
+
+            // Port of Call 32
+            'port-of-calls-port-of-calling-32': 'Port of Calling',
+            'port-of-calls-country-32': 'Country',
+            'port-of-calls-purpose-32': 'Purpose',
+            'port-of-calls-ata-eta-date-32': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-32': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-32': 'Ships Information Date',
+            'port-of-calls-ship-information-time-32': 'Ships Information Time',
+            'port-of-calls-gmt-32': 'GMT',
+            'port-of-calls-duration-32': 'Duration (Days):',
+            'port-of-calls-total-32': 'Total (Days):',
+
+            // Port of Call 33
+            'port-of-calls-port-of-calling-33': 'Port of Calling',
+            'port-of-calls-country-33': 'Country',
+            'port-of-calls-purpose-33': 'Purpose',
+            'port-of-calls-ata-eta-date-33': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-33': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-33': 'Ships Information Date',
+            'port-of-calls-ship-information-time-33': 'Ships Information Time',
+            'port-of-calls-gmt-33': 'GMT',
+            'port-of-calls-duration-33': 'Duration (Days):',
+            'port-of-calls-total-33': 'Total (Days):',
+
+            // Port of Call 34
+            'port-of-calls-port-of-calling-34': 'Port of Calling',
+            'port-of-calls-country-34': 'Country',
+            'port-of-calls-purpose-34': 'Purpose',
+            'port-of-calls-ata-eta-date-34': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-34': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-34': 'Ships Information Date',
+            'port-of-calls-ship-information-time-34': 'Ships Information Time',
+            'port-of-calls-gmt-34': 'GMT',
+            'port-of-calls-duration-34': 'Duration (Days):',
+            'port-of-calls-total-34': 'Total (Days):',
+
+            // Port of Call 35
+            'port-of-calls-port-of-calling-35': 'Port of Calling',
+            'port-of-calls-country-35': 'Country',
+            'port-of-calls-purpose-35': 'Purpose',
+            'port-of-calls-ata-eta-date-35': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-35': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-35': 'Ships Information Date',
+            'port-of-calls-ship-information-time-35': 'Ships Information Time',
+            'port-of-calls-gmt-35': 'GMT',
+            'port-of-calls-duration-35': 'Duration (Days):',
+            'port-of-calls-total-35': 'Total (Days):',
+
+            // Port of Call 36
+            'port-of-calls-port-of-calling-36': 'Port of Calling',
+            'port-of-calls-country-36': 'Country',
+            'port-of-calls-purpose-36': 'Purpose',
+            'port-of-calls-ata-eta-date-36': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-36': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-36': 'Ships Information Date',
+            'port-of-calls-ship-information-time-36': 'Ships Information Time',
+            'port-of-calls-gmt-36': 'GMT',
+            'port-of-calls-duration-36': 'Duration (Days):',
+            'port-of-calls-total-36': 'Total (Days):',
+
+            // Port of Call 37
+            'port-of-calls-port-of-calling-37': 'Port of Calling',
+            'port-of-calls-country-37': 'Country',
+            'port-of-calls-purpose-37': 'Purpose',
+            'port-of-calls-ata-eta-date-37': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-37': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-37': 'Ships Information Date',
+            'port-of-calls-ship-information-time-37': 'Ships Information Time',
+            'port-of-calls-gmt-37': 'GMT',
+            'port-of-calls-duration-37': 'Duration (Days):',
+            'port-of-calls-total-37': 'Total (Days):',
+
+            // Port of Call 38
+            'port-of-calls-port-of-calling-38': 'Port of Calling',
+            'port-of-calls-country-38': 'Country',
+            'port-of-calls-purpose-38': 'Purpose',
+            'port-of-calls-ata-eta-date-38': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-38': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-38': 'Ships Information Date',
+            'port-of-calls-ship-information-time-38': 'Ships Information Time',
+            'port-of-calls-gmt-38': 'GMT',
+            'port-of-calls-duration-38': 'Duration (Days):',
+            'port-of-calls-total-38': 'Total (Days):',
+
+            // Port of Call 39
+            'port-of-calls-port-of-calling-39': 'Port of Calling',
+            'port-of-calls-country-39': 'Country',
+            'port-of-calls-purpose-39': 'Purpose',
+            'port-of-calls-ata-eta-date-39': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-39': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-39': 'Ships Information Date',
+            'port-of-calls-ship-information-time-39': 'Ships Information Time',
+            'port-of-calls-gmt-39': 'GMT',
+            'port-of-calls-duration-39': 'Duration (Days):',
+            'port-of-calls-total-39': 'Total (Days):',
+
+            // Port of Call 40
+            'port-of-calls-port-of-calling-40': 'Port of Calling',
+            'port-of-calls-country-40': 'Country',
+            'port-of-calls-purpose-40': 'Purpose',
+            'port-of-calls-ata-eta-date-40': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-40': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-40': 'Ships Information Date',
+            'port-of-calls-ship-information-time-40': 'Ships Information Time',
+            'port-of-calls-gmt-40': 'GMT',
+            'port-of-calls-duration-40': 'Duration (Days):',
+            'port-of-calls-total-40': 'Total (Days):',
+
+            // Port of Call 41
+            'port-of-calls-port-of-calling-41': 'Port of Calling',
+            'port-of-calls-country-41': 'Country',
+            'port-of-calls-purpose-41': 'Purpose',
+            'port-of-calls-ata-eta-date-41': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-41': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-41': 'Ships Information Date',
+            'port-of-calls-ship-information-time-41': 'Ships Information Time',
+            'port-of-calls-gmt-41': 'GMT',
+            'port-of-calls-duration-41': 'Duration (Days):',
+            'port-of-calls-total-41': 'Total (Days):',
+
+            // Port of Call 42
+            'port-of-calls-port-of-calling-42': 'Port of Calling',
+            'port-of-calls-country-42': 'Country',
+            'port-of-calls-purpose-42': 'Purpose',
+            'port-of-calls-ata-eta-date-42': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-42': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-42': 'Ships Information Date',
+            'port-of-calls-ship-information-time-42': 'Ships Information Time',
+            'port-of-calls-gmt-42': 'GMT',
+            'port-of-calls-duration-42': 'Duration (Days):',
+            'port-of-calls-total-42': 'Total (Days):',
+
+            // Port of Call 43
+            'port-of-calls-port-of-calling-43': 'Port of Calling',
+            'port-of-calls-country-43': 'Country',
+            'port-of-calls-purpose-43': 'Purpose',
+            'port-of-calls-ata-eta-date-43': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-43': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-43': 'Ships Information Date',
+            'port-of-calls-ship-information-time-43': 'Ships Information Time',
+            'port-of-calls-gmt-43': 'GMT',
+            'port-of-calls-duration-43': 'Duration (Days):',
+            'port-of-calls-total-43': 'Total (Days):',
+
+            // Port of Call 44
+            'port-of-calls-port-of-calling-44': 'Port of Calling',
+            'port-of-calls-country-44': 'Country',
+            'port-of-calls-purpose-44': 'Purpose',
+            'port-of-calls-ata-eta-date-44': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-44': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-44': 'Ships Information Date',
+            'port-of-calls-ship-information-time-44': 'Ships Information Time',
+            'port-of-calls-gmt-44': 'GMT',
+            'port-of-calls-duration-44': 'Duration (Days):',
+            'port-of-calls-total-44': 'Total (Days):',
+
+            // Port of Call 45
+            'port-of-calls-port-of-calling-45': 'Port of Calling',
+            'port-of-calls-country-45': 'Country',
+            'port-of-calls-purpose-45': 'Purpose',
+            'port-of-calls-ata-eta-date-45': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-45': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-45': 'Ships Information Date',
+            'port-of-calls-ship-information-time-45': 'Ships Information Time',
+            'port-of-calls-gmt-45': 'GMT',
+            'port-of-calls-duration-45': 'Duration (Days):',
+            'port-of-calls-total-45': 'Total (Days):',
+
+            // Port of Call 46
+            'port-of-calls-port-of-calling-46': 'Port of Calling',
+            'port-of-calls-country-46': 'Country',
+            'port-of-calls-purpose-46': 'Purpose',
+            'port-of-calls-ata-eta-date-46': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-46': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-46': 'Ships Information Date',
+            'port-of-calls-ship-information-time-46': 'Ships Information Time',
+            'port-of-calls-gmt-46': 'GMT',
+            'port-of-calls-duration-46': 'Duration (Days):',
+            'port-of-calls-total-46': 'Total (Days):',
+
+            // Port of Call 47
+            'port-of-calls-port-of-calling-47': 'Port of Calling',
+            'port-of-calls-country-47': 'Country',
+            'port-of-calls-purpose-47': 'Purpose',
+            'port-of-calls-ata-eta-date-47': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-47': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-47': 'Ships Information Date',
+            'port-of-calls-ship-information-time-47': 'Ships Information Time',
+            'port-of-calls-gmt-47': 'GMT',
+            'port-of-calls-duration-47': 'Duration (Days):',
+            'port-of-calls-total-47': 'Total (Days):',
+
+            // Port of Call 48
+            'port-of-calls-port-of-calling-48': 'Port of Calling',
+            'port-of-calls-country-48': 'Country',
+            'port-of-calls-purpose-48': 'Purpose',
+            'port-of-calls-ata-eta-date-48': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-48': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-48': 'Ships Information Date',
+            'port-of-calls-ship-information-time-48': 'Ships Information Time',
+            'port-of-calls-gmt-48': 'GMT',
+            'port-of-calls-duration-48': 'Duration (Days):',
+            'port-of-calls-total-48': 'Total (Days):',
+
+            // Port of Call 49
+            'port-of-calls-port-of-calling-49': 'Port of Calling',
+            'port-of-calls-country-49': 'Country',
+            'port-of-calls-purpose-49': 'Purpose',
+            'port-of-calls-ata-eta-date-49': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-49': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-49': 'Ships Information Date',
+            'port-of-calls-ship-information-time-49': 'Ships Information Time',
+            'port-of-calls-gmt-49': 'GMT',
+            'port-of-calls-duration-49': 'Duration (Days):',
+            'port-of-calls-total-49': 'Total (Days):',
+
+            // Port of Call 50
+            'port-of-calls-port-of-calling-50': 'Port of Calling',
+            'port-of-calls-country-50': 'Country',
+            'port-of-calls-purpose-50': 'Purpose',
+            'port-of-calls-ata-eta-date-50': 'ATA/ETA Date',
+            'port-of-calls-ata-eta-time-50': 'ATA/ETA Time',
+            'port-of-calls-ship-information-date-50': 'Ships Information Date',
+            'port-of-calls-ship-information-time-50': 'Ships Information Time',
+            'port-of-calls-gmt-50': 'GMT',
+            'port-of-calls-duration-50': 'Duration (Days):',
+            'port-of-calls-total-50': 'Total (Days):',
+
+            // Master’s Name
+            'port-of-call-master-name': 'Master’s Name:',
+
         }
 
     };
@@ -5082,6 +5717,10 @@ function exportToExcel(reportId) {
             'kpi-macn-corruption': 'MACN',
             'kpi-psc-inspections': 'INSPECTION',
             'voyage-overall-remarks': 'OVERALL REMARKS',
+        },
+
+        'portofcall': {
+
         }
 
     };
@@ -5633,6 +6272,10 @@ function exportToExcel(reportId) {
             'kpi-crew-injuries',
             'kpi-macn-corruption',
             'kpi-third-party-deficiencies'
+        ],
+
+        'portofcall': [
+            
         ]
 
     };
@@ -5875,6 +6518,19 @@ function resetTabContent(reportName) {
 // // Show Port 1 by default on page load
 // openPortTab({ currentTarget: document.querySelector('.tab-link.active') }, 'Port1');
 
+// JavaScript function to dynamically add rows to the Port of Call table
+function addRowPortOfCall() {
+    const table = document.getElementById('portOfCallTable').getElementsByTagName('tbody')[0];
+    const newRow = table.insertRow();
+
+    for (let i = 0; i < 13; i++) {
+        const newCell = newRow.insertCell(i);
+        const input = document.createElement('input');
+        input.type = 'text';
+        newCell.appendChild(input);
+    }
+}
+
 // Set up event listeners only once when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     const robNavButtons = document.querySelectorAll('.w3-bar-item.w3-button');
@@ -6083,7 +6739,7 @@ function addCrewFieldset() {
                     <div class="form-group port-style">
                         <label for="crew-monitoring-plan-port-${crewCounter}">Port</label>
                         <input type="text" class="crew-monitoring-plan-port" id="crew-monitoring-plan-port-${crewCounter}" name="crew-monitoring-plan-port-${crewCounter}">
-                        <div id="crew-monitoring-plan-port-results-${crewCounter}" class="crew-monitoring-plan-port-results"></div>
+                        // <div id="crew-monitoring-plan-port-results-${crewCounter}" class="crew-monitoring-plan-port-results"></div>
                     </div>
                     <div class="form-group">
                         <label for="crew-monitoring-plan-country-${crewCounter}">Country</label>
@@ -6290,6 +6946,53 @@ function removeRow(button) {
     button.closest('tr').remove();
 }
 
+const portOfCallMaxAgentRows = 12;
+
+function addRowPortOfCallAgent(button, setNumber) {
+    // Identify the closest table body where the button is clicked
+    const tableBody = button.closest('tbody');
+    const rowCount = tableBody.querySelectorAll('tr').length;
+
+    // Check if the row count exceeds the limit
+    if (rowCount >= portOfCallMaxAgentRows) {
+        alert('Maximum of 12 rows reached for agents!');
+        return;
+    }
+
+    const newRow = document.createElement('tr');
+    const newRowNumber = rowCount + 1;
+
+    newRow.innerHTML = `
+        <td><input type="text" id="port-of-calls-port-of-calling-${newRowNumber}" name="port-of-calls-port-of-calling-${newRowNumber}"></td>
+        <td><input type="text" id="port-of-calls-country-${newRowNumber}" name="port-of-calls-country-${newRowNumber}"></td>
+        <td><input type="text" id="port-of-calls-purpose-${newRowNumber}" name="port-of-calls-purpose-${newRowNumber}"></td>
+        <td><input type="text" id="port-of-calls-ata-eta-date-${newRowNumber}" name="port-of-calls-ata-eta-date-${newRowNumber}"></td>
+        <td><input type="text" id="port-of-calls-ata-eta-time-${newRowNumber}" name="port-of-calls-ata-eta-time-${newRowNumber}"></td>
+        <td><input type="text" id="port-of-calls-ship-information-date-${newRowNumber}" name="port-of-calls-ship-information-date-${newRowNumber}"></td>
+        <td><input type="text" id="port-of-calls-ship-information-time-${newRowNumber}" name="port-of-calls-ship-information-time-${newRowNumber}"></td>
+        <td><input type="text" id="port-of-calls-gmt-${newRowNumber}" name="port-of-calls-gmt-${newRowNumber}"></td>
+        <td><input type="text" id="port-of-calls-duration-${newRowNumber}" name="port-of-calls-duration-${newRowNumber}"></td>
+        <td><input type="text" id="port-of-calls-total-${newRowNumber}" name="port-of-calls-total-${newRowNumber}"></td>
+        <td><button type="button" class="remove-button" onclick="removeRow(this)">Remove</button></td>
+    `;
+
+    tableBody.appendChild(newRow);
+}
+
+
+function removeNewRowsPortOfCallAgent(setNumber) {
+    const tableBody = document.getElementById(`portOfCallAgentTableBody-${setNumber}`); // Replace this with the correct ID
+    const newRows = tableBody.querySelectorAll('tr');
+
+    // Iterate through all the rows and check if they contain any input fields with the 'port-of-calls-new-row' class
+    newRows.forEach(row => {
+        const newRowInputs = row.querySelectorAll('.port-of-calls-new-row');
+        if (newRowInputs.length > 0) {
+            row.remove();
+        }
+    });
+}
+
 let portSetNumber = 1;
 
 function addRowWeeklyReportNewPort() {
@@ -6330,7 +7033,7 @@ function addRowWeeklyReportNewPort() {
                     <tr>
                         <td>
                             <input type="text" id="${newPortFieldId}" name="weekly-schedule-details-port-${portSetNumber}-1">
-                            <div id="${newResultFieldId}" class="weekly-port-search-results"></div>
+                            // <div id="${newResultFieldId}" class="weekly-port-search-results"></div>
                         </td>
                         <td class="fuel-grade-select-cell">
                             <select class="fuel-grade-select" id="weekly-schedule-details-activity-port-${portSetNumber}-1" name="weekly-schedule-details-activity-port-${portSetNumber}-1">
@@ -6357,7 +7060,7 @@ function addRowWeeklyReportNewPort() {
             <br />
             <table id="weeklyReportTableAgents-${portSetNumber}">
                 <thead>
-                    <tr>
+                    <tr>s
                         <th>Agent's Name</th>
                         <th>Address</th>
                         <th>PIC Name</th>
@@ -6396,6 +7099,87 @@ function addRowWeeklyReportNewPort() {
 
 function removeTableSet(setNumber) {
     const tableSet = document.getElementById(`tableSet-${setNumber}`);
+    if (tableSet) {
+        tableSet.remove();
+    }
+}
+
+function addRowPortOfCallNewPort() {
+    const maxRows = 50;
+    
+    // Count all the port sets (i.e., how many sets of rows have been added)
+    const rowCount = document.querySelectorAll('[id^="portTableSet-"]').length;
+
+    // Check if the row count exceeds or meets the limit
+    if (rowCount >= maxRows) {
+        alert('You can only add up to 20 ports.');
+        return; // Stop the function execution if the limit is reached
+    }
+
+    // Increment the set number to ensure unique IDs for each new set of tables
+    portSetNumber++;
+
+    const newPortFieldId = `port-of-calls-port-of-calling-${portSetNumber}`;  // Define the port input field ID
+    const newResultFieldId = `port-of-calls-port-of-calling-${portSetNumber}-results`;  // Define the results div ID
+
+    const newPortTableHTML = `
+        <div id="portTableSet-${portSetNumber}">
+            <table id="portOfCallTable-${portSetNumber}">
+                <br />
+                <thead id="portOfCallTableHead">
+                    <tr>
+                        <th rowspan="2">Port of calling</th>
+                        <th rowspan="2">Country</th>
+                        <th rowspan="2">Purpose</th>
+                        <th colspan="2">ATA/ETA</th>
+                        <th colspan="2">Ship's Information</th>
+                        <th rowspan="2">GMT</th>
+                        <th rowspan="1">Duration</th>
+                        <th rowspan="1">Total</th>
+                        <th rowspan="2">Action</th>
+                    </tr>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>(DAYS)</th>
+                        <th>(DAYS)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="port-of-calls-port-of-calling-${portSetNumber}" name="port-of-calls-port-of-calling-${portSetNumber}"></td>
+                        <td><input type="text" id="port-of-calls-country-${portSetNumber}" name="port-of-calls-country-${portSetNumber}"></td>
+                        <td><input type="text" id="port-of-calls-purpose-${portSetNumber}" name="port-of-calls-purpose-${portSetNumber}"></td>
+                        <td><input type="text" id="port-of-calls-ata-eta-date-${portSetNumber}" name="port-of-calls-ata-eta-date-${portSetNumber}"></td>
+                        <td><input type="text" id="port-of-calls-ata-eta-time-${portSetNumber}" name="port-of-calls-ata-eta-time-${portSetNumber}"></td>
+                        <td><input type="text" id="port-of-calls-ship-information-date-${portSetNumber}" name="port-of-calls-ship-information-date-${portSetNumber}"></td>
+                        <td><input type="text" id="port-of-calls-ship-information-time-${portSetNumber}" name="port-of-calls-ship-information-time-${portSetNumber}"></td>
+                        <td><input type="text" id="port-of-calls-gmt-${portSetNumber}" name="port-of-calls-gmt-${portSetNumber}"></td>
+                        <td><input type="text" id="port-of-calls-duration-${portSetNumber}" name="port-of-calls-duration-${portSetNumber}"></td>
+                        <td><input type="text" id="port-of-calls-total-${portSetNumber}" name="port-of-calls-total-${portSetNumber}"></td>
+                        <td><button type="button" class="add-row-button" onclick="addRowPortOfCallAgent(this)">Add Agent</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <button type="button" class="remove-button right-remove-button" onclick="removePortOfCallTableSet(${portSetNumber})">Remove Port Set</button> 
+        </div>`;
+
+    // Append the new set of tables to the document body or a specific container
+    document.getElementById('portOfCallNewTableContainer').insertAdjacentHTML('beforeend', newPortTableHTML);
+
+    // Reapply the search function for the new port field after appending
+    setupPortSearch(newPortFieldId, newResultFieldId);
+
+    // Add the port search functionality for Port of Call Report fields
+    setupPortSearch('port-of-calls-details-port-' + portSetNumber, 'port-of-calls-details-port-' + portSetNumber + '-results');
+}
+
+// Function to remove a port set in the Port of Call report
+function removePortOfCallTableSet(setNumber) {
+    const tableSet = document.getElementById(`portTableSet-${setNumber}`);
     if (tableSet) {
         tableSet.remove();
     }
@@ -6523,63 +7307,63 @@ function handleReportTypeChange(reportSection) {
 }
 
 // Function to set up port search functionality
-function setupPortSearch(inputId, resultsId) {
-    let portList = [];
-    console.log("Hello " +inputId);
-    // Fetch the port names from the text file
-    fetch('portName.txt')
-        .then(response => response.text())
-        .then(data => {
-            portList = JSON.parse(data); // Parse the JSON data from the file
-        })
-        .catch(error => console.error('Error loading port names:', error));
+// function setupPortSearch(inputId, resultsId) {
+//     let portList = [];
+//     console.log("Hello " +inputId);
+//     // Fetch the port names from the text file
+//     fetch('portName.txt')
+//         .then(response => response.text())
+//         .then(data => {
+//             portList = JSON.parse(data); // Parse the JSON data from the file
+//         })
+//         .catch(error => console.error('Error loading port names:', error));
 
-    // Search function for ports
-    function searchPorts(query) {
-        return portList.filter(port => port.toLowerCase().includes(query.toLowerCase()));
-    }
+//     // Search function for ports
+//     function searchPorts(query) {
+//         return portList.filter(port => port.toLowerCase().includes(query.toLowerCase()));
+//     }
 
-    // Event listener for the port search box
-    document.getElementById(inputId).addEventListener('input', function() {
-        const query = this.value;
-        const results = searchPorts(query);
+//     // Event listener for the port search box
+//     document.getElementById(inputId).addEventListener('input', function() {
+//         const query = this.value;
+//         const results = searchPorts(query);
 
-        // Display results
-        const resultsContainer = document.getElementById(resultsId);
-        resultsContainer.innerHTML = '';
+//         // Display results
+//         const resultsContainer = document.getElementById(resultsId);
+//         resultsContainer.innerHTML = '';
 
-        results.forEach(port => {
-            const div = document.createElement('div');
-            div.className = 'result-item';
-            div.textContent = port;
-            div.addEventListener('click', function() {
-                // Set the search box value to the selected item
-                document.getElementById(inputId).value = port;
-                // Hide the dropdown list
-                resultsContainer.style.display = 'none';
-            });
-            resultsContainer.appendChild(div);
-        });
+//         results.forEach(port => {
+//             const div = document.createElement('div');
+//             div.className = 'result-item';
+//             div.textContent = port;
+//             div.addEventListener('click', function() {
+//                 // Set the search box value to the selected item
+//                 document.getElementById(inputId).value = port;
+//                 // Hide the dropdown list
+//                 resultsContainer.style.display = 'none';
+//             });
+//             resultsContainer.appendChild(div);
+//         });
 
-        // Apply the limit and make it scrollable if needed
-        if (results.length > 0) {
-            resultsContainer.style.display = 'block';
-            resultsContainer.style.maxHeight = '150px';  // Limit to about 5 items
-            resultsContainer.style.overflowY = 'auto';   // Enable scrolling
-        } else {
-            resultsContainer.style.display = 'none';
-        }
-    });
+//         // Apply the limit and make it scrollable if needed
+//         if (results.length > 0) {
+//             resultsContainer.style.display = 'block';
+//             resultsContainer.style.maxHeight = '150px';  // Limit to about 5 items
+//             resultsContainer.style.overflowY = 'auto';   // Enable scrolling
+//         } else {
+//             resultsContainer.style.display = 'none';
+//         }
+//     });
 
-    // Hide the results when clicking outside the search box and dropdown
-    document.addEventListener('click', function(event) {
-        const searchBox = document.getElementById(inputId);
-        const resultsContainer = document.getElementById(resultsId);
-        if (!searchBox.contains(event.target) && !resultsContainer.contains(event.target)) {
-            resultsContainer.style.display = 'none';
-        }
-    });
-}
+//     // Hide the results when clicking outside the search box and dropdown
+//     document.addEventListener('click', function(event) {
+//         const searchBox = document.getElementById(inputId);
+//         const resultsContainer = document.getElementById(resultsId);
+//         if (!searchBox.contains(event.target) && !resultsContainer.contains(event.target)) {
+//             resultsContainer.style.display = 'none';
+//         }
+//     });
+// }
 
 function validateAndFormatLatLong(field, type) {
     const value = field.value.trim();
