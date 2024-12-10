@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fairmont Ship Reporting</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+
 
 </head>
 <body>
@@ -84,6 +85,11 @@
                                     <option value="CL Tomo">CL Tomo</option>
                                     <option value="Maple Harvest">Maple Harvest</option>
                                     <option value="World Swan II">World Swan II</option>
+                                    <option value="Uni Harmony">Uni Harmony</option>
+                                    <option value="Uni Blossom">Uni Blossom</option>
+                                    <option value="Uni Sunshine">Uni Sunshine</option>
+                                    <option value="Uni Horizon">Uni Horizon</option>
+                                    <option value="Sider Montediprocida">Sider Montediprocida</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -589,7 +595,7 @@
                     <!-- Wind Force/Dir for every six hours -->
                     <fieldset>
                         <legend>Wind Force/Dir for every six hours</legend>
-                        <table id="windForceDir">
+                        <table id="windForceTable">
                             <thead>
                                 <tr>
                                     <th for="time">Time (LT)</th>
@@ -1818,9 +1824,9 @@ Other remarks by the Master:
                                 </textarea>
                     </fieldset>
 
-                    <!-- Master's Name -->
+                    <!-- Master's Info -->
                     <fieldset>
-                            <legend>Master's Name</legend>
+                            <legend>Master's Info</legend>
                             <input type="text" id="noon-master-name" name="noon-master-name">
                             
                     </fieldset>
@@ -1869,6 +1875,11 @@ Other remarks by the Master:
                                     <option value="CL Tomo">CL Tomo</option>
                                     <option value="Maple Harvest">Maple Harvest</option>
                                     <option value="World Swan II">World Swan II</option>
+                                    <option value="Uni Harmony">Uni Harmony</option>
+                                    <option value="Uni Blossom">Uni Blossom</option>
+                                    <option value="Uni Sunshine">Uni Sunshine</option>
+                                    <option value="Uni Horizon">Uni Horizon</option>
+                                    <option value="Sider Montediprocida">Sider Montediprocida</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -3263,9 +3274,9 @@ Other remarks by the Master:
                             <textarea id="departure-remarks" name="departure-remarks"></textarea>
                     </fieldset>
 
-                    <!-- Master's Name -->
+                    <!-- Master's Info -->
                     <fieldset>
-                            <legend>Master's Name</legend>
+                            <legend>Master's Info</legend>
                             <input type="text" id="departure-master-name" name="departure-master-name">
                             
                     </fieldset>
@@ -3314,6 +3325,11 @@ Other remarks by the Master:
                                     <option value="CL Tomo">CL Tomo</option>
                                     <option value="Maple Harvest">Maple Harvest</option>
                                     <option value="World Swan II">World Swan II</option>
+                                    <option value="Uni Harmony">Uni Harmony</option>
+                                    <option value="Uni Blossom">Uni Blossom</option>
+                                    <option value="Uni Sunshine">Uni Sunshine</option>
+                                    <option value="Uni Horizon">Uni Horizon</option>
+                                    <option value="Sider Montediprocida">Sider Montediprocida</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -4584,9 +4600,9 @@ Other remarks by the Master:
                             <textarea id="arrival-remarks" name="arrival-remarks"></textarea>
                     </fieldset>
 
-                    <!-- Master's Name -->
+                    <!-- Master's Info -->
                     <fieldset>
-                            <legend>Master's Name</legend>
+                            <legend>Master's Info</legend>
                             <input type="text" id="arrival-master-name" name="arrival-master-name">
                             
                     </fieldset>
@@ -4635,6 +4651,11 @@ Other remarks by the Master:
                                     <option value="CL Tomo">CL Tomo</option>
                                     <option value="Maple Harvest">Maple Harvest</option>
                                     <option value="World Swan II">World Swan II</option>
+                                    <option value="Uni Harmony">Uni Harmony</option>
+                                    <option value="Uni Blossom">Uni Blossom</option>
+                                    <option value="Uni Sunshine">Uni Sunshine</option>
+                                    <option value="Uni Horizon">Uni Horizon</option>
+                                    <option value="Sider Montediprocida">Sider Montediprocida</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -5160,9 +5181,9 @@ Other remarks by the Master:
                         <textarea id="bunkering-remarks" name="bunkering-remarks"></textarea>
                     </fieldset>
 
-                    <!-- Master's Name -->
+                    <!-- Master's Info -->
                     <fieldset>
-                        <legend>Master's Name</legend>
+                        <legend>Master's Info</legend>
                         <input type="text" id="bunkering-master-name" name="bunkering-master-name">
                     </fieldset>
 
@@ -5211,6 +5232,11 @@ Other remarks by the Master:
                                     <option value="CL Tomo">CL Tomo</option>
                                     <option value="Maple Harvest">Maple Harvest</option>
                                     <option value="World Swan II">World Swan II</option>
+                                    <option value="Uni Harmony">Uni Harmony</option>
+                                    <option value="Uni Blossom">Uni Blossom</option>
+                                    <option value="Uni Sunshine">Uni Sunshine</option>
+                                    <option value="Uni Horizon">Uni Horizon</option>
+                                    <option value="Sider Montediprocida">Sider Montediprocida</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -5348,6 +5374,11 @@ Other remarks by the Master:
                                     <option value="CL Tomo">CL Tomo</option>
                                     <option value="Maple Harvest">Maple Harvest</option>
                                     <option value="World Swan II">World Swan II</option>
+                                    <option value="Uni Harmony">Uni Harmony</option>
+                                    <option value="Uni Blossom">Uni Blossom</option>
+                                    <option value="Uni Sunshine">Uni Sunshine</option>
+                                    <option value="Uni Horizon">Uni Horizon</option>
+                                    <option value="Sider Montediprocida">Sider Montediprocida</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -5442,9 +5473,9 @@ Other remarks by the Master:
                         </div>
                     </fieldset>
 
-                    <!-- Master's Name -->
+                    <!-- Master's Info -->
                     <fieldset>
-                        <legend>Master's Name</legend>
+                        <legend>Master's Info</legend>
                         <input type="text" id="weekly-master-name" name="weekly-master-name">
                     </fieldset>
 
@@ -5507,6 +5538,11 @@ Other remarks by the Master:
                                             <option value="CL Tomo">CL Tomo</option>
                                             <option value="Maple Harvest">Maple Harvest</option>
                                             <option value="World Swan II">World Swan II</option>
+                                            <option value="Uni Harmony">Uni Harmony</option>
+                                            <option value="Uni Blossom">Uni Blossom</option>
+                                            <option value="Uni Sunshine">Uni Sunshine</option>
+                                            <option value="Uni Horizon">Uni Horizon</option>
+                                            <option value="Sider Montediprocida">Sider Montediprocida</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -5580,6 +5616,11 @@ Other remarks by the Master:
                                             <option value="CL Tomo">CL Tomo</option>
                                             <option value="Maple Harvest">Maple Harvest</option>
                                             <option value="World Swan II">World Swan II</option>
+                                            <option value="Uni Harmony">Uni Harmony</option>
+                                            <option value="Uni Blossom">Uni Blossom</option>
+                                            <option value="Uni Sunshine">Uni Sunshine</option>
+                                            <option value="Uni Horizon">Uni Horizon</option>
+                                            <option value="Sider Montediprocida">Sider Montediprocida</option>
                                         </select>
                                     </div>
                                     <div class="form-group port-style">
@@ -5625,9 +5666,9 @@ Other remarks by the Master:
                         
 
                     </fieldset>
-                    <!-- Master's Name -->
+                    <!-- Master's Info -->
                     <fieldset>
-                        <legend>Master's Name</legend>
+                        <legend>Master's Info</legend>
                         <input type="text" id="crew-monitoring-plan-master-name" name="crew-monitoring-plan-master-name">
                     </fieldset>
 
@@ -5677,6 +5718,11 @@ Other remarks by the Master:
                                     <option value="CL Tomo">CL Tomo</option>
                                     <option value="Maple Harvest">Maple Harvest</option>
                                     <option value="World Swan II">World Swan II</option>
+                                    <option value="Uni Harmony">Uni Harmony</option>
+                                    <option value="Uni Blossom">Uni Blossom</option>
+                                    <option value="Uni Sunshine">Uni Sunshine</option>
+                                    <option value="Uni Horizon">Uni Horizon</option>
+                                    <option value="Sider Montediprocida">Sider Montediprocida</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -5874,9 +5920,9 @@ Other remarks by the Master:
                         <textarea id="voyage-report-remarks" name="voyage-report-remarks"></textarea>
                     </fieldset>
 
-                    <!-- Master's Name -->
+                    <!-- Master's Info -->
                     <fieldset>
-                        <legend>Master's Name</legend>
+                        <legend>Master's Info</legend>
                         <input type="text" id="voyage-report-master-name" name="voyage-report-master-name">
                     </fieldset>
 
@@ -5965,7 +6011,11 @@ Other remarks by the Master:
                                         <option value="CL Tomo">CL Tomo</option>
                                         <option value="Maple Harvest">Maple Harvest</option>
                                         <option value="World Swan II">World Swan II</option>
-                                    </select>
+                                        <option value="Uni Harmony">Uni Harmony</option>
+                                        <option value="Uni Blossom">Uni Blossom</option>
+                                        <option value="Uni Sunshine">Uni Sunshine</option>
+                                        <option value="Uni Horizon">Uni Horizon</option>
+                                        <option value="Sider Montediprocida">Sider Montediprocida</option>
                                     </select>
                                 </div>
                                 <div class="form-group common-select-container">
@@ -6361,9 +6411,9 @@ Other remarks by the Master:
                                 <textarea id="voyage-overall-remarks" name="voyage-overall-remarks"></textarea>
                             </fieldset>
 
-                            <!-- Master's Name -->
+                            <!-- Master's Info -->
                             <fieldset>
-                                <legend>Master's Name</legend>
+                                <legend>Master's Info</legend>
                                 <input type="text" id="kpi-master-name" name="kpi-master-name">
                             </fieldset>
                         </div>
@@ -6417,6 +6467,11 @@ Other remarks by the Master:
                                     <option value="CL Tomo">CL Tomo</option>
                                     <option value="Maple Harvest">Maple Harvest</option>
                                     <option value="World Swan II">World Swan II</option>
+                                    <option value="Uni Harmony">Uni Harmony</option>
+                                    <option value="Uni Blossom">Uni Blossom</option>
+                                    <option value="Uni Sunshine">Uni Sunshine</option>
+                                    <option value="Uni Horizon">Uni Horizon</option>
+                                    <option value="Sider Montediprocida">Sider Montediprocida</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -6571,9 +6626,9 @@ Other remarks by the Master:
                         
                     </fieldset>                    
 
-                    <!-- Master's Name -->
+                    <!-- Master's Info -->
                     <fieldset>
-                        <legend>Master's Name</legend>
+                        <legend>Master's Info</legend>
                         <input type="text" id="port-of-call-master-name" name="port-of-call-master-name">
                     </fieldset>
 
