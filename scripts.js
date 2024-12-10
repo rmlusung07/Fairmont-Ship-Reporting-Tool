@@ -285,25 +285,35 @@ async function exportToExcel(reportId) {
             // Process table body (tbody)
             if (tbody) {
                 const rows = tbody.querySelectorAll('tr');
-                rows.forEach(row => {
+                rows.forEach((row) => {
                     const cells = Array.from(row.querySelectorAll('td')).map((td, index) => {
-                        const headerText = table.querySelector(`thead th:nth-child(${index + 1})`)?.textContent.trim();
-                        if (headerText?.toLowerCase() === "action") return null; // Skip the "Action" column
-        
+                        const headerText = table.querySelector(`thead th:nth-child(${index + 1})`)?.textContent.trim().toLowerCase();
+                
+                        // Skip the "Action" column by checking against its header
+                        if (headerText === "action") return null;
+                
+                        // Exclude buttons from export
+                        const button = td.querySelector('button');
+                        if (button) return null; // Ignore cells with buttons
+                
+                        // Handle plain text or input/select values
                         const input = td.querySelector('input');
                         const select = td.querySelector('select');
                         if (input) return input.value.trim();
                         if (select) return select.options[select.selectedIndex].text.trim();
-                        return td.textContent.trim(); // Fallback to textContent
+                
+                        // Fallback to cell text content
+                        return td.textContent.trim();
                     });
-        
-                    // Filter out null values from skipped columns
-                    const filteredCells = cells.filter(cell => cell !== null);
-        
+                
+                    // Filter out null or empty cells
+                    const filteredCells = cells.filter((cell) => cell !== null && cell !== "");
+                
                     // Write the row data to the sheet
                     sheet.addRow(filteredCells);
                     rowIndex++;
                 });
+                
             }
         
             // Add a blank row after the table for spacing
@@ -342,6 +352,21 @@ async function exportToExcel(reportId) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+
+    // Clear the form fields after exporting the data
+    clearFormFields(reportId);    
+
+    // Clear saved local storage
+    localStorage.clear();
+
+    // After exporting the data, clear all table sets
+    clearAllTableSets(30);
+
+    // After exporting the data, clear all fast rows
+    removeNewRowsAllFast();
+
+    // After exporting the data, clear all rows in weekly report agents
+    removeNewRowsWeeklyReportAgent();
 }
 
 
