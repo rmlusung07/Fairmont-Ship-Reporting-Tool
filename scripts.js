@@ -175,25 +175,6 @@ async function exportToExcel(reportId) {
             rowIndex++;
         }
 
-        // Handle "Remarks" field dynamically
-        const remarksField = Array.from(fieldset.querySelectorAll('textarea')).find(
-            textarea => textarea.name.endsWith('remarks')
-        ); // Dynamically detect "Remarks" field based on name attribute
-        if (remarksField) {
-            const remarksText = remarksField.value || '';
-    
-            // Merge a block of cells for the remarks field
-            const startCell = `A${rowIndex}`;
-            const endCell = `F${rowIndex + 9}`; // 10 rows by 6 columns for a balanced size
-            sheet.mergeCells(`${startCell}:${endCell}`);
-            const cell = sheet.getCell(startCell);
-            cell.value = remarksText;
-            cell.alignment = { wrapText: true, vertical: 'top', horizontal: 'left' };
-            cell.font = { size: 12 };
-    
-            rowIndex += 10; // Move down 10 rows after remarks
-        }
-
         // Collect IDs of inputs that are part of tables
         const tableInputs = Array.from(fieldset.querySelectorAll('table td input, table td select')).map(input => input.id);
 
@@ -224,45 +205,78 @@ async function exportToExcel(reportId) {
 
         // Handle tables in the fieldset
         const tables = fieldset.querySelectorAll('table');
+        const borderStyle = {
+            top: { style: 'thin' },
+            left: { style: 'thin' },
+            bottom: { style: 'thin' },
+            right: { style: 'thin' },
+        };
+
+        const remarksField = Array.from(fieldset.querySelectorAll('textarea')).find(
+            textarea => textarea.name.endsWith('remarks')
+        );
+        if (remarksField) {
+            const remarksText = remarksField.value || '';
+        
+            // Merge a block of cells for the remarks field
+            const startCell = `A${rowIndex}`;
+            const endCell = `F${rowIndex + 9}`; // 10 rows by 6 columns for a balanced size
+            sheet.mergeCells(`${startCell}:${endCell}`);
+            const cell = sheet.getCell(startCell);
+            cell.value = remarksText;
+            cell.alignment = { wrapText: true, vertical: 'top', horizontal: 'left' };
+            cell.font = { size: 12 };
+            cell.border = {
+                top: { style: 'thin' },
+                left: { style: 'thin' },
+                bottom: { style: 'thin' },
+                right: { style: 'thin' }
+            };
+        
+            rowIndex += 10; // Move down 10 rows after remarks
+            rowIndex++;
+        }
+
         tables.forEach(table => {
             const thead = table.querySelector('thead');
             const tbody = table.querySelector('tbody');
-        
+
             let headerRowIndex = rowIndex; // Start writing headers from the current rowIndex
-        
+
             // Process table headers (thead)
             if (thead) {
                 const headerMatrix = []; // To track the placement of headers
                 const headerRows = thead.querySelectorAll('tr');
-        
+
                 headerRows.forEach((row, rowIdx) => {
                     let colIndex = 1;
-        
+
                     row.querySelectorAll('th').forEach(th => {
                         const text = th.textContent.trim();
                         if (text.toLowerCase() === "action") return; // Skip the "Action" column
-        
+
                         // Find the next available column in the matrix
                         while (headerMatrix[rowIdx]?.[colIndex]) {
                             colIndex++;
                         }
-        
+
                         const colspan = parseInt(th.getAttribute('colspan') || 1, 10);
                         const rowspan = parseInt(th.getAttribute('rowspan') || 1, 10);
-        
+
                         // Add the header text to the cell
                         const cell = sheet.getCell(headerRowIndex + rowIdx, colIndex);
-                        cell.value = text;
+                        cell.value = text || ''; // Ensure even empty cells get borders
                         cell.font = boldStyle;
                         cell.alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
-        
+                        cell.border = borderStyle; // Apply borders
+
                         // Merge cells if colspan or rowspan is present
                         if (colspan > 1 || rowspan > 1) {
                             const endCol = colIndex + colspan - 1;
                             const endRow = headerRowIndex + rowIdx + rowspan - 1;
                             sheet.mergeCells(headerRowIndex + rowIdx, colIndex, endRow, endCol);
                         }
-        
+
                         // Update the matrix to mark the cells occupied by this header
                         for (let r = 0; r < rowspan; r++) {
                             for (let c = 0; c < colspan; c++) {
@@ -272,75 +286,69 @@ async function exportToExcel(reportId) {
                                 headerMatrix[rowIdx + r][colIndex + c] = true;
                             }
                         }
-        
+
                         // Move to the next available column
                         colIndex += colspan;
                     });
                 });
-        
+
                 // Update rowIndex to account for the number of header rows
                 rowIndex += headerRows.length;
             }
-        
+
             // Process table body (tbody)
             if (tbody) {
                 const rows = tbody.querySelectorAll('tr');
                 rows.forEach((row) => {
                     const cells = Array.from(row.querySelectorAll('td')).map((td, index) => {
                         const headerText = table.querySelector(`thead th:nth-child(${index + 1})`)?.textContent.trim().toLowerCase();
-                
+
                         // Skip the "Action" column by checking against its header
                         if (headerText === "action") return null;
-                
+
                         // Exclude buttons from export
                         const button = td.querySelector('button');
                         if (button) return null; // Ignore cells with buttons
-                
+
                         // Handle plain text or input/select values
                         const input = td.querySelector('input');
                         const select = td.querySelector('select');
                         if (input) return input.value.trim();
                         if (select) return select.options[select.selectedIndex].text.trim();
-                
+
                         // Fallback to cell text content
                         return td.textContent.trim();
                     });
-                
-                    // Filter out null or empty cells
-                    const filteredCells = cells.filter((cell) => cell !== null && cell !== "");
-                
+
+                    // Filter out null cells and ensure all cells get borders
+                    const filteredCells = cells.map(cell => cell !== null && cell !== "" ? cell : "");
+
                     // Write the row data to the sheet
-                    sheet.addRow(filteredCells);
+                    const addedRow = sheet.addRow(filteredCells);
+                    addedRow.eachCell(cell => {
+                        cell.border = borderStyle; // Apply borders
+                        if (!cell.value) cell.value = ''; // Ensure empty cells have borders
+                    });
+
                     rowIndex++;
                 });
-                
             }
-        
+
             // Add a blank row after the table for spacing
             rowIndex++;
         });
-        
     });
 
     // Auto-adjust column widths with specific handling for the Remarks field
-    sheet.columns.forEach((column, colIndex) => {
+    sheet.columns.forEach((column) => {
         let maxLength = 0;
-
-        column.eachCell({ includeEmpty: true }, cell => {
+        column.eachCell({ includeEmpty: true }, (cell) => {
             if (cell.value) {
-                const valueLength = cell.value.toString().length;
-                if (valueLength > maxLength) {
-                    maxLength = valueLength;
-                }
+                const length = cell.value.toString().length;
+                maxLength = Math.max(maxLength, length);
             }
         });
-
-        // Limit the maximum width for all columns to ensure readability
-        if (column.values.some(value => typeof value === 'string' && value.includes('Remarks'))) {
-            column.width = Math.min(maxLength + 2, 38); // Limit Remarks columns to a max of 38
-        } else {
-            column.width = Math.min(maxLength + 2, 18); // Limit all other columns to a max of 30
-        }
+        column.width = Math.min(maxLength + 2, 30); // Add padding and limit width
     });
 
     // Trigger the download
@@ -368,6 +376,82 @@ async function exportToExcel(reportId) {
     // After exporting the data, clear all rows in weekly report agents
     removeNewRowsWeeklyReportAgent();
 }
+
+
+async function exportToExcelKPI() {
+    const workbook = new ExcelJS.Workbook();
+    const sheet = workbook.addWorksheet("KPI Report");
+
+    // Default styles
+    const boldStyle = { bold: true };
+
+    // Get all step titles and main KPI content
+    const stepLabels = document.querySelectorAll("#KPI .step-label");
+    const form = document.querySelector("#KPI form");
+
+    let rowIndex = 1;
+
+    stepLabels.forEach((stepLabel, index) => {
+        // Add step title as a bold header
+        const stepTitle = stepLabel.textContent.trim();
+        sheet.mergeCells(`A${rowIndex}:B${rowIndex}`);
+        const cell = sheet.getCell(`A${rowIndex}`);
+        cell.value = stepTitle;
+        cell.font = boldStyle;
+        cell.alignment = { vertical: "middle", horizontal: "left" };
+        rowIndex++;
+
+        // Locate content specific to the current step
+        const stepContent = form.querySelectorAll(
+            `[data-step-index="${index + 1}"] input, 
+            [data-step-index="${index + 1}"] select, 
+            [data-step-index="${index + 1}"] textarea`
+        );
+
+        if (stepContent.length > 0) {
+            stepContent.forEach((field) => {
+                const label = field.closest(".form-group")?.querySelector("label");
+                const labelText = label ? label.textContent.trim() : field.name || field.id;
+                const fieldValue = field.type === "select-one" ? field.options[field.selectedIndex].text : field.value || "";
+
+                // Add the field and value to the sheet
+                sheet.addRow({ field: labelText, value: fieldValue });
+                rowIndex++;
+            });
+        } else {
+            // Handle steps without form fields
+            const stepText = stepLabel.nextElementSibling?.textContent.trim() || "No data available";
+            sheet.addRow({ field: "Step Content", value: stepText });
+            rowIndex++;
+        }
+
+        // Add spacing after each step
+        rowIndex++;
+    });
+
+    // Auto-adjust column widths for readability
+    sheet.columns.forEach((column) => {
+        let maxLength = 0;
+        column.eachCell({ includeEmpty: true }, (cell) => {
+            if (cell.value) {
+                const length = cell.value.toString().length;
+                maxLength = Math.max(maxLength, length);
+            }
+        });
+        column.width = maxLength + 2; // Add padding
+    });
+
+    // Trigger the download
+    const buffer = await workbook.xlsx.writeBuffer();
+    const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "KPI_Report.xlsx";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 
 
 function clearAllTableSets(totalSets) {
@@ -590,16 +674,15 @@ function addCrewFieldset() {
     // Find the tab that has the data-active attribute set to "true"
     const activeTab = document.querySelector('.crew-tab-content[data-active="true"]');
     const activeTabId = activeTab.id; // Get the ID of the active tab
-    console.log("Active Tab ID:", activeTabId); // Debugging
 
     let newFieldsetContent = '';
     let crewCounter;
 
     // Use the appropriate counter for each tab
     if (activeTabId === 'OnBoardCrew') {
-        crewCounter = onboardCrewCounter; // Use On Board Crew counter
+        crewCounter = findNextAvailableNumber('crew-monitoring-plan-crew-field-no-');
         newFieldsetContent = `
-            <fieldset>
+            <fieldset id="crew-monitoring-plan-crew-field-no-${crewCounter}">
                 <legend>On Board Crew Data ${crewCounter}</legend>
                 <div class="four-columns">
                     <div class="form-group">
@@ -671,17 +754,16 @@ function addCrewFieldset() {
                         <input type="number" id="crew-monitoring-plan-months-on-board-${crewCounter}" name="crew-monitoring-plan-months-on-board-${crewCounter}">
                     </div>
                 </div>
+                <button type="button" class="right-remove-button" style="margin-top: 5px; margin-bottom: 10px;" onclick="removeFieldset('crew-monitoring-plan-crew-field-no-${crewCounter}')">Remove Crew Data</button>
             </fieldset>`;
 
-        onboardCrewCounter++; // Increment the On Board Crew counter for the next crew member
-
     } else if (activeTabId === 'CrewChangeData') {
-        crewCounter = crewChangeDataCounter; // Use Crew Change Data counter
+        crewCounter = findNextAvailableNumber('crew-monitoring-plan-vessel-field-');
         newFieldsetContent = `
-            <fieldset>
+            <fieldset id="crew-monitoring-plan-vessel-field-${crewCounter}">
                 <legend>Crew Change Data ${crewCounter}</legend>
                 <div class="four-columns">
-                    <div class="form-group common-select-container">
+                    <div class="form-group common-select-container" id="crew-monitoring-plan-vessel-${crewCounter}">
                         <label for="crew-monitoring-plan-vessel-${crewCounter}">Vessel</label>
                         <select class="common-select" id="crew-monitoring-plan-vessel-${crewCounter}" name="crew-monitoring-plan-vessel-${crewCounter}" required>
                             <option value="">Select Vessel</option>
@@ -747,21 +829,90 @@ function addCrewFieldset() {
                         <textarea id="crew-monitoring-plan-remarks-${crewCounter}" name="crew-monitoring-plan-remarks-${crewCounter}" rows="4" style="height: 15px; width: 97%;"></textarea>
                     </div>
                 </div>
+                <button type="button" class="right-remove-button" style="margin-top: 5px; margin-bottom: 10px;" onclick="removeFieldset('crew-monitoring-plan-vessel-field-${crewCounter}')">Remove Change Crew</button>
             </fieldset>`;
-          
-        crewChangeDataCounter++; // Increment the Crew Change Data counter for the next crew member
         
     }
 
     if (newFieldsetContent) {
         // Insert the new fieldset content into the active tab
-        document.getElementById(activeTabId).insertAdjacentHTML('beforeend', newFieldsetContent);
-
-        // Add the port search functionality for Crew Monitoring Plan Report fields
-        setupPortSearch('crew-monitoring-plan-port-' + crewCounter, 'crew-monitoring-plan-port-results-' + crewCounter);
+        activeTab.insertAdjacentHTML('beforeend', newFieldsetContent);
     } else {
         console.log("No fieldset content generated");
     }
+}
+
+// Function to remove a fieldset by ID
+function removeFieldset(fieldsetId) {
+    if (!fieldsetId) {
+        console.error("No fieldset ID provided for removal.");
+        return;
+    }
+
+    const fieldset = document.getElementById(fieldsetId);
+    if (fieldset) {
+        fieldset.remove();
+        console.log(`Fieldset with ID ${fieldsetId} has been removed.`);
+
+        // Renumber remaining fieldsets
+        if (fieldsetId.includes('crew-field-no')) {
+            renumberFieldsets('crew-monitoring-plan-crew-field-no-', 'OnBoardCrew');
+        } else if (fieldsetId.includes('vessel-field')) {
+            renumberFieldsets('crew-monitoring-plan-vessel-field-', 'CrewChangeData');
+        }
+    } else {
+        console.error(`Fieldset with ID ${fieldsetId} not found.`);
+    }
+}
+
+// Function to find the next available number
+function findNextAvailableNumber(baseId) {
+    let i = 2;
+    while (document.getElementById(`${baseId}${i}`)) {
+        i++;
+    }
+    return i;
+}
+
+// Function to renumber fieldsets dynamically
+function renumberFieldsets(baseId, tabId) {
+    const tab = document.getElementById(tabId);
+    const fieldsets = tab.querySelectorAll(`fieldset[id^="${baseId}"]`);
+
+    fieldsets.forEach((fieldset, index) => {
+        const newNumber = index + 2;
+        const oldId = fieldset.id;
+        const newId = `${baseId}${newNumber}`;
+
+        // Update fieldset ID
+        fieldset.id = newId;
+
+        // Update legend
+        const legend = fieldset.querySelector('legend');
+        if (legend) {
+            legend.textContent = legend.textContent.replace(/\d+$/, newNumber);
+        }
+
+        // Update form fields inside the fieldset
+        const inputs = fieldset.querySelectorAll('input, select, textarea, label');
+        inputs.forEach(input => {
+            const oldName = input.name || input.htmlFor;
+            const oldAttr = input.id || input.htmlFor;
+
+            if (oldName) input.name = oldName.replace(/\d+$/, newNumber);
+            if (oldAttr) input.id = oldAttr.replace(/\d+$/, newNumber);
+
+            if (input.htmlFor) input.htmlFor = input.htmlFor.replace(/\d+$/, newNumber);
+        });
+
+        // Update remove button
+        const removeButton = fieldset.querySelector('button.right-remove-button');
+        if (removeButton) {
+            removeButton.setAttribute('onclick', `removeFieldset('${newId}')`);
+        }
+
+        console.log(`Updated fieldset from ${oldId} to ${newId}`);
+    });
 }
 
 let currentStep = 1;
@@ -1949,86 +2100,62 @@ document.addEventListener('DOMContentLoaded', function() {
         // HSFO - Noon Report
         { quantity: 'noon-hsfo-oil-me-cyl-oil-quantity', hours: 'noon-hsfo-oil-me-cyl-total-runn-hrs', cons: 'noon-hsfo-oil-me-cyl-oil-cons' },
         { quantity: 'noon-hsfo-oil-me-cc-oil-quantity', hours: 'noon-hsfo-oil-me-cc-total-run-hrs', cons: 'noon-hsfo-oil-me-cc-oil-cons' },
-        { quantity: 'noon-hsfo-oil-ae1-cc-oil-quantity', hours: 'noon-hsfo-oil-ae1-cc-total-runn-hrs', cons: 'noon-hsfo-oil-ae1-cc-oil-cons' },
-        { quantity: 'noon-hsfo-oil-ae2-cc-oil-quantity', hours: 'noon-hsfo-oil-ae2-cc-total-runn-hrs', cons: 'noon-hsfo-oil-ae2-cc-oil-cons' },
-        { quantity: 'noon-hsfo-oil-ae3-cc-oil-quantity', hours: 'noon-hsfo-oil-ae3-cc-total-runn-hrs', cons: 'noon-hsfo-oil-ae3-cc-oil-cons' },
+        { quantity: 'noon-hsfo-oil-ae-cc-oil-quantity', hours: 'noon-hsfo-oil-ae-cc-total-run-hrs', cons: 'noon-hsfo-oil-ae-cc-oil-cons' },
 
         // BIOFUEL - Noon Report
         { quantity: 'noon-biofuel-oil-me-cyl-oil-quantity', hours: 'noon-biofuel-oil-me-cyl-total-runn-hrs', cons: 'noon-biofuel-oil-me-cyl-oil-cons' },
         { quantity: 'noon-biofuel-oil-me-cc-oil-quantity', hours: 'noon-biofuel-oil-me-cc-total-run-hrs', cons: 'noon-biofuel-oil-me-cc-oil-cons' },
-        { quantity: 'noon-biofuel-oil-ae1-cc-oil-quantity', hours: 'noon-biofuel-oil-ae1-cc-total-runn-hrs', cons: 'noon-biofuel-oil-ae1-cc-oil-cons' },
-        { quantity: 'noon-biofuel-oil-ae2-cc-oil-quantity', hours: 'noon-biofuel-oil-ae2-cc-total-runn-hrs', cons: 'noon-biofuel-oil-ae2-cc-oil-cons' },
-        { quantity: 'noon-biofuel-oil-ae3-cc-oil-quantity', hours: 'noon-biofuel-oil-ae3-cc-total-runn-hrs', cons: 'noon-biofuel-oil-ae3-cc-oil-cons' },
+        { quantity: 'noon-biofuel-oil-ae-cc-oil-quantity', hours: 'noon-biofuel-oil-ae-cc-total-run-hrs', cons: 'noon-biofuel-oil-ae-cc-oil-cons' },
 
         // VLSFO - Noon Report
         { quantity: 'noon-vlsfo-oil-me-cyl-oil-quantity', hours: 'noon-vlsfo-oil-me-cyl-total-runn-hrs', cons: 'noon-vlsfo-oil-me-cyl-oil-cons' },
         { quantity: 'noon-vlsfo-oil-me-cc-oil-quantity', hours: 'noon-vlsfo-oil-me-cc-total-run-hrs', cons: 'noon-vlsfo-oil-me-cc-oil-cons' },
-        { quantity: 'noon-vlsfo-oil-ae1-cc-oil-quantity', hours: 'noon-vlsfo-oil-ae1-cc-total-runn-hrs', cons: 'noon-vlsfo-oil-ae1-cc-oil-cons' },
-        { quantity: 'noon-vlsfo-oil-ae2-cc-oil-quantity', hours: 'noon-vlsfo-oil-ae2-cc-total-runn-hrs', cons: 'noon-vlsfo-oil-ae2-cc-oil-cons' },
-        { quantity: 'noon-vlsfo-oil-ae3-cc-oil-quantity', hours: 'noon-vlsfo-oil-ae3-cc-total-runn-hrs', cons: 'noon-vlsfo-oil-ae3-cc-oil-cons' },
+        { quantity: 'noon-vlsfo-oil-ae-cc-oil-quantity', hours: 'noon-vlsfo-oil-ae-cc-total-run-hrs', cons: 'noon-vlsfo-oil-ae-cc-oil-cons' },
 
         // LSMGO - Noon Report
         { quantity: 'noon-lsmgo-oil-me-cyl-oil-quantity', hours: 'noon-lsmgo-oil-me-cyl-total-runn-hrs', cons: 'noon-lsmgo-oil-me-cyl-oil-cons' },
         { quantity: 'noon-lsmgo-oil-me-cc-oil-quantity', hours: 'noon-lsmgo-oil-me-cc-total-run-hrs', cons: 'noon-lsmgo-oil-me-cc-oil-cons' },
-        { quantity: 'noon-lsmgo-oil-ae1-cc-oil-quantity', hours: 'noon-lsmgo-oil-ae1-cc-total-runn-hrs', cons: 'noon-lsmgo-oil-ae1-cc-oil-cons' },
-        { quantity: 'noon-lsmgo-oil-ae2-cc-oil-quantity', hours: 'noon-lsmgo-oil-ae2-cc-total-runn-hrs', cons: 'noon-lsmgo-oil-ae2-cc-oil-cons' },
-        { quantity: 'noon-lsmgo-oil-ae3-cc-oil-quantity', hours: 'noon-lsmgo-oil-ae3-cc-total-runn-hrs', cons: 'noon-lsmgo-oil-ae3-cc-oil-cons' },
+        { quantity: 'noon-lsmgo-oil-ae-cc-oil-quantity', hours: 'noon-lsmgo-oil-ae-cc-total-run-hrs', cons: 'noon-lsmgo-oil-ae-cc-oil-cons' },
 
         // HSFO - Departure Report
         { quantity: 'departure-hsfo-oil-me-cyl-oil-quantity', hours: 'departure-hsfo-oil-me-cyl-total-runn-hrs', cons: 'departure-hsfo-oil-me-cyl-oil-cons' },
         { quantity: 'departure-hsfo-oil-me-cc-oil-quantity', hours: 'departure-hsfo-oil-me-cc-total-run-hrs', cons: 'departure-hsfo-oil-me-cc-oil-cons' },
-        { quantity: 'departure-hsfo-oil-ae1-cc-oil-quantity', hours: 'departure-hsfo-oil-ae1-cc-total-runn-hrs', cons: 'departure-hsfo-oil-ae1-cc-oil-cons' },
-        { quantity: 'departure-hsfo-oil-ae2-cc-oil-quantity', hours: 'departure-hsfo-oil-ae2-cc-total-runn-hrs', cons: 'departure-hsfo-oil-ae2-cc-oil-cons' },
-        { quantity: 'departure-hsfo-oil-ae3-cc-oil-quantity', hours: 'departure-hsfo-oil-ae3-cc-total-runn-hrs', cons: 'departure-hsfo-oil-ae3-cc-oil-cons' },
+        { quantity: 'departure-hsfo-oil-ae-cc-oil-quantity', hours: 'departure-hsfo-oil-ae-cc-total-run-hrs', cons: 'departure-hsfo-oil-ae-cc-oil-cons' },
 
         // BIOFUEL - Departure Report
         { quantity: 'departure-biofuel-oil-me-cyl-oil-quantity', hours: 'departure-biofuel-oil-me-cyl-total-runn-hrs', cons: 'departure-biofuel-oil-me-cyl-oil-cons' },
         { quantity: 'departure-biofuel-oil-me-cc-oil-quantity', hours: 'departure-biofuel-oil-me-cc-total-run-hrs', cons: 'departure-biofuel-oil-me-cc-oil-cons' },
-        { quantity: 'departure-biofuel-oil-ae1-cc-oil-quantity', hours: 'departure-biofuel-oil-ae1-cc-total-runn-hrs', cons: 'departure-biofuel-oil-ae1-cc-oil-cons' },
-        { quantity: 'departure-biofuel-oil-ae2-cc-oil-quantity', hours: 'departure-biofuel-oil-ae2-cc-total-runn-hrs', cons: 'departure-biofuel-oil-ae2-cc-oil-cons' },
-        { quantity: 'departure-biofuel-oil-ae3-cc-oil-quantity', hours: 'departure-biofuel-oil-ae3-cc-total-runn-hrs', cons: 'departure-biofuel-oil-ae3-cc-oil-cons' },
+        { quantity: 'departure-biofuel-oil-ae-cc-oil-quantity', hours: 'departure-biofuel-oil-ae-cc-total-run-hrs', cons: 'departure-biofuel-oil-ae-cc-oil-cons' },
 
         // VLSFO - Departure Report
         { quantity: 'departure-vlsfo-oil-me-cyl-oil-quantity', hours: 'departure-vlsfo-oil-me-cyl-total-runn-hrs', cons: 'departure-vlsfo-oil-me-cyl-oil-cons' },
         { quantity: 'departure-vlsfo-oil-me-cc-oil-quantity', hours: 'departure-vlsfo-oil-me-cc-total-run-hrs', cons: 'departure-vlsfo-oil-me-cc-oil-cons' },
-        { quantity: 'departure-vlsfo-oil-ae1-cc-oil-quantity', hours: 'departure-vlsfo-oil-ae1-cc-total-runn-hrs', cons: 'departure-vlsfo-oil-ae1-cc-oil-cons' },
-        { quantity: 'departure-vlsfo-oil-ae2-cc-oil-quantity', hours: 'departure-vlsfo-oil-ae2-cc-total-runn-hrs', cons: 'departure-vlsfo-oil-ae2-cc-oil-cons' },
-        { quantity: 'departure-vlsfo-oil-ae3-cc-oil-quantity', hours: 'departure-vlsfo-oil-ae3-cc-total-runn-hrs', cons: 'departure-vlsfo-oil-ae3-cc-oil-cons' },
+        { quantity: 'departure-vlsfo-oil-ae-cc-oil-quantity', hours: 'departure-vlsfo-oil-ae-cc-total-run-hrs', cons: 'departure-vlsfo-oil-ae-cc-oil-cons' },
 
         // LSMGO - Departure Report
         { quantity: 'departure-lsmgo-oil-me-cyl-oil-quantity', hours: 'departure-lsmgo-oil-me-cyl-total-runn-hrs', cons: 'departure-lsmgo-oil-me-cyl-oil-cons' },
         { quantity: 'departure-lsmgo-oil-me-cc-oil-quantity', hours: 'departure-lsmgo-oil-me-cc-total-run-hrs', cons: 'departure-lsmgo-oil-me-cc-oil-cons' },
-        { quantity: 'departure-lsmgo-oil-ae1-cc-oil-quantity', hours: 'departure-lsmgo-oil-ae1-cc-total-runn-hrs', cons: 'departure-lsmgo-oil-ae1-cc-oil-cons' },
-        { quantity: 'departure-lsmgo-oil-ae2-cc-oil-quantity', hours: 'departure-lsmgo-oil-ae2-cc-total-runn-hrs', cons: 'departure-lsmgo-oil-ae2-cc-oil-cons' },
-        { quantity: 'departure-lsmgo-oil-ae3-cc-oil-quantity', hours: 'departure-lsmgo-oil-ae3-cc-total-runn-hrs', cons: 'departure-lsmgo-oil-ae3-cc-oil-cons' },
+        { quantity: 'departure-lsmgo-oil-ae-cc-oil-quantity', hours: 'departure-lsmgo-oil-ae-cc-total-run-hrs', cons: 'departure-lsmgo-oil-ae-cc-oil-cons' },
 
         // HSFO - Arrival Report
         { quantity: 'arrival-hsfo-oil-me-cyl-oil-quantity', hours: 'arrival-hsfo-oil-me-cyl-total-runn-hrs', cons: 'arrival-hsfo-oil-me-cyl-oil-cons' },
         { quantity: 'arrival-hsfo-oil-me-cc-oil-quantity', hours: 'arrival-hsfo-oil-me-cc-total-run-hrs', cons: 'arrival-hsfo-oil-me-cc-oil-cons' },
-        { quantity: 'arrival-hsfo-oil-ae1-cc-oil-quantity', hours: 'arrival-hsfo-oil-ae1-cc-total-runn-hrs', cons: 'arrival-hsfo-oil-ae1-cc-oil-cons' },
-        { quantity: 'arrival-hsfo-oil-ae2-cc-oil-quantity', hours: 'arrival-hsfo-oil-ae2-cc-total-runn-hrs', cons: 'arrival-hsfo-oil-ae2-cc-oil-cons' },
-        { quantity: 'arrival-hsfo-oil-ae3-cc-oil-quantity', hours: 'arrival-hsfo-oil-ae3-cc-total-runn-hrs', cons: 'arrival-hsfo-oil-ae3-cc-oil-cons' },
+        { quantity: 'arrival-hsfo-oil-ae-cc-oil-quantity', hours: 'arrival-hsfo-oil-ae-cc-total-run-hrs', cons: 'arrival-hsfo-oil-ae-cc-oil-cons' },
 
         // BIOFUEL - Arrival Report
         { quantity: 'arrival-biofuel-oil-me-cyl-oil-quantity', hours: 'arrival-biofuel-oil-me-cyl-total-runn-hrs', cons: 'arrival-biofuel-oil-me-cyl-oil-cons' },
         { quantity: 'arrival-biofuel-oil-me-cc-oil-quantity', hours: 'arrival-biofuel-oil-me-cc-total-run-hrs', cons: 'arrival-biofuel-oil-me-cc-oil-cons' },
-        { quantity: 'arrival-biofuel-oil-ae1-cc-oil-quantity', hours: 'arrival-biofuel-oil-ae1-cc-total-runn-hrs', cons: 'arrival-biofuel-oil-ae1-cc-oil-cons' },
-        { quantity: 'arrival-biofuel-oil-ae2-cc-oil-quantity', hours: 'arrival-biofuel-oil-ae2-cc-total-runn-hrs', cons: 'arrival-biofuel-oil-ae2-cc-oil-cons' },
-        { quantity: 'arrival-biofuel-oil-ae3-cc-oil-quantity', hours: 'arrival-biofuel-oil-ae3-cc-total-runn-hrs', cons: 'arrival-biofuel-oil-ae3-cc-oil-cons' },
+        { quantity: 'arrival-biofuel-oil-ae-cc-oil-quantity', hours: 'arrival-biofuel-oil-ae-cc-total-run-hrs', cons: 'arrival-biofuel-oil-ae-cc-oil-cons' },
 
         // VLSFO - Arrival Report
         { quantity: 'arrival-vlsfo-oil-me-cyl-oil-quantity', hours: 'arrival-vlsfo-oil-me-cyl-total-runn-hrs', cons: 'arrival-vlsfo-oil-me-cyl-oil-cons' },
         { quantity: 'arrival-vlsfo-oil-me-cc-oil-quantity', hours: 'arrival-vlsfo-oil-me-cc-total-run-hrs', cons: 'arrival-vlsfo-oil-me-cc-oil-cons' },
-        { quantity: 'arrival-vlsfo-oil-ae1-cc-oil-quantity', hours: 'arrival-vlsfo-oil-ae1-cc-total-runn-hrs', cons: 'arrival-vlsfo-oil-ae1-cc-oil-cons' },
-        { quantity: 'arrival-vlsfo-oil-ae2-cc-oil-quantity', hours: 'arrival-vlsfo-oil-ae2-cc-total-runn-hrs', cons: 'arrival-vlsfo-oil-ae2-cc-oil-cons' },
-        { quantity: 'arrival-vlsfo-oil-ae3-cc-oil-quantity', hours: 'arrival-vlsfo-oil-ae3-cc-total-runn-hrs', cons: 'arrival-vlsfo-oil-ae3-cc-oil-cons' },
+        { quantity: 'arrival-vlsfo-oil-ae-cc-oil-quantity', hours: 'arrival-vlsfo-oil-ae-cc-total-run-hrs', cons: 'arrival-vlsfo-oil-ae-cc-oil-cons' },
 
         // LSMGO - Arrival Report
         { quantity: 'arrival-lsmgo-oil-me-cyl-oil-quantity', hours: 'arrival-lsmgo-oil-me-cyl-total-runn-hrs', cons: 'arrival-lsmgo-oil-me-cyl-oil-cons' },
         { quantity: 'arrival-lsmgo-oil-me-cc-oil-quantity', hours: 'arrival-lsmgo-oil-me-cc-total-run-hrs', cons: 'arrival-lsmgo-oil-me-cc-oil-cons' },
-        { quantity: 'arrival-lsmgo-oil-ae1-cc-oil-quantity', hours: 'arrival-lsmgo-oil-ae1-cc-total-runn-hrs', cons: 'arrival-lsmgo-oil-ae1-cc-oil-cons' },
-        { quantity: 'arrival-lsmgo-oil-ae2-cc-oil-quantity', hours: 'arrival-lsmgo-oil-ae2-cc-total-runn-hrs', cons: 'arrival-lsmgo-oil-ae2-cc-oil-cons' },
-        { quantity: 'arrival-lsmgo-oil-ae3-cc-oil-quantity', hours: 'arrival-lsmgo-oil-ae3-cc-total-runn-hrs', cons: 'arrival-lsmgo-oil-ae3-cc-oil-cons' },
+        { quantity: 'arrival-lsmgo-oil-ae-cc-oil-quantity', hours: 'arrival-lsmgo-oil-ae-cc-total-run-hrs', cons: 'arrival-lsmgo-oil-ae-cc-oil-cons' },
     ];
 
     function calculateOilCons(oilQuantityField, totalRunnHrsField, oilConsField) {
