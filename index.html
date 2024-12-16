@@ -1830,7 +1830,7 @@ Other remarks by the Master:
                             <input type="text" id="noon-master-name" name="noon-master-name">
                             
                     </fieldset>
-                    <button type="submit" id="noon-submit">Submit</button>
+                    <button type="submit" id="noon-submit" disabled>Submit</button>
                 </form>
             </section>
 
@@ -2665,7 +2665,7 @@ Other remarks by the Master:
                                     <tr>
                                         <td>HSFO (MT)</td>
                                         <td><input class="validate" type="text" id="departure-hsfo-previous" name="departure-hsfo-previous"></td>
-                                        <td><input class="validate" type="text" id="departure-hsfo-current" name="departure-hsfo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="departure-hsfo-current" name="departure-hsfo-current"></td>
                                         <td><input class="validate" type="text" id="departure-hsfo-me-propulsion" name="departure-hsfo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="departure-hsfo-ae-cons" name="departure-hsfo-ae-cons"></td>
                                         <td><input class="validate" type="text" id="departure-hsfo-boiler-cons" name="departure-hsfo-boiler-cons"></td>
@@ -3280,7 +3280,7 @@ Other remarks by the Master:
                             <input type="text" id="departure-master-name" name="departure-master-name">
                             
                     </fieldset>
-                    <button type="submit" id="departure-submit">Submit</button>
+                    <button type="submit" id="departure-submit" disabled>Submit</button>
                 </form>
             </section>
 
@@ -3997,7 +3997,7 @@ Other remarks by the Master:
                                     <tr>
                                         <td>HSFO (MT)</td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-previous" name="arrival-hsfo-previous"></td>
-                                        <td><input class="validate" type="text" id="arrival-hsfo-current" name="arrival-hsfo-current" disabled></td>
+                                        <td><input class="validate" type="text" id="arrival-hsfo-current" name="arrival-hsfo-current"></td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-me-propulsion" name="arrival-hsfo-me-propulsion"></td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-ae-cons" name="arrival-hsfo-ae-cons"></td>
                                         <td><input class="validate" type="text" id="arrival-hsfo-boiler-cons" name="arrival-hsfo-boiler-cons"></td>
@@ -4606,7 +4606,7 @@ Other remarks by the Master:
                             <input type="text" id="arrival-master-name" name="arrival-master-name">
                             
                     </fieldset>
-                    <button type="submit" id="arrival-submit">Submit</button>
+                    <button type="submit" id="arrival-submit" disabled>Submit</button>
                 </form>
             </section>
 
@@ -5187,7 +5187,7 @@ Other remarks by the Master:
                         <input type="text" id="bunkering-master-name" name="bunkering-master-name">
                     </fieldset>
 
-                    <button type="submit" id="bunkering-submit">Submit</button>
+                    <button type="submit" id="bunkering-submit" disabled>Submit</button>
                 </form>
             </section>
 
@@ -5330,7 +5330,7 @@ Other remarks by the Master:
                         </table>
                     </fieldset>
 
-                    <button type="submit" id="allfast-submit">Submit</button>
+                    <button type="submit" id="allfast-submit" disabled>Submit</button>
                 </form>
             </section>
 
@@ -5386,7 +5386,7 @@ Other remarks by the Master:
                                 <input class="validate" type="text" id="weekly-voyage-details-voyage-no" name="weekly-voyage-details-voyage-no" required>
                             </div>
                             <div class="form-group">
-                                <label class="berth-section" for="weekly-voyage-details-date-time">Date:</label>
+                                <label for="weekly-voyage-details-date-time">Date:</label>
                                 <input class="common-date" type="datetime-local" id="weekly-voyage-details-date-time" name="weekly-voyage-details-date-time" required>
                             </div>
                         </div>
@@ -5479,7 +5479,7 @@ Other remarks by the Master:
                         <input type="text" id="weekly-master-name" name="weekly-master-name">
                     </fieldset>
 
-                    <button type="submit" id="weekly-submit">Submit</button>
+                    <button type="submit" id="weekly-submit" disabled>Submit</button>
 
                 </form>
             </section>
@@ -5490,7 +5490,7 @@ Other remarks by the Master:
                     <button type="button" class="save-draft" onclick="saveDraft('CrewMonitoringPlan')">Save Draft</button>
                     <button type="button" class="save-draft" onclick="clearFields('CrewMonitoringPlan')">Clear Fields</button>
                     <!-- <button type="button" class="export-data" onclick="">Fetch Saved Data</button> -->
-                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('CrewMonitoringPlan')">Export Data</button>
+                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcel('CrewMonitoringPlan')" disabled>Export Data</button>
                 </div>
                 <form>
                     <fieldset>
@@ -5506,7 +5506,6 @@ Other remarks by the Master:
                         <div id="OnBoardCrew" class="crew-tab-content" data-active="true" style="display: block;">
                             <fieldset>
                                 <legend>On Board Crew Data 1</legend>
-                                <!-- <button onclick="addCrewFieldset('OnBoardCrew')">Add Crew to On Board Crew</button> -->
                                 <div class="four-columns">
                                     <div class="form-group">
                                         <label for="crew-monitoring-plan-crew-no-1">No</label>
@@ -5673,7 +5672,7 @@ Other remarks by the Master:
                     </fieldset>
 
 
-                <button type="submit" id="crew-monitoring-plan-submit">Submit</button>
+                <button type="submit" id="crew-monitoring-plan-submit" disabled>Submit</button>
                 </form>
             </section>
 
@@ -5926,7 +5925,7 @@ Other remarks by the Master:
                         <input type="text" id="voyage-report-master-name" name="voyage-report-master-name">
                     </fieldset>
 
-                    <button type="submit" id="voyage-report-submit">Submit</button>
+                    <button type="submit" id="voyage-report-submit" disabled>Submit</button>
                 </form>
             </section>
 
@@ -5935,7 +5934,7 @@ Other remarks by the Master:
                 <div class="sub-container">
                     <button type="button" class="save-draft" onclick="saveDraft('KPI')">Save Draft</button>
                     <button type="button" class="save-draft" onclick="clearFields('KPI')">Clear Fields</button>
-                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcelKPI('KPI')">Export Data</button>
+                    <button type="button" class="export-data" id="validateExportData" onclick="exportToExcelKPI('KPI')" disabled>Export Data</button>
                 </div>
             
                 <div class="stepper">
@@ -6423,7 +6422,7 @@ Other remarks by the Master:
                             <button type="button" class="prev-step" onclick="navigateStep(-1)">Previous</button>
                             <button type="button" class="next-step" id="finish-button" onclick="navigateStep(1)">Next</button>
                             <!-- Submit Button, visible only on the last step -->
-                            <button type="submit" id="kpi-submit" style="display: none;">Submit</button>
+                            <button type="submit" id="kpi-submit" style="display: none;" disabled>Submit</button>
                         </div>
                     </div>
                 </form>
@@ -6609,11 +6608,56 @@ Other remarks by the Master:
                                         <td><input type="text" id="port-of-calls-port-of-calling-1" name="port-of-calls-port-of-calling-1"></td>
                                         <td><input type="text" id="port-of-calls-country-1" name="port-of-calls-country-1"></td>
                                         <td><input type="text" id="port-of-calls-purpose-1" name="port-of-calls-purpose-1"></td>
-                                        <td><input type="text" id="port-of-calls-ata-eta-date-1" name="port-of-calls-ata-eta-date-1"></td>
-                                        <td><input type="text" id="port-of-calls-ata-eta-time-1" name="port-of-calls-ata-eta-time-1"></td>
-                                        <td><input type="text" id="port-of-calls-ship-information-date-1" name="port-of-calls-ship-information-date-1"></td>
-                                        <td><input type="text" id="port-of-calls-ship-information-time-1" name="port-of-calls-ship-information-time-1"></td>
-                                        <td><input type="text" id="port-of-calls-gmt-1" name="port-of-calls-gmt-1"></td>
+                                        <td><input class="port-of-call-date-cell" type="date" id="port-of-calls-ata-eta-date-1" name="port-of-calls-ata-eta-date-1"></td>
+                                        <td><input class="port-of-call-date-cell" type="time" id="port-of-calls-ata-eta-time-1" name="port-of-calls-ata-eta-time-1"></td>
+                                        <td><input class="port-of-call-date-cell" type="date" id="port-of-calls-ship-information-date-1" name="port-of-calls-ship-information-date-1"></td>
+                                        <td><input class="port-of-call-date-cell" type="time" id="port-of-calls-ship-information-time-1" name="port-of-calls-ship-information-time-1"></td>
+                                        <td>
+                                            <select class="port-of-call-select" id="port-of-call-gmt-1" name="port-of-call-gmt-1" required>
+                                                <option value="">Select</option>
+                                                <option value="GMT-12:00">GMT-12:00</option> 
+                                                <option value="GMT-11:00">GMT-11:00</option>
+                                                <option value="GMT-10:00">GMT-10:00</option>
+                                                <option value="GMT-09:30">GMT-09:30</option>
+                                                <option value="GMT-09:00">GMT-09:00</option>
+                                                <option value="GMT-08:00">GMT-08:00</option>
+                                                <option value="GMT-07:00">GMT-07:00</option>
+                                                <option value="GMT-06:00">GMT-06:00</option>
+                                                <option value="GMT-05:00">GMT-05:00</option>
+                                                <option value="GMT-04:30">GMT-04:30</option>
+                                                <option value="GMT-04:00">GMT-04:00</option>
+                                                <option value="GMT-03:30">GMT-03:30</option>
+                                                <option value="GMT-03:00">GMT-03:00</option>
+                                                <option value="GMT-02:30">GMT-02:30</option>
+                                                <option value="GMT-02:00">GMT-02:00</option>
+                                                <option value="GMT-01:00">GMT-01:00</option>
+                                                <option value="GMT">GMT</option>
+                                                <option value="GMT+01:00">GMT+01:00</option>
+                                                <option value="GMT+02:00">GMT+02:00</option>
+                                                <option value="GMT+02:30">GMT+02:30</option>
+                                                <option value="GMT+03:00">GMT+03:00</option>
+                                                <option value="GMT+03:30">GMT+03:30</option>
+                                                <option value="GMT+04:00">GMT+04:00</option>
+                                                <option value="GMT+04:30">GMT+04:30</option>
+                                                <option value="GMT+05:00">GMT+05:00</option>
+                                                <option value="GMT+05:30">GMT+05:30</option>
+                                                <option value="GMT+06:00">GMT+06:00</option>
+                                                <option value="GMT+06:30">GMT+06:30</option>
+                                                <option value="GMT+07:00">GMT+07:00</option>
+                                                <option value="GMT+08:00">GMT+08:00</option>
+                                                <option value="GMT+09:00">GMT+09:00</option>
+                                                <option value="GMT+09:30">GMT+09:30</option>
+                                                <option value="GMT+10:00">GMT+10:00</option>
+                                                <option value="GMT+10:30">GMT+10:30</option>
+                                                <option value="GMT+11:00">GMT+11:00</option>
+                                                <option value="GMT+11:30">GMT+11:30</option>
+                                                <option value="GMT+12:00">GMT+12:00</option>
+                                                <option value="GMT+12:45">GMT+12:45</option>
+                                                <option value="GMT+13:00">GMT+13:00</option>
+                                                <option value="GMT+13:45">GMT+13:45</option>
+                                                <option value="GMT+14:00">GMT+14:00</option>
+                                            </select>
+                                        </td>
                                         <td><input type="text" id="port-of-calls-duration-1" name="port-of-calls-duration-1"></td>
                                         <td><input type="text" id="port-of-calls-total-1" name="port-of-calls-total-1"></td>
                                         <td><button type="button" class="add-row-button" onclick="addRowPortOfCallAgent(this)">Add Agent</button></td>
@@ -6632,7 +6676,7 @@ Other remarks by the Master:
                         <input type="text" id="port-of-call-master-name" name="port-of-call-master-name">
                     </fieldset>
 
-                    <button type="submit" id="weekly-submit">Submit</button>
+                    <button type="submit" id="weekly-submit" disabled>Submit</button>
                 </form>
             </section>
         </main>

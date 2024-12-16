@@ -151,6 +151,12 @@ async function exportToExcel(reportId) {
 
     // Default styles
     const boldStyle = { bold: true };
+    const borderStyle = {
+        top: { style: 'thin' },
+        left: { style: 'thin' },
+        bottom: { style: 'thin' },
+        right: { style: 'thin' },
+    };
 
     // Define headers (if necessary in the future)
     sheet.columns = [
@@ -182,7 +188,11 @@ async function exportToExcel(reportId) {
         const inputs = Array.from(fieldset.querySelectorAll('input, select')).filter(input => {
             // Include only visible fields
             const style = window.getComputedStyle(input);
-            return style.display !== 'none' && style.visibility !== 'hidden' && input.offsetParent !== null;
+            return (
+                style.display !== 'none' &&
+                style.visibility !== 'hidden' &&
+                input.offsetParent !== null
+            );
         });
 
         inputs.forEach(input => {
@@ -205,12 +215,7 @@ async function exportToExcel(reportId) {
 
         // Handle tables in the fieldset
         const tables = fieldset.querySelectorAll('table');
-        const borderStyle = {
-            top: { style: 'thin' },
-            left: { style: 'thin' },
-            bottom: { style: 'thin' },
-            right: { style: 'thin' },
-        };
+        
 
         const remarksField = Array.from(fieldset.querySelectorAll('textarea')).find(
             textarea => textarea.name.endsWith('remarks')
@@ -226,12 +231,6 @@ async function exportToExcel(reportId) {
             cell.value = remarksText;
             cell.alignment = { wrapText: true, vertical: 'top', horizontal: 'left' };
             cell.font = { size: 12 };
-            cell.border = {
-                top: { style: 'thin' },
-                left: { style: 'thin' },
-                bottom: { style: 'thin' },
-                right: { style: 'thin' }
-            };
         
             rowIndex += 10; // Move down 10 rows after remarks
             rowIndex++;
@@ -303,12 +302,13 @@ async function exportToExcel(reportId) {
                     const cells = Array.from(row.querySelectorAll('td')).map((td, index) => {
                         const headerText = table.querySelector(`thead th:nth-child(${index + 1})`)?.textContent.trim().toLowerCase();
 
-                        // Skip the "Action" column by checking against its header
-                        if (headerText === "action") return null;
+                        // // Skip the "Action" column by checking against its header
+                        // if (headerText === "action") return null;
 
-                        // Exclude buttons from export
-                        const button = td.querySelector('button');
-                        if (button) return null; // Ignore cells with buttons
+                        // Exclude buttons and their cells from export
+                        if (td.querySelector('button')) {
+                            return null; // Ignore cells with buttons
+                        }
 
                         // Handle plain text or input/select values
                         const input = td.querySelector('input');
@@ -320,8 +320,11 @@ async function exportToExcel(reportId) {
                         return td.textContent.trim();
                     });
 
-                    // Filter out null cells and ensure all cells get borders
-                    const filteredCells = cells.map(cell => cell !== null && cell !== "" ? cell : "");
+                    // Filter out null cells and skip rows with all null values
+                    const filteredCells = cells.filter(cell => cell !== null);
+
+                    // Skip the entire row if all cells are null
+                    if (filteredCells.length === 0) return;
 
                     // Write the row data to the sheet
                     const addedRow = sheet.addRow(filteredCells);
@@ -333,6 +336,7 @@ async function exportToExcel(reportId) {
                     rowIndex++;
                 });
             }
+
 
             // Add a blank row after the table for spacing
             rowIndex++;
@@ -377,83 +381,6 @@ async function exportToExcel(reportId) {
     removeNewRowsWeeklyReportAgent();
 }
 
-
-async function exportToExcelKPI() {
-    const workbook = new ExcelJS.Workbook();
-    const sheet = workbook.addWorksheet("KPI Report");
-
-    // Default styles
-    const boldStyle = { bold: true };
-
-    // Get all step titles and main KPI content
-    const stepLabels = document.querySelectorAll("#KPI .step-label");
-    const form = document.querySelector("#KPI form");
-
-    let rowIndex = 1;
-
-    stepLabels.forEach((stepLabel, index) => {
-        // Add step title as a bold header
-        const stepTitle = stepLabel.textContent.trim();
-        sheet.mergeCells(`A${rowIndex}:B${rowIndex}`);
-        const cell = sheet.getCell(`A${rowIndex}`);
-        cell.value = stepTitle;
-        cell.font = boldStyle;
-        cell.alignment = { vertical: "middle", horizontal: "left" };
-        rowIndex++;
-
-        // Locate content specific to the current step
-        const stepContent = form.querySelectorAll(
-            `[data-step-index="${index + 1}"] input, 
-            [data-step-index="${index + 1}"] select, 
-            [data-step-index="${index + 1}"] textarea`
-        );
-
-        if (stepContent.length > 0) {
-            stepContent.forEach((field) => {
-                const label = field.closest(".form-group")?.querySelector("label");
-                const labelText = label ? label.textContent.trim() : field.name || field.id;
-                const fieldValue = field.type === "select-one" ? field.options[field.selectedIndex].text : field.value || "";
-
-                // Add the field and value to the sheet
-                sheet.addRow({ field: labelText, value: fieldValue });
-                rowIndex++;
-            });
-        } else {
-            // Handle steps without form fields
-            const stepText = stepLabel.nextElementSibling?.textContent.trim() || "No data available";
-            sheet.addRow({ field: "Step Content", value: stepText });
-            rowIndex++;
-        }
-
-        // Add spacing after each step
-        rowIndex++;
-    });
-
-    // Auto-adjust column widths for readability
-    sheet.columns.forEach((column) => {
-        let maxLength = 0;
-        column.eachCell({ includeEmpty: true }, (cell) => {
-            if (cell.value) {
-                const length = cell.value.toString().length;
-                maxLength = Math.max(maxLength, length);
-            }
-        });
-        column.width = maxLength + 2; // Add padding
-    });
-
-    // Trigger the download
-    const buffer = await workbook.xlsx.writeBuffer();
-    const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "KPI_Report.xlsx";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
-
-
 function clearAllTableSets(totalSets) {
     for (let i = 1; i <= totalSets; i++) {
         removeTableSet(i);
@@ -472,7 +399,6 @@ function clearFormFields(reportId) {
 }
 
 function clearFields(reportId) {
-    const form = document.querySelector(`#${reportId} form`);
 
     // Clear the form fields after exporting the data
     clearFormFields(reportId);
@@ -661,8 +587,6 @@ function openTabCrew(evt, tabName) {
             element.required = element.getAttribute('data-required') === 'true';
         });
     }, 0);
-
-    console.log("Switched to tab:", tabName); // Debugging
 }
 
 
@@ -1090,11 +1014,56 @@ function addRowPortOfCallAgent(button, setNumber) {
         <td><input type="text" id="port-of-calls-port-of-calling-${newRowNumber}" name="port-of-calls-port-of-calling-${newRowNumber}"></td>
         <td><input type="text" id="port-of-calls-country-${newRowNumber}" name="port-of-calls-country-${newRowNumber}"></td>
         <td><input type="text" id="port-of-calls-purpose-${newRowNumber}" name="port-of-calls-purpose-${newRowNumber}"></td>
-        <td><input type="text" id="port-of-calls-ata-eta-date-${newRowNumber}" name="port-of-calls-ata-eta-date-${newRowNumber}"></td>
-        <td><input type="text" id="port-of-calls-ata-eta-time-${newRowNumber}" name="port-of-calls-ata-eta-time-${newRowNumber}"></td>
-        <td><input type="text" id="port-of-calls-ship-information-date-${newRowNumber}" name="port-of-calls-ship-information-date-${newRowNumber}"></td>
-        <td><input type="text" id="port-of-calls-ship-information-time-${newRowNumber}" name="port-of-calls-ship-information-time-${newRowNumber}"></td>
-        <td><input type="text" id="port-of-calls-gmt-${newRowNumber}" name="port-of-calls-gmt-${newRowNumber}"></td>
+        <td><input class="port-of-call-date-cell" type="date" id="port-of-calls-ata-eta-date-${newRowNumber}" name="port-of-calls-ata-eta-date-${newRowNumber}"></td>
+        <td><input class="port-of-call-date-cell" type="time" id="port-of-calls-ata-eta-time-${newRowNumber}" name="port-of-calls-ata-eta-time-${newRowNumber}"></td>
+        <td><input class="port-of-call-date-cell" type="date" id="port-of-calls-ship-information-date-${newRowNumber}" name="port-of-calls-ship-information-date-${newRowNumber}"></td>
+        <td><input class="port-of-call-date-cell" type="time" id="port-of-calls-ship-information-time-${newRowNumber}" name="port-of-calls-ship-information-time-${newRowNumber}"></td>
+        <td>
+            <select class="port-of-call-select" id="port-of-call-gmt-${portSetNumber}" name="port-of-call-gmt-${portSetNumber}" required>
+                <option value="">Select</option>
+                <option value="GMT-12:00">GMT-12:00</option> 
+                <option value="GMT-11:00">GMT-11:00</option>
+                <option value="GMT-10:00">GMT-10:00</option>
+                <option value="GMT-09:30">GMT-09:30</option>
+                <option value="GMT-09:00">GMT-09:00</option>
+                <option value="GMT-08:00">GMT-08:00</option>
+                <option value="GMT-07:00">GMT-07:00</option>
+                <option value="GMT-06:00">GMT-06:00</option>
+                <option value="GMT-05:00">GMT-05:00</option>
+                <option value="GMT-04:30">GMT-04:30</option>
+                <option value="GMT-04:00">GMT-04:00</option>
+                <option value="GMT-03:30">GMT-03:30</option>
+                <option value="GMT-03:00">GMT-03:00</option>
+                <option value="GMT-02:30">GMT-02:30</option>
+                <option value="GMT-02:00">GMT-02:00</option>
+                <option value="GMT-01:00">GMT-01:00</option>
+                <option value="GMT">GMT</option>
+                <option value="GMT+01:00">GMT+01:00</option>
+                <option value="GMT+02:00">GMT+02:00</option>
+                <option value="GMT+02:30">GMT+02:30</option>
+                <option value="GMT+03:00">GMT+03:00</option>
+                <option value="GMT+03:30">GMT+03:30</option>
+                <option value="GMT+04:00">GMT+04:00</option>
+                <option value="GMT+04:30">GMT+04:30</option>
+                <option value="GMT+05:00">GMT+05:00</option>
+                <option value="GMT+05:30">GMT+05:30</option>
+                <option value="GMT+06:00">GMT+06:00</option>
+                <option value="GMT+06:30">GMT+06:30</option>
+                <option value="GMT+07:00">GMT+07:00</option>
+                <option value="GMT+08:00">GMT+08:00</option>
+                <option value="GMT+09:00">GMT+09:00</option>
+                <option value="GMT+09:30">GMT+09:30</option>
+                <option value="GMT+10:00">GMT+10:00</option>
+                <option value="GMT+10:30">GMT+10:30</option>
+                <option value="GMT+11:00">GMT+11:00</option>
+                <option value="GMT+11:30">GMT+11:30</option>
+                <option value="GMT+12:00">GMT+12:00</option>
+                <option value="GMT+12:45">GMT+12:45</option>
+                <option value="GMT+13:00">GMT+13:00</option>
+                <option value="GMT+13:45">GMT+13:45</option>
+                <option value="GMT+14:00">GMT+14:00</option>
+            </select>
+        </td>
         <td><input type="text" id="port-of-calls-duration-${newRowNumber}" name="port-of-calls-duration-${newRowNumber}"></td>
         <td><input type="text" id="port-of-calls-total-${newRowNumber}" name="port-of-calls-total-${newRowNumber}"></td>
         <td><button type="button" class="remove-button" onclick="removeRow(this)">Remove</button></td>
@@ -1157,7 +1126,7 @@ function addRowWeeklyReportNewPort() {
                     <tr>
                         <td>
                             <input type="text" id="${newPortFieldId}" name="weekly-schedule-details-port-${portSetNumber}-1">
-                            // <div id="${newResultFieldId}" class="weekly-port-search-results"></div>
+                            <div id="${newResultFieldId}" class="weekly-port-search-results"></div>
                         </td>
                         <td class="fuel-grade-select-cell">
                             <select class="fuel-grade-select" id="weekly-schedule-details-activity-port-${portSetNumber}-1" name="weekly-schedule-details-activity-port-${portSetNumber}-1">
@@ -1184,7 +1153,7 @@ function addRowWeeklyReportNewPort() {
             <br />
             <table id="weeklyReportTableAgents-${portSetNumber}">
                 <thead>
-                    <tr>s
+                    <tr>
                         <th>Agent's Name</th>
                         <th>Address</th>
                         <th>PIC Name</th>
@@ -1276,11 +1245,56 @@ function addRowPortOfCallNewPort() {
                         <td><input type="text" id="port-of-calls-port-of-calling-${portSetNumber}" name="port-of-calls-port-of-calling-${portSetNumber}"></td>
                         <td><input type="text" id="port-of-calls-country-${portSetNumber}" name="port-of-calls-country-${portSetNumber}"></td>
                         <td><input type="text" id="port-of-calls-purpose-${portSetNumber}" name="port-of-calls-purpose-${portSetNumber}"></td>
-                        <td><input type="text" id="port-of-calls-ata-eta-date-${portSetNumber}" name="port-of-calls-ata-eta-date-${portSetNumber}"></td>
-                        <td><input type="text" id="port-of-calls-ata-eta-time-${portSetNumber}" name="port-of-calls-ata-eta-time-${portSetNumber}"></td>
-                        <td><input type="text" id="port-of-calls-ship-information-date-${portSetNumber}" name="port-of-calls-ship-information-date-${portSetNumber}"></td>
-                        <td><input type="text" id="port-of-calls-ship-information-time-${portSetNumber}" name="port-of-calls-ship-information-time-${portSetNumber}"></td>
-                        <td><input type="text" id="port-of-calls-gmt-${portSetNumber}" name="port-of-calls-gmt-${portSetNumber}"></td>
+                        <td><input class="port-of-call-date-cell" type="date" id="port-of-calls-ata-eta-date-${portSetNumber}" name="port-of-calls-ata-eta-date-${portSetNumber}"></td>
+                        <td><input class="port-of-call-date-cell" type="time" id="port-of-calls-ata-eta-time-${portSetNumber}" name="port-of-calls-ata-eta-time-${portSetNumber}"></td>
+                        <td><input class="port-of-call-date-cell" type="date" id="port-of-calls-ship-information-date-${portSetNumber}" name="port-of-calls-ship-information-date-${portSetNumber}"></td>
+                        <td><input class="port-of-call-date-cell" type="time"   id="port-of-calls-ship-information-time-${portSetNumber}" name="port-of-calls-ship-information-time-${portSetNumber}"></td>
+                        <td>
+                            <select class="port-of-call-select" id="port-of-call-gmt-${portSetNumber}" name="port-of-call-gmt-${portSetNumber}" required>
+                                <option value="">Select</option>
+                                <option value="GMT-12:00">GMT-12:00</option> 
+                                <option value="GMT-11:00">GMT-11:00</option>
+                                <option value="GMT-10:00">GMT-10:00</option>
+                                <option value="GMT-09:30">GMT-09:30</option>
+                                <option value="GMT-09:00">GMT-09:00</option>
+                                <option value="GMT-08:00">GMT-08:00</option>
+                                <option value="GMT-07:00">GMT-07:00</option>
+                                <option value="GMT-06:00">GMT-06:00</option>
+                                <option value="GMT-05:00">GMT-05:00</option>
+                                <option value="GMT-04:30">GMT-04:30</option>
+                                <option value="GMT-04:00">GMT-04:00</option>
+                                <option value="GMT-03:30">GMT-03:30</option>
+                                <option value="GMT-03:00">GMT-03:00</option>
+                                <option value="GMT-02:30">GMT-02:30</option>
+                                <option value="GMT-02:00">GMT-02:00</option>
+                                <option value="GMT-01:00">GMT-01:00</option>
+                                <option value="GMT">GMT</option>
+                                <option value="GMT+01:00">GMT+01:00</option>
+                                <option value="GMT+02:00">GMT+02:00</option>
+                                <option value="GMT+02:30">GMT+02:30</option>
+                                <option value="GMT+03:00">GMT+03:00</option>
+                                <option value="GMT+03:30">GMT+03:30</option>
+                                <option value="GMT+04:00">GMT+04:00</option>
+                                <option value="GMT+04:30">GMT+04:30</option>
+                                <option value="GMT+05:00">GMT+05:00</option>
+                                <option value="GMT+05:30">GMT+05:30</option>
+                                <option value="GMT+06:00">GMT+06:00</option>
+                                <option value="GMT+06:30">GMT+06:30</option>
+                                <option value="GMT+07:00">GMT+07:00</option>
+                                <option value="GMT+08:00">GMT+08:00</option>
+                                <option value="GMT+09:00">GMT+09:00</option>
+                                <option value="GMT+09:30">GMT+09:30</option>
+                                <option value="GMT+10:00">GMT+10:00</option>
+                                <option value="GMT+10:30">GMT+10:30</option>
+                                <option value="GMT+11:00">GMT+11:00</option>
+                                <option value="GMT+11:30">GMT+11:30</option>
+                                <option value="GMT+12:00">GMT+12:00</option>
+                                <option value="GMT+12:45">GMT+12:45</option>
+                                <option value="GMT+13:00">GMT+13:00</option>
+                                <option value="GMT+13:45">GMT+13:45</option>
+                                <option value="GMT+14:00">GMT+14:00</option>
+                            </select>
+                        </td>
                         <td><input type="text" id="port-of-calls-duration-${portSetNumber}" name="port-of-calls-duration-${portSetNumber}"></td>
                         <td><input type="text" id="port-of-calls-total-${portSetNumber}" name="port-of-calls-total-${portSetNumber}"></td>
                         <td><button type="button" class="add-row-button" onclick="addRowPortOfCallAgent(this)">Add Agent</button></td>
